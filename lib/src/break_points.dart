@@ -5,16 +5,6 @@ import 'package:flutter/widgets.dart';
 /// Indicators for screen size
 enum ScreenSize { watch, mobile, tablet, desktop }
 
-enum ScreenSizeFine {
-  largest,
-  larger,
-  large,
-  normal,
-  small,
-  smaller,
-  smallest,
-}
-
 /// Get the current [ScreenSize] based on [deviceWidth]
 ///
 /// [breakpoints] have default values defined in [Breakpoints]

@@ -1,7 +1,6 @@
 library responsive_frame;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'responsive_frame.dart';
+export 'src/break_points.dart';
+export 'src/frame.dart';
+export 'src/models.dart';

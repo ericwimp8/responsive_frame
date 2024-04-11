@@ -140,7 +140,7 @@ packages:
     source: hosted
     version: "1.9.0"
   responsive_frame:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       path: ".."
       relative: true
