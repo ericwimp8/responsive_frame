@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-import '../responsive_frame.dart';
+import 'package:responsive_frame/responsive_frame.dart';
 
 class Frame extends StatelessWidget {
   const Frame({
-    super.key,
     required this.frameBody,
+    super.key,
     this.bodyTop,
     this.bodyBottom,
     this.leftEnd,
@@ -97,8 +97,8 @@ class Frame extends StatelessWidget {
 
 class FrameBody extends StatelessWidget {
   const FrameBody({
-    super.key,
     required this.model,
+    super.key,
   });
 
   final FrameBodyModel model;
@@ -122,8 +122,8 @@ class FrameBody extends StatelessWidget {
 
 class FrameVerticalEnd extends StatelessWidget {
   const FrameVerticalEnd({
-    super.key,
     required this.child,
+    super.key,
   });
   final FrameVerticalEndModel child;
 
@@ -131,7 +131,6 @@ class FrameVerticalEnd extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: BoxConstraints(
-        maxWidth: double.infinity,
         minWidth: double.infinity,
         maxHeight: child.height,
         minHeight: child.height,
@@ -163,7 +162,6 @@ class FrameHorizontalEnd extends StatelessWidget {
               constraints: BoxConstraints(
                 maxHeight: model.topHeight,
                 minHeight: model.topHeight,
-                maxWidth: double.infinity,
                 minWidth: double.infinity,
               ),
               child: model.top,
