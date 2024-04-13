@@ -9,12 +9,14 @@ class FrameAnimatedSwitcher extends StatelessWidget {
     this.switchInCurve = Curves.linear,
     this.switchOutCurve = Curves.linear,
     this.axis = Axis.vertical,
+    this.axisAlignment = -1,
   });
   final Duration duration;
   final Widget child;
   final Curve switchInCurve;
   final Curve switchOutCurve;
   final Axis axis;
+  final double axisAlignment;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class FrameAnimatedSwitcher extends StatelessWidget {
       switchOutCurve: switchOutCurve,
       transitionBuilder: (child, animation) {
         return SizeFadeTransition(
+          axisAlignment: axisAlignment,
           axis: axis,
           animation: animation,
           child: child,
