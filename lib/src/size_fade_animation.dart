@@ -6,15 +6,17 @@ class SizeFadeTransition extends StatelessWidget {
     required this.child,
     super.key,
     this.axis = Axis.vertical,
+    this.axisAlignment = -1,
   });
   final Animation<double> animation;
   final Widget child;
   final Axis axis;
+  final double axisAlignment;
 
   @override
   Widget build(BuildContext context) {
     return SizeTransition(
-      axisAlignment: -1,
+      axisAlignment: axisAlignment,
       sizeFactor: animation,
       axis: axis,
       child: FadeTransition(
