@@ -109,9 +109,9 @@ class FrameBody extends StatelessWidget {
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 950),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            for (final i in model.children(context))
+            for (final i in model.children)
               Flexible(flex: i.flex + 1, child: i.child),
           ],
         ),

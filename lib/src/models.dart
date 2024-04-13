@@ -21,10 +21,10 @@ class FrameHorizontalEndModel {
 }
 
 class FrameVerticalEndModel {
-  final Widget? child;
+  final Widget child;
   final double height;
   FrameVerticalEndModel({
-    this.child,
+    required this.child,
     this.height = kDefaultVerticalEndHeight,
   });
 }
@@ -40,7 +40,7 @@ class FrameBodyItemModel {
 
 class FrameBodyModel {
   final Alignment bodyAlignment;
-  final List<FrameBodyItemModel> Function(BuildContext) children;
+  final List<FrameBodyItemModel> children;
   const FrameBodyModel({
     this.bodyAlignment = Alignment.topCenter,
     required this.children,
