@@ -21,28 +21,28 @@ class FrameHorizontalEndModel {
 }
 
 class FrameVerticalEndModel {
-  final Widget child;
-  final double height;
   FrameVerticalEndModel({
     required this.child,
     this.height = kDefaultVerticalEndHeight,
   });
+  final Widget child;
+  final double height;
 }
 
 class FrameBodyItemModel {
-  final Widget child;
-  final int flex;
   const FrameBodyItemModel({
     required this.child,
     this.flex = 1,
   });
+  final Widget child;
+  final int flex;
 }
 
 class FrameBodyModel {
+  const FrameBodyModel({
+    required this.children,
+    this.bodyAlignment = Alignment.topCenter,
+  });
   final Alignment bodyAlignment;
   final List<FrameBodyItemModel> children;
-  const FrameBodyModel({
-    this.bodyAlignment = Alignment.topCenter,
-    required this.children,
-  });
 }
