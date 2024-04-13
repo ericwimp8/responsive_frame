@@ -5,8 +5,21 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  void _animate() {
+    setState(() {
+      show = !show;
+    });
+  }
+
+  bool show = true;
 
   @override
   Widget build(BuildContext context) {
@@ -18,29 +31,23 @@ class MyApp extends StatelessWidget {
       ),
       home: ScreenSizeLayoutGranular(
         mobileNormal: (_) {
-          return Scaffold(
-            appBar: AppBar(title: const Text('Mobile')),
-            body: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Textbox(),
-            ),
-          );
-        },
-        tabletNormal: (_) {
-          return Scaffold(
-            appBar: AppBar(title: const Text('tabletNormal')),
-            body: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Textbox(),
-            ),
-          );
-        },
-        tabletSmall: (_) {
-          return Scaffold(
-            appBar: AppBar(title: const Text('tabletSmall')),
-            body: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Textbox(),
+          return AnimatedFrame(
+            rightEnd: show
+                ? (_) => const FrameHorizontalEndModel(body: Textbox())
+                : null,
+            frameBody: (_) => FrameBodyModel(
+              children: [
+                FrameBodyItemModel(
+                  child: Column(
+                    children: [
+                      ElevatedButton(
+                        onPressed: _animate,
+                        child: const Text('animated'),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           );
         },
