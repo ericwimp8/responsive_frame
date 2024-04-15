@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 const kDefaultVerticalEndHeight = 100.0;
 const kDefaultHorizontalEndWidth = 200.0;
 
-class FrameHorizontalEndModel {
-  const FrameHorizontalEndModel({
+class HorizontalEndModel {
+  const HorizontalEndModel({
     required this.body,
     this.top,
     this.fillVertical = true,
@@ -20,8 +20,8 @@ class FrameHorizontalEndModel {
   final double topHeight;
 }
 
-class FrameVerticalEndModel {
-  FrameVerticalEndModel({
+class VerticalEndModel {
+  VerticalEndModel({
     required this.child,
     this.height = kDefaultVerticalEndHeight,
   });
@@ -29,8 +29,8 @@ class FrameVerticalEndModel {
   final double height;
 }
 
-class FrameBodyItemModel {
-  const FrameBodyItemModel({
+class BodyItemModel {
+  const BodyItemModel({
     required this.child,
     this.flex = 1,
   });
@@ -38,11 +38,11 @@ class FrameBodyItemModel {
   final int flex;
 }
 
-class FrameBodyModel {
-  const FrameBodyModel({
+class BodyModel {
+  const BodyModel({
     required this.children,
     this.bodyAlignment = Alignment.topCenter,
   });
   final Alignment bodyAlignment;
-  final List<FrameBodyItemModel> children;
+  final List<BodyItemModel> children;
 }

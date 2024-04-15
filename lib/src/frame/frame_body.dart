@@ -7,7 +7,7 @@ class FrameBody extends StatelessWidget {
     super.key,
   });
 
-  final FrameBodyModel model;
+  final BodyModel model;
   @override
   Widget build(BuildContext context) {
     return Align(

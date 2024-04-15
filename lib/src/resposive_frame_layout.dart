@@ -20,18 +20,18 @@ class ResponsiveFrameLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenSizeLayout(
       mobile: (context) => Frame(
-        frameBody: (context) => FrameBodyModel(
+        frameBody: (context) => BodyModel(
           children: [
-            FrameBodyItemModel(child: mobile(context)),
+            BodyItemModel(child: mobile(context)),
           ],
         ),
       ),
       tablet: (_) => Frame(
-        bodyTop: (_) => FrameVerticalEndModel(child: const Textbox()),
-        frameBody: (_) => const FrameBodyModel(
-          children: [FrameBodyItemModel(child: Textbox())],
+        bodyTop: (_) => VerticalEndModel(child: const Textbox()),
+        frameBody: (_) => const BodyModel(
+          children: [BodyItemModel(child: Textbox())],
         ),
-        leftEnd: (_) => const FrameHorizontalEndModel(
+        leftEnd: (_) => const HorizontalEndModel(
           body: Textbox(),
           top: Textbox(
             isLong: false,
@@ -39,19 +39,19 @@ class ResponsiveFrameLayout extends StatelessWidget {
         ),
       ),
       desktop: (_) => Frame(
-        frameBody: (_) => const FrameBodyModel(
+        frameBody: (_) => const BodyModel(
           children: [
-            FrameBodyItemModel(flex: 3, child: Textbox()),
-            FrameBodyItemModel(flex: 5, child: Textbox()),
+            BodyItemModel(flex: 3, child: Textbox()),
+            BodyItemModel(flex: 5, child: Textbox()),
           ],
         ),
-        leftEnd: (_) => const FrameHorizontalEndModel(
+        leftEnd: (_) => const HorizontalEndModel(
           body: Textbox(),
           top: Textbox(
             isLong: false,
           ),
         ),
-        bodyTop: (_) => FrameVerticalEndModel(child: const Textbox()),
+        bodyTop: (_) => VerticalEndModel(child: const Textbox()),
       ),
     );
   }

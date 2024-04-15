@@ -6,7 +6,7 @@ class FrameVerticalEnd extends StatelessWidget {
     required this.child,
     super.key,
   });
-  final FrameVerticalEndModel child;
+  final VerticalEndModel child;
 
   @override
   Widget build(BuildContext context) {

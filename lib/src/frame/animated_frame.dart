@@ -14,13 +14,13 @@ class AnimatedFrameConfig {
     this.frameBottom,
     this.bodyBottom,
   });
-  final FrameBodyModel Function(BuildContext) frameBody;
-  final FrameHorizontalEndModel? Function(BuildContext)? rightEnd;
-  final FrameHorizontalEndModel? Function(BuildContext)? leftEnd;
-  final FrameVerticalEndModel? Function(BuildContext)? frameTop;
-  final FrameVerticalEndModel? Function(BuildContext)? bodyTop;
-  final FrameVerticalEndModel? Function(BuildContext)? frameBottom;
-  final FrameVerticalEndModel? Function(BuildContext)? bodyBottom;
+  final BodyModel Function(BuildContext) frameBody;
+  final HorizontalEndModel? Function(BuildContext)? rightEnd;
+  final HorizontalEndModel? Function(BuildContext)? leftEnd;
+  final VerticalEndModel? Function(BuildContext)? frameTop;
+  final VerticalEndModel? Function(BuildContext)? bodyTop;
+  final VerticalEndModel? Function(BuildContext)? frameBottom;
+  final VerticalEndModel? Function(BuildContext)? bodyBottom;
 }
 
 class AnimatedFrame extends StatelessWidget {
@@ -35,13 +35,13 @@ class AnimatedFrame extends StatelessWidget {
     this.frameTop,
   });
 
-  final FrameBodyModel Function(BuildContext) frameBody;
-  final FrameHorizontalEndModel? Function(BuildContext)? rightEnd;
-  final FrameHorizontalEndModel? Function(BuildContext)? leftEnd;
-  final FrameVerticalEndModel? Function(BuildContext)? frameTop;
-  final FrameVerticalEndModel? Function(BuildContext)? bodyTop;
-  final FrameVerticalEndModel? Function(BuildContext)? frameBottom;
-  final FrameVerticalEndModel? Function(BuildContext)? bodyBottom;
+  final BodyModel Function(BuildContext) frameBody;
+  final HorizontalEndModel? Function(BuildContext)? rightEnd;
+  final HorizontalEndModel? Function(BuildContext)? leftEnd;
+  final VerticalEndModel? Function(BuildContext)? frameTop;
+  final VerticalEndModel? Function(BuildContext)? bodyTop;
+  final VerticalEndModel? Function(BuildContext)? frameBottom;
+  final VerticalEndModel? Function(BuildContext)? bodyBottom;
 
   @override
   Widget build(BuildContext context) {

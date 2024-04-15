@@ -7,7 +7,7 @@ class FrameHorizontalEnd extends StatelessWidget {
     super.key,
   });
 
-  final FrameHorizontalEndModel model;
+  final HorizontalEndModel model;
 
   @override
   Widget build(BuildContext context) {

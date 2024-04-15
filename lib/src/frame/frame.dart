@@ -12,17 +12,17 @@ class Frame extends StatelessWidget {
     this.bodyBottom,
     this.leftEnd,
     this.rightEnd,
-    this.frameBottom,
+    this.bottom,
     this.frameTop,
   });
 
-  final FrameBodyModel Function(BuildContext) frameBody;
-  final FrameHorizontalEndModel? Function(BuildContext)? rightEnd;
-  final FrameHorizontalEndModel? Function(BuildContext)? leftEnd;
-  final FrameVerticalEndModel? Function(BuildContext)? frameTop;
-  final FrameVerticalEndModel? Function(BuildContext)? bodyTop;
-  final FrameVerticalEndModel? Function(BuildContext)? frameBottom;
-  final FrameVerticalEndModel? Function(BuildContext)? bodyBottom;
+  final BodyModel Function(BuildContext) frameBody;
+  final HorizontalEndModel? Function(BuildContext)? rightEnd;
+  final HorizontalEndModel? Function(BuildContext)? leftEnd;
+  final VerticalEndModel? Function(BuildContext)? frameTop;
+  final VerticalEndModel? Function(BuildContext)? bodyTop;
+  final VerticalEndModel? Function(BuildContext)? bottom;
+  final VerticalEndModel? Function(BuildContext)? bodyBottom;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class Frame extends StatelessWidget {
     final _bodyTop = bodyTop?.call(context);
     final _bodyBottom = bodyBottom?.call(context);
     final _frameTop = frameTop?.call(context);
-    final _frameBottom = frameBottom?.call(context);
+    final _frameBottom = bottom?.call(context);
     return Material(
       child: Column(
         children: [
