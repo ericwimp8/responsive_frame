@@ -29,25 +29,11 @@ class _MyAppState extends State<MyApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ScreenSizeLayoutGranular(
-        mobileNormal: (_) {
-          return AnimatedFrame(
-            rightEnd: show
-                ? (_) => const FrameHorizontalEndModel(body: Textbox())
-                : null,
-            frameBody: (_) => FrameBodyModel(
-              children: [
-                FrameBodyItemModel(
-                  child: Column(
-                    children: [
-                      ElevatedButton(
-                        onPressed: _animate,
-                        child: const Text('animated'),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+      home: ResponsiveFrameLayout(
+        mobile: (_) {
+          return Scaffold(
+            appBar: AppBar(
+              title: const Text('mobile'),
             ),
           );
         },

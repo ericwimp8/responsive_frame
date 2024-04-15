@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
+// TODO(ericwimp):'remove this'
 class FrameAnimatedSwitcher extends StatelessWidget {
   const FrameAnimatedSwitcher({
     required this.child,

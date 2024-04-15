@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
-import 'package:responsive_frame/src/break_points_granular.dart';
+import 'package:responsive_frame/src/breakpoints/breakpoints_granular.dart';
+import 'package:responsive_frame/src/breakpoints/breakpoints_granular_controller.dart';
 
 /// Widget with builders to return layout widgets based on
 /// device width
 class ScreenSizeLayoutGranular extends StatefulWidget {
   const ScreenSizeLayoutGranular({
+    required this.mobileNormal,
     this.breakpoints = BreakpointsGranular.defaultBreakpoints,
     super.key,
     this.mobileExtraLarge,
     this.mobileLarge,
-    required this.mobileNormal,
     this.mobileSmall,
     this.tabletExtraLarge,
     this.tabletLarge,
@@ -44,48 +45,20 @@ class ScreenSizeLayoutGranular extends StatefulWidget {
 }
 
 class _ScreenSizeLayoutGranularState extends State<ScreenSizeLayoutGranular> {
-  /// Map to map [ScreenSizeGranular] to its relevant builder
-  late final _availableBuilders = {
-    ScreenSizeGranular.desktopExtraLarge: widget.desktopExtraLarge,
-    ScreenSizeGranular.desktopLarge: widget.desktopLarge,
-    ScreenSizeGranular.desktopNormal: widget.desktopNormal,
-    ScreenSizeGranular.desktopSmall: widget.desktopSmall,
-    ScreenSizeGranular.tabletExtraLarge: widget.tabletExtraLarge,
-    ScreenSizeGranular.tabletLarge: widget.tabletLarge,
-    ScreenSizeGranular.tabletNormal: widget.tabletNormal,
-    ScreenSizeGranular.tabletSmall: widget.tabletSmall,
-    ScreenSizeGranular.mobileExtraLarge: widget.mobileExtraLarge,
-    ScreenSizeGranular.mobileLarge: widget.mobileLarge,
-    ScreenSizeGranular.mobileNormal: widget.mobileNormal,
-    ScreenSizeGranular.mobileSmall: widget.mobileSmall,
-    ScreenSizeGranular.watch: widget.watch,
-  };
-
-  /// Stores the current [ScreenSizeGranular] checked in findBuilder
-  /// for a guard clause so logic is only run when there is actually
-  /// a change
-  ScreenSizeGranular? _screenSize;
-  Widget Function(BuildContext)? _builder;
-
-  void findBuilder(ScreenSizeGranular screenSize) {
-    if (_screenSize == screenSize) return;
-    _screenSize = screenSize;
-    final builder = _availableBuilders[screenSize];
-    if (builder != null) {
-      _builder = builder;
-      return;
-    }
-    final index = ScreenSizeGranular.values.indexOf(screenSize);
-    final validBuilders = ScreenSizeGranular.values.sublist(index);
-    for (var e in validBuilders) {
-      final builder = _availableBuilders[e];
-      if (builder != null) {
-        _builder = builder;
-        return;
-      }
-    }
-    throw 'builder not found';
-  }
+  late final controller = BreakpointsGranularController<Widget>(
+    desktopExtraLarge: widget.desktopExtraLarge,
+    desktopLarge: widget.desktopLarge,
+    desktopNormal: widget.desktopNormal,
+    desktopSmall: widget.desktopSmall,
+    tabletExtraLarge: widget.tabletExtraLarge,
+    tabletLarge: widget.tabletLarge,
+    tabletNormal: widget.tabletNormal,
+    tabletSmall: widget.tabletSmall,
+    mobileExtraLarge: widget.mobileExtraLarge,
+    mobileLarge: widget.mobileLarge,
+    mobileNormal: widget.mobileNormal,
+    mobileSmall: widget.mobileSmall,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -93,10 +66,10 @@ class _ScreenSizeLayoutGranularState extends State<ScreenSizeLayoutGranular> {
       builder: (BuildContext context, BoxConstraints constraints) {
         final deviceWidth = MediaQuery.sizeOf(context).width;
 
-        final screensize =
-            widget.breakpoints.screenSize(deviceWidth: deviceWidth);
-        findBuilder(screensize);
-        return _builder!.call(context);
+        return controller.breakpointCallback(
+          deviceWidth: deviceWidth,
+          context: context,
+        );
       },
     );
   }

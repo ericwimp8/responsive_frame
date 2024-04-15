@@ -1,7 +1,27 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
+
 import 'package:responsive_frame/responsive_frame.dart';
+
+class AnimatedFrameConfig {
+  const AnimatedFrameConfig({
+    required this.frameBody,
+    this.rightEnd,
+    this.leftEnd,
+    this.frameTop,
+    this.bodyTop,
+    this.frameBottom,
+    this.bodyBottom,
+  });
+  final FrameBodyModel Function(BuildContext) frameBody;
+  final FrameHorizontalEndModel? Function(BuildContext)? rightEnd;
+  final FrameHorizontalEndModel? Function(BuildContext)? leftEnd;
+  final FrameVerticalEndModel? Function(BuildContext)? frameTop;
+  final FrameVerticalEndModel? Function(BuildContext)? bodyTop;
+  final FrameVerticalEndModel? Function(BuildContext)? frameBottom;
+  final FrameVerticalEndModel? Function(BuildContext)? bodyBottom;
+}
 
 class AnimatedFrame extends StatelessWidget {
   const AnimatedFrame({

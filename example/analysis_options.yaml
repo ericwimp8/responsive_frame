@@ -1,18 +1,1 @@
-include: package:very_good_analysis/analysis_options.5.1.0.yaml
-linter:
-  rules:
-    public_member_api_docs: false
-    non_constant_identifier_names: false
-    no_leading_underscores_for_local_identifiers: false
-analyzer:
-  plugins:
-    - custom_lint
-  exclude: [build/**, lib/**.freezed.dart, lib/**.g.dart, lib/l10n/**]
-  errors:
-    invalid_annotation_target: ignore
-    public_member_api_docs: false
-    lines_longer_than_80_chars: false
-    avoid_positional_boolean_parameters: false
-    flutter_style_todos: false
-    use_setters_to_change_properties: false
-    sort_pub_dependencies: false
+include: ../analysis_options.yaml

@@ -5,8 +5,8 @@ import 'package:responsive_frame/responsive_frame.dart';
 
 class ResponsiveFrameLayout extends StatelessWidget {
   const ResponsiveFrameLayout({
-    super.key,
     required this.mobile,
+    super.key,
   });
   final Widget Function(BuildContext) mobile;
 
@@ -34,7 +34,6 @@ class ResponsiveFrameLayout extends StatelessWidget {
       ),
       desktop: (_) => Frame(
         frameBody: (_) => const FrameBodyModel(
-          bodyAlignment: Alignment.topCenter,
           children: [
             FrameBodyItemModel(flex: 3, child: Textbox()),
             FrameBodyItemModel(flex: 5, child: Textbox()),
@@ -73,7 +72,7 @@ class _TextboxState extends State<Textbox> {
   }
 
   Color generateRandomColor() {
-    Random random = Random();
+    final random = Random();
     return Color.fromARGB(
       255,
       random.nextInt(256),
@@ -84,10 +83,10 @@ class _TextboxState extends State<Textbox> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: color,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8),
         child: Text(widget.isLong ? longtext : 'short text'),
       ),
     );
