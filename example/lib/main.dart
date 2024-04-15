@@ -13,14 +13,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  void _animate() {
-    setState(() {
-      show = !show;
-    });
-  }
-
-  bool show = true;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

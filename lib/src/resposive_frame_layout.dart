@@ -6,9 +6,15 @@ import 'package:responsive_frame/responsive_frame.dart';
 class ResponsiveFrameLayout extends StatelessWidget {
   const ResponsiveFrameLayout({
     required this.mobile,
+    this.desktop,
+    this.tablet,
+    this.watch,
     super.key,
   });
   final Widget Function(BuildContext) mobile;
+  final Widget Function(BuildContext)? tablet;
+  final Widget Function(BuildContext)? desktop;
+  final Widget Function(BuildContext)? watch;
 
   @override
   Widget build(BuildContext context) {
