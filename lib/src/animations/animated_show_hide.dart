@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 class AnimatedShowHide extends StatefulWidget {
   const AnimatedShowHide({
     required this.child,
-    this.show = true,
+    this.animate = true,
     this.duration = const Duration(milliseconds: 180),
-    this.switchInCurve = Curves.linear,
-    this.switchOutCurve = Curves.linear,
+    this.switchInCurve = Curves.fastEaseInToSlowEaseOut,
+    this.switchOutCurve = Curves.fastEaseInToSlowEaseOut,
     this.axis = Axis.vertical,
     this.axisAlignment = -1,
     super.key,
   });
-  final bool show;
+  final bool animate;
   final Duration duration;
   final Widget? child;
   final Curve switchInCurve;
@@ -45,7 +45,10 @@ class _AnimatedShowHideState extends State<AnimatedShowHide>
 
   @override
   void didUpdateWidget(covariant AnimatedShowHide oldWidget) {
-    _outGoingChild = oldWidget.child;
+    if (oldWidget.child != null) {
+      _outGoingChild = oldWidget.child;
+    }
+
     if (widget.child == null) {
       _controller?.reverse();
     } else {
@@ -57,11 +60,15 @@ class _AnimatedShowHideState extends State<AnimatedShowHide>
 
   @override
   Widget build(BuildContext context) {
-    return SizeTransition(
-      axisAlignment: widget.axisAlignment,
-      axis: widget.axis,
-      sizeFactor: _animation,
-      child: widget.child ?? _outGoingChild,
-    );
+    if (widget.animate) {
+      return SizeTransition(
+        axisAlignment: widget.axisAlignment,
+        axis: widget.axis,
+        sizeFactor: _animation,
+        child: widget.child ?? _outGoingChild,
+      );
+    }
+
+    return widget.child ?? const SizedBox();
   }
 }
