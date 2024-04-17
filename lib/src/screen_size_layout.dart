@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
 /// Widget with builders to return widgets based on [ScreenSize]
-class ScreenSizeLayout extends StatelessWidget {
-  ScreenSizeLayout({
+class ScreenSizeLayout extends StatefulWidget {
+  const ScreenSizeLayout({
     required this.mobile,
     this.desktop,
     this.tablet,
@@ -16,12 +16,19 @@ class ScreenSizeLayout extends StatelessWidget {
   final Widget Function(BuildContext context)? desktop;
   final Widget Function(BuildContext context)? watch;
   final Breakpoints breakpoints;
+
+  @override
+  State<ScreenSizeLayout> createState() => _ScreenSizeLayoutState();
+}
+
+class _ScreenSizeLayoutState extends State<ScreenSizeLayout> {
   late final contoller = BreakpointsController<Widget>(
-    watch: watch,
-    mobile: mobile,
-    tablet: tablet,
-    desktop: desktop,
+    watch: widget.watch,
+    mobile: widget.mobile,
+    tablet: widget.tablet,
+    desktop: widget.desktop,
   );
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
