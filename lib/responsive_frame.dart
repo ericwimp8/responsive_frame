@@ -11,7 +11,6 @@ export 'src/frame/frame_body.dart';
 export 'src/frame/frame_config.dart';
 export 'src/frame/frame_horizontal_end.dart';
 export 'src/frame/frame_vertical_end.dart';
-export 'src/frame/models.dart';
 export 'src/responsive_frame_layout.dart';
 export 'src/responsive_frame_layout_granular.dart';
 export 'src/screen_size_layout.dart';
