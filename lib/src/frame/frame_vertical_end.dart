@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_frame/responsive_frame.dart';
+
+const kDefaultVerticalEndHeight = 100.0;
 
 class FrameVerticalEnd extends StatelessWidget {
   const FrameVerticalEnd({
     required this.child,
     super.key,
+    this.height = kDefaultVerticalEndHeight,
   });
-  final VerticalEndModel child;
-
+  final Widget child;
+  final double height;
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: BoxConstraints(
         minWidth: double.infinity,
-        maxHeight: child.height,
-        minHeight: child.height,
+        maxHeight: height,
+        minHeight: height,
       ),
-      child: child.child,
+      child: child,
     );
   }
 }
