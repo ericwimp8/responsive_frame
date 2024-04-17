@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
-import 'package:responsive_frame/src/breakpoints/breakpoints_granular.dart';
-import 'package:responsive_frame/src/breakpoints/breakpoints_granular_controller.dart';
 
 /// Widget with builders to return layout widgets based on
 /// device width
