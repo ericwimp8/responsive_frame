@@ -6,89 +6,210 @@ import 'package:responsive_frame/responsive_frame.dart';
 
 class Frame extends StatelessWidget {
   const Frame({
-    required this.frameBody,
-    super.key,
+    required this.body,
+    this.animations = true,
+    this.top,
+    this.topHeight = kDefaultVerticalEndHeight,
     this.bodyTop,
-    this.bodyBottom,
+    this.bodyTopHeight = kDefaultVerticalEndHeight,
+    this.bodyAlignment = Alignment.topCenter,
+    this.bodyMaxWidth = 950,
+    this.bodyMinWidth = 0,
     this.leftEnd,
+    this.leftEndTop,
+    this.leftEndMaxWidth = kDefaultHorizontalEndWidth,
+    this.leftEndMinWidth = kDefaultHorizontalEndWidth,
+    this.leftEndTopHeight = kDefaultVerticalEndHeight,
+    this.leftEndFillVertical = true,
     this.rightEnd,
+    this.rightEndTop,
+    this.rightEndMaxWidth = kDefaultHorizontalEndWidth,
+    this.rightEndMinWidth = kDefaultHorizontalEndWidth,
+    this.rightEndTopHeight = kDefaultVerticalEndHeight,
+    this.rightEndFillVertical = true,
+    this.bodyBottom,
+    this.bodyBottomHeight = kDefaultVerticalEndHeight,
     this.bottom,
-    this.frameTop,
+    this.bottomHeight = kDefaultVerticalEndHeight,
+    super.key,
   });
-
-  final BodyModel Function(BuildContext) frameBody;
-  final HorizontalEndModel? Function(BuildContext)? rightEnd;
-  final HorizontalEndModel? Function(BuildContext)? leftEnd;
-  final VerticalEndModel? Function(BuildContext)? frameTop;
-  final VerticalEndModel? Function(BuildContext)? bodyTop;
-  final VerticalEndModel? Function(BuildContext)? bottom;
-  final VerticalEndModel? Function(BuildContext)? bodyBottom;
+  final bool animations;
+  final List<FrameBodyListChild> body;
+  final Widget? top;
+  final double topHeight;
+  final Widget? bodyTop;
+  final double bodyTopHeight;
+  final Alignment bodyAlignment;
+  final double bodyMaxWidth;
+  final double bodyMinWidth;
+  final Widget? leftEnd;
+  final Widget? leftEndTop;
+  final double leftEndMaxWidth;
+  final double leftEndMinWidth;
+  final bool leftEndFillVertical;
+  final double leftEndTopHeight;
+  final Widget? rightEnd;
+  final Widget? rightEndTop;
+  final double rightEndMaxWidth;
+  final double rightEndMinWidth;
+  final bool rightEndFillVertical;
+  final double rightEndTopHeight;
+  final Widget? bodyBottom;
+  final double bodyBottomHeight;
+  final Widget? bottom;
+  final double bottomHeight;
 
   @override
   Widget build(BuildContext context) {
-    final _frameBody = frameBody(context);
-    final _leftEnd = leftEnd?.call(context);
-    final _rightEnd = rightEnd?.call(context);
-    final _bodyTop = bodyTop?.call(context);
-    final _bodyBottom = bodyBottom?.call(context);
-    final _frameTop = frameTop?.call(context);
-    final _frameBottom = bottom?.call(context);
     return Material(
       child: Column(
         children: [
-          if (_frameTop != null) FrameVerticalEnd(child: _frameTop),
+          AnimatedShowHide(
+            animate: animations,
+            child: top != null
+                ? FrameVerticalEnd(
+                    height: topHeight,
+                    child: top!,
+                  )
+                : null,
+          ),
           Expanded(
             child: Row(
               children: [
-                if (_leftEnd != null && _leftEnd.fillVertical ||
-                    _leftEnd != null && _leftEnd.top != null)
-                  FrameHorizontalEnd(
-                    model: _leftEnd,
-                  ),
+                AnimatedShowHide(
+                  axis: Axis.horizontal,
+                  animate: animations,
+                  child: leftEnd != null && leftEndFillVertical ||
+                          leftEnd != null && leftEndTop != null
+                      ? FrameHorizontalEnd(
+                          body: AnimatedShowHide(
+                            animate: animations,
+                            axis: Axis.horizontal,
+                            child: leftEnd != null && leftEndFillVertical ||
+                                    leftEnd != null && leftEndTop != null
+                                ? leftEnd
+                                : null,
+                          ),
+                          top: AnimatedShowHide(
+                            animate: animations,
+                            axis: Axis.horizontal,
+                            child: leftEnd != null && leftEndFillVertical ||
+                                    leftEnd != null && leftEndTop != null
+                                ? FrameVerticalEnd(child: leftEndTop!)
+                                : null,
+                          ),
+                          maxWidth: leftEndMaxWidth,
+                          minWidth: leftEndMinWidth,
+                          fillVertical: leftEndFillVertical,
+                        )
+                      : null,
+                ),
                 Expanded(
                   child: Column(
                     children: [
-                      if (_bodyTop != null)
-                        FrameVerticalEnd(
-                          child: _bodyTop,
-                        ),
+                      AnimatedShowHide(
+                        animate: animations,
+                        child: bodyTop != null
+                            ? FrameVerticalEnd(
+                                height: bodyTopHeight,
+                                child: bodyTop!,
+                              )
+                            : null,
+                      ),
                       Expanded(
                         child: Row(
                           children: [
-                            if (_leftEnd != null &&
-                                _leftEnd.top == null &&
-                                !_leftEnd.fillVertical)
-                              FrameHorizontalEnd(
-                                model: _leftEnd,
-                              ),
+                            AnimatedShowHide(
+                              animate: animations,
+                              axis: Axis.horizontal,
+                              child: leftEnd != null &&
+                                      leftEndTop == null &&
+                                      !leftEndFillVertical
+                                  ? FrameHorizontalEnd(
+                                      body: leftEnd!,
+                                      top: leftEndTop,
+                                      maxWidth: leftEndMaxWidth,
+                                      minWidth: leftEndMinWidth,
+                                      fillVertical: leftEndFillVertical,
+                                    )
+                                  : null,
+                            ),
                             Expanded(
-                              child: FrameBody(
-                                model: _frameBody,
+                              child: AnimatedShowHide(
+                                axis: Axis.horizontal,
+                                animate: animations,
+                                child: FrameBody(
+                                  isInit: animations,
+                                  bodyAlignment: bodyAlignment,
+                                  maxWidth: bodyMaxWidth,
+                                  minWidth: bodyMinWidth,
+                                  children: body
+                                      .map(
+                                        (e) => FrameBodyListChild(
+                                          flex: e.flex,
+                                          child: e.child,
+                                        ),
+                                      )
+                                      .toList(),
+                                ),
                               ),
                             ),
-                            if (_rightEnd != null &&
-                                _rightEnd.top == null &&
-                                !_rightEnd.fillVertical)
-                              FrameHorizontalEnd(model: _rightEnd),
+                            AnimatedShowHide(
+                              animate: animations,
+                              axis: Axis.horizontal,
+                              child: rightEnd != null &&
+                                      rightEndTop == null &&
+                                      !rightEndFillVertical
+                                  ? FrameHorizontalEnd(
+                                      body: rightEnd!,
+                                      top: rightEndTop,
+                                      maxWidth: rightEndMaxWidth,
+                                      minWidth: rightEndMinWidth,
+                                      fillVertical: rightEndFillVertical,
+                                    )
+                                  : null,
+                            ),
                           ],
                         ),
                       ),
-                      if (_bodyBottom != null)
-                        FrameVerticalEnd(
-                          child: _bodyBottom,
-                        ),
+                      AnimatedShowHide(
+                        animate: animations,
+                        child: bodyBottom != null
+                            ? FrameVerticalEnd(
+                                height: bodyBottomHeight,
+                                child: bodyBottom!,
+                              )
+                            : null,
+                      ),
                     ],
                   ),
                 ),
-                if (_rightEnd != null && _rightEnd.fillVertical ||
-                    _rightEnd != null && _rightEnd.top != null)
-                  FrameHorizontalEnd(
-                    model: _rightEnd,
-                  ),
+                AnimatedShowHide(
+                  animate: animations,
+                  axis: Axis.horizontal,
+                  child: rightEnd != null && rightEndFillVertical ||
+                          rightEnd != null && rightEndTop != null
+                      ? FrameHorizontalEnd(
+                          body: rightEnd!,
+                          top: rightEndTop,
+                          maxWidth: rightEndMaxWidth,
+                          minWidth: rightEndMinWidth,
+                          fillVertical: rightEndFillVertical,
+                        )
+                      : null,
+                ),
               ],
             ),
           ),
-          if (_frameBottom != null) FrameVerticalEnd(child: _frameBottom),
+          AnimatedShowHide(
+            animate: animations,
+            child: bottom != null
+                ? FrameVerticalEnd(
+                    height: bottomHeight,
+                    child: bottom!,
+                  )
+                : null,
+          ),
         ],
       ),
     );
