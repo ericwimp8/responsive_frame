@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
 void main() {
+  // timeDilation = 10;
   runApp(const MyApp());
 }
 
@@ -23,10 +24,50 @@ class _MyAppState extends State<MyApp> {
       ),
       home: ResponsiveFrameLayout(
         mobile: (_) {
-          return Scaffold(
-            appBar: AppBar(
-              title: const Text('mobile'),
+          return FrameConfig(
+            body: [
+              FrameBodyListChild(
+                child: Scaffold(
+                  appBar: AppBar(
+                    title: const Text('mobile'),
+                  ),
+                  body: const Textbox(),
+                ),
+              ),
+            ],
+          );
+        },
+        tablet: (_) {
+          return const FrameConfig(
+            body: [
+              FrameBodyListChild(
+                child: Textbox(),
+              ),
+            ],
+            leftEnd: Textbox(),
+            leftEndTop: Textbox(
+              isLong: false,
             ),
+            bodyTop: Textbox(isLong: false),
+          );
+        },
+        desktop: (_) {
+          return const FrameConfig(
+            body: [
+              FrameBodyListChild(
+                child: Textbox(),
+              ),
+              FrameBodyListChild(
+                flex: 3,
+                child: Textbox(),
+              ),
+            ],
+            leftEnd: Textbox(),
+            leftEndTop: Textbox(
+              isLong: false,
+            ),
+            top: Textbox(isLong: false),
+            bodyTop: Textbox(isLong: false),
           );
         },
       ),
