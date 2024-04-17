@@ -70,9 +70,6 @@ class BreakpointsGranularController<T> {
         return callback(context);
       }
     }
-
-    throw Exception(
-      'BreakpointsGranularController.breakpointCallback: callback not found',
-    );
+    return avalableCallbacks[ScreenSizeGranular.mobileNormal]!(context);
   }
 }

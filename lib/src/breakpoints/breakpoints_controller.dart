@@ -45,8 +45,6 @@ class BreakpointsController<T> {
       }
     }
 
-    throw Exception(
-      'BreakpointController.breakpointCallback: callback not found',
-    );
+    return avalableCallbacks[ScreenSize.mobile]!(context);
   }
 }
