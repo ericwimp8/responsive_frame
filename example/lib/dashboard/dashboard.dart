@@ -1,5 +1,6 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
@@ -66,9 +67,11 @@ class Header extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(right: 12),
-                    child: Flexible(child: Search()),
+                  Flexible(
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 12),
+                      child: Search(),
+                    ),
                   ),
                   Flexible(child: ProfileButton()),
                 ],
