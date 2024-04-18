@@ -1,7 +1,7 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:material_symbols_icons/symbols.dart';
+
 import 'package:responsive_frame/responsive_frame.dart';
 
 class Dashboard extends StatelessWidget {
@@ -10,137 +10,138 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveFrameLayout(
+      persistentFrameConfig: const FrameConfig(
+        dimensions: DimensionsConfig(
+          bodyTopMaxHeight: double.infinity,
+          bodyTopMinHeight: 0,
+          leftEndMinWidth: 200,
+          leftEndMaxWidth: 300,
+        ),
+        bodyTop: Header(),
+      ),
       mobile: (context) {
-        return FrameConfig(
-          bodyTop: const Header(),
-          body: [
-            FrameBodyListChild(
-              child: Scaffold(
-                appBar: AppBar(title: const Text('mobile')),
-              ),
-            ),
-          ],
-        );
+        return const FrameConfig();
       },
       tablet: (context) {
-        return FrameConfig(
-          leftEnd: const Menu(),
-          body: [
-            FrameBodyListChild(
-              child: Material(
-                child: Scaffold(
-                  appBar: AppBar(title: const Text('mobile')),
-                  body: const Textbox(),
-                ),
-              ),
-            ),
-            // FrameBodyListChild(
-            //   child: Textbox(),
-            //   // Scaffold(
-            //   //   appBar: AppBar(title: const Text('mobile')),
-            //   // ),
-            // ),
-          ],
-          bodyTop: const Header(),
+        return const FrameConfig(
+          leftEnd: Menu(),
+          rightEnd: Statistics(),
+          dimensions: DimensionsConfig(
+            rightEndFillVertical: false,
+            rightEndMaxWidth: 350,
+            rightEndMinWidth: 250,
+          ),
         );
       },
     );
   }
 }
 
-class Header extends StatelessWidget {
-  const Header({super.key});
+class Statistics extends StatelessWidget {
+  const Statistics({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+      child: Material(
+        color: theme.colorScheme.surfaceTint,
+        shape: const RoundedRectangleBorder(borderRadius: kDefaultBorderRadius),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: ListView(
+            children: [
+              const StatsTile(
+                title: Text('Villans Captured'),
+                leading: ImageIcon(
+                  AssetImage('images/shield.png'),
+                  color: Colors.blue,
+                ),
+                subtitle: Text('Date: 04/01/2024'),
+                trailing: Text('247'),
+              ),
+              StatsTile(
+                title: const Text('Bananas Eaten'),
+                leading: ImageIcon(
+                  const AssetImage('images/banana_icon.png'),
+                  color: theme.colorScheme.primary,
+                ),
+                subtitle: const Text('Date: 03/09/2024'),
+                trailing: const Text('9247'),
+              ),
+              StatsTile(
+                title: const Text('Hero Schedule'),
+                leading: Icon(
+                  Symbols.calendar_today_rounded,
+                  fill: 1,
+                  grade: 200,
+                  weight: 700,
+                  opticalSize: 48,
+                  color: theme.colorScheme.secondary,
+                ),
+                subtitle: const Text('Date: 11/09/2024'),
+                trailing: const Text(''),
+              ),
+              const StatsTile(
+                title: Text('Villan Convictions'),
+                leading: Icon(
+                  Symbols.local_police_rounded,
+                  fill: 1,
+                  grade: 200,
+                  weight: 700,
+                  opticalSize: 48,
+                  color: DashboardTheme.electricPurple,
+                ),
+                subtitle: Text('Date: 11/09/2024'),
+                trailing: Text('246'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class StatsTile extends StatelessWidget {
+  const StatsTile({
+    required this.title,
+    required this.subtitle,
+    required this.leading,
+    required this.trailing,
+    super.key,
+  });
+  final Widget title;
+  final Widget subtitle;
+  final Widget leading;
+  final Widget trailing;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: IntrinsicHeight(
-        child: Row(
-          children: [
-            Text(
-              'Overview',
-              style: theme.textTheme.headlineSmall,
-            ),
-            const Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Flexible(
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 12),
-                      child: Search(),
-                    ),
-                  ),
-                  Flexible(child: ProfileButton()),
-                ],
-              ),
-            ),
-          ],
+      padding: const EdgeInsets.only(bottom: 16),
+      child: ListTile(
+        titleTextStyle: theme.textTheme.bodyMedium?.copyWith(
+          fontWeight: FontWeight.w600,
         ),
-      ),
-    );
-  }
-}
-
-class ProfileButton extends StatefulWidget {
-  const ProfileButton({super.key});
-
-  @override
-  State<ProfileButton> createState() => _ProfileButtonState();
-}
-
-class _ProfileButtonState extends State<ProfileButton> {
-  @override
-  Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 205, minWidth: 50),
-      child: ExpansionTile(
-        tilePadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-        leading: CircleAvatar(
-          backgroundColor: Colors.black.withOpacity(0.1),
-          foregroundImage: const AssetImage('/images/bananaman.png'),
+        subtitleTextStyle: theme.textTheme.bodySmall?.copyWith(
+          fontWeight: FontWeight.w400,
         ),
-        title: const Text(
-          'Banana Man',
-          maxLines: 1,
-          overflow: TextOverflow.fade,
-        ),
-      ),
-    );
-  }
-}
-
-class Search extends StatelessWidget {
-  const Search({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 170, minWidth: 50),
-      child: TextField(
-        decoration: InputDecoration(
-          hintText: 'Search',
-          hintStyle: theme.textTheme.titleMedium,
-          suffixIcon: Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: Material(
-              clipBehavior: Clip.antiAlias,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              color: theme.colorScheme.primary,
-              child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Symbols.search_rounded,
-                ),
-              ),
-            ),
+        shape: (theme.listTileTheme.shape! as RoundedRectangleBorder).copyWith(
+          side: BorderSide(
+            width: 2,
+            color: theme.colorScheme.secondaryContainer.withOpacity(0.1),
           ),
         ),
+        leadingAndTrailingTextStyle: theme.textTheme.bodyMedium?.copyWith(
+          fontWeight: FontWeight.w600,
+        ),
+        leading: leading,
+        subtitle: subtitle,
+        title: title,
+        trailing: trailing,
       ),
     );
   }

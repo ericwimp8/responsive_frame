@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       theme: DashboardTheme.light(),
       darkTheme: DashboardTheme.dark(),
       home: const Dashboard(),

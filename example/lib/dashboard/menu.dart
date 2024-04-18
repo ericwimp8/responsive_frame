@@ -101,6 +101,7 @@ class MenuTile extends StatelessWidget {
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: ListTile(
@@ -109,7 +110,11 @@ class MenuTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               )
             : null,
+        titleTextStyle: selected
+            ? theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600)
+            : theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w300),
         selected: selected,
+        textColor: theme.colorScheme.onSurface.withOpacity(0.3),
         onTap: onTap,
         leading: leading,
         title: title,
