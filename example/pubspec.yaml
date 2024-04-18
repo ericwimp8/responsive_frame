@@ -41,8 +41,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/example_icon.png
-    - assets/images/bananaman.png
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -59,8 +58,28 @@ flutter:
   fonts:
     - family: JosefinSans
       fonts:
-        - asset: assets/fonts/JosefinSans-Italic-VariableFont_wght.ttf
-        - asset: assets/fonts/JosefinSans-VariableFont_wght.ttf
+        - asset: assets/fonts/JosefinSans/JosefinSans-Italic-VariableFont_wght.ttf
+        - asset: assets/fonts/JosefinSans/JosefinSans-VariableFont_wght.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/poppins/Poppins-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/poppins/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/poppins/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/poppins/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/poppins/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/poppins/Poppins-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/poppins/Poppins-Black.ttf
+          weight: 900
 
   #
   # For details regarding fonts from package dependencies,
