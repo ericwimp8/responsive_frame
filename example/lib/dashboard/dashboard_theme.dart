@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 abstract class DashboardTheme {
-  // static const Color blue = Color(0xFF2D00F7);
-  // static const Color electricIndigo = Color(0xFF6A00F4);
-  // static const Color violet = Color(0xFF8900F2);
-  // static const Color veronica = Color(0xFFA100F2);
-  // static const Color veronica2 = Color(0xFFB100E8);
-  // static const Color electricPurple = Color(0xFFBC00DD);
-  // static const Color steelPink = Color(0xFFD100D1);
-  // static const Color steelPink2 = Color(0xFFDB00B6);
-  // static const Color hollywoodCerise = Color(0xFFE500A4);
-  // static const Color magenta = Color(0xFFF20089);
+  static const Color blue = Color(0xFF2D00F7);
+  static const Color electricIndigo = Color(0xFF6A00F4);
+  static const Color violet = Color(0xFF8900F2);
+  static const Color veronica = Color(0xFFA100F2);
+  static const Color veronica2 = Color(0xFFB100E8);
+  static const Color electricPurple = Color(0xFFBC00DD);
+  static const Color steelPink = Color(0xFFD100D1);
+  static const Color steelPink2 = Color(0xFFDB00B6);
+  static const Color hollywoodCerise = Color(0xFFE500A4);
+  static const Color magenta = Color(0xFFF20089);
 
   static const orangePeel = Color(0xFFFF9900);
   static const mikadoYellow = Color(0xFFFFC800);
@@ -55,6 +55,7 @@ abstract class DashboardTheme {
     );
 
     return ThemeData(
+      fontFamily: 'Poppins',
       colorScheme: colorScheme,
       listTileTheme: listTileTheme,
       inputDecorationTheme: inputDecorationTheme,
@@ -67,7 +68,9 @@ abstract class DashboardTheme {
       ColorScheme.fromSeed(
         seedColor: yellow,
         primary: yellow,
+        primaryContainer: orangePeel,
         secondary: sgbusGreen,
+        secondaryContainer: lime,
         onSecondary: Colors.black,
         onPrimary: Colors.black,
         surfaceTint: Colors.black.withOpacity(0.05),
@@ -78,9 +81,11 @@ abstract class DashboardTheme {
   static ThemeData dark() {
     return buildTheme(
       ColorScheme.fromSeed(
-        seedColor: yellow,
         primary: yellow,
+        seedColor: yellow,
+        primaryContainer: orangePeel,
         secondary: sgbusGreen,
+        secondaryContainer: lime,
         onSecondary: Colors.black,
         onPrimary: Colors.black,
         brightness: Brightness.dark,
