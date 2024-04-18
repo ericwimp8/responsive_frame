@@ -27,11 +27,25 @@ class FrameConfig {
   final Widget? rightEndTop;
   final Widget? bodyBottom;
   final Widget? bottom;
-  final DimensionsConfig dimensions;
+  final DimensionsConfig? dimensions;
 
   @override
   String toString() {
     return 'FrameConfig(body: $body, top: $top, bodyTop: $bodyTop, leftEnd: $leftEnd, leftEndTop: $leftEndTop, rightEnd: $rightEnd, rightEndTop: $rightEndTop, bodyBottom: $bodyBottom, bottom: $bottom, dimensions: $dimensions)';
+  }
+
+  FrameConfig merge(FrameConfig other) {
+    return FrameConfig(
+      body: body ?? other.body,
+      top: top ?? other.top,
+      bodyTop: bodyTop ?? other.bodyTop,
+      leftEnd: leftEnd ?? other.leftEnd,
+      leftEndTop: leftEnd ?? other.leftEndTop,
+      rightEnd: rightEnd ?? other.rightEndTop,
+      bodyBottom: bodyBottom ?? other.bodyBottom,
+      bottom: bottom ?? other.bodyBottom,
+      dimensions: dimensions?.merge(other.dimensions),
+    );
   }
 
   @override

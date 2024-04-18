@@ -58,13 +58,15 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayout> {
         child: LayoutBuilder(
           builder: (context, constraints) {
             final deviceWidth = constraints.maxWidth;
-            final config = contoller.breakpointCallback(
-              deviceWidth: deviceWidth,
-              context: context,
-            );
+            final config = contoller
+                .breakpointCallback(
+                  deviceWidth: deviceWidth,
+                  context: context,
+                )
+                .merge(widget.persistentFrameConfig ?? const FrameConfig());
+
             return Frame(
-              dimensions: config.dimensions
-                  .merge(widget.persistentFrameConfig?.dimensions),
+              dimensions: config.dimensions,
               animations: !_isInit && widget.animations,
               body: config.body ?? [],
               top: config.top,
