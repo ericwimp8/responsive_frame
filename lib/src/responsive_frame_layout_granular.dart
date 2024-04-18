@@ -18,7 +18,7 @@ class ResponsiveFrameLayoutGranular extends StatefulWidget {
     this.mobileExtraLarge,
     this.mobileLarge,
     this.mobileSmall,
-    this.persistentDimenions = DimensionsConfig.empty,
+    this.persistentConfig = FrameConfig.empty,
   });
   final FrameConfig Function(BuildContext context) mobileNormal;
   final FrameConfig Function(BuildContext context)? desktopExtraLarge;
@@ -34,7 +34,7 @@ class ResponsiveFrameLayoutGranular extends StatefulWidget {
   final FrameConfig Function(BuildContext context)? mobileSmall;
   final BreakpointsGranular breakpoints;
   final bool animations;
-  final DimensionsConfig persistentDimenions;
+  final FrameConfig persistentConfig;
 
   @override
   State<ResponsiveFrameLayoutGranular> createState() =>
@@ -75,12 +75,14 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayoutGranular> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final deviceWidth = constraints.maxWidth;
-        final config = controller.breakpointCallback(
-          deviceWidth: deviceWidth,
-          context: context,
-        );
+        final config = controller
+            .breakpointCallback(
+              deviceWidth: deviceWidth,
+              context: context,
+            )
+            .merge(widget.persistentConfig);
         return Frame(
-          dimensions: config.dimensions.merge(widget.persistentDimenions),
+          dimensions: config.dimensions,
           animations: !_isInit && widget.animations,
           body: config.body ?? [],
           top: config.top,
