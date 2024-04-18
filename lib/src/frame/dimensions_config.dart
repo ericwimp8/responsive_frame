@@ -3,36 +3,48 @@ import 'package:flutter/material.dart';
 @immutable
 class DimensionsConfig {
   const DimensionsConfig({
-    this.topHeight,
-    this.bodyTopHeight,
+    this.topMaxHeight,
+    this.topMinHeight,
+    this.bodyTopMaxHeight,
+    this.bodyTopMinHeight,
     this.bodyMaxWidth,
     this.bodyMinWidth,
     this.leftEndMaxWidth,
     this.leftEndMinWidth,
     this.leftEndFillVertical,
-    this.leftEndTopHeight,
+    this.leftEndTopMinHeight,
+    this.leftEndTopMaxHeight,
     this.rightEndMaxWidth,
     this.rightEndMinWidth,
     this.rightEndFillVertical,
-    this.rightEndTopHeight,
-    this.bodyBottomHeight,
-    this.bottomHeight,
+    this.rightEndTopMaxHeight,
+    this.rightEndTopMinHeight,
+    this.bodyBottomMaxHeight,
+    this.bodyBottomMinHeight,
+    this.bottomMaxHeight,
+    this.bottomMinHeight,
     this.bodyAlignment,
   });
-  final double? topHeight;
-  final double? bodyTopHeight;
+  final double? topMaxHeight;
+  final double? topMinHeight;
+  final double? bodyTopMaxHeight;
+  final double? bodyTopMinHeight;
   final double? bodyMaxWidth;
   final double? bodyMinWidth;
   final double? leftEndMaxWidth;
   final double? leftEndMinWidth;
   final bool? leftEndFillVertical;
-  final double? leftEndTopHeight;
+  final double? leftEndTopMaxHeight;
+  final double? leftEndTopMinHeight;
   final double? rightEndMaxWidth;
   final double? rightEndMinWidth;
   final bool? rightEndFillVertical;
-  final double? rightEndTopHeight;
-  final double? bodyBottomHeight;
-  final double? bottomHeight;
+  final double? rightEndTopMaxHeight;
+  final double? rightEndTopMinHeight;
+  final double? bodyBottomMaxHeight;
+  final double? bodyBottomMinHeight;
+  final double? bottomMaxHeight;
+  final double? bottomMinHeight;
   final Alignment? bodyAlignment;
 
   static const empty = DimensionsConfig();
@@ -41,104 +53,30 @@ class DimensionsConfig {
   // persistent values can be overriden
   DimensionsConfig merge(DimensionsConfig? config) {
     return DimensionsConfig(
-      topHeight: topHeight ?? config?.topHeight,
-      bodyTopHeight: bodyTopHeight ?? config?.bodyTopHeight,
+      topMaxHeight: topMaxHeight ?? config?.topMaxHeight,
+      topMinHeight: topMinHeight ?? config?.topMinHeight,
+      bodyTopMaxHeight: bodyTopMaxHeight ?? config?.bodyTopMaxHeight,
+      bodyTopMinHeight: bodyTopMinHeight ?? config?.bodyTopMinHeight,
       bodyMaxWidth: bodyMaxWidth ?? config?.bodyMaxWidth,
       bodyMinWidth: bodyMinWidth ?? config?.bodyMinWidth,
       leftEndMaxWidth: leftEndMaxWidth ?? config?.leftEndMaxWidth,
       leftEndMinWidth: leftEndMinWidth ?? config?.leftEndMinWidth,
       leftEndFillVertical: leftEndFillVertical ?? config?.leftEndFillVertical,
-      leftEndTopHeight: leftEndTopHeight ?? config?.leftEndTopHeight,
+      leftEndTopMaxHeight: leftEndTopMaxHeight ?? config?.leftEndTopMaxHeight,
+      leftEndTopMinHeight: leftEndTopMinHeight ?? config?.leftEndTopMinHeight,
       rightEndMaxWidth: rightEndMaxWidth ?? config?.rightEndMaxWidth,
       rightEndMinWidth: rightEndMinWidth ?? config?.rightEndMinWidth,
       rightEndFillVertical:
           rightEndFillVertical ?? config?.rightEndFillVertical,
-      rightEndTopHeight: rightEndTopHeight ?? config?.rightEndTopHeight,
-      bodyBottomHeight: bodyBottomHeight ?? config?.bodyBottomHeight,
-      bottomHeight: bottomHeight ?? config?.bottomHeight,
+      rightEndTopMaxHeight:
+          rightEndTopMaxHeight ?? config?.rightEndTopMaxHeight,
+      rightEndTopMinHeight:
+          rightEndTopMinHeight ?? config?.rightEndTopMinHeight,
+      bodyBottomMaxHeight: bodyBottomMaxHeight ?? config?.bodyBottomMaxHeight,
+      bodyBottomMinHeight: bodyBottomMinHeight ?? config?.bodyBottomMinHeight,
+      bottomMaxHeight: bottomMaxHeight ?? config?.bottomMaxHeight,
+      bottomMinHeight: bottomMinHeight ?? config?.bottomMinHeight,
       bodyAlignment: bodyAlignment ?? config?.bodyAlignment,
     );
-  }
-
-  DimensionsConfig copyWith({
-    double? topHeight,
-    double? bodyTopHeight,
-    double? bodyMaxWidth,
-    double? bodyMinWidth,
-    double? leftEndMaxWidth,
-    double? leftEndMinWidth,
-    bool? leftEndFillVertical,
-    double? leftEndTopHeight,
-    double? rightEndMaxWidth,
-    double? rightEndMinWidth,
-    bool? rightEndFillVertical,
-    double? rightEndTopHeight,
-    double? bodyBottomHeight,
-    double? bottomHeight,
-    Alignment? bodyAlignment,
-  }) {
-    return DimensionsConfig(
-      topHeight: topHeight ?? this.topHeight,
-      bodyTopHeight: bodyTopHeight ?? this.bodyTopHeight,
-      bodyMaxWidth: bodyMaxWidth ?? this.bodyMaxWidth,
-      bodyMinWidth: bodyMinWidth ?? this.bodyMinWidth,
-      leftEndMaxWidth: leftEndMaxWidth ?? this.leftEndMaxWidth,
-      leftEndMinWidth: leftEndMinWidth ?? this.leftEndMinWidth,
-      leftEndFillVertical: leftEndFillVertical ?? this.leftEndFillVertical,
-      leftEndTopHeight: leftEndTopHeight ?? this.leftEndTopHeight,
-      rightEndMaxWidth: rightEndMaxWidth ?? this.rightEndMaxWidth,
-      rightEndMinWidth: rightEndMinWidth ?? this.rightEndMinWidth,
-      rightEndFillVertical: rightEndFillVertical ?? this.rightEndFillVertical,
-      rightEndTopHeight: rightEndTopHeight ?? this.rightEndTopHeight,
-      bodyBottomHeight: bodyBottomHeight ?? this.bodyBottomHeight,
-      bottomHeight: bottomHeight ?? this.bottomHeight,
-      bodyAlignment: bodyAlignment ?? this.bodyAlignment,
-    );
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is DimensionsConfig &&
-        other.topHeight == topHeight &&
-        other.bodyTopHeight == bodyTopHeight &&
-        other.bodyMaxWidth == bodyMaxWidth &&
-        other.bodyMinWidth == bodyMinWidth &&
-        other.leftEndMaxWidth == leftEndMaxWidth &&
-        other.leftEndMinWidth == leftEndMinWidth &&
-        other.leftEndFillVertical == leftEndFillVertical &&
-        other.leftEndTopHeight == leftEndTopHeight &&
-        other.rightEndMaxWidth == rightEndMaxWidth &&
-        other.rightEndMinWidth == rightEndMinWidth &&
-        other.rightEndFillVertical == rightEndFillVertical &&
-        other.rightEndTopHeight == rightEndTopHeight &&
-        other.bodyBottomHeight == bodyBottomHeight &&
-        other.bottomHeight == bottomHeight &&
-        other.bodyAlignment == bodyAlignment;
-  }
-
-  @override
-  int get hashCode {
-    return topHeight.hashCode ^
-        bodyTopHeight.hashCode ^
-        bodyMaxWidth.hashCode ^
-        bodyMinWidth.hashCode ^
-        leftEndMaxWidth.hashCode ^
-        leftEndMinWidth.hashCode ^
-        leftEndFillVertical.hashCode ^
-        leftEndTopHeight.hashCode ^
-        rightEndMaxWidth.hashCode ^
-        rightEndMinWidth.hashCode ^
-        rightEndFillVertical.hashCode ^
-        rightEndTopHeight.hashCode ^
-        bodyBottomHeight.hashCode ^
-        bottomHeight.hashCode ^
-        bodyAlignment.hashCode;
-  }
-
-  @override
-  String toString() {
-    return 'DimensionsConfig(topHeight: $topHeight, bodyTopHeight: $bodyTopHeight, bodyMaxWidth: $bodyMaxWidth, bodyMinWidth: $bodyMinWidth, leftEndMaxWidth: $leftEndMaxWidth, leftEndMinWidth: $leftEndMinWidth, leftEndFillVertical: $leftEndFillVertical, leftEndTopHeight: $leftEndTopHeight, rightEndMaxWidth: $rightEndMaxWidth, rightEndMinWidth: $rightEndMinWidth, rightEndFillVertical: $rightEndFillVertical, rightEndTopHeight: $rightEndTopHeight, bodyBottomHeight: $bodyBottomHeight, bottomHeight: $bottomHeight, bodyAlignment: $bodyAlignment)';
   }
 }

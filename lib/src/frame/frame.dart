@@ -41,7 +41,8 @@ class Frame extends StatelessWidget {
           animate: animations,
           child: top != null
               ? FrameVerticalEnd(
-                  height: dimensions?.topHeight,
+                  maxHeight: dimensions?.topMaxHeight,
+                  minHeight: dimensions?.topMinHeight,
                   child: top!,
                 )
               : null,
@@ -59,13 +60,17 @@ class Frame extends StatelessWidget {
                     ? FrameHorizontalEnd(
                         maxWidth: dimensions?.leftEndMaxWidth,
                         minWidth: dimensions?.leftEndMinWidth,
-                        body: leftEnd!,
                         top: leftEndTop != null &&
                                     (dimensions?.leftEndFillVertical ??
                                         kDefaultFillVertical) ||
                                 leftEndTop != null && leftEndTop != null
-                            ? FrameVerticalEnd(child: leftEndTop!)
+                            ? FrameVerticalEnd(
+                                maxHeight: dimensions?.leftEndTopMaxHeight,
+                                minHeight: dimensions?.leftEndTopMinHeight,
+                                child: leftEndTop!,
+                              )
                             : null,
+                        child: leftEnd!,
                       )
                     : null,
               ),
@@ -76,7 +81,8 @@ class Frame extends StatelessWidget {
                       animate: animations,
                       child: bodyTop != null
                           ? FrameVerticalEnd(
-                              height: dimensions?.bodyTopHeight,
+                              maxHeight: dimensions?.bodyTopMaxHeight,
+                              minHeight: dimensions?.bodyTopMinHeight,
                               child: bodyTop!,
                             )
                           : null,
@@ -92,10 +98,10 @@ class Frame extends StatelessWidget {
                                     !(dimensions?.leftEndFillVertical ??
                                         kDefaultFillVertical)
                                 ? FrameHorizontalEnd(
-                                    body: leftEnd!,
                                     top: leftEndTop,
                                     maxWidth: dimensions?.leftEndMaxWidth,
                                     minWidth: dimensions?.leftEndMinWidth,
+                                    child: leftEnd!,
                                   )
                                 : null,
                           ),
@@ -127,10 +133,10 @@ class Frame extends StatelessWidget {
                                     !(dimensions?.rightEndFillVertical ??
                                         kDefaultFillVertical)
                                 ? FrameHorizontalEnd(
-                                    body: rightEnd!,
                                     top: rightEndTop,
                                     maxWidth: dimensions?.rightEndMaxWidth,
                                     minWidth: dimensions?.rightEndMinWidth,
+                                    child: rightEnd!,
                                   )
                                 : null,
                           ),
@@ -141,7 +147,8 @@ class Frame extends StatelessWidget {
                       animate: animations,
                       child: bodyBottom != null
                           ? FrameVerticalEnd(
-                              height: dimensions?.bodyBottomHeight,
+                              maxHeight: dimensions?.bodyBottomMaxHeight,
+                              minHeight: dimensions?.bodyBottomMaxHeight,
                               child: bodyBottom!,
                             )
                           : null,
@@ -157,10 +164,10 @@ class Frame extends StatelessWidget {
                                 kDefaultFillVertical) ||
                         rightEnd != null && rightEndTop != null
                     ? FrameHorizontalEnd(
-                        body: rightEnd!,
                         top: rightEndTop,
                         maxWidth: dimensions?.rightEndMaxWidth,
                         minWidth: dimensions?.rightEndMinWidth,
+                        child: rightEnd!,
                       )
                     : null,
               ),
@@ -171,7 +178,8 @@ class Frame extends StatelessWidget {
           animate: animations,
           child: bottom != null
               ? FrameVerticalEnd(
-                  height: dimensions?.bottomHeight,
+                  maxHeight: dimensions?.bottomMaxHeight,
+                  minHeight: dimensions?.bottomMinHeight,
                   child: bottom!,
                 )
               : null,
