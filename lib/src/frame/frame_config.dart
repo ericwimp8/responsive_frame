@@ -29,6 +29,8 @@ class FrameConfig {
   final Widget? bottom;
   final DimensionsConfig? dimensions;
 
+  static const empty = FrameConfig();
+
   @override
   String toString() {
     return 'FrameConfig(body: $body, top: $top, bodyTop: $bodyTop, leftEnd: $leftEnd, leftEndTop: $leftEndTop, rightEnd: $rightEnd, rightEndTop: $rightEndTop, bodyBottom: $bodyBottom, bottom: $bottom, dimensions: $dimensions)';
@@ -40,7 +42,7 @@ class FrameConfig {
       top: top ?? other.top,
       bodyTop: bodyTop ?? other.bodyTop,
       leftEnd: leftEnd ?? other.leftEnd,
-      leftEndTop: leftEnd ?? other.leftEndTop,
+      leftEndTop: leftEndTop ?? other.leftEndTop,
       rightEnd: rightEnd ?? other.rightEndTop,
       bodyBottom: bodyBottom ?? other.bodyBottom,
       bottom: bottom ?? other.bodyBottom,
