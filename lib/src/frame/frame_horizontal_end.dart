@@ -3,7 +3,7 @@ import 'package:responsive_frame/responsive_frame.dart';
 
 class FrameHorizontalEnd extends StatelessWidget {
   const FrameHorizontalEnd({
-    required this.body,
+    required this.child,
     this.top,
     this.maxWidth = kDefaultHorizontalEndWidth,
     this.minWidth = kDefaultHorizontalEndWidth,
@@ -11,7 +11,7 @@ class FrameHorizontalEnd extends StatelessWidget {
     super.key,
   });
   final Widget? top;
-  final Widget body;
+  final Widget child;
 
   final double? maxWidth;
   final double? minWidth;
@@ -35,7 +35,7 @@ class FrameHorizontalEnd extends StatelessWidget {
               ),
               child: top,
             ),
-          Expanded(child: body),
+          Expanded(child: child),
         ],
       ),
     );
