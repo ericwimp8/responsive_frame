@@ -1,60 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_frame/responsive_frame.dart';
 
 @immutable
 class DimensionsConfig {
   const DimensionsConfig({
-    this.topHeight = kDefaultVerticalEndHeight,
-    this.bodyTopHeight = kDefaultVerticalEndHeight,
-    this.bodyMaxWidth = kDefaultBodyMaxWidth,
-    this.bodyMinWidth = kDefaultBodyMinWidth,
-    this.leftEndMaxWidth = kDefaultHorizontalEndWidth,
-    this.leftEndMinWidth = kDefaultHorizontalEndWidth,
-    this.leftEndFillVertical = true,
-    this.leftEndTopHeight = kDefaultVerticalEndHeight,
-    this.rightEndMaxWidth = kDefaultHorizontalEndWidth,
-    this.rightEndMinWidth = kDefaultHorizontalEndWidth,
-    this.rightEndFillVertical = true,
-    this.rightEndTopHeight = kDefaultVerticalEndHeight,
-    this.bodyBottomHeight = kDefaultVerticalEndHeight,
-    this.bottomHeight = kDefaultVerticalEndHeight,
-    this.bodyAlignment = Alignment.topCenter,
+    this.topHeight,
+    this.bodyTopHeight,
+    this.bodyMaxWidth,
+    this.bodyMinWidth,
+    this.leftEndMaxWidth,
+    this.leftEndMinWidth,
+    this.leftEndFillVertical,
+    this.leftEndTopHeight,
+    this.rightEndMaxWidth,
+    this.rightEndMinWidth,
+    this.rightEndFillVertical,
+    this.rightEndTopHeight,
+    this.bodyBottomHeight,
+    this.bottomHeight,
+    this.bodyAlignment,
   });
-  final double topHeight;
-  final double bodyTopHeight;
-  final double bodyMaxWidth;
-  final double bodyMinWidth;
-  final double leftEndMaxWidth;
-  final double leftEndMinWidth;
-  final bool leftEndFillVertical;
-  final double leftEndTopHeight;
-  final double rightEndMaxWidth;
-  final double rightEndMinWidth;
-  final bool rightEndFillVertical;
-  final double rightEndTopHeight;
-  final double bodyBottomHeight;
-  final double bottomHeight;
-  final Alignment bodyAlignment;
+  final double? topHeight;
+  final double? bodyTopHeight;
+  final double? bodyMaxWidth;
+  final double? bodyMinWidth;
+  final double? leftEndMaxWidth;
+  final double? leftEndMinWidth;
+  final bool? leftEndFillVertical;
+  final double? leftEndTopHeight;
+  final double? rightEndMaxWidth;
+  final double? rightEndMinWidth;
+  final bool? rightEndFillVertical;
+  final double? rightEndTopHeight;
+  final double? bodyBottomHeight;
+  final double? bottomHeight;
+  final Alignment? bodyAlignment;
 
-  static const defaultValues = DimensionsConfig();
+  static const empty = DimensionsConfig();
 
-  DimensionsConfig merge(PersistentDimensionsConfig config) {
+  // uses pesistent value if local one is not set
+  // persistent values can be overriden
+  DimensionsConfig merge(DimensionsConfig? config) {
     return DimensionsConfig(
-      topHeight: config.topHeight ?? topHeight,
-      bodyTopHeight: config.bodyTopHeight ?? bodyTopHeight,
-      bodyMaxWidth: config.bodyMaxWidth ?? bodyMaxWidth,
-      bodyMinWidth: config.bodyMinWidth ?? bodyMinWidth,
-      leftEndMaxWidth: config.leftEndMaxWidth ?? leftEndMaxWidth,
-      leftEndMinWidth: config.leftEndMinWidth ?? leftEndMinWidth,
-      leftEndFillVertical: config.leftEndFillVertical ?? leftEndFillVertical,
-      leftEndTopHeight: config.leftEndTopHeight ?? leftEndTopHeight,
-      rightEndMaxWidth: config.rightEndMaxWidth ?? rightEndMaxWidth,
-      rightEndMinWidth: config.rightEndMinWidth ?? rightEndMinWidth,
-      rightEndFillVertical: config.rightEndFillVertical ?? rightEndFillVertical,
-      rightEndTopHeight: config.rightEndTopHeight ?? rightEndTopHeight,
-      bodyBottomHeight: config.bodyBottomHeight ?? bodyBottomHeight,
-      bottomHeight: config.bottomHeight ?? bottomHeight,
-      bodyAlignment: config.bodyAlignment ?? bodyAlignment,
+      topHeight: topHeight ?? config?.topHeight,
+      bodyTopHeight: bodyTopHeight ?? config?.bodyTopHeight,
+      bodyMaxWidth: bodyMaxWidth ?? config?.bodyMaxWidth,
+      bodyMinWidth: bodyMinWidth ?? config?.bodyMinWidth,
+      leftEndMaxWidth: leftEndMaxWidth ?? config?.leftEndMaxWidth,
+      leftEndMinWidth: leftEndMinWidth ?? config?.leftEndMinWidth,
+      leftEndFillVertical: leftEndFillVertical ?? config?.leftEndFillVertical,
+      leftEndTopHeight: leftEndTopHeight ?? config?.leftEndTopHeight,
+      rightEndMaxWidth: rightEndMaxWidth ?? config?.rightEndMaxWidth,
+      rightEndMinWidth: rightEndMinWidth ?? config?.rightEndMinWidth,
+      rightEndFillVertical:
+          rightEndFillVertical ?? config?.rightEndFillVertical,
+      rightEndTopHeight: rightEndTopHeight ?? config?.rightEndTopHeight,
+      bodyBottomHeight: bodyBottomHeight ?? config?.bodyBottomHeight,
+      bottomHeight: bottomHeight ?? config?.bottomHeight,
+      bodyAlignment: bodyAlignment ?? config?.bodyAlignment,
     );
   }
 

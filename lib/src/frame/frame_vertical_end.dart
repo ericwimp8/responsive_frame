@@ -11,14 +11,14 @@ class FrameVerticalEnd extends StatelessWidget {
     this.height = kDefaultVerticalEndHeight,
   });
   final Widget child;
-  final double height;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     return AnimatedConstrainedBox(
       constraints: BoxConstraints(
         minWidth: double.infinity,
-        maxHeight: height,
-        minHeight: height,
+        maxHeight: height ?? kDefaultVerticalEndHeight,
+        minHeight: height ?? kDefaultVerticalEndHeight,
       ),
       child: child,
     );

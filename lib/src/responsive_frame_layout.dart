@@ -12,7 +12,7 @@ class ResponsiveFrameLayout extends StatefulWidget {
     this.watch,
     this.breakpoints = Breakpoints.defaultBreakpoints,
     this.animations = true,
-    this.persistentDimenions = PersistentDimensionsConfig.empty,
+    this.persistentFrameConfig,
     this.backgroundColor,
     super.key,
   });
@@ -22,7 +22,7 @@ class ResponsiveFrameLayout extends StatefulWidget {
   final FrameConfig Function(BuildContext context)? watch;
   final Breakpoints breakpoints;
   final bool animations;
-  final PersistentDimensionsConfig persistentDimenions;
+  final FrameConfig? persistentFrameConfig;
   final Color? backgroundColor;
 
   @override
@@ -63,9 +63,10 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayout> {
               context: context,
             );
             return Frame(
-              dimensions: config.dimensions.merge(widget.persistentDimenions),
+              dimensions: config.dimensions
+                  .merge(widget.persistentFrameConfig?.dimensions),
               animations: !_isInit && widget.animations,
-              body: config.body,
+              body: config.body ?? [],
               top: config.top,
               bodyTop: config.bodyTop,
               leftEnd: config.leftEnd,

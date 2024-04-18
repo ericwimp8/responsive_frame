@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
-import 'package:responsive_frame/src/frame/constants.dart';
 
 class FrameBody extends StatelessWidget {
   const FrameBody({
@@ -12,18 +11,18 @@ class FrameBody extends StatelessWidget {
     super.key,
   });
   final List<FrameBodyListChild> children;
-  final Alignment bodyAlignment;
-  final double maxWidth;
-  final double minWidth;
+  final Alignment? bodyAlignment;
+  final double? maxWidth;
+  final double? minWidth;
   final bool isInit;
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: bodyAlignment,
+      alignment: bodyAlignment ?? kDefaultBodyAlignment,
       child: ConstrainedBox(
         constraints: BoxConstraints(
-          maxWidth: maxWidth,
-          minWidth: minWidth,
+          maxWidth: maxWidth ?? kDefaultBodyMaxWidth,
+          minWidth: minWidth ?? kDefaultBodyMinWidth,
         ),
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -99,7 +98,6 @@ class _AnimationChildState extends State<AnimationChild>
       return AnimatedBuilder(
         builder: (context, child) {
           return AnimatedConstrainedBox(
-            duration: const Duration(milliseconds: 180),
             constraints: BoxConstraints(
               maxWidth:
                   _controller!.isCompleted ? widget.width : _animation.value,

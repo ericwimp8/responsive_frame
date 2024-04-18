@@ -8,7 +8,7 @@ import 'package:responsive_frame/responsive_frame.dart';
 class Frame extends StatelessWidget {
   const Frame({
     required this.body,
-    required this.dimensions,
+    this.dimensions = DimensionsConfig.empty,
     this.backgroundColor,
     this.animations = true,
     this.top,
@@ -52,18 +52,20 @@ class Frame extends StatelessWidget {
               AnimatedShowHide(
                 axis: Axis.horizontal,
                 animate: animations,
-                child: leftEnd != null && dimensions.leftEndFillVertical ||
+                child: leftEnd != null &&
+                            (dimensions.leftEndFillVertical ??
+                                kDefaultFillVertical) ||
                         leftEnd != null && leftEndTop != null
                     ? FrameHorizontalEnd(
                         maxWidth: dimensions.leftEndMaxWidth,
                         minWidth: dimensions.leftEndMinWidth,
                         body: leftEnd!,
                         top: leftEndTop != null &&
-                                    dimensions.leftEndFillVertical ||
+                                    (dimensions.leftEndFillVertical ??
+                                        kDefaultFillVertical) ||
                                 leftEndTop != null && leftEndTop != null
                             ? FrameVerticalEnd(child: leftEndTop!)
                             : null,
-                        fillVertical: dimensions.leftEndFillVertical,
                       )
                     : null,
               ),
@@ -87,14 +89,13 @@ class Frame extends StatelessWidget {
                             axis: Axis.horizontal,
                             child: leftEnd != null &&
                                     leftEndTop == null &&
-                                    !dimensions.leftEndFillVertical
+                                    !(dimensions.leftEndFillVertical ??
+                                        kDefaultFillVertical)
                                 ? FrameHorizontalEnd(
                                     body: leftEnd!,
                                     top: leftEndTop,
                                     maxWidth: dimensions.leftEndMaxWidth,
                                     minWidth: dimensions.leftEndMinWidth,
-                                    fillVertical:
-                                        dimensions.leftEndFillVertical,
                                   )
                                 : null,
                           ),
@@ -123,14 +124,13 @@ class Frame extends StatelessWidget {
                             axis: Axis.horizontal,
                             child: rightEnd != null &&
                                     rightEndTop == null &&
-                                    !dimensions.rightEndFillVertical
+                                    !(dimensions.rightEndFillVertical ??
+                                        kDefaultFillVertical)
                                 ? FrameHorizontalEnd(
                                     body: rightEnd!,
                                     top: rightEndTop,
                                     maxWidth: dimensions.rightEndMaxWidth,
                                     minWidth: dimensions.rightEndMinWidth,
-                                    fillVertical:
-                                        dimensions.rightEndFillVertical,
                                   )
                                 : null,
                           ),
@@ -152,14 +152,15 @@ class Frame extends StatelessWidget {
               AnimatedShowHide(
                 animate: animations,
                 axis: Axis.horizontal,
-                child: rightEnd != null && dimensions.rightEndFillVertical ||
+                child: rightEnd != null &&
+                            (dimensions.rightEndFillVertical ??
+                                kDefaultFillVertical) ||
                         rightEnd != null && rightEndTop != null
                     ? FrameHorizontalEnd(
                         body: rightEnd!,
                         top: rightEndTop,
                         maxWidth: dimensions.rightEndMaxWidth,
                         minWidth: dimensions.rightEndMinWidth,
-                        fillVertical: dimensions.rightEndFillVertical,
                       )
                     : null,
               ),

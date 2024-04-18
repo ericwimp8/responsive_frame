@@ -6,7 +6,7 @@ import 'package:responsive_frame/responsive_frame.dart';
 @immutable
 class FrameConfig {
   const FrameConfig({
-    required this.body,
+    this.body,
     this.top,
     this.bodyTop,
     this.leftEnd,
@@ -15,10 +15,10 @@ class FrameConfig {
     this.rightEndTop,
     this.bodyBottom,
     this.bottom,
-    this.dimensions = DimensionsConfig.defaultValues,
+    this.dimensions = DimensionsConfig.empty,
   });
 
-  final List<FrameBodyListChild> body;
+  final List<FrameBodyListChild>? body;
   final Widget? top;
   final Widget? bodyTop;
   final Widget? leftEnd;
