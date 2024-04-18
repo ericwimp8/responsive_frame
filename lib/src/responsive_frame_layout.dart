@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+
 import 'package:responsive_frame/responsive_frame.dart';
 
 class ResponsiveFrameLayout extends StatefulWidget {
@@ -11,6 +12,8 @@ class ResponsiveFrameLayout extends StatefulWidget {
     this.watch,
     this.breakpoints = Breakpoints.defaultBreakpoints,
     this.animations = true,
+    this.persistentDimenions = PersistentDimensionsConfig.empty,
+    this.backgroundColor,
     super.key,
   });
   final FrameConfig Function(BuildContext context) mobile;
@@ -19,6 +22,9 @@ class ResponsiveFrameLayout extends StatefulWidget {
   final FrameConfig Function(BuildContext context)? watch;
   final Breakpoints breakpoints;
   final bool animations;
+  final PersistentDimensionsConfig persistentDimenions;
+  final Color? backgroundColor;
+
   @override
   State<ResponsiveFrameLayout> createState() => _ResponsiveFrameLayoutState();
 }
@@ -46,41 +52,32 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayout> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final deviceWidth = constraints.maxWidth;
-        final config = contoller.breakpointCallback(
-          deviceWidth: deviceWidth,
-          context: context,
-        );
-        return Frame(
-          animations: !_isInit && widget.animations,
-          body: config.body,
-          top: config.top,
-          topHeight: config.topHeight,
-          bodyTop: config.bodyTop,
-          bodyTopHeight: config.bodyTopHeight,
-          bodyAlignment: config.bodyAlignment,
-          bodyMaxWidth: config.bodyMaxWidth,
-          bodyMinWidth: config.bodyMinWidth,
-          leftEnd: config.leftEnd,
-          leftEndTop: config.leftEndTop,
-          leftEndMaxWidth: config.leftEndMaxWidth,
-          leftEndMinWidth: config.leftEndMinWidth,
-          leftEndFillVertical: config.leftEndFillVertical,
-          leftEndTopHeight: config.leftEndTopHeight,
-          rightEnd: config.rightEnd,
-          rightEndTop: config.rightEndTop,
-          rightEndMaxWidth: config.rightEndMaxWidth,
-          rightEndMinWidth: config.rightEndMinWidth,
-          rightEndFillVertical: config.rightEndFillVertical,
-          rightEndTopHeight: config.rightEndTopHeight,
-          bodyBottom: config.bodyBottom,
-          bodyBottomHeight: config.bodyBottomHeight,
-          bottom: config.bottom,
-          bottomHeight: config.bottomHeight,
-        );
-      },
+    return Material(
+      color: widget.backgroundColor,
+      child: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final deviceWidth = constraints.maxWidth;
+            final config = contoller.breakpointCallback(
+              deviceWidth: deviceWidth,
+              context: context,
+            );
+            return Frame(
+              dimensions: config.dimensions.merge(widget.persistentDimenions),
+              animations: !_isInit && widget.animations,
+              body: config.body,
+              top: config.top,
+              bodyTop: config.bodyTop,
+              leftEnd: config.leftEnd,
+              leftEndTop: config.leftEndTop,
+              rightEnd: config.rightEnd,
+              rightEndTop: config.rightEndTop,
+              bodyBottom: config.bodyBottom,
+              bottom: config.bottom,
+            );
+          },
+        ),
+      ),
     );
   }
 }

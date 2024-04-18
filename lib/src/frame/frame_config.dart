@@ -1,57 +1,97 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
+@immutable
 class FrameConfig {
   const FrameConfig({
     required this.body,
     this.animations = true,
     this.top,
-    this.topHeight = kDefaultVerticalEndHeight,
     this.bodyTop,
-    this.bodyTopHeight = kDefaultVerticalEndHeight,
-    this.bodyAlignment = Alignment.topCenter,
-    this.bodyMaxWidth = 950,
-    this.bodyMinWidth = 0,
     this.leftEnd,
     this.leftEndTop,
-    this.leftEndMaxWidth = kDefaultHorizontalEndWidth,
-    this.leftEndMinWidth = kDefaultHorizontalEndWidth,
-    this.leftEndTopHeight = kDefaultVerticalEndHeight,
-    this.leftEndFillVertical = true,
     this.rightEnd,
     this.rightEndTop,
-    this.rightEndMaxWidth = kDefaultHorizontalEndWidth,
-    this.rightEndMinWidth = kDefaultHorizontalEndWidth,
-    this.rightEndTopHeight = kDefaultVerticalEndHeight,
-    this.rightEndFillVertical = true,
     this.bodyBottom,
-    this.bodyBottomHeight = kDefaultVerticalEndHeight,
     this.bottom,
-    this.bottomHeight = kDefaultVerticalEndHeight,
+    this.dimensions = DimensionsConfig.defaultValues,
   });
   final bool animations;
   final List<FrameBodyListChild> body;
   final Widget? top;
-  final double topHeight;
   final Widget? bodyTop;
-  final double bodyTopHeight;
-  final Alignment bodyAlignment;
-  final double bodyMaxWidth;
-  final double bodyMinWidth;
   final Widget? leftEnd;
   final Widget? leftEndTop;
-  final double leftEndMaxWidth;
-  final double leftEndMinWidth;
-  final bool leftEndFillVertical;
-  final double leftEndTopHeight;
   final Widget? rightEnd;
   final Widget? rightEndTop;
-  final double rightEndMaxWidth;
-  final double rightEndMinWidth;
-  final bool rightEndFillVertical;
-  final double rightEndTopHeight;
   final Widget? bodyBottom;
-  final double bodyBottomHeight;
   final Widget? bottom;
-  final double bottomHeight;
+  final DimensionsConfig dimensions;
+
+  FrameConfig copyWith({
+    bool? animations,
+    List<FrameBodyListChild>? body,
+    Widget? top,
+    Widget? bodyTop,
+    Widget? leftEnd,
+    Widget? leftEndTop,
+    Widget? rightEnd,
+    Widget? rightEndTop,
+    Widget? bodyBottom,
+    Widget? bottom,
+    DimensionsConfig? dimensions,
+  }) {
+    return FrameConfig(
+      animations: animations ?? this.animations,
+      body: body ?? this.body,
+      top: top ?? this.top,
+      bodyTop: bodyTop ?? this.bodyTop,
+      leftEnd: leftEnd ?? this.leftEnd,
+      leftEndTop: leftEndTop ?? this.leftEndTop,
+      rightEnd: rightEnd ?? this.rightEnd,
+      rightEndTop: rightEndTop ?? this.rightEndTop,
+      bodyBottom: bodyBottom ?? this.bodyBottom,
+      bottom: bottom ?? this.bottom,
+      dimensions: dimensions ?? this.dimensions,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'FrameConfig(animations: $animations, body: $body, top: $top, bodyTop: $bodyTop, leftEnd: $leftEnd, leftEndTop: $leftEndTop, rightEnd: $rightEnd, rightEndTop: $rightEndTop, bodyBottom: $bodyBottom, bottom: $bottom, dimensions: $dimensions)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is FrameConfig &&
+        other.animations == animations &&
+        listEquals(other.body, body) &&
+        other.top == top &&
+        other.bodyTop == bodyTop &&
+        other.leftEnd == leftEnd &&
+        other.leftEndTop == leftEndTop &&
+        other.rightEnd == rightEnd &&
+        other.rightEndTop == rightEndTop &&
+        other.bodyBottom == bodyBottom &&
+        other.bottom == bottom &&
+        other.dimensions == dimensions;
+  }
+
+  @override
+  int get hashCode {
+    return animations.hashCode ^
+        body.hashCode ^
+        top.hashCode ^
+        bodyTop.hashCode ^
+        leftEnd.hashCode ^
+        leftEndTop.hashCode ^
+        rightEnd.hashCode ^
+        rightEndTop.hashCode ^
+        bodyBottom.hashCode ^
+        bottom.hashCode ^
+        dimensions.hashCode;
+  }
 }

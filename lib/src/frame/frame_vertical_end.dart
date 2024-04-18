@@ -1,6 +1,8 @@
+// ignore_for_file: lines_longer_than_80_chars, cascade_invocations, prefer_asserts_with_message
+
 import 'package:flutter/material.dart';
 
-const kDefaultVerticalEndHeight = 100.0;
+import 'package:responsive_frame/responsive_frame.dart';
 
 class FrameVerticalEnd extends StatelessWidget {
   const FrameVerticalEnd({
@@ -12,7 +14,7 @@ class FrameVerticalEnd extends StatelessWidget {
   final double height;
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
+    return AnimatedConstrainedBox(
       constraints: BoxConstraints(
         minWidth: double.infinity,
         maxHeight: height,

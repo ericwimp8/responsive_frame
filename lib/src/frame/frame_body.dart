@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_frame/responsive_frame.dart';
+import 'package:responsive_frame/src/frame/constants.dart';
 
 class FrameBody extends StatelessWidget {
   const FrameBody({
     required this.children,
     required this.isInit,
-    this.bodyAlignment = Alignment.topCenter,
-    this.maxWidth = 950,
-    this.minWidth = 0,
+    this.bodyAlignment = kDefaultBodyAlignment,
+    this.maxWidth = kDefaultBodyMaxWidth,
+    this.minWidth = kDefaultBodyMinWidth,
     super.key,
   });
   final List<FrameBodyListChild> children;
@@ -37,7 +39,6 @@ class FrameBody extends StatelessWidget {
                     .map(
                       (e) => AnimationChild(
                         animations: isInit,
-                        maxWidth: constraints.maxWidth,
                         width: e.flex * oneFlex,
                         child: e.child,
                       ),
@@ -56,13 +57,12 @@ class AnimationChild extends StatefulWidget {
   const AnimationChild({
     required this.child,
     required this.width,
-    required this.maxWidth,
     required this.animations,
     super.key,
   });
   final Widget child;
   final double width;
-  final double maxWidth;
+
   final bool animations;
 
   @override
@@ -98,7 +98,8 @@ class _AnimationChildState extends State<AnimationChild>
     if (widget.animations) {
       return AnimatedBuilder(
         builder: (context, child) {
-          return ConstrainedBox(
+          return AnimatedConstrainedBox(
+            duration: const Duration(milliseconds: 180),
             constraints: BoxConstraints(
               maxWidth:
                   _controller!.isCompleted ? widget.width : _animation.value,

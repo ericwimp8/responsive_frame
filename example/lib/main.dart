@@ -1,8 +1,10 @@
+import 'package:example/dashboard/dashboard.dart';
+import 'package:example/dashboard/dashboard_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_frame/responsive_frame.dart';
+import 'package:flutter/scheduler.dart';
 
 void main() {
-  // timeDilation = 10;
+  timeDilation = 10;
   runApp(const MyApp());
 }
 
@@ -18,59 +20,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: ResponsiveFrameLayout(
-        mobile: (_) {
-          return FrameConfig(
-            body: [
-              FrameBodyListChild(
-                child: Scaffold(
-                  appBar: AppBar(
-                    title: const Text('mobile'),
-                  ),
-                  body: const Textbox(),
-                ),
-              ),
-            ],
-          );
-        },
-        tablet: (_) {
-          return const FrameConfig(
-            body: [
-              FrameBodyListChild(
-                child: Textbox(),
-              ),
-            ],
-            leftEnd: Textbox(),
-            leftEndTop: Textbox(
-              isLong: false,
-            ),
-            bodyTop: Textbox(isLong: false),
-          );
-        },
-        desktop: (_) {
-          return const FrameConfig(
-            body: [
-              FrameBodyListChild(
-                child: Textbox(),
-              ),
-              FrameBodyListChild(
-                flex: 3,
-                child: Textbox(),
-              ),
-            ],
-            leftEnd: Textbox(),
-            leftEndTop: Textbox(
-              isLong: false,
-            ),
-            top: Textbox(isLong: false),
-            bodyTop: Textbox(isLong: false),
-          );
-        },
-      ),
+      themeMode: ThemeMode.light,
+      theme: DashboardTheme.light(),
+      darkTheme: DashboardTheme.dark(),
+      home: const Dashboard(),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_frame/responsive_frame.dart';
 
-const kDefaultHorizontalEndWidth = 200.0;
+import 'package:responsive_frame/responsive_frame.dart';
 
 class FrameHorizontalEnd extends StatelessWidget {
   const FrameHorizontalEnd({
@@ -12,7 +11,7 @@ class FrameHorizontalEnd extends StatelessWidget {
     this.topHeight = kDefaultVerticalEndHeight,
     this.fillVertical = true,
     super.key,
-  });
+  }) : assert(maxWidth >= minWidth, 'maxWidth >= minWidth must be true');
   final Widget? top;
   final Widget body;
   final bool fillVertical;
@@ -22,7 +21,7 @@ class FrameHorizontalEnd extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
+    return AnimatedConstrainedBox(
       constraints: BoxConstraints(
         maxWidth: maxWidth,
         minWidth: maxWidth,
@@ -30,11 +29,12 @@ class FrameHorizontalEnd extends StatelessWidget {
       child: Column(
         children: [
           if (top != null)
-            ConstrainedBox(
+            AnimatedConstrainedBox(
               constraints: BoxConstraints(
                 maxHeight: topHeight,
                 minHeight: topHeight,
-                minWidth: double.infinity,
+                minWidth: minWidth,
+                maxWidth: maxWidth,
               ),
               child: top,
             ),

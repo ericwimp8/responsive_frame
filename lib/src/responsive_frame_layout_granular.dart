@@ -18,6 +18,7 @@ class ResponsiveFrameLayoutGranular extends StatefulWidget {
     this.mobileExtraLarge,
     this.mobileLarge,
     this.mobileSmall,
+    this.persistentDimenions = PersistentDimensionsConfig.empty,
   });
   final FrameConfig Function(BuildContext context) mobileNormal;
   final FrameConfig Function(BuildContext context)? desktopExtraLarge;
@@ -33,6 +34,8 @@ class ResponsiveFrameLayoutGranular extends StatefulWidget {
   final FrameConfig Function(BuildContext context)? mobileSmall;
   final BreakpointsGranular breakpoints;
   final bool animations;
+  final PersistentDimensionsConfig persistentDimenions;
+
   @override
   State<ResponsiveFrameLayoutGranular> createState() =>
       _ResponsiveFrameLayoutState();
@@ -77,31 +80,17 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayoutGranular> {
           context: context,
         );
         return Frame(
+          dimensions: config.dimensions.merge(widget.persistentDimenions),
           animations: !_isInit && widget.animations,
           body: config.body,
           top: config.top,
-          topHeight: config.topHeight,
           bodyTop: config.bodyTop,
-          bodyTopHeight: config.bodyTopHeight,
-          bodyAlignment: config.bodyAlignment,
-          bodyMaxWidth: config.bodyMaxWidth,
-          bodyMinWidth: config.bodyMinWidth,
           leftEnd: config.leftEnd,
           leftEndTop: config.leftEndTop,
-          leftEndMaxWidth: config.leftEndMaxWidth,
-          leftEndMinWidth: config.leftEndMinWidth,
-          leftEndFillVertical: config.leftEndFillVertical,
-          leftEndTopHeight: config.leftEndTopHeight,
           rightEnd: config.rightEnd,
           rightEndTop: config.rightEndTop,
-          rightEndMaxWidth: config.rightEndMaxWidth,
-          rightEndMinWidth: config.rightEndMinWidth,
-          rightEndFillVertical: config.rightEndFillVertical,
-          rightEndTopHeight: config.rightEndTopHeight,
           bodyBottom: config.bodyBottom,
-          bodyBottomHeight: config.bodyBottomHeight,
           bottom: config.bottom,
-          bottomHeight: config.bottomHeight,
         );
       },
     );
