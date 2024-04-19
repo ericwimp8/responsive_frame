@@ -53,7 +53,7 @@ class _ProfileButtonState extends State<ProfileButton> {
         tilePadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 3),
         leading: CircleAvatar(
           backgroundColor: Colors.black.withOpacity(0.1),
-          foregroundImage: const AssetImage('/images/bananaman.png'),
+          foregroundImage: const AssetImage('assets/images/bananaman.png'),
         ),
         title: const Text(
           'Banana Man',

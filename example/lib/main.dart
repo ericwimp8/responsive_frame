@@ -1,10 +1,8 @@
 import 'package:example/dashboard/dashboard.dart';
 import 'package:example/dashboard/dashboard_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
 void main() {
-  timeDilation = 10;
   runApp(const MyApp());
 }
 
