@@ -1,16 +1,25 @@
+import 'dart:convert';
+
 import 'package:example/barrel.dart';
-import 'package:example/dashboard/super_hero.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+List<SuperHero> _parseHeroes(String superHeroes) {
+  return (jsonDecode(superHeroes) as List)
+      .map((e) => SuperHero.fromJson(e as Map<String, dynamic>))
+      .toList();
+}
 
 @immutable
 class SuperHeroDataModel {
   const SuperHeroDataModel({
     required this.heroList,
     required this.selectedHero,
+    required this.selectedPowerStat,
   });
   final List<SuperHero> heroList;
   final SuperHero selectedHero;
+  final PowerStatsEnum selectedPowerStat;
 
   static const empty = SuperHeroDataModel(
     heroList: [],
@@ -18,7 +27,7 @@ class SuperHeroDataModel {
       id: -1,
       name: '',
       slug: '',
-      powerstats: Powerstats(
+      powerstats: PowerStats(
         intelligence: -1,
         strength: -1,
         speed: -1,
@@ -47,67 +56,88 @@ class SuperHeroDataModel {
       connections: Connections(groupAffiliation: '', relatives: ''),
       images: Images(xs: '', sm: '', md: '', lg: ''),
     ),
+    selectedPowerStat: PowerStatsEnum.intelligence,
   );
 
   SuperHeroDataModel copyWith({
     List<SuperHero>? heroList,
     SuperHero? selectedHero,
+    PowerStatsEnum? selectedPowerStat,
   }) {
     return SuperHeroDataModel(
       heroList: heroList ?? this.heroList,
       selectedHero: selectedHero ?? this.selectedHero,
+      selectedPowerStat: selectedPowerStat ?? this.selectedPowerStat,
     );
   }
 
   @override
   String toString() =>
-      'SuperHeroDataModel(heroList: $heroList, selectedHero: $selectedHero)';
+      'SuperHeroDataModel(heroList: $heroList, selectedHero: $selectedHero, selectedPowerStat: $selectedPowerStat)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
     return other is SuperHeroDataModel &&
-        listEquals(other.heroList, heroList) &&
-        other.selectedHero == selectedHero;
+        other.selectedHero == selectedHero &&
+        other.selectedPowerStat == selectedPowerStat;
   }
 
   @override
-  int get hashCode => heroList.hashCode ^ selectedHero.hashCode;
+  int get hashCode => selectedHero.hashCode ^ selectedPowerStat.hashCode;
 }
 
 class SuperHeroState with ChangeNotifier {
-  SuperHeroState();
+  SuperHeroState() {
+    init();
+  }
+
+  Future<void> init() async {
+    final heroList = await compute(_parseHeroes, jsonEncode(superHeroJson));
+
+    _data = SuperHeroDataModel(
+      heroList: heroList,
+      selectedHero: heroList.first,
+      selectedPowerStat: PowerStatsEnum.intelligence,
+    );
+    notifyListeners();
+  }
 
   SuperHeroDataModel _data = SuperHeroDataModel.empty;
-  SuperHeroDataModel get state => _data;
+  SuperHeroDataModel get data => _data;
 
   void setSelectedHero(SuperHero value) {
     _data = _data.copyWith(selectedHero: value);
+    notifyListeners();
+  }
+
+  void setSelectedPowerStat(PowerStatsEnum value) {
+    _data = _data.copyWith(selectedPowerStat: value);
+
     notifyListeners();
   }
 }
 
 class SuperHeroData extends InheritedNotifier<SuperHeroState> {
   const SuperHeroData({
-    required this.data,
+    required SuperHeroState super.notifier,
     required super.child,
     super.key,
   });
 
-  final SuperHeroDataModel data;
-
-  static SuperHeroData? maybeOf(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<SuperHeroData>();
-  }
-
-  static SuperHeroData of(BuildContext context) {
-    final result = maybeOf(context);
-    assert(result != null, 'No SuperHeroData found');
-    return result!;
+  static SuperHeroState of(BuildContext context) {
+    final result = context.dependOnInheritedWidgetOfExactType<SuperHeroData>();
+    if (result == null) {
+      throw FlutterError(
+        'SuperHeroData was not found in the widget tree. Make sure to wrap your widget tree with a SuperHeroData.',
+      );
+    }
+    return result.notifier!;
   }
 
   @override
-  bool updateShouldNotify(SuperHeroData oldWidget) =>
-      !identical(data, oldWidget.data);
+  bool updateShouldNotify(SuperHeroData oldWidget) {
+    return oldWidget.notifier?.data != notifier?.data;
+  }
 }
