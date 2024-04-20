@@ -13,41 +13,7 @@ class Menu extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 18),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Image.asset(
-                      height: 100,
-                      'assets/images/example_icon.png',
-                    ),
-                  ),
-                  const Text(
-                    'ERIC',
-                    style: TextStyle(
-                      height: 0,
-                      fontSize: 30,
-                      fontFamily: 'JosefinSans',
-                      fontVariations: <FontVariation>[
-                        FontVariation('wght', 400),
-                      ],
-                    ),
-                  ),
-                  const Text(
-                    'Wimp',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontFamily: 'JosefinSans',
-                      fontVariations: <FontVariation>[
-                        FontVariation('wght', 400),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            const MenuHeader(),
             Expanded(
               child: ListView(
                 children: [
@@ -65,23 +31,73 @@ class Menu extends StatelessWidget {
                   MenuTile(
                     onTap: () {},
                     leading: const Icon(Symbols.send_money_rounded),
-                    title: const Text('Commerce'),
+                    title: const Text('Heroes'),
                   ),
                   MenuTile(
                     onTap: () {},
                     leading: const Icon(Symbols.ssid_chart_rounded),
-                    title: const Text('Analytics'),
+                    title: const Text('Villians'),
                   ),
                   MenuTile(
                     onTap: () {},
                     leading: const Icon(Symbols.groups_rounded),
-                    title: const Text('Customers'),
+                    title: const Text('Master Minds'),
+                  ),
+                  MenuTile(
+                    onTap: () {},
+                    leading: const Icon(Symbols.groups_rounded),
+                    title: const Text('Battle Hardened'),
                   ),
                 ],
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class MenuHeader extends StatelessWidget {
+  const MenuHeader({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 18),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: Image.asset(
+              height: 100,
+              'assets/images/example_icon.png',
+            ),
+          ),
+          const Text(
+            'ERIC',
+            style: TextStyle(
+              height: 0,
+              fontSize: 30,
+              fontFamily: 'JosefinSans',
+              fontVariations: <FontVariation>[
+                FontVariation('wght', 400),
+              ],
+            ),
+          ),
+          const Text(
+            'Wimp',
+            style: TextStyle(
+              fontSize: 15,
+              fontFamily: 'JosefinSans',
+              fontVariations: <FontVariation>[
+                FontVariation('wght', 400),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

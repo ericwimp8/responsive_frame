@@ -3,8 +3,8 @@
 final superHeroJson = [
   {
     "id": 0,
-    "name": "Bananamna",
-    "slug": "0-Bananamna",
+    "name": "Bananaman",
+    "slug": "0-Bananaman",
     "powerstats": {
       "intelligence": 3,
       "strength": 100,
@@ -30,7 +30,7 @@ final superHeroJson = [
         "Eric Wenk Bannerman",
         "twenty men... twenty big men"
       ],
-      "placeOfBirth": "Scarsdale, Arizona",
+      "placeOfBirth": "Nuttytown",
       "firstAppearance": "Nutty Issue #1 (16 February 1980) (as Bananaman)",
       "publisher": "D. C. Thomson & Co. Ltd",
       "alignment": "good"

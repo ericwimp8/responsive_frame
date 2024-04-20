@@ -200,42 +200,54 @@ class Appearance {
   const Appearance({
     required this.gender,
     required this.race,
-    required this.height,
-    required this.weight,
+    required this.heightImperial,
+    required this.heightMetric,
+    required this.weightImperial,
+    required this.weightMetric,
     required this.eyeColor,
     required this.hairColor,
   });
 
   factory Appearance.fromJson(Map<String, dynamic> json) {
+    final height = List<String>.from(json['height'] as List<dynamic>);
+    final weight = List<String>.from(json['weight'] as List<dynamic>);
     return Appearance(
       gender: json['gender'] as String,
       race: json['race'] as String? ?? '-',
-      height: List<String>.from(json['height'] as List<dynamic>),
-      weight: List<String>.from(json['weight'] as List<dynamic>),
+      heightImperial: height.first,
+      heightMetric: height.last,
+      weightImperial: weight.first,
+      weightMetric: weight.last,
       eyeColor: json['eyeColor'] as String,
       hairColor: json['hairColor'] as String,
     );
   }
   final String gender;
   final String race;
-  final List<String> height;
-  final List<String> weight;
+  final String heightImperial;
+  final String heightMetric;
+  final String weightImperial;
+  final String weightMetric;
   final String eyeColor;
   final String hairColor;
 
   Appearance copyWith({
     String? gender,
     String? race,
-    List<String>? height,
-    List<String>? weight,
+    String? heightImperial,
+    String? heightMetric,
+    String? weightImperial,
+    String? weightMetric,
     String? eyeColor,
     String? hairColor,
   }) {
     return Appearance(
       gender: gender ?? this.gender,
       race: race ?? this.race,
-      height: height ?? this.height,
-      weight: weight ?? this.weight,
+      heightImperial: heightImperial ?? this.heightImperial,
+      heightMetric: heightMetric ?? this.heightMetric,
+      weightImperial: weightImperial ?? this.weightImperial,
+      weightMetric: weightMetric ?? this.weightMetric,
       eyeColor: eyeColor ?? this.eyeColor,
       hairColor: hairColor ?? this.hairColor,
     );
@@ -243,7 +255,7 @@ class Appearance {
 
   @override
   String toString() {
-    return 'Appearance(gender: $gender, race: $race, height: $height, weight: $weight, eyeColor: $eyeColor, hairColor: $hairColor)';
+    return 'Appearance(gender: $gender, race: $race, heightImperial: $heightImperial, heightMetric: $heightMetric, weightImperial: $weightImperial, weightMetric: $weightMetric, eyeColor: $eyeColor, hairColor: $hairColor)';
   }
 
   @override
@@ -253,8 +265,10 @@ class Appearance {
     return other is Appearance &&
         other.gender == gender &&
         other.race == race &&
-        listEquals(other.height, height) &&
-        listEquals(other.weight, weight) &&
+        other.heightImperial == heightImperial &&
+        other.heightMetric == heightMetric &&
+        other.weightImperial == weightImperial &&
+        other.weightMetric == weightMetric &&
         other.eyeColor == eyeColor &&
         other.hairColor == hairColor;
   }
@@ -263,8 +277,10 @@ class Appearance {
   int get hashCode {
     return gender.hashCode ^
         race.hashCode ^
-        height.hashCode ^
-        weight.hashCode ^
+        heightImperial.hashCode ^
+        heightMetric.hashCode ^
+        weightImperial.hashCode ^
+        weightMetric.hashCode ^
         eyeColor.hashCode ^
         hairColor.hashCode;
   }
@@ -300,6 +316,32 @@ class Biography {
   final String firstAppearance;
   final String publisher;
   final String alignment;
+
+  String get aliasesFormated {
+    final buffer = StringBuffer();
+    for (var i = 0; i < aliases.length; i++) {
+      if (i == aliases.length - 1) {
+        buffer.write(aliases[i]);
+      } else {
+        buffer.write('${aliases[i]},\n');
+      }
+    }
+
+    return buffer.toString();
+  }
+
+  String get alignmentFormatted {
+    if (alignment == 'good') {
+      return 'Super Hero';
+    }
+    if (alignment == 'bad') {
+      return 'Villain';
+    }
+    if (alignment == 'neutral') {
+      return 'Anti-Hero';
+    }
+    return 'Unknown';
+  }
 
   @override
   bool operator ==(Object other) {

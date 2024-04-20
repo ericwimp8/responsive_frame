@@ -1,7 +1,5 @@
 import 'package:example/barrel.dart';
-
 import 'package:flutter/material.dart';
-
 import 'package:responsive_frame/responsive_frame.dart';
 
 class Dashboard extends StatefulWidget {
@@ -27,15 +25,12 @@ class _DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = SuperHeroData.of(context);
-    print('build');
+
     Widget child;
     if (state.data == SuperHeroDataModel.empty) {
-      child = Material(
+      child = const Material(
         child: Center(
-          child: ElevatedButton(
-            onPressed: () => state.setSelectedPowerStat(PowerStatsEnum.combat),
-            child: const Text('fdafd'),
-          ),
+          child: CircularProgressIndicator(),
         ),
       );
     } else {
@@ -52,14 +47,75 @@ class _DashBoard extends StatelessWidget {
         mobile: (context) {
           return const FrameConfig();
         },
-        tablet: (context) {
+        // tablet: (context) {
+        //   return FrameConfig(
+        //     // leftEnd: const Menu(),
+        //     // rightEnd: const Statistics(),
+        //     dimensions: const DimensionsConfig(
+        //       rightEndFillVertical: false,
+        //       rightEndMaxWidth: 350,
+        //       rightEndMinWidth: 250,
+        //       // bodyAlignment: Alignment.topCenter,
+        //     ),
+        //     body: ConstrainedBox(
+        //       constraints: const BoxConstraints(maxWidth: 800),
+        //       child: const Row(
+        //         mainAxisSize: MainAxisSize.min,
+        //         children: [
+        //           Flexible(child: SuperHeroOverview()),
+        //           Flexible(child: Statistics()),
+        //         ],
+        //       ),
+        //     ),
+        //   );
+        // },
+        desktop: (context) {
           return const FrameConfig(
             leftEnd: Menu(),
             rightEnd: Statistics(),
             dimensions: DimensionsConfig(
               rightEndFillVertical: false,
-              rightEndMaxWidth: 350,
-              rightEndMinWidth: 250,
+              rightEndMaxWidth: 280,
+              rightEndMinWidth: 280,
+              leftEndMaxWidth: 250,
+
+              // bodyAlignment: Alignment.topCenter,
+            ),
+            body: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: SuperHeroOverview(),
+            ),
+          );
+        },
+        desktopLarge: (context) {
+          return FrameConfig(
+            leftEnd: const Menu(),
+            rightEnd: const Statistics(),
+            dimensions: const DimensionsConfig(
+              rightEndFillVertical: false,
+              rightEndMaxWidth: 280,
+              rightEndMinWidth: 280,
+              leftEndMaxWidth: 250,
+              bodyMaxWidth: 900,
+            ),
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                children: [
+                  Flexible(
+                    flex: 3,
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(minWidth: 300),
+                      child: const SuperHeroOverview(),
+                    ),
+                  ),
+                  const Padding(padding: EdgeInsets.only(left: 16)),
+                  const Flexible(
+                    flex: 2,
+                    child: Statistics(),
+                  ),
+                ],
+              ),
             ),
           );
         },

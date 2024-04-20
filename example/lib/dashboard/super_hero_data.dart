@@ -38,8 +38,10 @@ class SuperHeroDataModel {
       appearance: Appearance(
         gender: '',
         race: '',
-        height: [],
-        weight: [],
+        heightImperial: '',
+        heightMetric: '',
+        weightImperial: '',
+        weightMetric: '',
         eyeColor: '',
         hairColor: '',
       ),

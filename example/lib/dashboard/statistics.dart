@@ -1,9 +1,7 @@
 import 'package:example/barrel.dart';
-
+import 'package:example/dashboard/app_heading.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-
-import 'package:responsive_frame/responsive_frame.dart';
 
 class Statistics extends StatefulWidget {
   const Statistics({super.key});
@@ -22,88 +20,78 @@ class _StatisticsState extends State<Statistics> {
     final theme = Theme.of(context);
     final state = SuperHeroData.of(context).data;
 
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-      child: Material(
-        color: theme.colorScheme.surfaceTint,
-        shape: const RoundedRectangleBorder(borderRadius: kDefaultBorderRadius),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: ListView(
-            children: [
-              const Chart(),
-              StatsTile(
-                value: PowerStatsEnum.intelligence,
-                groupValue: state.selectedPowerStat,
-                onTap: setSelectedPowerState,
-                title: Text(PowerStatsEnum.intelligence.label),
-                leading: const ImageIcon(
-                  AssetImage('assets/images/intelligence.png'),
-                  color: DashboardTheme.blue,
-                ),
-                trailing:
-                    Text(state.selectedHero.powerstats.intelligence.toString()),
-              ),
-              StatsTile(
-                onTap: setSelectedPowerState,
-                groupValue: state.selectedPowerStat,
-                value: PowerStatsEnum.strength,
-                title: Text(PowerStatsEnum.strength.label),
-                leading: ImageIcon(
-                  const AssetImage('assets/images/strength.png'),
-                  color: theme.colorScheme.primary,
-                ),
-                trailing:
-                    Text(state.selectedHero.powerstats.strength.toString()),
-              ),
-              StatsTile(
-                onTap: setSelectedPowerState,
-                groupValue: state.selectedPowerStat,
-                value: PowerStatsEnum.speed,
-                title: Text(PowerStatsEnum.speed.name),
-                leading: const ImageIcon(
-                  AssetImage('assets/images/speed.png'),
-                  color: DashboardTheme.steelPink,
-                ),
-                trailing: Text(state.selectedHero.powerstats.speed.toString()),
-              ),
-              StatsTile(
-                onTap: setSelectedPowerState,
-                groupValue: state.selectedPowerStat,
-                value: PowerStatsEnum.durability,
-                title: Text(PowerStatsEnum.durability.label),
-                leading: ImageIcon(
-                  const AssetImage('assets/images/durability.png'),
-                  color: theme.colorScheme.secondary,
-                ),
-                trailing:
-                    Text(state.selectedHero.powerstats.durability.toString()),
-              ),
-              StatsTile(
-                onTap: setSelectedPowerState,
-                groupValue: state.selectedPowerStat,
-                value: PowerStatsEnum.power,
-                title: Text(PowerStatsEnum.power.label),
-                leading: const ImageIcon(
-                  AssetImage('assets/images/power.png'),
-                  color: DashboardTheme.electricPurple,
-                ),
-                trailing: Text(state.selectedHero.powerstats.power.toString()),
-              ),
-              StatsTile(
-                onTap: setSelectedPowerState,
-                groupValue: state.selectedPowerStat,
-                value: PowerStatsEnum.combat,
-                title: Text(PowerStatsEnum.combat.label),
-                leading: ImageIcon(
-                  const AssetImage('assets/images/combat.png'),
-                  color: theme.colorScheme.primaryContainer,
-                ),
-                trailing: Text(state.selectedHero.powerstats.combat.toString()),
-              ),
-            ],
+    return DashboardCard(
+      child: ListView(
+        children: [
+          const Chart(),
+          StatsTile(
+            value: PowerStatsEnum.intelligence,
+            groupValue: state.selectedPowerStat,
+            onTap: setSelectedPowerState,
+            title: Text(PowerStatsEnum.intelligence.label),
+            leading: const ImageIcon(
+              AssetImage('assets/images/intelligence.png'),
+              color: DashboardTheme.blue,
+            ),
+            trailing:
+                Text(state.selectedHero.powerstats.intelligence.toString()),
           ),
-        ),
+          StatsTile(
+            onTap: setSelectedPowerState,
+            groupValue: state.selectedPowerStat,
+            value: PowerStatsEnum.strength,
+            title: Text(PowerStatsEnum.strength.label),
+            leading: ImageIcon(
+              const AssetImage('assets/images/strength.png'),
+              color: theme.colorScheme.primary,
+            ),
+            trailing: Text(state.selectedHero.powerstats.strength.toString()),
+          ),
+          StatsTile(
+            onTap: setSelectedPowerState,
+            groupValue: state.selectedPowerStat,
+            value: PowerStatsEnum.speed,
+            title: Text(PowerStatsEnum.speed.name),
+            leading: const ImageIcon(
+              AssetImage('assets/images/speed.png'),
+              color: DashboardTheme.steelPink,
+            ),
+            trailing: Text(state.selectedHero.powerstats.speed.toString()),
+          ),
+          StatsTile(
+            onTap: setSelectedPowerState,
+            groupValue: state.selectedPowerStat,
+            value: PowerStatsEnum.durability,
+            title: Text(PowerStatsEnum.durability.label),
+            leading: ImageIcon(
+              const AssetImage('assets/images/durability.png'),
+              color: theme.colorScheme.secondary,
+            ),
+            trailing: Text(state.selectedHero.powerstats.durability.toString()),
+          ),
+          StatsTile(
+            onTap: setSelectedPowerState,
+            groupValue: state.selectedPowerStat,
+            value: PowerStatsEnum.power,
+            title: Text(PowerStatsEnum.power.label),
+            leading: const ImageIcon(
+              AssetImage('assets/images/power.png'),
+              color: DashboardTheme.electricPurple,
+            ),
+            trailing: Text(state.selectedHero.powerstats.power.toString()),
+          ),
+          StatsTile(
+            onTap: setSelectedPowerState,
+            groupValue: state.selectedPowerStat,
+            value: PowerStatsEnum.combat,
+            title: Text(PowerStatsEnum.combat.label),
+            leading: ImageIcon(
+              const AssetImage('assets/images/combat.png'),
+              color: theme.colorScheme.primaryContainer,
+            ),
+            trailing: Text(state.selectedHero.powerstats.combat.toString()),
+          ),
+        ],
       ),
     );
   }
@@ -172,25 +160,16 @@ class Chart extends StatefulWidget {
 class _ChartState extends State<Chart> {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final state = SuperHeroData.of(context).data.selectedPowerStat;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Material(
         type: MaterialType.transparency,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-          side: BorderSide(color: theme.colorScheme.onSurface.withOpacity(0.1)),
-        ),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              Text(
-                state.label,
-                style: theme.textTheme.bodyLarge!
-                    .copyWith(fontWeight: FontWeight.w600),
-              ),
+              AppHeading(label: state.label),
               const AspectRatio(
                 aspectRatio: 1,
                 child: _BarChart(),
