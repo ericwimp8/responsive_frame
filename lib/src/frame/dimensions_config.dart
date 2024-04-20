@@ -8,7 +8,6 @@ class DimensionsConfig {
     this.bodyTopMaxHeight,
     this.bodyTopMinHeight,
     this.bodyMaxWidth,
-    this.bodyMinWidth,
     this.leftEndMaxWidth,
     this.leftEndMinWidth,
     this.leftEndFillVertical,
@@ -30,7 +29,6 @@ class DimensionsConfig {
   final double? bodyTopMaxHeight;
   final double? bodyTopMinHeight;
   final double? bodyMaxWidth;
-  final double? bodyMinWidth;
   final double? leftEndMaxWidth;
   final double? leftEndMinWidth;
   final bool? leftEndFillVertical;
@@ -58,7 +56,6 @@ class DimensionsConfig {
       bodyTopMaxHeight: bodyTopMaxHeight ?? config?.bodyTopMaxHeight,
       bodyTopMinHeight: bodyTopMinHeight ?? config?.bodyTopMinHeight,
       bodyMaxWidth: bodyMaxWidth ?? config?.bodyMaxWidth,
-      bodyMinWidth: bodyMinWidth ?? config?.bodyMinWidth,
       leftEndMaxWidth: leftEndMaxWidth ?? config?.leftEndMaxWidth,
       leftEndMinWidth: leftEndMinWidth ?? config?.leftEndMinWidth,
       leftEndFillVertical: leftEndFillVertical ?? config?.leftEndFillVertical,

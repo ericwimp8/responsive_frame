@@ -22,7 +22,7 @@ class Frame extends StatelessWidget {
     super.key,
   });
   final bool animations;
-  final List<FrameBodyListChild> body;
+  final Widget body;
   final Widget? top;
   final Widget? bodyTop;
   final Widget? leftEnd;
@@ -105,23 +105,18 @@ class Frame extends StatelessWidget {
                                   )
                                 : null,
                           ),
-                          Expanded(
-                            child: AnimatedShowHide(
-                              axis: Axis.horizontal,
-                              animate: animations,
-                              child: FrameBody(
-                                isInit: animations,
-                                bodyAlignment: dimensions?.bodyAlignment,
-                                maxWidth: dimensions?.bodyMaxWidth,
-                                minWidth: dimensions?.bodyMinWidth,
-                                children: body
-                                    .map(
-                                      (e) => FrameBodyListChild(
-                                        flex: e.flex,
-                                        child: e.child,
-                                      ),
-                                    )
-                                    .toList(),
+                          Flexible(
+                            child: Align(
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  maxWidth: dimensions?.bodyMaxWidth ??
+                                      double.infinity,
+                                ),
+                                child: AnimatedShowHide(
+                                  axis: Axis.horizontal,
+                                  animate: animations,
+                                  child: body,
+                                ),
                               ),
                             ),
                           ),

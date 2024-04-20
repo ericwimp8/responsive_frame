@@ -84,7 +84,7 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayoutGranular> {
         return Frame(
           dimensions: config.dimensions,
           animations: !_isInit && widget.animations,
-          body: config.body ?? [],
+          body: config.body ?? const SizedBox(),
           top: config.top,
           bodyTop: config.bodyTop,
           leftEnd: config.leftEnd,

@@ -6,6 +6,7 @@ class BreakpointsController<T> {
     required this.mobile,
     this.tablet,
     this.desktop,
+    this.desktopLarge,
     this.watch,
     this.breakpoints = Breakpoints.defaultBreakpoints,
   });
@@ -14,11 +15,13 @@ class BreakpointsController<T> {
   final T Function(BuildContext context) mobile;
   final T Function(BuildContext context)? tablet;
   final T Function(BuildContext context)? desktop;
+  final T Function(BuildContext context)? desktopLarge;
   final Breakpoints breakpoints;
 
   ScreenSize? _screenSize;
   late T currentvalue;
   late final avalableCallbacks = {
+    ScreenSize.desktopLarge: desktopLarge,
     ScreenSize.desktop: desktop,
     ScreenSize.tablet: tablet,
     ScreenSize.mobile: mobile,

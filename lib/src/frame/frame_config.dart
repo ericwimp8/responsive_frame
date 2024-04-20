@@ -1,5 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:responsive_frame/responsive_frame.dart';
 
@@ -18,7 +18,7 @@ class FrameConfig {
     this.dimensions = DimensionsConfig.empty,
   });
 
-  final List<FrameBodyListChild>? body;
+  final Widget? body;
   final Widget? top;
   final Widget? bodyTop;
   final Widget? leftEnd;
@@ -30,11 +30,6 @@ class FrameConfig {
   final DimensionsConfig? dimensions;
 
   static const empty = FrameConfig();
-
-  @override
-  String toString() {
-    return 'FrameConfig(body: $body, top: $top, bodyTop: $bodyTop, leftEnd: $leftEnd, leftEndTop: $leftEndTop, rightEnd: $rightEnd, rightEndTop: $rightEndTop, bodyBottom: $bodyBottom, bottom: $bottom, dimensions: $dimensions)';
-  }
 
   FrameConfig merge(FrameConfig other) {
     return FrameConfig(
@@ -50,12 +45,43 @@ class FrameConfig {
     );
   }
 
+  FrameConfig copyWith({
+    ValueGetter<Widget?>? body,
+    ValueGetter<Widget?>? top,
+    ValueGetter<Widget?>? bodyTop,
+    ValueGetter<Widget?>? leftEnd,
+    ValueGetter<Widget?>? leftEndTop,
+    ValueGetter<Widget?>? rightEnd,
+    ValueGetter<Widget?>? rightEndTop,
+    ValueGetter<Widget?>? bodyBottom,
+    ValueGetter<Widget?>? bottom,
+    ValueGetter<DimensionsConfig?>? dimensions,
+  }) {
+    return FrameConfig(
+      body: body != null ? body() : this.body,
+      top: top != null ? top() : this.top,
+      bodyTop: bodyTop != null ? bodyTop() : this.bodyTop,
+      leftEnd: leftEnd != null ? leftEnd() : this.leftEnd,
+      leftEndTop: leftEndTop != null ? leftEndTop() : this.leftEndTop,
+      rightEnd: rightEnd != null ? rightEnd() : this.rightEnd,
+      rightEndTop: rightEndTop != null ? rightEndTop() : this.rightEndTop,
+      bodyBottom: bodyBottom != null ? bodyBottom() : this.bodyBottom,
+      bottom: bottom != null ? bottom() : this.bottom,
+      dimensions: dimensions != null ? dimensions() : this.dimensions,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'FrameConfig(body: $body, top: $top, bodyTop: $bodyTop, leftEnd: $leftEnd, leftEndTop: $leftEndTop, rightEnd: $rightEnd, rightEndTop: $rightEndTop, bodyBottom: $bodyBottom, bottom: $bottom, dimensions: $dimensions)';
+  }
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
     return other is FrameConfig &&
-        listEquals(other.body, body) &&
+        other.body == body &&
         other.top == top &&
         other.bodyTop == bodyTop &&
         other.leftEnd == leftEnd &&
@@ -79,31 +105,5 @@ class FrameConfig {
         bodyBottom.hashCode ^
         bottom.hashCode ^
         dimensions.hashCode;
-  }
-
-  FrameConfig copyWith({
-    List<FrameBodyListChild>? body,
-    Widget? top,
-    Widget? bodyTop,
-    Widget? leftEnd,
-    Widget? leftEndTop,
-    Widget? rightEnd,
-    Widget? rightEndTop,
-    Widget? bodyBottom,
-    Widget? bottom,
-    DimensionsConfig? dimensions,
-  }) {
-    return FrameConfig(
-      body: body ?? this.body,
-      top: top ?? this.top,
-      bodyTop: bodyTop ?? this.bodyTop,
-      leftEnd: leftEnd ?? this.leftEnd,
-      leftEndTop: leftEndTop ?? this.leftEndTop,
-      rightEnd: rightEnd ?? this.rightEnd,
-      rightEndTop: rightEndTop ?? this.rightEndTop,
-      bodyBottom: bodyBottom ?? this.bodyBottom,
-      bottom: bottom ?? this.bottom,
-      dimensions: dimensions ?? this.dimensions,
-    );
   }
 }
