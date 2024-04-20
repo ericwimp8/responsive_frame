@@ -10,7 +10,6 @@ export 'src/breakpoints/breakpoints_granular_controller.dart';
 export 'src/frame/constants.dart';
 export 'src/frame/dimensions_config.dart';
 export 'src/frame/frame.dart';
-export 'src/frame/frame_body.dart';
 export 'src/frame/frame_config.dart';
 export 'src/frame/frame_horizontal_end.dart';
 export 'src/frame/frame_vertical_end.dart';
