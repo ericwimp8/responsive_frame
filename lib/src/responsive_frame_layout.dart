@@ -7,6 +7,7 @@ import 'package:responsive_frame/responsive_frame.dart';
 class ResponsiveFrameLayout extends StatefulWidget {
   const ResponsiveFrameLayout({
     required this.mobile,
+    this.desktopLarge,
     this.desktop,
     this.tablet,
     this.watch,
@@ -16,9 +17,11 @@ class ResponsiveFrameLayout extends StatefulWidget {
     this.backgroundColor,
     super.key,
   });
+  //this message
   final FrameConfig Function(BuildContext context) mobile;
   final FrameConfig Function(BuildContext context)? tablet;
   final FrameConfig Function(BuildContext context)? desktop;
+  final FrameConfig Function(BuildContext context)? desktopLarge;
   final FrameConfig Function(BuildContext context)? watch;
   final Breakpoints breakpoints;
   final bool animations;
@@ -35,6 +38,7 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayout> {
     mobile: widget.mobile,
     tablet: widget.tablet,
     desktop: widget.desktop,
+    desktopLarge: widget.desktopLarge,
   );
 
   bool _isInit = true;
@@ -58,6 +62,7 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayout> {
         child: LayoutBuilder(
           builder: (context, constraints) {
             final deviceWidth = constraints.maxWidth;
+
             final config = contoller
                 .breakpointCallback(
                   deviceWidth: deviceWidth,
@@ -68,7 +73,7 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayout> {
             return Frame(
               dimensions: config.dimensions,
               animations: !_isInit && widget.animations,
-              body: config.body ?? [],
+              body: config.body ?? const SizedBox(),
               top: config.top,
               bodyTop: config.bodyTop,
               leftEnd: config.leftEnd,
