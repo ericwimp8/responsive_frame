@@ -2,7 +2,7 @@
 /// argument and below the next highest argument
 class Breakpoints {
   const Breakpoints({
-    this.desktopLarge = 1500,
+    this.desktopLarge = 1200,
     this.desktop = 950,
     this.tablet = 600,
     this.mobile = 300,
@@ -16,7 +16,7 @@ class Breakpoints {
   static const defaultBreakpoints = Breakpoints();
 
   /// Map that maps [ScreenSize] to it's [Breakpoints] value
-  Map<ScreenSize, double> values() => {
+  Map<ScreenSize, double> get values => {
         ScreenSize.desktopLarge: desktopLarge,
         ScreenSize.desktop: desktop,
         ScreenSize.tablet: tablet,
@@ -25,22 +25,27 @@ class Breakpoints {
       };
 
   /// Returns the breakpoint value given a device width
-  double getBreakpointFromWidth(double deviceWidth) {
-    return values()[screenSize(deviceWidth: deviceWidth)]!;
+  double getBreakpointFromWidth(double deviceWidth, {ScreenSize? screenSize}) {
+    return values[screenSize ?? getScreenSize(deviceWidth: deviceWidth)]!;
   }
 
   /// Returns the breakpoint value for a given [ScreenSize]
   double getBreakPointFromScreenSize(ScreenSize screenSize) {
-    return values()[screenSize]!;
+    return values[screenSize]!;
   }
 
   /// Returns the [ScreenSize] given a [deviceWidth]
-  ScreenSize screenSize({required double deviceWidth}) {
+  ScreenSize getScreenSize({required double deviceWidth}) {
     if (deviceWidth >= desktopLarge) return ScreenSize.desktopLarge;
     if (deviceWidth >= desktop) return ScreenSize.desktop;
     if (deviceWidth >= tablet) return ScreenSize.tablet;
     if (deviceWidth >= mobile) return ScreenSize.mobile;
     return ScreenSize.watch;
+  }
+
+  @override
+  String toString() {
+    return 'Breakpoints(desktopLarge: $desktopLarge, desktop: $desktop, tablet: $tablet, mobile: $mobile)';
   }
 }
 
