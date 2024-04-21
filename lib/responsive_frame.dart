@@ -17,3 +17,5 @@ export 'src/responsive_frame_layout.dart';
 export 'src/responsive_frame_layout_granular.dart';
 export 'src/screen_size_layout.dart';
 export 'src/screen_size_layout_granular.dart';
+export 'src/state/responsive_data.dart';
+export 'src/state/selector.dart';
