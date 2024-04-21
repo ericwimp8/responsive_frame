@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
 /// Widget with builders to return widgets based on [ScreenSize]
-class ScreenSizeLayout extends StatefulWidget {
-  const ScreenSizeLayout({
+class ScreenSizeLayoutBuilder extends StatefulWidget {
+  const ScreenSizeLayoutBuilder({
     required this.mobile,
     this.desktop,
     this.tablet,
@@ -11,17 +11,20 @@ class ScreenSizeLayout extends StatefulWidget {
     this.breakpoints = Breakpoints.defaultBreakpoints,
     super.key,
   });
-  final Widget Function(BuildContext context) mobile;
-  final Widget Function(BuildContext context)? tablet;
-  final Widget Function(BuildContext context)? desktop;
-  final Widget Function(BuildContext context)? watch;
+  final Widget Function(BuildContext context, BoxConstraints contraints) mobile;
+  final Widget Function(BuildContext context, BoxConstraints contraints)?
+      tablet;
+  final Widget Function(BuildContext context, BoxConstraints contraints)?
+      desktop;
+  final Widget Function(BuildContext context, BoxConstraints contraints)? watch;
   final Breakpoints breakpoints;
 
   @override
-  State<ScreenSizeLayout> createState() => _ScreenSizeLayoutState();
+  State<ScreenSizeLayoutBuilder> createState() =>
+      _ScreenSizeLayoutBuilderState();
 }
 
-class _ScreenSizeLayoutState extends State<ScreenSizeLayout> {
+class _ScreenSizeLayoutBuilderState extends State<ScreenSizeLayoutBuilder> {
   late final contoller = BreakpointsController<Widget>(
     watch: widget.watch,
     mobile: widget.mobile,
@@ -38,7 +41,7 @@ class _ScreenSizeLayoutState extends State<ScreenSizeLayout> {
         return contoller.breakpointCallback(
           deviceWidth: deviceWidth,
           context: context,
-        );
+        )(context, constraints);
       },
     );
   }
