@@ -76,4 +76,60 @@ class DimensionsConfig {
       bodyAlignment: bodyAlignment ?? config?.bodyAlignment,
     );
   }
+
+  @override
+  String toString() {
+    return 'DimensionsConfig(topMaxHeight: $topMaxHeight, topMinHeight: $topMinHeight, bodyTopMaxHeight: $bodyTopMaxHeight, bodyTopMinHeight: $bodyTopMinHeight, bodyMaxWidth: $bodyMaxWidth, leftEndMaxWidth: $leftEndMaxWidth, leftEndMinWidth: $leftEndMinWidth, leftEndFillVertical: $leftEndFillVertical, leftEndTopMaxHeight: $leftEndTopMaxHeight, leftEndTopMinHeight: $leftEndTopMinHeight, rightEndMaxWidth: $rightEndMaxWidth, rightEndMinWidth: $rightEndMinWidth, rightEndFillVertical: $rightEndFillVertical, rightEndTopMaxHeight: $rightEndTopMaxHeight, rightEndTopMinHeight: $rightEndTopMinHeight, bodyBottomMaxHeight: $bodyBottomMaxHeight, bodyBottomMinHeight: $bodyBottomMinHeight, bottomMaxHeight: $bottomMaxHeight, bottomMinHeight: $bottomMinHeight, bodyAlignment: $bodyAlignment)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is DimensionsConfig &&
+        other.topMaxHeight == topMaxHeight &&
+        other.topMinHeight == topMinHeight &&
+        other.bodyTopMaxHeight == bodyTopMaxHeight &&
+        other.bodyTopMinHeight == bodyTopMinHeight &&
+        other.bodyMaxWidth == bodyMaxWidth &&
+        other.leftEndMaxWidth == leftEndMaxWidth &&
+        other.leftEndMinWidth == leftEndMinWidth &&
+        other.leftEndFillVertical == leftEndFillVertical &&
+        other.leftEndTopMaxHeight == leftEndTopMaxHeight &&
+        other.leftEndTopMinHeight == leftEndTopMinHeight &&
+        other.rightEndMaxWidth == rightEndMaxWidth &&
+        other.rightEndMinWidth == rightEndMinWidth &&
+        other.rightEndFillVertical == rightEndFillVertical &&
+        other.rightEndTopMaxHeight == rightEndTopMaxHeight &&
+        other.rightEndTopMinHeight == rightEndTopMinHeight &&
+        other.bodyBottomMaxHeight == bodyBottomMaxHeight &&
+        other.bodyBottomMinHeight == bodyBottomMinHeight &&
+        other.bottomMaxHeight == bottomMaxHeight &&
+        other.bottomMinHeight == bottomMinHeight &&
+        other.bodyAlignment == bodyAlignment;
+  }
+
+  @override
+  int get hashCode {
+    return topMaxHeight.hashCode ^
+        topMinHeight.hashCode ^
+        bodyTopMaxHeight.hashCode ^
+        bodyTopMinHeight.hashCode ^
+        bodyMaxWidth.hashCode ^
+        leftEndMaxWidth.hashCode ^
+        leftEndMinWidth.hashCode ^
+        leftEndFillVertical.hashCode ^
+        leftEndTopMaxHeight.hashCode ^
+        leftEndTopMinHeight.hashCode ^
+        rightEndMaxWidth.hashCode ^
+        rightEndMinWidth.hashCode ^
+        rightEndFillVertical.hashCode ^
+        rightEndTopMaxHeight.hashCode ^
+        rightEndTopMinHeight.hashCode ^
+        bodyBottomMaxHeight.hashCode ^
+        bodyBottomMinHeight.hashCode ^
+        bottomMaxHeight.hashCode ^
+        bottomMinHeight.hashCode ^
+        bodyAlignment.hashCode;
+  }
 }
