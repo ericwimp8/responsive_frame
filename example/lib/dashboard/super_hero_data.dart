@@ -116,7 +116,6 @@ class SuperHeroState with ChangeNotifier {
 
   void setSelectedPowerStat(PowerStatsEnum value) {
     _data = _data.copyWith(selectedPowerStat: value);
-
     notifyListeners();
   }
 }

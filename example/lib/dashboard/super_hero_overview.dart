@@ -25,6 +25,7 @@ class SuperHeroOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final selectedHero = SuperHeroData.of(context).data.selectedHero;
+
     final theme = Theme.of(context);
     return DashboardCard(
       child: SingleChildScrollView(
