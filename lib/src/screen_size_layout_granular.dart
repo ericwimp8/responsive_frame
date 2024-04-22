@@ -6,7 +6,7 @@ import 'package:responsive_frame/responsive_frame.dart';
 class ScreenSizeLayoutGranular extends StatefulWidget {
   const ScreenSizeLayoutGranular({
     required this.mobileNormal,
-    this.breakpoints = BreakpointsGranular.defaultBreakpoints,
+    this.breakpoints = Breakpoints.defaultBreakpointsGranular,
     super.key,
     this.mobileExtraLarge,
     this.mobileLarge,
@@ -35,7 +35,7 @@ class ScreenSizeLayoutGranular extends StatefulWidget {
   final Widget Function(BuildContext context)? mobileSmall;
   final Widget Function(BuildContext context)? watch;
 
-  final BreakpointsGranular breakpoints;
+  final Breakpoints<ScreenSizeGranular> breakpoints;
 
   @override
   State<ScreenSizeLayoutGranular> createState() =>
@@ -60,7 +60,7 @@ class _ScreenSizeLayoutGranularState extends State<ScreenSizeLayoutGranular> {
       ScreenSizeGranular.watch: widget.watch,
     },
     defaultValue: ScreenSizeGranular.mobileNormal,
-    breakpoints: BreakpointsGranular.defaultBreakpoints,
+    breakpoints: Breakpoints.defaultBreakpointsGranular,
   );
   @override
   Widget build(BuildContext context) {

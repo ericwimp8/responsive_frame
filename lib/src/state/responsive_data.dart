@@ -15,7 +15,7 @@ class ResponsiveDataState<T> {
   final T screenSize;
   final double deviceWidth;
   final double currentBreakpoint;
-  final BaseBreakpoints<T> breakpoints;
+  final Breakpoints<T> breakpoints;
 
   @override
   String toString() {
@@ -51,7 +51,7 @@ class ResponsiveDataChangeNotifier<T> with ChangeNotifier {
     _screenSize = breakpoints.getScreenSize();
     // breakpoints = breakpoints.copyWith(useShortestSide: useShortestSide);
   }
-  BaseBreakpoints<T> breakpoints;
+  Breakpoints<T> breakpoints;
   final bool useShortestSide;
   late T _screenSize;
 

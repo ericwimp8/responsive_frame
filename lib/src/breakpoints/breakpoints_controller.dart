@@ -7,7 +7,8 @@ class BreakpointsController<T, K> {
     required this.callbacks,
     required this.defaultValue,
   });
-  final BaseBreakpoints<K> breakpoints;
+  final Breakpoints<K> breakpoints;
+  // TODO(ericwimp): can we do this without a default value
   final K defaultValue;
   K? screenSizeCache;
   T Function(BuildContext context)? currentvalue;

@@ -4,7 +4,7 @@ import 'package:responsive_frame/responsive_frame.dart';
 class ResponsiveFrameLayoutGranular extends StatefulWidget {
   const ResponsiveFrameLayoutGranular({
     required this.mobileNormal,
-    this.breakpoints = BreakpointsGranular.defaultBreakpoints,
+    this.breakpoints = Breakpoints.defaultBreakpointsGranular,
     this.animations = true,
     super.key,
     this.desktopExtraLarge,
@@ -34,7 +34,7 @@ class ResponsiveFrameLayoutGranular extends StatefulWidget {
   final FrameConfig Function(BuildContext context)? mobileLarge;
   final FrameConfig Function(BuildContext context)? mobileSmall;
   final FrameConfig Function(BuildContext context)? watch;
-  final BreakpointsGranular breakpoints;
+  final Breakpoints<ScreenSizeGranular> breakpoints;
   final bool animations;
   final FrameConfig persistentConfig;
 
@@ -62,7 +62,7 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayoutGranular> {
       ScreenSizeGranular.watch: widget.watch,
     },
     defaultValue: ScreenSizeGranular.mobileNormal,
-    breakpoints: BreakpointsGranular.defaultBreakpoints,
+    breakpoints: Breakpoints.defaultBreakpointsGranular,
   );
 
   bool _isInit = true;

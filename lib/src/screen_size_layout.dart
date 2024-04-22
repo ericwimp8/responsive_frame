@@ -17,7 +17,7 @@ class ScreenSizeLayoutBuilder extends StatefulWidget {
   final Widget Function(BuildContext context)? tablet;
   final Widget Function(BuildContext context)? watch;
   final Widget Function(BuildContext context) mobile;
-  final BaseBreakpoints<ScreenSize> breakpoints;
+  final Breakpoints<ScreenSize> breakpoints;
 
   @override
   State<ScreenSizeLayoutBuilder> createState() =>

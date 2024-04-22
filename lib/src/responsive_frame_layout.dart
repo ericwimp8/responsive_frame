@@ -23,7 +23,7 @@ class ResponsiveFrameLayout extends StatelessWidget {
   final FrameConfig Function(BuildContext context)? desktop;
   final FrameConfig Function(BuildContext context)? desktopLarge;
   final FrameConfig Function(BuildContext context)? watch;
-  final BaseBreakpoints<ScreenSize> breakpoints;
+  final Breakpoints<ScreenSize> breakpoints;
   final bool animations;
   final FrameConfig persistentFrameConfig;
   final Color? backgroundColor;
@@ -92,7 +92,6 @@ class _FrameState extends State<_Frame> {
       child: SafeArea(
         child: Frame(
           dimensions: config.dimensions,
-          // ignore: avoid_redundant_argument_values
           animations: !_isInit && widget.animations,
           body: config.body ?? const SizedBox(),
           top: config.top,
@@ -187,16 +186,5 @@ class BreakpointDataWidget extends StatelessWidget {
         },
       ),
     );
-  }
-}
-
-class Ty extends StatelessWidget {
-  const Ty({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    print('fdaafdssd');
-
-    return Container();
   }
 }
