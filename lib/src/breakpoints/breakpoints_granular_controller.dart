@@ -55,7 +55,7 @@ class BreakpointsGranularController<T> {
     required double deviceWidth,
     required BuildContext context,
   }) {
-    final screenSize = breakpoints.screenSize(deviceWidth: deviceWidth);
+    final screenSize = breakpoints.getScreenSize(deviceWidth: deviceWidth);
 
     if (_screenSize == screenSize) return currentvalue;
     final callback = avalableCallbacks[screenSize];

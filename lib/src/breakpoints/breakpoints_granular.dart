@@ -1,3 +1,5 @@
+import 'package:responsive_frame/responsive_frame.dart';
+
 /// Indicators for screen size at different breakpoints
 enum ScreenSizeGranular {
   desktopExtraLarge,
@@ -18,7 +20,7 @@ enum ScreenSizeGranular {
 /// Granular breakpoints for fined tuned control over layouts
 /// Each field represents the values greater than or equal to the given
 /// argument and below the next highest argument.
-class BreakpointsGranular {
+class BreakpointsGranular implements BaseBreakpoints<ScreenSizeGranular> {
   /// Any give break point must be higher that the previous break point
   const BreakpointsGranular({
     this.desktopExtraLarge = 4096,
@@ -77,6 +79,7 @@ class BreakpointsGranular {
           mobileNormal > mobileSmall,
           'mobileNormal > mobileSmall must be true',
         );
+
   final double mobileSmall;
   final double mobileNormal;
   final double mobileLarge;
@@ -95,7 +98,8 @@ class BreakpointsGranular {
   static const defaultBreakpoints = BreakpointsGranular();
 
   /// Map that maps [ScreenSizeGranular] to it's [BreakpointsGranular] value
-  Map<ScreenSizeGranular, double> values() => {
+  @override
+  Map<ScreenSizeGranular, double> get values => {
         ScreenSizeGranular.desktopExtraLarge: desktopExtraLarge,
         ScreenSizeGranular.desktopLarge: desktopLarge,
         ScreenSizeGranular.desktopNormal: desktopNormal,
@@ -112,53 +116,34 @@ class BreakpointsGranular {
       };
 
   /// Returns the breakpoint value given a device width
-  double getBreakpointFromWidth(double deviceWidth) {
-    return values()[screenSize(deviceWidth: deviceWidth)]!;
+  @override
+  double getBreakpointFromWidth(
+    double deviceWidth, {
+    ScreenSizeGranular? screenSize,
+  }) {
+    return values[getScreenSize(deviceWidth: deviceWidth)]!;
   }
 
   /// Returns the [ScreenSizeGranular] given a [deviceWidth]
-  ScreenSizeGranular screenSize({required double deviceWidth}) {
-    if (deviceWidth >= desktopExtraLarge) {
-      return ScreenSizeGranular.desktopExtraLarge;
+  @override
+  ScreenSizeGranular getScreenSize({required double deviceWidth}) {
+    for (final entry in values.entries) {
+      if (deviceWidth >= entry.value) {
+        return entry.key;
+      }
     }
-    if (deviceWidth >= desktopLarge) {
-      return ScreenSizeGranular.desktopLarge;
-    }
-    if (deviceWidth >= desktopNormal) {
-      return ScreenSizeGranular.desktopNormal;
-    }
-    if (deviceWidth >= desktopSmall) {
-      return ScreenSizeGranular.desktopSmall;
-    }
-    if (deviceWidth >= tabletExtraLarge) {
-      return ScreenSizeGranular.tabletExtraLarge;
-    }
-    if (deviceWidth >= tabletLarge) {
-      return ScreenSizeGranular.tabletLarge;
-    }
-    if (deviceWidth >= tabletNormal) {
-      return ScreenSizeGranular.tabletNormal;
-    }
-    if (deviceWidth >= tabletSmall) {
-      return ScreenSizeGranular.tabletSmall;
-    }
-    if (deviceWidth >= mobileExtraLarge) {
-      return ScreenSizeGranular.mobileExtraLarge;
-    }
-    if (deviceWidth >= mobileLarge) {
-      return ScreenSizeGranular.mobileLarge;
-    }
-    if (deviceWidth >= mobileNormal) {
-      return ScreenSizeGranular.mobileNormal;
-    }
-    if (deviceWidth >= mobileSmall) {
-      return ScreenSizeGranular.mobileSmall;
-    }
-    return ScreenSizeGranular.watch;
+
+    return ScreenSizeGranular
+        .watch; // Default to the smallest size if none match
   }
 
   @override
   String toString() {
     return 'Desktop: Small - $desktopSmall Normal - $desktopNormal Large - $desktopLarge ExtraLarge - $desktopExtraLarge\nTablet: Small - $tabletSmall Normal - $tabletNormal Large - $tabletLarge ExtraLarge - $tabletExtraLarge\nMobile: Small - $mobileSmall Normal - $mobileNormal Large - $mobileLarge ExtraLarge - $mobileExtraLarge';
+  }
+
+  @override
+  double getBreakPointFromScreenSize(ScreenSizeGranular screenSize) {
+    return values[screenSize]!;
   }
 }

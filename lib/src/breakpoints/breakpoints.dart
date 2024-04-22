@@ -1,6 +1,6 @@
-/// Each field represents the values greater than or equal to the given
-/// argument and below the next highest argument
-class Breakpoints {
+import 'package:responsive_frame/responsive_frame.dart';
+
+class Breakpoints extends BaseBreakpoints<ScreenSize> {
   const Breakpoints({
     this.desktopLarge = 1200,
     this.desktop = 950,
@@ -15,7 +15,7 @@ class Breakpoints {
 
   static const defaultBreakpoints = Breakpoints();
 
-  /// Map that maps [ScreenSize] to it's [Breakpoints] value
+  @override
   Map<ScreenSize, double> get values => {
         ScreenSize.desktopLarge: desktopLarge,
         ScreenSize.desktop: desktop,
@@ -24,23 +24,25 @@ class Breakpoints {
         ScreenSize.watch: 0,
       };
 
-  /// Returns the breakpoint value given a device width
+  @override
   double getBreakpointFromWidth(double deviceWidth, {ScreenSize? screenSize}) {
     return values[screenSize ?? getScreenSize(deviceWidth: deviceWidth)]!;
   }
 
-  /// Returns the breakpoint value for a given [ScreenSize]
+  @override
   double getBreakPointFromScreenSize(ScreenSize screenSize) {
     return values[screenSize]!;
   }
 
-  /// Returns the [ScreenSize] given a [deviceWidth]
+  @override
   ScreenSize getScreenSize({required double deviceWidth}) {
-    if (deviceWidth >= desktopLarge) return ScreenSize.desktopLarge;
-    if (deviceWidth >= desktop) return ScreenSize.desktop;
-    if (deviceWidth >= tablet) return ScreenSize.tablet;
-    if (deviceWidth >= mobile) return ScreenSize.mobile;
-    return ScreenSize.watch;
+    for (final entry in values.entries) {
+      if (deviceWidth >= entry.value) {
+        return entry.key;
+      }
+    }
+
+    return ScreenSize.watch; // Default to the smallest size if none match
   }
 
   @override
