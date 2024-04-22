@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
 class DashboardCard extends StatelessWidget {
