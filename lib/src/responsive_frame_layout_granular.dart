@@ -19,6 +19,7 @@ class ResponsiveFrameLayoutGranular extends StatefulWidget {
     this.mobileLarge,
     this.mobileSmall,
     this.persistentConfig = FrameConfig.empty,
+    this.watch,
   });
   final FrameConfig Function(BuildContext context) mobileNormal;
   final FrameConfig Function(BuildContext context)? desktopExtraLarge;
@@ -32,6 +33,7 @@ class ResponsiveFrameLayoutGranular extends StatefulWidget {
   final FrameConfig Function(BuildContext context)? mobileExtraLarge;
   final FrameConfig Function(BuildContext context)? mobileLarge;
   final FrameConfig Function(BuildContext context)? mobileSmall;
+  final FrameConfig Function(BuildContext context)? watch;
   final BreakpointsGranular breakpoints;
   final bool animations;
   final FrameConfig persistentConfig;
@@ -42,19 +44,25 @@ class ResponsiveFrameLayoutGranular extends StatefulWidget {
 }
 
 class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayoutGranular> {
-  late final controller = BreakpointsGranularController<FrameConfig>(
-    desktopExtraLarge: widget.desktopExtraLarge,
-    desktopLarge: widget.desktopLarge,
-    desktopNormal: widget.desktopNormal,
-    desktopSmall: widget.desktopSmall,
-    tabletExtraLarge: widget.tabletExtraLarge,
-    tabletLarge: widget.tabletLarge,
-    tabletNormal: widget.tabletNormal,
-    tabletSmall: widget.tabletSmall,
-    mobileExtraLarge: widget.mobileExtraLarge,
-    mobileLarge: widget.mobileLarge,
-    mobileNormal: widget.mobileNormal,
-    mobileSmall: widget.mobileSmall,
+  late final controller =
+      BreakpointsController<FrameConfig, ScreenSizeGranular>(
+    callbacks: {
+      ScreenSizeGranular.desktopExtraLarge: widget.desktopExtraLarge,
+      ScreenSizeGranular.desktopLarge: widget.desktopLarge,
+      ScreenSizeGranular.desktopNormal: widget.desktopNormal,
+      ScreenSizeGranular.desktopSmall: widget.desktopSmall,
+      ScreenSizeGranular.tabletExtraLarge: widget.tabletExtraLarge,
+      ScreenSizeGranular.tabletLarge: widget.tabletLarge,
+      ScreenSizeGranular.tabletNormal: widget.tabletNormal,
+      ScreenSizeGranular.tabletSmall: widget.tabletSmall,
+      ScreenSizeGranular.mobileExtraLarge: widget.mobileExtraLarge,
+      ScreenSizeGranular.mobileLarge: widget.mobileLarge,
+      ScreenSizeGranular.mobileNormal: widget.mobileNormal,
+      ScreenSizeGranular.mobileSmall: widget.mobileSmall,
+      ScreenSizeGranular.watch: widget.watch,
+    },
+    defaultValue: ScreenSizeGranular.mobileNormal,
+    breakpoints: BreakpointsGranular.defaultBreakpoints,
   );
 
   bool _isInit = true;
@@ -74,12 +82,8 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayoutGranular> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final deviceWidth = constraints.maxWidth;
         final config = controller
-            .breakpointCallback(
-              deviceWidth: deviceWidth,
-              context: context,
-            )
+            .breakpointCallback(context)
             .merge(widget.persistentConfig);
         return Frame(
           dimensions: config.dimensions,

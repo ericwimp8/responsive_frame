@@ -5,17 +5,17 @@ import 'package:flutter/widgets.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
 @immutable
-class ResponsiveDataState {
+class ResponsiveDataState<T> {
   const ResponsiveDataState({
     required this.screenSize,
     required this.deviceWidth,
     required this.currentBreakpoint,
     required this.breakpoints,
   });
-  final ScreenSize screenSize;
+  final T screenSize;
   final double deviceWidth;
   final double currentBreakpoint;
-  final Breakpoints breakpoints;
+  final BaseBreakpoints<T> breakpoints;
 
   @override
   String toString() {
@@ -42,24 +42,25 @@ class ResponsiveDataState {
   }
 }
 
-class ResponsiveDataChangeNotifier with ChangeNotifier {
+class ResponsiveDataChangeNotifier<T> with ChangeNotifier {
   ResponsiveDataChangeNotifier({
-    this.breakpoints = Breakpoints.defaultBreakpoints,
+    required this.breakpoints,
     this.useShortestSide = false,
     this.controllers,
   }) {
-    _screenSize = _getScreenSize();
+    _screenSize = breakpoints.getScreenSize();
+    // breakpoints = breakpoints.copyWith(useShortestSide: useShortestSide);
   }
-  final Breakpoints breakpoints;
+  BaseBreakpoints<T> breakpoints;
   final bool useShortestSide;
-  late ScreenSize _screenSize;
+  late T _screenSize;
 
   Map<String, BreakpointsController>? controllers = {};
-  BreakpointsController<T> getController<T>(String tag) {
+  BreakpointsController<Q, K> getController<Q, K>(String tag) {
     final controllersList =
         controllers!.entries.where((element) => element.key == tag);
 
-    return controllersList.first.value as BreakpointsController<T>;
+    return controllersList.first.value as BreakpointsController<Q, K>;
   }
 
   ResponsiveDataState get state => ResponsiveDataState(
@@ -69,25 +70,14 @@ class ResponsiveDataChangeNotifier with ChangeNotifier {
         breakpoints: breakpoints,
       );
 
-  double currentBreakPoint() =>
-      breakpoints.getBreakpointFromWidth(deviceWidth());
+  double currentBreakPoint() => breakpoints.getBreakpoint();
 
   double deviceWidth() {
-    final view = WidgetsBinding.instance.platformDispatcher.views.first;
-    final size = view.physicalSize;
-    final pixelRatio = view.devicePixelRatio;
-    if (useShortestSide) {
-      return view.physicalSize.shortestSide / pixelRatio;
-    }
-    return size.width / pixelRatio;
-  }
-
-  ScreenSize _getScreenSize() {
-    return breakpoints.getScreenSize(deviceWidth: deviceWidth());
+    return breakpoints.deviceWidth();
   }
 
   void updateScreenSize() {
-    final newScreenSize = _getScreenSize();
+    final newScreenSize = breakpoints.getScreenSize();
     if (_screenSize != newScreenSize) {
       _screenSize = newScreenSize;
       Future(notifyListeners);
@@ -112,7 +102,7 @@ class ResponsiveData extends InheritedNotifier<ResponsiveDataChangeNotifier> {
     return result.notifier!;
   }
 
-  static BreakpointsController<T> controllerOf<T>(
+  static BreakpointsController<T, K> controllerOf<T, K>(
     BuildContext context,
     String tag,
   ) {
@@ -122,7 +112,7 @@ class ResponsiveData extends InheritedNotifier<ResponsiveDataChangeNotifier> {
         'BreakpointsController was not found in the widget tree. Make sure to wrap your widget tree with a BreakpointsController.',
       );
     }
-    return result.notifier!.getController<T>(tag);
+    return result.notifier!.getController<T, K>(tag);
   }
 
   @override

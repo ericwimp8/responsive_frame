@@ -44,7 +44,7 @@ class _DashBoard extends StatelessWidget {
           ),
           bodyTop: Header(),
         ),
-        mobile: (context, constraints) {
+        mobile: (context) {
           return const FrameConfig();
         },
         // tablet: (context) {
@@ -69,7 +69,7 @@ class _DashBoard extends StatelessWidget {
         //     ),
         //   );
         // },
-        desktop: (context, constraints) {
+        desktop: (context) {
           return const FrameConfig(
             leftEnd: Menu(),
             rightEnd: Statistics(),
@@ -87,7 +87,7 @@ class _DashBoard extends StatelessWidget {
             ),
           );
         },
-        desktopLarge: (context, constraints) {
+        desktopLarge: (context) {
           return FrameConfig(
             leftEnd: const Menu(),
             rightEnd: const Statistics(),

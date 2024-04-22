@@ -43,31 +43,30 @@ class ScreenSizeLayoutGranular extends StatefulWidget {
 }
 
 class _ScreenSizeLayoutGranularState extends State<ScreenSizeLayoutGranular> {
-  late final controller = BreakpointsGranularController<Widget>(
-    desktopExtraLarge: widget.desktopExtraLarge,
-    desktopLarge: widget.desktopLarge,
-    desktopNormal: widget.desktopNormal,
-    desktopSmall: widget.desktopSmall,
-    tabletExtraLarge: widget.tabletExtraLarge,
-    tabletLarge: widget.tabletLarge,
-    tabletNormal: widget.tabletNormal,
-    tabletSmall: widget.tabletSmall,
-    mobileExtraLarge: widget.mobileExtraLarge,
-    mobileLarge: widget.mobileLarge,
-    mobileNormal: widget.mobileNormal,
-    mobileSmall: widget.mobileSmall,
+  late final controller = BreakpointsController<Widget, ScreenSizeGranular>(
+    callbacks: {
+      ScreenSizeGranular.desktopExtraLarge: widget.desktopExtraLarge,
+      ScreenSizeGranular.desktopLarge: widget.desktopLarge,
+      ScreenSizeGranular.desktopNormal: widget.desktopNormal,
+      ScreenSizeGranular.desktopSmall: widget.desktopSmall,
+      ScreenSizeGranular.tabletExtraLarge: widget.tabletExtraLarge,
+      ScreenSizeGranular.tabletLarge: widget.tabletLarge,
+      ScreenSizeGranular.tabletNormal: widget.tabletNormal,
+      ScreenSizeGranular.tabletSmall: widget.tabletSmall,
+      ScreenSizeGranular.mobileExtraLarge: widget.mobileExtraLarge,
+      ScreenSizeGranular.mobileLarge: widget.mobileLarge,
+      ScreenSizeGranular.mobileNormal: widget.mobileNormal,
+      ScreenSizeGranular.mobileSmall: widget.mobileSmall,
+      ScreenSizeGranular.watch: widget.watch,
+    },
+    defaultValue: ScreenSizeGranular.mobileNormal,
+    breakpoints: BreakpointsGranular.defaultBreakpoints,
   );
-
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final deviceWidth = MediaQuery.sizeOf(context).width;
-
-        return controller.breakpointCallback(
-          deviceWidth: deviceWidth,
-          context: context,
-        );
+        return controller.breakpointCallback(context);
       },
     );
   }

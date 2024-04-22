@@ -1,14 +1,39 @@
-abstract class BaseBreakpoints<T> {
-  const BaseBreakpoints();
+import 'package:flutter/material.dart';
 
-  Map<T, double> get values;
+class BaseBreakpoints<T> {
+  const BaseBreakpoints({
+    required this.values,
+    this.useShortestSide = false,
+  });
+  final bool useShortestSide;
+  final Map<T, double> values;
 
-  double getBreakpointFromWidth(double deviceWidth, {T screenSize});
+  double getBreakpoint() {
+    return values[getScreenSize()]!;
+  }
 
-  double getBreakPointFromScreenSize(T screenSize);
+  T getScreenSize() {
+    for (final entry in values.entries) {
+      if (deviceWidth() >= entry.value) {
+        return entry.key;
+      }
+    }
 
-  dynamic getScreenSize({required double deviceWidth});
+    return values
+        .entries.last.key; // Default to the smallest size if none match
+  }
+
+  double deviceWidth() {
+    final view = WidgetsBinding.instance.platformDispatcher.views.first;
+    final size = view.physicalSize;
+    final pixelRatio = view.devicePixelRatio;
+    if (useShortestSide) {
+      return view.physicalSize.shortestSide / pixelRatio;
+    }
+    return size.width / pixelRatio;
+  }
 
   @override
-  String toString();
+  String toString() =>
+      'BaseBreakpoints(useShortestSide: $useShortestSide, values: $values)';
 }

@@ -7,7 +7,6 @@ export 'src/breakpoints/base_breakpoints.dart';
 export 'src/breakpoints/breakpoints.dart';
 export 'src/breakpoints/breakpoints_controller.dart';
 export 'src/breakpoints/breakpoints_granular.dart';
-export 'src/breakpoints/breakpoints_granular_controller.dart';
 export 'src/frame/constants.dart';
 export 'src/frame/dimensions_config.dart';
 export 'src/frame/frame.dart';

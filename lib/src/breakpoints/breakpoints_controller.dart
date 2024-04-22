@@ -1,81 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-class BreakpointsController<T> {
+class BreakpointsController<T, K> {
   BreakpointsController({
-    required this.mobile,
-    this.tablet,
-    this.desktop,
-    this.desktopLarge,
-    this.watch,
-    this.breakpoints = Breakpoints.defaultBreakpoints,
+    required this.breakpoints,
+    required this.callbacks,
+    required this.defaultValue,
   });
+  final BaseBreakpoints<K> breakpoints;
+  final K defaultValue;
+  K? screenSizeCache;
+  T Function(BuildContext context)? currentvalue;
+  Map<K, T Function(BuildContext context)?> callbacks;
 
-  final T Function(BuildContext context, BoxConstraints contraints)? watch;
-  final T Function(BuildContext context, BoxConstraints contraints) mobile;
-  final T Function(BuildContext context, BoxConstraints contraints)? tablet;
-  final T Function(BuildContext context, BoxConstraints contraints)? desktop;
-  final T Function(BuildContext context, BoxConstraints contraints)?
-      desktopLarge;
-  final Breakpoints breakpoints;
+  double get currentBreakpoint => breakpoints.getBreakpoint();
 
-  ScreenSize? screenSize;
-  T Function(BuildContext context, BoxConstraints constraints)? currentvalue;
-  late final avalableCallbacks = {
-    ScreenSize.desktopLarge: desktopLarge,
-    ScreenSize.desktop: desktop,
-    ScreenSize.tablet: tablet,
-    ScreenSize.mobile: mobile,
-    ScreenSize.watch: watch,
-  };
+  List<K> get values => callbacks.entries.map((e) => e.key).toList();
 
-  /// Map that maps [ScreenSize] to it's [Breakpoints] value
+  T Function(BuildContext context) get breakpointCallback {
+    final currentScreenSize = breakpoints.getScreenSize();
 
-  T Function(BuildContext context, BoxConstraints constraints)
-      breakpointCallback({
-    required double deviceWidth,
-    required BuildContext context,
-  }) {
-    // ignore: no_leading_underscores_for_local_identifiers
-    final _screenSize = breakpoints.getScreenSize(deviceWidth: deviceWidth);
+    if (screenSizeCache == currentScreenSize && currentvalue != null) {
+      return currentvalue!;
+    }
 
-    if (screenSize == _screenSize && currentvalue != null) return currentvalue!;
-
-    screenSize = _screenSize;
-    final callback = avalableCallbacks[screenSize];
+    screenSizeCache = currentScreenSize;
+    final callback = callbacks[screenSizeCache];
     if (callback != null) {
       currentvalue = callback;
       return callback;
     }
-    final index = ScreenSize.values.indexOf(screenSize!);
-    final validBuilders = ScreenSize.values.sublist(index);
+    final index = values.indexOf(screenSizeCache as K);
+    final validBuilders = values.sublist(index);
     for (final e in validBuilders) {
-      final callback = avalableCallbacks[e];
+      final callback = callbacks[e];
       if (callback != null) {
         currentvalue = callback;
         return currentvalue!;
       }
     }
 
-    currentvalue = avalableCallbacks[ScreenSize.mobile];
+    currentvalue = callbacks[defaultValue];
     return currentvalue!;
-  }
-
-  /// Returns the breakpoint value given a device width
-  double getBreakpointFromWidth(double deviceWidth) {
-    return breakpoints.getBreakpointFromWidth(
-      deviceWidth,
-      screenSize: screenSize,
-    );
-  }
-
-  /// Returns the [ScreenSize] given a [deviceWidth]
-  ScreenSize getScreenSize({required double deviceWidth}) {
-    return breakpoints.getScreenSize(deviceWidth: deviceWidth);
-  }
-
-  /// Returns the breakpoint value for a given [ScreenSize]
-  double getBreakPointFromScreenSize(ScreenSize screenSize) {
-    return breakpoints.getBreakPointFromScreenSize(screenSize);
   }
 }

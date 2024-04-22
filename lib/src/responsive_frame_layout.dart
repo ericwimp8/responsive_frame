@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:responsive_frame/responsive_frame.dart';
 
-class ResponsiveFrameLayout extends StatefulWidget {
+class ResponsiveFrameLayout extends StatelessWidget {
   const ResponsiveFrameLayout({
     required this.mobile,
     this.desktopLarge,
@@ -18,36 +18,55 @@ class ResponsiveFrameLayout extends StatefulWidget {
     super.key,
   });
 
-  final FrameConfig Function(
-    BuildContext context,
-    BoxConstraints constraints,
-  ) mobile;
-  final FrameConfig Function(
-    BuildContext context,
-    BoxConstraints constraints,
-  )? tablet;
-  final FrameConfig Function(
-    BuildContext context,
-    BoxConstraints constraints,
-  )? desktop;
-  final FrameConfig Function(
-    BuildContext context,
-    BoxConstraints constraints,
-  )? desktopLarge;
-  final FrameConfig Function(
-    BuildContext context,
-    BoxConstraints constraints,
-  )? watch;
-  final Breakpoints breakpoints;
+  final FrameConfig Function(BuildContext context) mobile;
+  final FrameConfig Function(BuildContext context)? tablet;
+  final FrameConfig Function(BuildContext context)? desktop;
+  final FrameConfig Function(BuildContext context)? desktopLarge;
+  final FrameConfig Function(BuildContext context)? watch;
+  final BaseBreakpoints<ScreenSize> breakpoints;
   final bool animations;
   final FrameConfig persistentFrameConfig;
   final Color? backgroundColor;
 
   @override
-  State<ResponsiveFrameLayout> createState() => _ResponsiveFrameLayoutState();
+  Widget build(BuildContext context) {
+    return BreakpointDataWidget(
+      controllers: {
+        'frameconfig': BreakpointsController<FrameConfig, ScreenSize>(
+          callbacks: {
+            ScreenSize.desktopLarge: desktopLarge,
+            ScreenSize.desktop: desktop,
+            ScreenSize.tablet: tablet,
+            ScreenSize.mobile: mobile,
+            ScreenSize.watch: watch,
+          },
+          breakpoints: Breakpoints.defaultBreakpoints,
+          defaultValue: ScreenSize.mobile,
+        ),
+      },
+      child: _Frame(
+        persistentFrameConfig: persistentFrameConfig,
+        backgroundColor: backgroundColor,
+        animations: animations,
+      ),
+    );
+  }
 }
 
-class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayout> {
+class _Frame extends StatefulWidget {
+  const _Frame({
+    required this.persistentFrameConfig,
+    required this.animations,
+    this.backgroundColor,
+  });
+  final Color? backgroundColor;
+  final FrameConfig persistentFrameConfig;
+  final bool animations;
+  @override
+  State<_Frame> createState() => _FrameState();
+}
+
+class _FrameState extends State<_Frame> {
   bool _isInit = true;
   @override
   void initState() {
@@ -63,49 +82,27 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayout> {
 
   @override
   Widget build(BuildContext context) {
-    return BreakpointDataWidget(
-      controllers: {
-        'frameconfig': BreakpointsController<FrameConfig>(
-          watch: widget.watch,
-          mobile: widget.mobile,
-          tablet: widget.tablet,
-          desktop: widget.desktop,
-          desktopLarge: widget.desktopLarge,
-        ),
-      },
-      child: Material(
-        color: widget.backgroundColor,
-        child: SafeArea(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              final deviceWidth = constraints.maxWidth;
-              final controller = ResponsiveData.controllerOf<FrameConfig>(
-                context,
-                'frameconfig',
-              );
-
-              final config = controller
-                  .breakpointCallback(
-                    deviceWidth: deviceWidth,
-                    context: context,
-                  )(context, constraints)
-                  .merge(widget.persistentFrameConfig);
-
-              return Frame(
-                dimensions: config.dimensions,
-                animations: !_isInit && widget.animations,
-                body: config.body ?? const SizedBox(),
-                top: config.top,
-                bodyTop: config.bodyTop,
-                leftEnd: config.leftEnd,
-                leftEndTop: config.leftEndTop,
-                rightEnd: config.rightEnd,
-                rightEndTop: config.rightEndTop,
-                bodyBottom: config.bodyBottom,
-                bottom: config.bottom,
-              );
-            },
-          ),
+    final controller = ResponsiveData.of(context)
+        .getController<FrameConfig, ScreenSize>('frameconfig');
+    final config = controller
+        .breakpointCallback(context)
+        .merge(widget.persistentFrameConfig);
+    return Material(
+      color: widget.backgroundColor,
+      child: SafeArea(
+        child: Frame(
+          dimensions: config.dimensions,
+          // ignore: avoid_redundant_argument_values
+          animations: !_isInit && widget.animations,
+          body: config.body ?? const SizedBox(),
+          top: config.top,
+          bodyTop: config.bodyTop,
+          leftEnd: config.leftEnd,
+          leftEndTop: config.leftEndTop,
+          rightEnd: config.rightEnd,
+          rightEndTop: config.rightEndTop,
+          bodyBottom: config.bodyBottom,
+          bottom: config.bottom,
         ),
       ),
     );
@@ -178,7 +175,10 @@ class BreakpointDataWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveData(
-      notifier: ResponsiveDataChangeNotifier(controllers: controllers),
+      notifier: ResponsiveDataChangeNotifier<ScreenSize>(
+        controllers: controllers,
+        breakpoints: Breakpoints.defaultBreakpoints,
+      ),
       child: LayoutBuilder(
         builder: (context, constraints) {
           ResponsiveData.of(context).updateScreenSize();
