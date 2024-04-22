@@ -1,7 +1,8 @@
+// ignore_for_file: strict_raw_type
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:responsive_frame/responsive_frame.dart';
-import 'package:responsive_frame/src/breakpoints/breakpoints.dart';
 
 @immutable
 class ResponsiveDataState {
@@ -45,12 +46,21 @@ class ResponsiveDataChangeNotifier with ChangeNotifier {
   ResponsiveDataChangeNotifier({
     this.breakpoints = Breakpoints.defaultBreakpoints,
     this.useShortestSide = false,
+    this.controllers,
   }) {
-    _screenSize = _getScreenSize;
+    _screenSize = _getScreenSize();
   }
   final Breakpoints breakpoints;
   final bool useShortestSide;
   late ScreenSize _screenSize;
+
+  Map<String, BreakpointsController>? controllers = {};
+  BreakpointsController<T> getController<T>(String tag) {
+    final controllersList =
+        controllers!.entries.where((element) => element.key == tag);
+
+    return controllersList.first.value as BreakpointsController<T>;
+  }
 
   ResponsiveDataState get state => ResponsiveDataState(
         screenSize: _screenSize,
@@ -61,6 +71,7 @@ class ResponsiveDataChangeNotifier with ChangeNotifier {
 
   double currentBreakPoint() =>
       breakpoints.getBreakpointFromWidth(deviceWidth());
+
   double deviceWidth() {
     final view = WidgetsBinding.instance.platformDispatcher.views.first;
     final size = view.physicalSize;
@@ -71,16 +82,16 @@ class ResponsiveDataChangeNotifier with ChangeNotifier {
     return size.width / pixelRatio;
   }
 
-  ScreenSize get _getScreenSize {
+  ScreenSize _getScreenSize() {
     return breakpoints.getScreenSize(deviceWidth: deviceWidth());
   }
 
   void updateScreenSize() {
-    final newScreenSize = _getScreenSize;
-    // if (_screenSize != newScreenSize) {
-    _screenSize = newScreenSize;
-    Future(notifyListeners);
-    // }
+    final newScreenSize = _getScreenSize();
+    if (_screenSize != newScreenSize) {
+      _screenSize = newScreenSize;
+      Future(notifyListeners);
+    }
   }
 }
 
@@ -99,6 +110,19 @@ class ResponsiveData extends InheritedNotifier<ResponsiveDataChangeNotifier> {
       );
     }
     return result.notifier!;
+  }
+
+  static BreakpointsController<T> controllerOf<T>(
+    BuildContext context,
+    String tag,
+  ) {
+    final result = context.dependOnInheritedWidgetOfExactType<ResponsiveData>();
+    if (result == null) {
+      throw FlutterError(
+        'BreakpointsController was not found in the widget tree. Make sure to wrap your widget tree with a BreakpointsController.',
+      );
+    }
+    return result.notifier!.getController<T>(tag);
   }
 
   @override
