@@ -20,23 +20,23 @@ class ResponsiveFrameLayout extends StatefulWidget {
 
   final FrameConfig Function(
     BuildContext context,
-    BoxConstraints constraitns,
+    BoxConstraints constraints,
   ) mobile;
   final FrameConfig Function(
     BuildContext context,
-    BoxConstraints constraitns,
+    BoxConstraints constraints,
   )? tablet;
   final FrameConfig Function(
     BuildContext context,
-    BoxConstraints constraitns,
+    BoxConstraints constraints,
   )? desktop;
   final FrameConfig Function(
     BuildContext context,
-    BoxConstraints constraitns,
+    BoxConstraints constraints,
   )? desktopLarge;
   final FrameConfig Function(
     BuildContext context,
-    BoxConstraints constraitns,
+    BoxConstraints constraints,
   )? watch;
   final Breakpoints breakpoints;
   final bool animations;
@@ -48,14 +48,6 @@ class ResponsiveFrameLayout extends StatefulWidget {
 }
 
 class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayout> {
-  late final controller = BreakpointsController<FrameConfig>(
-    watch: widget.watch,
-    mobile: widget.mobile,
-    tablet: widget.tablet,
-    desktop: widget.desktop,
-    desktopLarge: widget.desktopLarge,
-  );
-
   bool _isInit = true;
   @override
   void initState() {
@@ -72,12 +64,25 @@ class _ResponsiveFrameLayoutState extends State<ResponsiveFrameLayout> {
   @override
   Widget build(BuildContext context) {
     return BreakpointDataWidget(
+      controllers: {
+        'frameconfig': BreakpointsController<FrameConfig>(
+          watch: widget.watch,
+          mobile: widget.mobile,
+          tablet: widget.tablet,
+          desktop: widget.desktop,
+          desktopLarge: widget.desktopLarge,
+        ),
+      },
       child: Material(
         color: widget.backgroundColor,
         child: SafeArea(
           child: LayoutBuilder(
             builder: (context, constraints) {
               final deviceWidth = constraints.maxWidth;
+              final controller = ResponsiveData.controllerOf<FrameConfig>(
+                context,
+                'frameconfig',
+              );
 
               final config = controller
                   .breakpointCallback(
@@ -164,14 +169,16 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 class BreakpointDataWidget extends StatelessWidget {
   const BreakpointDataWidget({
     required this.child,
+    this.controllers,
     super.key,
   });
   final Widget child;
-
+  // ignore: strict_raw_type
+  final Map<String, BreakpointsController>? controllers;
   @override
   Widget build(BuildContext context) {
     return ResponsiveData(
-      notifier: ResponsiveDataChangeNotifier(),
+      notifier: ResponsiveDataChangeNotifier(controllers: controllers),
       child: LayoutBuilder(
         builder: (context, constraints) {
           ResponsiveData.of(context).updateScreenSize();
@@ -180,5 +187,16 @@ class BreakpointDataWidget extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+class Ty extends StatelessWidget {
+  const Ty({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    print('fdaafdssd');
+
+    return Container();
   }
 }
