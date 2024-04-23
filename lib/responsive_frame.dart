@@ -1,7 +1,6 @@
 export 'responsive_frame.dart';
 export 'src/animated_constrained_box.dart';
 export 'src/animations/animated_show_hide.dart';
-export 'src/animations/frame_animated_switcher.dart';
 export 'src/animations/size_fade_transition.dart';
 export 'src/breakpoints/breakpoints.dart';
 export 'src/breakpoints/breakpoints_controller.dart';
