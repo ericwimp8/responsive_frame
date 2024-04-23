@@ -63,7 +63,16 @@ abstract class DashboardTheme {
     );
   }
 
-  static ThemeData light() {
+  static ThemeData light({ColorScheme? colorScheme}) {
+    if (colorScheme != null) {
+      return buildTheme(
+        colorScheme.copyWith(
+          onSecondary: Colors.black,
+          onPrimary: Colors.black,
+          surfaceTint: Colors.black.withOpacity(0.05),
+        ),
+      );
+    }
     return buildTheme(
       ColorScheme.fromSeed(
         seedColor: yellow,
@@ -78,7 +87,16 @@ abstract class DashboardTheme {
     );
   }
 
-  static ThemeData dark() {
+  static ThemeData dark({ColorScheme? colorScheme}) {
+    if (colorScheme != null) {
+      return buildTheme(
+        colorScheme.copyWith(
+          onSecondary: Colors.black,
+          onPrimary: Colors.black,
+          surfaceTint: Colors.white.withOpacity(0.03),
+        ),
+      );
+    }
     return buildTheme(
       ColorScheme.fromSeed(
         primary: yellow,

@@ -40,7 +40,12 @@ final superHeroJson = [
       "base": "29 Acacia Road, Nuttytown"
     },
     "connections": {"groupAffiliation": "-", "relatives": "-"},
-    "images": {"xs": "-", "sm": "-", "md": "-", "lg": "-"}
+    "images": {
+      "xs": "-",
+      "sm": "assets/images/bananaman.png",
+      "md": "-",
+      "lg": "-"
+    }
   },
   {
     "id": 1,
@@ -84,8 +89,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/1-a-bomb.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/1-a-bomb.jpg",
+      "sm": "assets/images/superhero_images_sm/1-a-bomb.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/1-a-bomb.jpg",
       "lg":
@@ -129,8 +133,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/2-abe-sapien.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/2-abe-sapien.jpg",
+      "sm": "assets/images/superhero_images_sm/2-abe-sapien.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/2-abe-sapien.jpg",
       "lg":
@@ -178,8 +181,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/3-abin-sur.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/3-abin-sur.jpg",
+      "sm": "assets/images/superhero_images_sm/3-abin-sur.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/3-abin-sur.jpg",
       "lg":
@@ -224,8 +226,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/4-abomination.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/4-abomination.jpg",
+      "sm": "assets/images/superhero_images_sm/4-abomination.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/4-abomination.jpg",
       "lg":
@@ -269,8 +270,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/5-abraxas.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/5-abraxas.jpg",
+      "sm": "assets/images/superhero_images_sm/5-abraxas.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/5-abraxas.jpg",
       "lg":
@@ -326,8 +326,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/6-absorbing-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/6-absorbing-man.jpg",
+      "sm": "assets/images/superhero_images_sm/6-absorbing-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/6-absorbing-man.jpg",
       "lg":
@@ -373,8 +372,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/7-adam-monroe.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/7-adam-monroe.jpg",
+      "sm": "assets/images/superhero_images_sm/7-adam-monroe.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/7-adam-monroe.jpg",
       "lg":
@@ -423,8 +421,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/8-adam-strange.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/8-adam-strange.jpg",
+      "sm": "assets/images/superhero_images_sm/8-adam-strange.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/8-adam-strange.jpg",
       "lg":
@@ -471,8 +468,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/10-agent-bob.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/10-agent-bob.jpg",
+      "sm": "assets/images/superhero_images_sm/10-agent-bob.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/10-agent-bob.jpg",
       "lg":
@@ -521,8 +517,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/11-agent-zero.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/11-agent-zero.jpg",
+      "sm": "assets/images/superhero_images_sm/11-agent-zero.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/11-agent-zero.jpg",
       "lg":
@@ -569,8 +564,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/12-air-walker.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/12-air-walker.jpg",
+      "sm": "assets/images/superhero_images_sm/12-air-walker.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/12-air-walker.jpg",
       "lg":
@@ -611,8 +605,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/13-ajax.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/13-ajax.jpg",
+      "sm": "assets/images/superhero_images_sm/13-ajax.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/13-ajax.jpg",
       "lg":
@@ -661,8 +654,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/14-alan-scott.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/14-alan-scott.jpg",
+      "sm": "assets/images/superhero_images_sm/14-alan-scott.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/14-alan-scott.jpg",
       "lg":
@@ -706,8 +698,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/15-alex-mercer.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/15-alex-mercer.jpg",
+      "sm": "assets/images/superhero_images_sm/15-alex-mercer.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/15-alex-mercer.jpg",
       "lg":
@@ -756,8 +747,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/17-alfred-pennyworth.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/17-alfred-pennyworth.jpg",
+      "sm": "assets/images/superhero_images_sm/17-alfred-pennyworth.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/17-alfred-pennyworth.jpg",
       "lg":
@@ -801,8 +791,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/18-alien.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/18-alien.jpg",
+      "sm": "assets/images/superhero_images_sm/18-alien.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/18-alien.jpg",
       "lg":
@@ -851,8 +840,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/20-amazo.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/20-amazo.jpg",
+      "sm": "assets/images/superhero_images_sm/20-amazo.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/20-amazo.jpg",
       "lg":
@@ -896,8 +884,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/23-angel.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/23-angel.jpg",
+      "sm": "assets/images/superhero_images_sm/23-angel.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/23-angel.jpg",
       "lg":
@@ -953,8 +940,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/24-angel.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/24-angel.jpg",
+      "sm": "assets/images/superhero_images_sm/24-angel.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/24-angel.jpg",
       "lg":
@@ -995,8 +981,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/25-angel-dust.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/25-angel-dust.jpg",
+      "sm": "assets/images/superhero_images_sm/25-angel-dust.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/25-angel-dust.jpg",
       "lg":
@@ -1041,8 +1026,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/26-angel-salvadore.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/26-angel-salvadore.jpg",
+      "sm": "assets/images/superhero_images_sm/26-angel-salvadore.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/26-angel-salvadore.jpg",
       "lg":
@@ -1088,8 +1072,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/28-animal-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/28-animal-man.jpg",
+      "sm": "assets/images/superhero_images_sm/28-animal-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/28-animal-man.jpg",
       "lg":
@@ -1133,8 +1116,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/29-annihilus.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/29-annihilus.jpg",
+      "sm": "assets/images/superhero_images_sm/29-annihilus.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/29-annihilus.jpg",
       "lg":
@@ -1193,8 +1175,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/30-ant-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/30-ant-man.jpg",
+      "sm": "assets/images/superhero_images_sm/30-ant-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/30-ant-man.jpg",
       "lg":
@@ -1244,8 +1225,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/31-ant-man-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/31-ant-man-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/31-ant-man-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/31-ant-man-ii.jpg",
       "lg":
@@ -1290,8 +1270,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/32-anti-monitor.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/32-anti-monitor.jpg",
+      "sm": "assets/images/superhero_images_sm/32-anti-monitor.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/32-anti-monitor.jpg",
       "lg":
@@ -1346,8 +1325,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/34-anti-venom.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/34-anti-venom.jpg",
+      "sm": "assets/images/superhero_images_sm/34-anti-venom.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/34-anti-venom.jpg",
       "lg":
@@ -1402,8 +1380,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/35-apocalypse.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/35-apocalypse.jpg",
+      "sm": "assets/images/superhero_images_sm/35-apocalypse.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/35-apocalypse.jpg",
       "lg":
@@ -1448,8 +1425,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/36-aquababy.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/36-aquababy.jpg",
+      "sm": "assets/images/superhero_images_sm/36-aquababy.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/36-aquababy.jpg",
       "lg":
@@ -1498,8 +1474,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/37-aqualad.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/37-aqualad.jpg",
+      "sm": "assets/images/superhero_images_sm/37-aqualad.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/37-aqualad.jpg",
       "lg":
@@ -1555,8 +1530,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/38-aquaman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/38-aquaman.jpg",
+      "sm": "assets/images/superhero_images_sm/38-aquaman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/38-aquaman.jpg",
       "lg":
@@ -1606,8 +1580,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/39-arachne.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/39-arachne.jpg",
+      "sm": "assets/images/superhero_images_sm/39-arachne.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/39-arachne.jpg",
       "lg":
@@ -1657,8 +1630,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/40-archangel.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/40-archangel.jpg",
+      "sm": "assets/images/superhero_images_sm/40-archangel.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/40-archangel.jpg",
       "lg":
@@ -1703,8 +1675,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/41-arclight.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/41-arclight.jpg",
+      "sm": "assets/images/superhero_images_sm/41-arclight.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/41-arclight.jpg",
       "lg":
@@ -1748,8 +1719,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/42-ardina.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/42-ardina.jpg",
+      "sm": "assets/images/superhero_images_sm/42-ardina.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/42-ardina.jpg",
       "lg":
@@ -1795,8 +1765,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/43-ares.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/43-ares.jpg",
+      "sm": "assets/images/superhero_images_sm/43-ares.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/43-ares.jpg",
       "lg":
@@ -1844,8 +1813,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/44-ariel.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/44-ariel.jpg",
+      "sm": "assets/images/superhero_images_sm/44-ariel.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/44-ariel.jpg",
       "lg":
@@ -1890,8 +1858,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/45-armor.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/45-armor.jpg",
+      "sm": "assets/images/superhero_images_sm/45-armor.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/45-armor.jpg",
       "lg":
@@ -1948,8 +1915,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/48-atlas.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/48-atlas.jpg",
+      "sm": "assets/images/superhero_images_sm/48-atlas.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/48-atlas.jpg",
       "lg":
@@ -1990,8 +1956,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/49-atlas.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/49-atlas.jpg",
+      "sm": "assets/images/superhero_images_sm/49-atlas.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/49-atlas.jpg",
       "lg":
@@ -2035,8 +2000,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/52-atom-girl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/52-atom-girl.jpg",
+      "sm": "assets/images/superhero_images_sm/52-atom-girl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/52-atom-girl.jpg",
       "lg":
@@ -2086,8 +2050,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/53-atom-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/53-atom-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/53-atom-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/53-atom-ii.jpg",
       "lg":
@@ -2137,8 +2100,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/56-aurora.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/56-aurora.jpg",
+      "sm": "assets/images/superhero_images_sm/56-aurora.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/56-aurora.jpg",
       "lg":
@@ -2195,8 +2157,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/57-azazel.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/57-azazel.jpg",
+      "sm": "assets/images/superhero_images_sm/57-azazel.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/57-azazel.jpg",
       "lg":
@@ -2242,8 +2203,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/58-azrael.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/58-azrael.jpg",
+      "sm": "assets/images/superhero_images_sm/58-azrael.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/58-azrael.jpg",
       "lg":
@@ -2287,8 +2247,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/60-bane.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/60-bane.jpg",
+      "sm": "assets/images/superhero_images_sm/60-bane.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/60-bane.jpg",
       "lg":
@@ -2339,8 +2298,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/61-banshee.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/61-banshee.jpg",
+      "sm": "assets/images/superhero_images_sm/61-banshee.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/61-banshee.jpg",
       "lg":
@@ -2387,8 +2345,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/62-bantam.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/62-bantam.jpg",
+      "sm": "assets/images/superhero_images_sm/62-bantam.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/62-bantam.jpg",
       "lg":
@@ -2436,8 +2393,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/63-batgirl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/63-batgirl.jpg",
+      "sm": "assets/images/superhero_images_sm/63-batgirl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/63-batgirl.jpg",
       "lg":
@@ -2486,8 +2442,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/66-batgirl-iv.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/66-batgirl-iv.jpg",
+      "sm": "assets/images/superhero_images_sm/66-batgirl-iv.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/66-batgirl-iv.jpg",
       "lg":
@@ -2537,8 +2492,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/68-batgirl-vi.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/68-batgirl-vi.jpg",
+      "sm": "assets/images/superhero_images_sm/68-batgirl-vi.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/68-batgirl-vi.jpg",
       "lg":
@@ -2589,8 +2543,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/69-batman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/69-batman.jpg",
+      "sm": "assets/images/superhero_images_sm/69-batman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/69-batman.jpg",
       "lg":
@@ -2640,8 +2593,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/70-batman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/70-batman.jpg",
+      "sm": "assets/images/superhero_images_sm/70-batman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/70-batman.jpg",
       "lg":
@@ -2689,8 +2641,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/71-batman-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/71-batman-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/71-batman-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/71-batman-ii.jpg",
       "lg":
@@ -2735,8 +2686,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/72-battlestar.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/72-battlestar.jpg",
+      "sm": "assets/images/superhero_images_sm/72-battlestar.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/72-battlestar.jpg",
       "lg":
@@ -2781,8 +2731,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/73-batwoman-v.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/73-batwoman-v.jpg",
+      "sm": "assets/images/superhero_images_sm/73-batwoman-v.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/73-batwoman-v.jpg",
       "lg":
@@ -2840,8 +2789,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/75-beast.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/75-beast.jpg",
+      "sm": "assets/images/superhero_images_sm/75-beast.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/75-beast.jpg",
       "lg":
@@ -2899,8 +2847,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/76-beast-boy.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/76-beast-boy.jpg",
+      "sm": "assets/images/superhero_images_sm/76-beast-boy.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/76-beast-boy.jpg",
       "lg":
@@ -2941,8 +2888,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/78-ben-10.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/78-ben-10.jpg",
+      "sm": "assets/images/superhero_images_sm/78-ben-10.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/78-ben-10.jpg",
       "lg":
@@ -2990,8 +2936,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/79-beta-ray-bill.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/79-beta-ray-bill.jpg",
+      "sm": "assets/images/superhero_images_sm/79-beta-ray-bill.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/79-beta-ray-bill.jpg",
       "lg":
@@ -3048,8 +2993,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/80-beyonder.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/80-beyonder.jpg",
+      "sm": "assets/images/superhero_images_sm/80-beyonder.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/80-beyonder.jpg",
       "lg":
@@ -3098,8 +3042,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/81-big-barda.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/81-big-barda.jpg",
+      "sm": "assets/images/superhero_images_sm/81-big-barda.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/81-big-barda.jpg",
       "lg":
@@ -3143,8 +3086,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/82-big-daddy.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/82-big-daddy.jpg",
+      "sm": "assets/images/superhero_images_sm/82-big-daddy.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/82-big-daddy.jpg",
       "lg":
@@ -3188,8 +3130,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/83-big-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/83-big-man.jpg",
+      "sm": "assets/images/superhero_images_sm/83-big-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/83-big-man.jpg",
       "lg":
@@ -3230,8 +3171,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/84-bill-harken.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/84-bill-harken.jpg",
+      "sm": "assets/images/superhero_images_sm/84-bill-harken.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/84-bill-harken.jpg",
       "lg":
@@ -3272,8 +3212,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/87-bionic-woman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/87-bionic-woman.jpg",
+      "sm": "assets/images/superhero_images_sm/87-bionic-woman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/87-bionic-woman.jpg",
       "lg":
@@ -3317,8 +3256,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/88-bird-brain.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/88-bird-brain.jpg",
+      "sm": "assets/images/superhero_images_sm/88-bird-brain.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/88-bird-brain.jpg",
       "lg":
@@ -3370,8 +3308,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/92-bishop.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/92-bishop.jpg",
+      "sm": "assets/images/superhero_images_sm/92-bishop.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/92-bishop.jpg",
       "lg":
@@ -3417,8 +3354,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/93-bizarro.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/93-bizarro.jpg",
+      "sm": "assets/images/superhero_images_sm/93-bizarro.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/93-bizarro.jpg",
       "lg":
@@ -3467,8 +3403,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/95-black-adam.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/95-black-adam.jpg",
+      "sm": "assets/images/superhero_images_sm/95-black-adam.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/95-black-adam.jpg",
       "lg":
@@ -3517,8 +3452,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/96-black-bolt.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/96-black-bolt.jpg",
+      "sm": "assets/images/superhero_images_sm/96-black-bolt.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/96-black-bolt.jpg",
       "lg":
@@ -3569,8 +3503,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/97-black-canary.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/97-black-canary.jpg",
+      "sm": "assets/images/superhero_images_sm/97-black-canary.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/97-black-canary.jpg",
       "lg":
@@ -3618,8 +3551,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/98-black-canary.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/98-black-canary.jpg",
+      "sm": "assets/images/superhero_images_sm/98-black-canary.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/98-black-canary.jpg",
       "lg":
@@ -3667,8 +3599,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/99-black-cat.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/99-black-cat.jpg",
+      "sm": "assets/images/superhero_images_sm/99-black-cat.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/99-black-cat.jpg",
       "lg":
@@ -3716,8 +3647,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/100-black-flash.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/100-black-flash.jpg",
+      "sm": "assets/images/superhero_images_sm/100-black-flash.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/100-black-flash.jpg",
       "lg":
@@ -3766,8 +3696,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/102-black-knight-iii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/102-black-knight-iii.jpg",
+      "sm": "assets/images/superhero_images_sm/102-black-knight-iii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/102-black-knight-iii.jpg",
       "lg":
@@ -3817,8 +3746,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/103-black-lightning.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/103-black-lightning.jpg",
+      "sm": "assets/images/superhero_images_sm/103-black-lightning.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/103-black-lightning.jpg",
       "lg":
@@ -3865,8 +3793,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/104-black-mamba.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/104-black-mamba.jpg",
+      "sm": "assets/images/superhero_images_sm/104-black-mamba.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/104-black-mamba.jpg",
       "lg":
@@ -3907,8 +3834,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/105-black-manta.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/105-black-manta.jpg",
+      "sm": "assets/images/superhero_images_sm/105-black-manta.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/105-black-manta.jpg",
       "lg":
@@ -3966,8 +3892,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/106-black-panther.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/106-black-panther.jpg",
+      "sm": "assets/images/superhero_images_sm/106-black-panther.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/106-black-panther.jpg",
       "lg":
@@ -4028,8 +3953,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/107-black-widow.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/107-black-widow.jpg",
+      "sm": "assets/images/superhero_images_sm/107-black-widow.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/107-black-widow.jpg",
       "lg":
@@ -4073,8 +3997,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/109-blackout.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/109-blackout.jpg",
+      "sm": "assets/images/superhero_images_sm/109-blackout.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/109-blackout.jpg",
       "lg":
@@ -4125,8 +4048,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/110-blackwing.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/110-blackwing.jpg",
+      "sm": "assets/images/superhero_images_sm/110-blackwing.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/110-blackwing.jpg",
       "lg":
@@ -4171,8 +4093,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/111-blackwulf.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/111-blackwulf.jpg",
+      "sm": "assets/images/superhero_images_sm/111-blackwulf.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/111-blackwulf.jpg",
       "lg":
@@ -4220,8 +4141,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/112-blade.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/112-blade.jpg",
+      "sm": "assets/images/superhero_images_sm/112-blade.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/112-blade.jpg",
       "lg":
@@ -4270,8 +4190,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/114-bling!.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/114-bling!.jpg",
+      "sm": "assets/images/superhero_images_sm/114-bling!.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/114-bling!.jpg",
       "lg":
@@ -4320,8 +4239,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/115-blink.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/115-blink.jpg",
+      "sm": "assets/images/superhero_images_sm/115-blink.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/115-blink.jpg",
       "lg":
@@ -4368,8 +4286,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/118-blizzard-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/118-blizzard-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/118-blizzard-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/118-blizzard-ii.jpg",
       "lg":
@@ -4418,8 +4335,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/119-blob.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/119-blob.jpg",
+      "sm": "assets/images/superhero_images_sm/119-blob.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/119-blob.jpg",
       "lg":
@@ -4460,8 +4376,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/120-bloodaxe.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/120-bloodaxe.jpg",
+      "sm": "assets/images/superhero_images_sm/120-bloodaxe.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/120-bloodaxe.jpg",
       "lg":
@@ -4506,8 +4421,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/121-bloodhawk.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/121-bloodhawk.jpg",
+      "sm": "assets/images/superhero_images_sm/121-bloodhawk.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/121-bloodhawk.jpg",
       "lg":
@@ -4552,8 +4466,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/126-blue-beetle-iii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/126-blue-beetle-iii.jpg",
+      "sm": "assets/images/superhero_images_sm/126-blue-beetle-iii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/126-blue-beetle-iii.jpg",
       "lg":
@@ -4600,8 +4513,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/127-boba-fett.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/127-boba-fett.jpg",
+      "sm": "assets/images/superhero_images_sm/127-boba-fett.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/127-boba-fett.jpg",
       "lg":
@@ -4654,8 +4566,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/130-boom-boom.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/130-boom-boom.jpg",
+      "sm": "assets/images/superhero_images_sm/130-boom-boom.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/130-boom-boom.jpg",
       "lg":
@@ -4703,8 +4614,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/135-box-iv.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/135-box-iv.jpg",
+      "sm": "assets/images/superhero_images_sm/135-box-iv.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/135-box-iv.jpg",
       "lg":
@@ -4748,8 +4658,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/136-brainiac.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/136-brainiac.jpg",
+      "sm": "assets/images/superhero_images_sm/136-brainiac.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/136-brainiac.jpg",
       "lg":
@@ -4794,8 +4703,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/137-brainiac-5.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/137-brainiac-5.jpg",
+      "sm": "assets/images/superhero_images_sm/137-brainiac-5.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/137-brainiac-5.jpg",
       "lg":
@@ -4836,8 +4744,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/139-brundlefly.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/139-brundlefly.jpg",
+      "sm": "assets/images/superhero_images_sm/139-brundlefly.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/139-brundlefly.jpg",
       "lg":
@@ -4897,8 +4804,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/140-buffy.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/140-buffy.jpg",
+      "sm": "assets/images/superhero_images_sm/140-buffy.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/140-buffy.jpg",
       "lg":
@@ -4953,8 +4859,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/141-bullseye.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/141-bullseye.jpg",
+      "sm": "assets/images/superhero_images_sm/141-bullseye.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/141-bullseye.jpg",
       "lg":
@@ -4998,8 +4903,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/142-bumblebee.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/142-bumblebee.jpg",
+      "sm": "assets/images/superhero_images_sm/142-bumblebee.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/142-bumblebee.jpg",
       "lg":
@@ -5040,8 +4944,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/144-bushido.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/144-bushido.jpg",
+      "sm": "assets/images/superhero_images_sm/144-bushido.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/144-bushido.jpg",
       "lg":
@@ -5100,8 +5003,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/145-cable.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/145-cable.jpg",
+      "sm": "assets/images/superhero_images_sm/145-cable.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/145-cable.jpg",
       "lg":
@@ -5149,8 +5051,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/146-callisto.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/146-callisto.jpg",
+      "sm": "assets/images/superhero_images_sm/146-callisto.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/146-callisto.jpg",
       "lg":
@@ -5191,8 +5092,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/147-cameron-hicks.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/147-cameron-hicks.jpg",
+      "sm": "assets/images/superhero_images_sm/147-cameron-hicks.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/147-cameron-hicks.jpg",
       "lg":
@@ -5241,8 +5141,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/148-cannonball.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/148-cannonball.jpg",
+      "sm": "assets/images/superhero_images_sm/148-cannonball.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/148-cannonball.jpg",
       "lg":
@@ -5292,8 +5191,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/149-captain-america.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/149-captain-america.jpg",
+      "sm": "assets/images/superhero_images_sm/149-captain-america.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/149-captain-america.jpg",
       "lg":
@@ -5339,8 +5237,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/150-captain-atom.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/150-captain-atom.jpg",
+      "sm": "assets/images/superhero_images_sm/150-captain-atom.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/150-captain-atom.jpg",
       "lg":
@@ -5396,8 +5293,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/151-captain-britain.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/151-captain-britain.jpg",
+      "sm": "assets/images/superhero_images_sm/151-captain-britain.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/151-captain-britain.jpg",
       "lg":
@@ -5449,8 +5345,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/152-captain-cold.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/152-captain-cold.jpg",
+      "sm": "assets/images/superhero_images_sm/152-captain-cold.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/152-captain-cold.jpg",
       "lg":
@@ -5491,8 +5386,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/154-captain-hindsight.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/154-captain-hindsight.jpg",
+      "sm": "assets/images/superhero_images_sm/154-captain-hindsight.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/154-captain-hindsight.jpg",
       "lg":
@@ -5542,8 +5436,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/156-captain-marvel.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/156-captain-marvel.jpg",
+      "sm": "assets/images/superhero_images_sm/156-captain-marvel.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/156-captain-marvel.jpg",
       "lg":
@@ -5599,8 +5492,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/157-captain-marvel.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/157-captain-marvel.jpg",
+      "sm": "assets/images/superhero_images_sm/157-captain-marvel.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/157-captain-marvel.jpg",
       "lg":
@@ -5646,8 +5538,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/158-captain-marvel-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/158-captain-marvel-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/158-captain-marvel-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/158-captain-marvel-ii.jpg",
       "lg":
@@ -5688,8 +5579,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/160-captain-planet.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/160-captain-planet.jpg",
+      "sm": "assets/images/superhero_images_sm/160-captain-planet.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/160-captain-planet.jpg",
       "lg":
@@ -5735,8 +5625,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/162-carnage.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/162-carnage.jpg",
+      "sm": "assets/images/superhero_images_sm/162-carnage.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/162-carnage.jpg",
       "lg":
@@ -5789,8 +5678,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/165-catwoman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/165-catwoman.jpg",
+      "sm": "assets/images/superhero_images_sm/165-catwoman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/165-catwoman.jpg",
       "lg":
@@ -5831,8 +5719,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/167-century.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/167-century.jpg",
+      "sm": "assets/images/superhero_images_sm/167-century.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/167-century.jpg",
       "lg":
@@ -5881,8 +5768,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/169-chamber.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/169-chamber.jpg",
+      "sm": "assets/images/superhero_images_sm/169-chamber.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/169-chamber.jpg",
       "lg":
@@ -5939,8 +5825,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/170-chameleon.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/170-chameleon.jpg",
+      "sm": "assets/images/superhero_images_sm/170-chameleon.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/170-chameleon.jpg",
       "lg":
@@ -5987,8 +5872,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/171-changeling.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/171-changeling.jpg",
+      "sm": "assets/images/superhero_images_sm/171-changeling.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/171-changeling.jpg",
       "lg":
@@ -6032,8 +5916,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/172-cheetah.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/172-cheetah.jpg",
+      "sm": "assets/images/superhero_images_sm/172-cheetah.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/172-cheetah.jpg",
       "lg":
@@ -6086,8 +5969,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/174-cheetah-iii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/174-cheetah-iii.jpg",
+      "sm": "assets/images/superhero_images_sm/174-cheetah-iii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/174-cheetah-iii.jpg",
       "lg":
@@ -6128,8 +6010,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/176-chuck-norris.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/176-chuck-norris.jpg",
+      "sm": "assets/images/superhero_images_sm/176-chuck-norris.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/176-chuck-norris.jpg",
       "lg":
@@ -6177,8 +6058,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/177-citizen-steel.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/177-citizen-steel.jpg",
+      "sm": "assets/images/superhero_images_sm/177-citizen-steel.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/177-citizen-steel.jpg",
       "lg":
@@ -6226,8 +6106,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/178-claire-bennet.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/178-claire-bennet.jpg",
+      "sm": "assets/images/superhero_images_sm/178-claire-bennet.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/178-claire-bennet.jpg",
       "lg":
@@ -6274,8 +6153,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/180-cloak.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/180-cloak.jpg",
+      "sm": "assets/images/superhero_images_sm/180-cloak.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/180-cloak.jpg",
       "lg":
@@ -6320,8 +6198,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/181-clock-king.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/181-clock-king.jpg",
+      "sm": "assets/images/superhero_images_sm/181-clock-king.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/181-clock-king.jpg",
       "lg":
@@ -6376,8 +6253,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/185-colossus.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/185-colossus.jpg",
+      "sm": "assets/images/superhero_images_sm/185-colossus.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/185-colossus.jpg",
       "lg":
@@ -6437,8 +6313,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/186-copycat.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/186-copycat.jpg",
+      "sm": "assets/images/superhero_images_sm/186-copycat.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/186-copycat.jpg",
       "lg":
@@ -6479,8 +6354,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/188-cottonmouth.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/188-cottonmouth.jpg",
+      "sm": "assets/images/superhero_images_sm/188-cottonmouth.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/188-cottonmouth.jpg",
       "lg":
@@ -6526,8 +6400,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/191-crystal.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/191-crystal.jpg",
+      "sm": "assets/images/superhero_images_sm/191-crystal.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/191-crystal.jpg",
       "lg":
@@ -6573,8 +6446,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/194-cyborg.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/194-cyborg.jpg",
+      "sm": "assets/images/superhero_images_sm/194-cyborg.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/194-cyborg.jpg",
       "lg":
@@ -6626,8 +6498,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/195-cyborg-superman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/195-cyborg-superman.jpg",
+      "sm": "assets/images/superhero_images_sm/195-cyborg-superman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/195-cyborg-superman.jpg",
       "lg":
@@ -6687,8 +6558,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/196-cyclops.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/196-cyclops.jpg",
+      "sm": "assets/images/superhero_images_sm/196-cyclops.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/196-cyclops.jpg",
       "lg":
@@ -6737,8 +6607,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/198-dagger.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/198-dagger.jpg",
+      "sm": "assets/images/superhero_images_sm/198-dagger.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/198-dagger.jpg",
       "lg":
@@ -6783,8 +6652,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/200-daphne-powell.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/200-daphne-powell.jpg",
+      "sm": "assets/images/superhero_images_sm/200-daphne-powell.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/200-daphne-powell.jpg",
       "lg":
@@ -6849,8 +6717,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/201-daredevil.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/201-daredevil.jpg",
+      "sm": "assets/images/superhero_images_sm/201-daredevil.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/201-daredevil.jpg",
       "lg":
@@ -6900,8 +6767,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/202-darkhawk.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/202-darkhawk.jpg",
+      "sm": "assets/images/superhero_images_sm/202-darkhawk.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/202-darkhawk.jpg",
       "lg":
@@ -6945,8 +6811,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/203-darkman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/203-darkman.jpg",
+      "sm": "assets/images/superhero_images_sm/203-darkman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/203-darkman.jpg",
       "lg":
@@ -6992,8 +6857,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/204-darkseid.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/204-darkseid.jpg",
+      "sm": "assets/images/superhero_images_sm/204-darkseid.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/204-darkseid.jpg",
       "lg":
@@ -7043,8 +6907,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/206-darkstar.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/206-darkstar.jpg",
+      "sm": "assets/images/superhero_images_sm/206-darkstar.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/206-darkstar.jpg",
       "lg":
@@ -7088,8 +6951,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/207-darth-maul.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/207-darth-maul.jpg",
+      "sm": "assets/images/superhero_images_sm/207-darth-maul.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/207-darth-maul.jpg",
       "lg":
@@ -7136,8 +6998,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/208-darth-vader.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/208-darth-vader.jpg",
+      "sm": "assets/images/superhero_images_sm/208-darth-vader.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/208-darth-vader.jpg",
       "lg":
@@ -7183,8 +7044,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/209-dash.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/209-dash.jpg",
+      "sm": "assets/images/superhero_images_sm/209-dash.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/209-dash.jpg",
       "lg":
@@ -7228,8 +7088,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/210-data.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/210-data.jpg",
+      "sm": "assets/images/superhero_images_sm/210-data.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/210-data.jpg",
       "lg":
@@ -7285,8 +7144,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/211-dazzler.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/211-dazzler.jpg",
+      "sm": "assets/images/superhero_images_sm/211-dazzler.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/211-dazzler.jpg",
       "lg":
@@ -7335,8 +7193,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/212-deadman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/212-deadman.jpg",
+      "sm": "assets/images/superhero_images_sm/212-deadman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/212-deadman.jpg",
       "lg":
@@ -7396,8 +7253,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/213-deadpool.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/213-deadpool.jpg",
+      "sm": "assets/images/superhero_images_sm/213-deadpool.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/213-deadpool.jpg",
       "lg":
@@ -7442,8 +7298,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/214-deadshot.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/214-deadshot.jpg",
+      "sm": "assets/images/superhero_images_sm/214-deadshot.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/214-deadshot.jpg",
       "lg":
@@ -7488,8 +7343,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/215-deathlok.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/215-deathlok.jpg",
+      "sm": "assets/images/superhero_images_sm/215-deathlok.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/215-deathlok.jpg",
       "lg":
@@ -7538,8 +7392,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/216-deathstroke.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/216-deathstroke.jpg",
+      "sm": "assets/images/superhero_images_sm/216-deathstroke.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/216-deathstroke.jpg",
       "lg":
@@ -7580,8 +7433,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/217-demogoblin.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/217-demogoblin.jpg",
+      "sm": "assets/images/superhero_images_sm/217-demogoblin.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/217-demogoblin.jpg",
       "lg":
@@ -7622,8 +7474,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/218-destroyer.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/218-destroyer.jpg",
+      "sm": "assets/images/superhero_images_sm/218-destroyer.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/218-destroyer.jpg",
       "lg":
@@ -7667,8 +7518,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/219-diamondback.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/219-diamondback.jpg",
+      "sm": "assets/images/superhero_images_sm/219-diamondback.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/219-diamondback.jpg",
       "lg":
@@ -7716,8 +7566,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/220-dl-hawkins.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/220-dl-hawkins.jpg",
+      "sm": "assets/images/superhero_images_sm/220-dl-hawkins.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/220-dl-hawkins.jpg",
       "lg":
@@ -7766,8 +7615,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/221-doc-samson.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/221-doc-samson.jpg",
+      "sm": "assets/images/superhero_images_sm/221-doc-samson.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/221-doc-samson.jpg",
       "lg":
@@ -7816,8 +7664,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/222-doctor-doom.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/222-doctor-doom.jpg",
+      "sm": "assets/images/superhero_images_sm/222-doctor-doom.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/222-doctor-doom.jpg",
       "lg":
@@ -7863,8 +7710,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/224-doctor-fate.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/224-doctor-fate.jpg",
+      "sm": "assets/images/superhero_images_sm/224-doctor-fate.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/224-doctor-fate.jpg",
       "lg":
@@ -7921,8 +7767,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/225-doctor-octopus.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/225-doctor-octopus.jpg",
+      "sm": "assets/images/superhero_images_sm/225-doctor-octopus.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/225-doctor-octopus.jpg",
       "lg":
@@ -7977,8 +7822,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/226-doctor-strange.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/226-doctor-strange.jpg",
+      "sm": "assets/images/superhero_images_sm/226-doctor-strange.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/226-doctor-strange.jpg",
       "lg":
@@ -8035,8 +7879,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/227-domino.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/227-domino.jpg",
+      "sm": "assets/images/superhero_images_sm/227-domino.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/227-domino.jpg",
       "lg":
@@ -8081,8 +7924,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/228-donatello.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/228-donatello.jpg",
+      "sm": "assets/images/superhero_images_sm/228-donatello.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/228-donatello.jpg",
       "lg":
@@ -8127,8 +7969,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/230-doomsday.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/230-doomsday.jpg",
+      "sm": "assets/images/superhero_images_sm/230-doomsday.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/230-doomsday.jpg",
       "lg":
@@ -8178,8 +8019,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/231-doppelganger.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/231-doppelganger.jpg",
+      "sm": "assets/images/superhero_images_sm/231-doppelganger.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/231-doppelganger.jpg",
       "lg":
@@ -8232,8 +8072,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/232-dormammu.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/232-dormammu.jpg",
+      "sm": "assets/images/superhero_images_sm/232-dormammu.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/232-dormammu.jpg",
       "lg":
@@ -8277,8 +8116,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/233-dr-manhattan.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/233-dr-manhattan.jpg",
+      "sm": "assets/images/superhero_images_sm/233-dr-manhattan.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/233-dr-manhattan.jpg",
       "lg":
@@ -8327,8 +8165,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/234-drax-the-destroyer.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/234-drax-the-destroyer.jpg",
+      "sm": "assets/images/superhero_images_sm/234-drax-the-destroyer.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/234-drax-the-destroyer.jpg",
       "lg":
@@ -8369,8 +8206,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/235-ego.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/235-ego.jpg",
+      "sm": "assets/images/superhero_images_sm/235-ego.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/235-ego.jpg",
       "lg":
@@ -8416,8 +8252,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/236-elastigirl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/236-elastigirl.jpg",
+      "sm": "assets/images/superhero_images_sm/236-elastigirl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/236-elastigirl.jpg",
       "lg":
@@ -8463,8 +8298,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/237-electro.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/237-electro.jpg",
+      "sm": "assets/images/superhero_images_sm/237-electro.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/237-electro.jpg",
       "lg":
@@ -8513,8 +8347,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/238-elektra.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/238-elektra.jpg",
+      "sm": "assets/images/superhero_images_sm/238-elektra.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/238-elektra.jpg",
       "lg":
@@ -8558,8 +8391,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/239-elle-bishop.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/239-elle-bishop.jpg",
+      "sm": "assets/images/superhero_images_sm/239-elle-bishop.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/239-elle-bishop.jpg",
       "lg":
@@ -8605,8 +8437,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/240-elongated-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/240-elongated-man.jpg",
+      "sm": "assets/images/superhero_images_sm/240-elongated-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/240-elongated-man.jpg",
       "lg":
@@ -8656,8 +8487,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/241-emma-frost.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/241-emma-frost.jpg",
+      "sm": "assets/images/superhero_images_sm/241-emma-frost.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/241-emma-frost.jpg",
       "lg":
@@ -8702,8 +8532,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/242-enchantress.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/242-enchantress.jpg",
+      "sm": "assets/images/superhero_images_sm/242-enchantress.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/242-enchantress.jpg",
       "lg":
@@ -8752,8 +8581,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/245-ethan-hunt.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/245-ethan-hunt.jpg",
+      "sm": "assets/images/superhero_images_sm/245-ethan-hunt.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/245-ethan-hunt.jpg",
       "lg":
@@ -8798,8 +8626,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/246-etrigan.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/246-etrigan.jpg",
+      "sm": "assets/images/superhero_images_sm/246-etrigan.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/246-etrigan.jpg",
       "lg":
@@ -8843,8 +8670,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/247-evil-deadpool.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/247-evil-deadpool.jpg",
+      "sm": "assets/images/superhero_images_sm/247-evil-deadpool.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/247-evil-deadpool.jpg",
       "lg":
@@ -8885,8 +8711,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/248-evilhawk.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/248-evilhawk.jpg",
+      "sm": "assets/images/superhero_images_sm/248-evilhawk.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/248-evilhawk.jpg",
       "lg":
@@ -8934,8 +8759,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/249-exodus.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/249-exodus.jpg",
+      "sm": "assets/images/superhero_images_sm/249-exodus.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/249-exodus.jpg",
       "lg":
@@ -8991,8 +8815,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/251-falcon.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/251-falcon.jpg",
+      "sm": "assets/images/superhero_images_sm/251-falcon.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/251-falcon.jpg",
       "lg":
@@ -9036,8 +8859,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/252-fallen-one-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/252-fallen-one-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/252-fallen-one-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/252-fallen-one-ii.jpg",
       "lg":
@@ -9084,8 +8906,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/253-faora.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/253-faora.jpg",
+      "sm": "assets/images/superhero_images_sm/253-faora.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/253-faora.jpg",
       "lg":
@@ -9133,8 +8954,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/254-feral.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/254-feral.jpg",
+      "sm": "assets/images/superhero_images_sm/254-feral.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/254-feral.jpg",
       "lg":
@@ -9184,8 +9004,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/256-fin-fang-foom.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/256-fin-fang-foom.jpg",
+      "sm": "assets/images/superhero_images_sm/256-fin-fang-foom.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/256-fin-fang-foom.jpg",
       "lg":
@@ -9230,8 +9049,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/257-firebird.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/257-firebird.jpg",
+      "sm": "assets/images/superhero_images_sm/257-firebird.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/257-firebird.jpg",
       "lg":
@@ -9279,8 +9097,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/258-firelord.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/258-firelord.jpg",
+      "sm": "assets/images/superhero_images_sm/258-firelord.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/258-firelord.jpg",
       "lg":
@@ -9329,8 +9146,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/259-firestar.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/259-firestar.jpg",
+      "sm": "assets/images/superhero_images_sm/259-firestar.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/259-firestar.jpg",
       "lg":
@@ -9378,8 +9194,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/260-firestorm.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/260-firestorm.jpg",
+      "sm": "assets/images/superhero_images_sm/260-firestorm.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/260-firestorm.jpg",
       "lg":
@@ -9429,8 +9244,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/261-firestorm.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/261-firestorm.jpg",
+      "sm": "assets/images/superhero_images_sm/261-firestorm.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/261-firestorm.jpg",
       "lg":
@@ -9480,8 +9294,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/263-flash.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/263-flash.jpg",
+      "sm": "assets/images/superhero_images_sm/263-flash.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/263-flash.jpg",
       "lg":
@@ -9535,8 +9348,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/265-flash-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/265-flash-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/265-flash-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/265-flash-ii.jpg",
       "lg":
@@ -9589,8 +9401,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/266-flash-iii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/266-flash-iii.jpg",
+      "sm": "assets/images/superhero_images_sm/266-flash-iii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/266-flash-iii.jpg",
       "lg":
@@ -9641,8 +9452,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/267-flash-iv.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/267-flash-iv.jpg",
+      "sm": "assets/images/superhero_images_sm/267-flash-iv.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/267-flash-iv.jpg",
       "lg":
@@ -9686,8 +9496,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/268-forge.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/268-forge.jpg",
+      "sm": "assets/images/superhero_images_sm/268-forge.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/268-forge.jpg",
       "lg":
@@ -9743,8 +9552,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/269-franklin-richards.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/269-franklin-richards.jpg",
+      "sm": "assets/images/superhero_images_sm/269-franklin-richards.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/269-franklin-richards.jpg",
       "lg":
@@ -9791,8 +9599,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/270-franklin-storm.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/270-franklin-storm.jpg",
+      "sm": "assets/images/superhero_images_sm/270-franklin-storm.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/270-franklin-storm.jpg",
       "lg":
@@ -9840,8 +9647,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/271-frenzy.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/271-frenzy.jpg",
+      "sm": "assets/images/superhero_images_sm/271-frenzy.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/271-frenzy.jpg",
       "lg":
@@ -9895,8 +9701,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/273-galactus.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/273-galactus.jpg",
+      "sm": "assets/images/superhero_images_sm/273-galactus.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/273-galactus.jpg",
       "lg":
@@ -9948,8 +9753,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/274-gambit.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/274-gambit.jpg",
+      "sm": "assets/images/superhero_images_sm/274-gambit.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/274-gambit.jpg",
       "lg":
@@ -10002,8 +9806,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/275-gamora.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/275-gamora.jpg",
+      "sm": "assets/images/superhero_images_sm/275-gamora.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/275-gamora.jpg",
       "lg":
@@ -10044,8 +9847,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/277-gary-bell.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/277-gary-bell.jpg",
+      "sm": "assets/images/superhero_images_sm/277-gary-bell.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/277-gary-bell.jpg",
       "lg":
@@ -10094,8 +9896,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/278-general-zod.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/278-general-zod.jpg",
+      "sm": "assets/images/superhero_images_sm/278-general-zod.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/278-general-zod.jpg",
       "lg":
@@ -10144,8 +9945,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/280-ghost-rider.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/280-ghost-rider.jpg",
+      "sm": "assets/images/superhero_images_sm/280-ghost-rider.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/280-ghost-rider.jpg",
       "lg":
@@ -10193,8 +9993,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/284-giganta.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/284-giganta.jpg",
+      "sm": "assets/images/superhero_images_sm/284-giganta.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/284-giganta.jpg",
       "lg":
@@ -10245,8 +10044,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/285-gladiator.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/285-gladiator.jpg",
+      "sm": "assets/images/superhero_images_sm/285-gladiator.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/285-gladiator.jpg",
       "lg":
@@ -10295,8 +10093,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/286-goblin-queen.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/286-goblin-queen.jpg",
+      "sm": "assets/images/superhero_images_sm/286-goblin-queen.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/286-goblin-queen.jpg",
       "lg":
@@ -10344,8 +10141,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/287-godzilla.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/287-godzilla.jpg",
+      "sm": "assets/images/superhero_images_sm/287-godzilla.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/287-godzilla.jpg",
       "lg":
@@ -10389,8 +10185,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/no-portrait.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/no-portrait.jpg",
+      "sm": "assets/images/superhero_images_sm/no-portrait.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/no-portrait.jpg",
       "lg":
@@ -10442,8 +10237,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/289-goku.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/289-goku.jpg",
+      "sm": "assets/images/superhero_images_sm/289-goku.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/289-goku.jpg",
       "lg":
@@ -10488,8 +10282,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/294-gorilla-grodd.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/294-gorilla-grodd.jpg",
+      "sm": "assets/images/superhero_images_sm/294-gorilla-grodd.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/294-gorilla-grodd.jpg",
       "lg":
@@ -10534,8 +10327,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/296-gravity.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/296-gravity.jpg",
+      "sm": "assets/images/superhero_images_sm/296-gravity.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/296-gravity.jpg",
       "lg":
@@ -10576,8 +10368,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/297-greedo.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/297-greedo.jpg",
+      "sm": "assets/images/superhero_images_sm/297-greedo.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/297-greedo.jpg",
       "lg":
@@ -10626,8 +10417,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/298-green-arrow.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/298-green-arrow.jpg",
+      "sm": "assets/images/superhero_images_sm/298-green-arrow.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/298-green-arrow.jpg",
       "lg":
@@ -10689,8 +10479,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/299-green-goblin.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/299-green-goblin.jpg",
+      "sm": "assets/images/superhero_images_sm/299-green-goblin.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/299-green-goblin.jpg",
       "lg":
@@ -10735,8 +10524,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/300-green-goblin-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/300-green-goblin-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/300-green-goblin-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/300-green-goblin-ii.jpg",
       "lg":
@@ -10790,8 +10578,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/303-groot.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/303-groot.jpg",
+      "sm": "assets/images/superhero_images_sm/303-groot.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/303-groot.jpg",
       "lg":
@@ -10840,8 +10627,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/305-guy-gardner.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/305-guy-gardner.jpg",
+      "sm": "assets/images/superhero_images_sm/305-guy-gardner.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/305-guy-gardner.jpg",
       "lg":
@@ -10887,8 +10673,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/306-hal-jordan.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/306-hal-jordan.jpg",
+      "sm": "assets/images/superhero_images_sm/306-hal-jordan.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/306-hal-jordan.jpg",
       "lg":
@@ -10929,8 +10714,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/307-han-solo.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/307-han-solo.jpg",
+      "sm": "assets/images/superhero_images_sm/307-han-solo.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/307-han-solo.jpg",
       "lg":
@@ -10971,8 +10755,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/308-hancock.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/308-hancock.jpg",
+      "sm": "assets/images/superhero_images_sm/308-hancock.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/308-hancock.jpg",
       "lg":
@@ -11025,8 +10808,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/309-harley-quinn.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/309-harley-quinn.jpg",
+      "sm": "assets/images/superhero_images_sm/309-harley-quinn.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/309-harley-quinn.jpg",
       "lg":
@@ -11076,8 +10858,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/310-harry-potter.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/310-harry-potter.jpg",
+      "sm": "assets/images/superhero_images_sm/310-harry-potter.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/310-harry-potter.jpg",
       "lg":
@@ -11127,8 +10908,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/311-havok.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/311-havok.jpg",
+      "sm": "assets/images/superhero_images_sm/311-havok.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/311-havok.jpg",
       "lg":
@@ -11174,8 +10954,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/312-hawk.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/312-hawk.jpg",
+      "sm": "assets/images/superhero_images_sm/312-hawk.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/312-hawk.jpg",
       "lg":
@@ -11228,8 +11007,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/313-hawkeye.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/313-hawkeye.jpg",
+      "sm": "assets/images/superhero_images_sm/313-hawkeye.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/313-hawkeye.jpg",
       "lg":
@@ -11278,8 +11056,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/314-hawkeye-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/314-hawkeye-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/314-hawkeye-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/314-hawkeye-ii.jpg",
       "lg":
@@ -11333,8 +11110,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/315-hawkgirl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/315-hawkgirl.jpg",
+      "sm": "assets/images/superhero_images_sm/315-hawkgirl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/315-hawkgirl.jpg",
       "lg":
@@ -11379,8 +11155,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/320-heat-wave.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/320-heat-wave.jpg",
+      "sm": "assets/images/superhero_images_sm/320-heat-wave.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/320-heat-wave.jpg",
       "lg":
@@ -11428,8 +11203,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/321-hela.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/321-hela.jpg",
+      "sm": "assets/images/superhero_images_sm/321-hela.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/321-hela.jpg",
       "lg":
@@ -11475,8 +11249,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/322-hellboy.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/322-hellboy.jpg",
+      "sm": "assets/images/superhero_images_sm/322-hellboy.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/322-hellboy.jpg",
       "lg":
@@ -11525,8 +11298,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/323-hellcat.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/323-hellcat.jpg",
+      "sm": "assets/images/superhero_images_sm/323-hellcat.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/323-hellcat.jpg",
       "lg":
@@ -11588,8 +11360,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/325-hercules.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/325-hercules.jpg",
+      "sm": "assets/images/superhero_images_sm/325-hercules.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/325-hercules.jpg",
       "lg":
@@ -11630,8 +11401,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/327-hit-girl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/327-hit-girl.jpg",
+      "sm": "assets/images/superhero_images_sm/327-hit-girl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/327-hit-girl.jpg",
       "lg":
@@ -11683,8 +11453,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/330-hope-summers.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/330-hope-summers.jpg",
+      "sm": "assets/images/superhero_images_sm/330-hope-summers.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/330-hope-summers.jpg",
       "lg":
@@ -11743,8 +11512,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/332-hulk.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/332-hulk.jpg",
+      "sm": "assets/images/superhero_images_sm/332-hulk.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/332-hulk.jpg",
       "lg":
@@ -11789,8 +11557,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/333-human-torch.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/333-human-torch.jpg",
+      "sm": "assets/images/superhero_images_sm/333-human-torch.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/333-human-torch.jpg",
       "lg":
@@ -11839,8 +11606,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/334-huntress.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/334-huntress.jpg",
+      "sm": "assets/images/superhero_images_sm/334-huntress.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/334-huntress.jpg",
       "lg":
@@ -11889,8 +11655,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/335-husk.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/335-husk.jpg",
+      "sm": "assets/images/superhero_images_sm/335-husk.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/335-husk.jpg",
       "lg":
@@ -11944,8 +11709,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/336-hybrid.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/336-hybrid.jpg",
+      "sm": "assets/images/superhero_images_sm/336-hybrid.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/336-hybrid.jpg",
       "lg":
@@ -11993,8 +11757,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/337-hydro-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/337-hydro-man.jpg",
+      "sm": "assets/images/superhero_images_sm/337-hydro-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/337-hydro-man.jpg",
       "lg":
@@ -12042,8 +11805,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/338-hyperion.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/338-hyperion.jpg",
+      "sm": "assets/images/superhero_images_sm/338-hyperion.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/338-hyperion.jpg",
       "lg":
@@ -12099,8 +11861,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/339-iceman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/339-iceman.jpg",
+      "sm": "assets/images/superhero_images_sm/339-iceman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/339-iceman.jpg",
       "lg":
@@ -12150,8 +11911,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/340-impulse.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/340-impulse.jpg",
+      "sm": "assets/images/superhero_images_sm/340-impulse.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/340-impulse.jpg",
       "lg":
@@ -12192,8 +11952,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/341-indiana-jones.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/341-indiana-jones.jpg",
+      "sm": "assets/images/superhero_images_sm/341-indiana-jones.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/341-indiana-jones.jpg",
       "lg":
@@ -12237,8 +11996,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/342-indigo.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/342-indigo.jpg",
+      "sm": "assets/images/superhero_images_sm/342-indigo.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/342-indigo.jpg",
       "lg":
@@ -12282,8 +12040,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/343-ink.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/343-ink.jpg",
+      "sm": "assets/images/superhero_images_sm/343-ink.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/343-ink.jpg",
       "lg":
@@ -12333,8 +12090,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/344-invisible-woman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/344-invisible-woman.jpg",
+      "sm": "assets/images/superhero_images_sm/344-invisible-woman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/344-invisible-woman.jpg",
       "lg":
@@ -12390,8 +12146,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/345-iron-fist.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/345-iron-fist.jpg",
+      "sm": "assets/images/superhero_images_sm/345-iron-fist.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/345-iron-fist.jpg",
       "lg":
@@ -12448,8 +12203,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/346-iron-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/346-iron-man.jpg",
+      "sm": "assets/images/superhero_images_sm/346-iron-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/346-iron-man.jpg",
       "lg":
@@ -12494,8 +12248,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/347-iron-monger.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/347-iron-monger.jpg",
+      "sm": "assets/images/superhero_images_sm/347-iron-monger.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/347-iron-monger.jpg",
       "lg":
@@ -12543,8 +12296,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/348-isis.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/348-isis.jpg",
+      "sm": "assets/images/superhero_images_sm/348-isis.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/348-isis.jpg",
       "lg":
@@ -12588,8 +12340,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/350-jack-of-hearts.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/350-jack-of-hearts.jpg",
+      "sm": "assets/images/superhero_images_sm/350-jack-of-hearts.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/350-jack-of-hearts.jpg",
       "lg":
@@ -12635,8 +12386,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/351-jack-jack.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/351-jack-jack.jpg",
+      "sm": "assets/images/superhero_images_sm/351-jack-jack.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/351-jack-jack.jpg",
       "lg":
@@ -12681,8 +12431,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/352-james-bond.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/352-james-bond.jpg",
+      "sm": "assets/images/superhero_images_sm/352-james-bond.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/352-james-bond.jpg",
       "lg":
@@ -12727,8 +12476,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/353-james-t.-kirk.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/353-james-t.-kirk.jpg",
+      "sm": "assets/images/superhero_images_sm/353-james-t.-kirk.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/353-james-t.-kirk.jpg",
       "lg":
@@ -12769,8 +12517,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/354-jar-jar-binks.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/354-jar-jar-binks.jpg",
+      "sm": "assets/images/superhero_images_sm/354-jar-jar-binks.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/354-jar-jar-binks.jpg",
       "lg":
@@ -12811,8 +12558,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/355-jason-bourne.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/355-jason-bourne.jpg",
+      "sm": "assets/images/superhero_images_sm/355-jason-bourne.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/355-jason-bourne.jpg",
       "lg":
@@ -12862,8 +12608,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/356-jean-grey.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/356-jean-grey.jpg",
+      "sm": "assets/images/superhero_images_sm/356-jean-grey.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/356-jean-grey.jpg",
       "lg":
@@ -12911,8 +12656,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/357-jean-luc-picard.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/357-jean-luc-picard.jpg",
+      "sm": "assets/images/superhero_images_sm/357-jean-luc-picard.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/357-jean-luc-picard.jpg",
       "lg":
@@ -12957,8 +12701,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/358-jennifer-kale.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/358-jennifer-kale.jpg",
+      "sm": "assets/images/superhero_images_sm/358-jennifer-kale.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/358-jennifer-kale.jpg",
       "lg":
@@ -12999,8 +12742,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/360-jessica-cruz.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/360-jessica-cruz.jpg",
+      "sm": "assets/images/superhero_images_sm/360-jessica-cruz.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/360-jessica-cruz.jpg",
       "lg":
@@ -13050,8 +12792,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/361-jessica-jones.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/361-jessica-jones.jpg",
+      "sm": "assets/images/superhero_images_sm/361-jessica-jones.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/361-jessica-jones.jpg",
       "lg":
@@ -13096,8 +12837,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/364-jim-powell.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/364-jim-powell.jpg",
+      "sm": "assets/images/superhero_images_sm/364-jim-powell.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/364-jim-powell.jpg",
       "lg":
@@ -13142,8 +12882,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/365-jj-powell.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/365-jj-powell.jpg",
+      "sm": "assets/images/superhero_images_sm/365-jj-powell.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/365-jj-powell.jpg",
       "lg":
@@ -13188,8 +12927,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/367-john-constantine.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/367-john-constantine.jpg",
+      "sm": "assets/images/superhero_images_sm/367-john-constantine.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/367-john-constantine.jpg",
       "lg":
@@ -13242,8 +12980,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/no-portrait.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/no-portrait.jpg",
+      "sm": "assets/images/superhero_images_sm/no-portrait.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/no-portrait.jpg",
       "lg":
@@ -13299,8 +13036,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/370-joker.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/370-joker.jpg",
+      "sm": "assets/images/superhero_images_sm/370-joker.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/370-joker.jpg",
       "lg":
@@ -13344,8 +13080,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/371-jolt.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/371-jolt.jpg",
+      "sm": "assets/images/superhero_images_sm/371-jolt.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/371-jolt.jpg",
       "lg":
@@ -13392,8 +13127,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/372-jubilee.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/372-jubilee.jpg",
+      "sm": "assets/images/superhero_images_sm/372-jubilee.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/372-jubilee.jpg",
       "lg":
@@ -13437,8 +13171,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/373-judge-dredd.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/373-judge-dredd.jpg",
+      "sm": "assets/images/superhero_images_sm/373-judge-dredd.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/373-judge-dredd.jpg",
       "lg":
@@ -13488,8 +13221,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/374-juggernaut.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/374-juggernaut.jpg",
+      "sm": "assets/images/superhero_images_sm/374-juggernaut.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/374-juggernaut.jpg",
       "lg":
@@ -13537,8 +13269,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/375-junkpile.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/375-junkpile.jpg",
+      "sm": "assets/images/superhero_images_sm/375-junkpile.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/375-junkpile.jpg",
       "lg":
@@ -13594,8 +13325,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/376-justice.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/376-justice.jpg",
+      "sm": "assets/images/superhero_images_sm/376-justice.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/376-justice.jpg",
       "lg":
@@ -13650,8 +13380,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/379-kang.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/379-kang.jpg",
+      "sm": "assets/images/superhero_images_sm/379-kang.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/379-kang.jpg",
       "lg":
@@ -13695,8 +13424,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/380-kathryn-janeway.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/380-kathryn-janeway.jpg",
+      "sm": "assets/images/superhero_images_sm/380-kathryn-janeway.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/380-kathryn-janeway.jpg",
       "lg":
@@ -13737,8 +13465,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/381-katniss-everdeen.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/381-katniss-everdeen.jpg",
+      "sm": "assets/images/superhero_images_sm/381-katniss-everdeen.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/381-katniss-everdeen.jpg",
       "lg":
@@ -13794,8 +13521,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/382-kevin-11.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/382-kevin-11.jpg",
+      "sm": "assets/images/superhero_images_sm/382-kevin-11.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/382-kevin-11.jpg",
       "lg":
@@ -13839,8 +13565,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/383-kick-ass.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/383-kick-ass.jpg",
+      "sm": "assets/images/superhero_images_sm/383-kick-ass.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/383-kick-ass.jpg",
       "lg":
@@ -13885,8 +13610,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/384-kid-flash.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/384-kid-flash.jpg",
+      "sm": "assets/images/superhero_images_sm/384-kid-flash.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/384-kid-flash.jpg",
       "lg":
@@ -13930,8 +13654,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/386-killer-croc.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/386-killer-croc.jpg",
+      "sm": "assets/images/superhero_images_sm/386-killer-croc.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/386-killer-croc.jpg",
       "lg":
@@ -13972,8 +13695,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/387-killer-frost.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/387-killer-frost.jpg",
+      "sm": "assets/images/superhero_images_sm/387-killer-frost.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/387-killer-frost.jpg",
       "lg":
@@ -14025,8 +13747,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/388-kilowog.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/388-kilowog.jpg",
+      "sm": "assets/images/superhero_images_sm/388-kilowog.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/388-kilowog.jpg",
       "lg":
@@ -14067,8 +13788,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/389-king-kong.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/389-king-kong.jpg",
+      "sm": "assets/images/superhero_images_sm/389-king-kong.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/389-king-kong.jpg",
       "lg":
@@ -14109,8 +13829,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/390-king-shark.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/390-king-shark.jpg",
+      "sm": "assets/images/superhero_images_sm/390-king-shark.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/390-king-shark.jpg",
       "lg":
@@ -14161,8 +13880,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/391-kingpin.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/391-kingpin.jpg",
+      "sm": "assets/images/superhero_images_sm/391-kingpin.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/391-kingpin.jpg",
       "lg":
@@ -14207,8 +13925,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/392-klaw.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/392-klaw.jpg",
+      "sm": "assets/images/superhero_images_sm/392-klaw.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/392-klaw.jpg",
       "lg":
@@ -14249,8 +13966,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/393-kool-aid-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/393-kool-aid-man.jpg",
+      "sm": "assets/images/superhero_images_sm/393-kool-aid-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/393-kool-aid-man.jpg",
       "lg":
@@ -14295,8 +14011,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/394-kraven-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/394-kraven-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/394-kraven-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/394-kraven-ii.jpg",
       "lg":
@@ -14345,8 +14060,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/395-kraven-the-hunter.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/395-kraven-the-hunter.jpg",
+      "sm": "assets/images/superhero_images_sm/395-kraven-the-hunter.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/395-kraven-the-hunter.jpg",
       "lg":
@@ -14387,8 +14101,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/396-krypto.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/396-krypto.jpg",
+      "sm": "assets/images/superhero_images_sm/396-krypto.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/396-krypto.jpg",
       "lg":
@@ -14444,8 +14157,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/397-kyle-rayner.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/397-kyle-rayner.jpg",
+      "sm": "assets/images/superhero_images_sm/397-kyle-rayner.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/397-kyle-rayner.jpg",
       "lg":
@@ -14490,8 +14202,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/398-kylo-ren.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/398-kylo-ren.jpg",
+      "sm": "assets/images/superhero_images_sm/398-kylo-ren.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/398-kylo-ren.jpg",
       "lg":
@@ -14537,8 +14248,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/400-lady-deathstrike.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/400-lady-deathstrike.jpg",
+      "sm": "assets/images/superhero_images_sm/400-lady-deathstrike.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/400-lady-deathstrike.jpg",
       "lg":
@@ -14579,8 +14289,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/401-leader.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/401-leader.jpg",
+      "sm": "assets/images/superhero_images_sm/401-leader.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/401-leader.jpg",
       "lg":
@@ -14625,8 +14334,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/402-leech.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/402-leech.jpg",
+      "sm": "assets/images/superhero_images_sm/402-leech.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/402-leech.jpg",
       "lg":
@@ -14689,8 +14397,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/403-legion.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/403-legion.jpg",
+      "sm": "assets/images/superhero_images_sm/403-legion.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/403-legion.jpg",
       "lg":
@@ -14735,8 +14442,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/404-leonardo.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/404-leonardo.jpg",
+      "sm": "assets/images/superhero_images_sm/404-leonardo.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/404-leonardo.jpg",
       "lg":
@@ -14782,8 +14488,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/405-lex-luthor.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/405-lex-luthor.jpg",
+      "sm": "assets/images/superhero_images_sm/405-lex-luthor.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/405-lex-luthor.jpg",
       "lg":
@@ -14828,8 +14533,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/406-light-lass.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/406-light-lass.jpg",
+      "sm": "assets/images/superhero_images_sm/406-light-lass.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/406-light-lass.jpg",
       "lg":
@@ -14873,8 +14577,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/407-lightning-lad.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/407-lightning-lad.jpg",
+      "sm": "assets/images/superhero_images_sm/407-lightning-lad.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/407-lightning-lad.jpg",
       "lg":
@@ -14920,8 +14623,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/408-lightning-lord.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/408-lightning-lord.jpg",
+      "sm": "assets/images/superhero_images_sm/408-lightning-lord.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/408-lightning-lord.jpg",
       "lg":
@@ -14962,8 +14664,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/409-living-brain.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/409-living-brain.jpg",
+      "sm": "assets/images/superhero_images_sm/409-living-brain.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/409-living-brain.jpg",
       "lg":
@@ -15012,8 +14713,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/410-living-tribunal.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/410-living-tribunal.jpg",
+      "sm": "assets/images/superhero_images_sm/410-living-tribunal.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/410-living-tribunal.jpg",
       "lg":
@@ -15057,8 +14757,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/412-lizard.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/412-lizard.jpg",
+      "sm": "assets/images/superhero_images_sm/412-lizard.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/412-lizard.jpg",
       "lg":
@@ -15112,8 +14811,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/413-lobo.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/413-lobo.jpg",
+      "sm": "assets/images/superhero_images_sm/413-lobo.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/413-lobo.jpg",
       "lg":
@@ -15172,8 +14870,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/414-loki.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/414-loki.jpg",
+      "sm": "assets/images/superhero_images_sm/414-loki.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/414-loki.jpg",
       "lg":
@@ -15223,8 +14920,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/415-longshot.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/415-longshot.jpg",
+      "sm": "assets/images/superhero_images_sm/415-longshot.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/415-longshot.jpg",
       "lg":
@@ -15280,8 +14976,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/416-luke-cage.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/416-luke-cage.jpg",
+      "sm": "assets/images/superhero_images_sm/416-luke-cage.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/416-luke-cage.jpg",
       "lg":
@@ -15327,8 +15022,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/418-luke-skywalker.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/418-luke-skywalker.jpg",
+      "sm": "assets/images/superhero_images_sm/418-luke-skywalker.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/418-luke-skywalker.jpg",
       "lg":
@@ -15373,8 +15067,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/419-luna.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/419-luna.jpg",
+      "sm": "assets/images/superhero_images_sm/419-luna.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/419-luna.jpg",
       "lg":
@@ -15424,8 +15117,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/421-mach-iv.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/421-mach-iv.jpg",
+      "sm": "assets/images/superhero_images_sm/421-mach-iv.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/421-mach-iv.jpg",
       "lg":
@@ -15472,8 +15164,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/422-machine-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/422-machine-man.jpg",
+      "sm": "assets/images/superhero_images_sm/422-machine-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/422-machine-man.jpg",
       "lg":
@@ -15530,8 +15221,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/423-magneto.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/423-magneto.jpg",
+      "sm": "assets/images/superhero_images_sm/423-magneto.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/423-magneto.jpg",
       "lg":
@@ -15576,8 +15266,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/424-magog.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/424-magog.jpg",
+      "sm": "assets/images/superhero_images_sm/424-magog.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/424-magog.jpg",
       "lg":
@@ -15621,8 +15310,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/425-magus.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/425-magus.jpg",
+      "sm": "assets/images/superhero_images_sm/425-magus.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/425-magus.jpg",
       "lg":
@@ -15663,8 +15351,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/426-man-of-miracles.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/426-man-of-miracles.jpg",
+      "sm": "assets/images/superhero_images_sm/426-man-of-miracles.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/426-man-of-miracles.jpg",
       "lg":
@@ -15709,8 +15396,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/427-man-bat.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/427-man-bat.jpg",
+      "sm": "assets/images/superhero_images_sm/427-man-bat.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/427-man-bat.jpg",
       "lg":
@@ -15759,8 +15445,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/428-man-thing.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/428-man-thing.jpg",
+      "sm": "assets/images/superhero_images_sm/428-man-thing.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/428-man-thing.jpg",
       "lg":
@@ -15811,8 +15496,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/429-man-wolf.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/429-man-wolf.jpg",
+      "sm": "assets/images/superhero_images_sm/429-man-wolf.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/429-man-wolf.jpg",
       "lg":
@@ -15869,8 +15553,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/430-mandarin.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/430-mandarin.jpg",
+      "sm": "assets/images/superhero_images_sm/430-mandarin.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/430-mandarin.jpg",
       "lg":
@@ -15925,8 +15608,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/431-mantis.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/431-mantis.jpg",
+      "sm": "assets/images/superhero_images_sm/431-mantis.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/431-mantis.jpg",
       "lg":
@@ -15976,8 +15658,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/432-martian-manhunter.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/432-martian-manhunter.jpg",
+      "sm": "assets/images/superhero_images_sm/432-martian-manhunter.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/432-martian-manhunter.jpg",
       "lg":
@@ -16033,8 +15714,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/433-marvel-girl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/433-marvel-girl.jpg",
+      "sm": "assets/images/superhero_images_sm/433-marvel-girl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/433-marvel-girl.jpg",
       "lg":
@@ -16081,8 +15761,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/435-master-chief.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/435-master-chief.jpg",
+      "sm": "assets/images/superhero_images_sm/435-master-chief.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/435-master-chief.jpg",
       "lg":
@@ -16127,8 +15806,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/436-match.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/436-match.jpg",
+      "sm": "assets/images/superhero_images_sm/436-match.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/436-match.jpg",
       "lg":
@@ -16175,8 +15853,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/437-matt-parkman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/437-matt-parkman.jpg",
+      "sm": "assets/images/superhero_images_sm/437-matt-parkman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/437-matt-parkman.jpg",
       "lg":
@@ -16225,8 +15902,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/438-maverick.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/438-maverick.jpg",
+      "sm": "assets/images/superhero_images_sm/438-maverick.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/438-maverick.jpg",
       "lg":
@@ -16273,8 +15949,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/439-maxima.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/439-maxima.jpg",
+      "sm": "assets/images/superhero_images_sm/439-maxima.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/439-maxima.jpg",
       "lg":
@@ -16318,8 +15993,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/440-maya-herrera.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/440-maya-herrera.jpg",
+      "sm": "assets/images/superhero_images_sm/440-maya-herrera.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/440-maya-herrera.jpg",
       "lg":
@@ -16364,8 +16038,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/441-medusa.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/441-medusa.jpg",
+      "sm": "assets/images/superhero_images_sm/441-medusa.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/441-medusa.jpg",
       "lg":
@@ -16418,8 +16091,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/442-meltdown.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/442-meltdown.jpg",
+      "sm": "assets/images/superhero_images_sm/442-meltdown.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/442-meltdown.jpg",
       "lg":
@@ -16481,8 +16153,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/443-mephisto.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/443-mephisto.jpg",
+      "sm": "assets/images/superhero_images_sm/443-mephisto.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/443-mephisto.jpg",
       "lg":
@@ -16530,8 +16201,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/444-mera.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/444-mera.jpg",
+      "sm": "assets/images/superhero_images_sm/444-mera.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/444-mera.jpg",
       "lg":
@@ -16578,8 +16248,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/445-metallo.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/445-metallo.jpg",
+      "sm": "assets/images/superhero_images_sm/445-metallo.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/445-metallo.jpg",
       "lg":
@@ -16623,8 +16292,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/448-metron.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/448-metron.jpg",
+      "sm": "assets/images/superhero_images_sm/448-metron.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/448-metron.jpg",
       "lg":
@@ -16672,8 +16340,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/449-micah-sanders.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/449-micah-sanders.jpg",
+      "sm": "assets/images/superhero_images_sm/449-micah-sanders.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/449-micah-sanders.jpg",
       "lg":
@@ -16717,8 +16384,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/450-michelangelo.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/450-michelangelo.jpg",
+      "sm": "assets/images/superhero_images_sm/450-michelangelo.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/450-michelangelo.jpg",
       "lg":
@@ -16765,8 +16431,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/451-micro-lad.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/451-micro-lad.jpg",
+      "sm": "assets/images/superhero_images_sm/451-micro-lad.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/451-micro-lad.jpg",
       "lg":
@@ -16811,8 +16476,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/452-mimic.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/452-mimic.jpg",
+      "sm": "assets/images/superhero_images_sm/452-mimic.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/452-mimic.jpg",
       "lg":
@@ -16853,8 +16517,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/454-misfit.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/454-misfit.jpg",
+      "sm": "assets/images/superhero_images_sm/454-misfit.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/454-misfit.jpg",
       "lg":
@@ -16902,8 +16565,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/455-miss-martian.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/455-miss-martian.jpg",
+      "sm": "assets/images/superhero_images_sm/455-miss-martian.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/455-miss-martian.jpg",
       "lg":
@@ -16948,8 +16610,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/456-mister-fantastic.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/456-mister-fantastic.jpg",
+      "sm": "assets/images/superhero_images_sm/456-mister-fantastic.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/456-mister-fantastic.jpg",
       "lg":
@@ -16994,8 +16655,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/457-mister-freeze.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/457-mister-freeze.jpg",
+      "sm": "assets/images/superhero_images_sm/457-mister-freeze.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/457-mister-freeze.jpg",
       "lg":
@@ -17049,8 +16709,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/458-mister-knife.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/458-mister-knife.jpg",
+      "sm": "assets/images/superhero_images_sm/458-mister-knife.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/458-mister-knife.jpg",
       "lg":
@@ -17091,8 +16750,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/459-mister-mxyzptlk.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/459-mister-mxyzptlk.jpg",
+      "sm": "assets/images/superhero_images_sm/459-mister-mxyzptlk.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/459-mister-mxyzptlk.jpg",
       "lg":
@@ -17155,8 +16813,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/460-mister-sinister.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/460-mister-sinister.jpg",
+      "sm": "assets/images/superhero_images_sm/460-mister-sinister.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/460-mister-sinister.jpg",
       "lg":
@@ -17197,8 +16854,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/no-portrait.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/no-portrait.jpg",
+      "sm": "assets/images/superhero_images_sm/no-portrait.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/no-portrait.jpg",
       "lg":
@@ -17254,8 +16910,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/462-mockingbird.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/462-mockingbird.jpg",
+      "sm": "assets/images/superhero_images_sm/462-mockingbird.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/462-mockingbird.jpg",
       "lg":
@@ -17304,8 +16959,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/463-modok.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/463-modok.jpg",
+      "sm": "assets/images/superhero_images_sm/463-modok.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/463-modok.jpg",
       "lg":
@@ -17354,8 +17008,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/467-molten-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/467-molten-man.jpg",
+      "sm": "assets/images/superhero_images_sm/467-molten-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/467-molten-man.jpg",
       "lg":
@@ -17400,8 +17053,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/469-monica-dawson.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/469-monica-dawson.jpg",
+      "sm": "assets/images/superhero_images_sm/469-monica-dawson.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/469-monica-dawson.jpg",
       "lg":
@@ -17459,8 +17111,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/470-moon-knight.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/470-moon-knight.jpg",
+      "sm": "assets/images/superhero_images_sm/470-moon-knight.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/470-moon-knight.jpg",
       "lg":
@@ -17509,8 +17160,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/471-moonstone.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/471-moonstone.jpg",
+      "sm": "assets/images/superhero_images_sm/471-moonstone.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/471-moonstone.jpg",
       "lg":
@@ -17551,8 +17201,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/472-morlun.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/472-morlun.jpg",
+      "sm": "assets/images/superhero_images_sm/472-morlun.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/472-morlun.jpg",
       "lg":
@@ -17601,8 +17250,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/474-moses-magnum.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/474-moses-magnum.jpg",
+      "sm": "assets/images/superhero_images_sm/474-moses-magnum.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/474-moses-magnum.jpg",
       "lg":
@@ -17643,8 +17291,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/no-portrait.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/no-portrait.jpg",
+      "sm": "assets/images/superhero_images_sm/no-portrait.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/no-portrait.jpg",
       "lg":
@@ -17689,8 +17336,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/476-mr-incredible.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/476-mr-incredible.jpg",
+      "sm": "assets/images/superhero_images_sm/476-mr-incredible.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/476-mr-incredible.jpg",
       "lg":
@@ -17739,8 +17385,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/477-ms-marvel-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/477-ms-marvel-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/477-ms-marvel-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/477-ms-marvel-ii.jpg",
       "lg":
@@ -17789,8 +17434,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/478-multiple-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/478-multiple-man.jpg",
+      "sm": "assets/images/superhero_images_sm/478-multiple-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/478-multiple-man.jpg",
       "lg":
@@ -17845,8 +17489,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/479-mysterio.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/479-mysterio.jpg",
+      "sm": "assets/images/superhero_images_sm/479-mysterio.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/479-mysterio.jpg",
       "lg":
@@ -17897,8 +17540,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/480-mystique.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/480-mystique.jpg",
+      "sm": "assets/images/superhero_images_sm/480-mystique.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/480-mystique.jpg",
       "lg":
@@ -17962,8 +17604,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/481-namor.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/481-namor.jpg",
+      "sm": "assets/images/superhero_images_sm/481-namor.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/481-namor.jpg",
       "lg":
@@ -18009,8 +17650,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/483-namora.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/483-namora.jpg",
+      "sm": "assets/images/superhero_images_sm/483-namora.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/483-namora.jpg",
       "lg":
@@ -18059,8 +17699,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/484-namorita.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/484-namorita.jpg",
+      "sm": "assets/images/superhero_images_sm/484-namorita.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/484-namorita.jpg",
       "lg":
@@ -18101,8 +17740,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/485-naruto-uzumaki.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/485-naruto-uzumaki.jpg",
+      "sm": "assets/images/superhero_images_sm/485-naruto-uzumaki.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/485-naruto-uzumaki.jpg",
       "lg":
@@ -18147,8 +17785,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/487-nebula.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/487-nebula.jpg",
+      "sm": "assets/images/superhero_images_sm/487-nebula.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/487-nebula.jpg",
       "lg":
@@ -18190,7 +17827,7 @@ final superHeroJson = [
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/488-negasonic-teenage-warhead.jpg",
       "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/488-negasonic-teenage-warhead.jpg",
+          "assets/images/superhero_images_sm/488-negasonic-teenage-warhead.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/488-negasonic-teenage-warhead.jpg",
       "lg":
@@ -18240,8 +17877,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/489-nick-fury.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/489-nick-fury.jpg",
+      "sm": "assets/images/superhero_images_sm/489-nick-fury.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/489-nick-fury.jpg",
       "lg":
@@ -18290,8 +17926,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/490-nightcrawler.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/490-nightcrawler.jpg",
+      "sm": "assets/images/superhero_images_sm/490-nightcrawler.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/490-nightcrawler.jpg",
       "lg":
@@ -18354,8 +17989,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/491-nightwing.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/491-nightwing.jpg",
+      "sm": "assets/images/superhero_images_sm/491-nightwing.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/491-nightwing.jpg",
       "lg":
@@ -18404,8 +18038,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/492-niki-sanders.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/492-niki-sanders.jpg",
+      "sm": "assets/images/superhero_images_sm/492-niki-sanders.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/492-niki-sanders.jpg",
       "lg":
@@ -18446,8 +18079,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/493-nina-theroux.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/493-nina-theroux.jpg",
+      "sm": "assets/images/superhero_images_sm/493-nina-theroux.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/493-nina-theroux.jpg",
       "lg":
@@ -18497,8 +18129,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/495-northstar.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/495-northstar.jpg",
+      "sm": "assets/images/superhero_images_sm/495-northstar.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/495-northstar.jpg",
       "lg":
@@ -18555,8 +18186,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/496-nova.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/496-nova.jpg",
+      "sm": "assets/images/superhero_images_sm/496-nova.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/496-nova.jpg",
       "lg":
@@ -18602,8 +18232,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/497-nova.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/497-nova.jpg",
+      "sm": "assets/images/superhero_images_sm/497-nova.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/497-nova.jpg",
       "lg":
@@ -18661,8 +18290,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/498-odin.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/498-odin.jpg",
+      "sm": "assets/images/superhero_images_sm/498-odin.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/498-odin.jpg",
       "lg":
@@ -18703,8 +18331,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/499-offspring.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/499-offspring.jpg",
+      "sm": "assets/images/superhero_images_sm/499-offspring.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/499-offspring.jpg",
       "lg":
@@ -18745,8 +18372,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/502-one-punch-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/502-one-punch-man.jpg",
+      "sm": "assets/images/superhero_images_sm/502-one-punch-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/502-one-punch-man.jpg",
       "lg":
@@ -18790,8 +18416,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/503-one-above-all.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/503-one-above-all.jpg",
+      "sm": "assets/images/superhero_images_sm/503-one-above-all.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/503-one-above-all.jpg",
       "lg":
@@ -18846,8 +18471,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/504-onslaught.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/504-onslaught.jpg",
+      "sm": "assets/images/superhero_images_sm/504-onslaught.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/504-onslaught.jpg",
       "lg":
@@ -18900,8 +18524,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/505-oracle.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/505-oracle.jpg",
+      "sm": "assets/images/superhero_images_sm/505-oracle.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/505-oracle.jpg",
       "lg":
@@ -18945,8 +18568,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/506-osiris.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/506-osiris.jpg",
+      "sm": "assets/images/superhero_images_sm/506-osiris.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/506-osiris.jpg",
       "lg":
@@ -18991,8 +18613,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/508-ozymandias.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/508-ozymandias.jpg",
+      "sm": "assets/images/superhero_images_sm/508-ozymandias.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/508-ozymandias.jpg",
       "lg":
@@ -19033,8 +18654,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/509-parademon.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/509-parademon.jpg",
+      "sm": "assets/images/superhero_images_sm/509-parademon.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/509-parademon.jpg",
       "lg":
@@ -19075,8 +18695,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/510-paul-blart.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/510-paul-blart.jpg",
+      "sm": "assets/images/superhero_images_sm/510-paul-blart.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/510-paul-blart.jpg",
       "lg":
@@ -19121,8 +18740,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/514-penguin.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/514-penguin.jpg",
+      "sm": "assets/images/superhero_images_sm/514-penguin.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/514-penguin.jpg",
       "lg":
@@ -19163,8 +18781,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/516-phantom-girl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/516-phantom-girl.jpg",
+      "sm": "assets/images/superhero_images_sm/516-phantom-girl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/516-phantom-girl.jpg",
       "lg":
@@ -19214,8 +18831,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/517-phoenix.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/517-phoenix.jpg",
+      "sm": "assets/images/superhero_images_sm/517-phoenix.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/517-phoenix.jpg",
       "lg":
@@ -19264,8 +18880,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/518-plantman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/518-plantman.jpg",
+      "sm": "assets/images/superhero_images_sm/518-plantman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/518-plantman.jpg",
       "lg":
@@ -19310,8 +18925,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/520-plastic-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/520-plastic-man.jpg",
+      "sm": "assets/images/superhero_images_sm/520-plastic-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/520-plastic-man.jpg",
       "lg":
@@ -19359,8 +18973,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/521-plastique.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/521-plastique.jpg",
+      "sm": "assets/images/superhero_images_sm/521-plastique.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/521-plastique.jpg",
       "lg":
@@ -19405,8 +19018,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/522-poison-ivy.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/522-poison-ivy.jpg",
+      "sm": "assets/images/superhero_images_sm/522-poison-ivy.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/522-poison-ivy.jpg",
       "lg":
@@ -19464,8 +19076,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/523-polaris.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/523-polaris.jpg",
+      "sm": "assets/images/superhero_images_sm/523-polaris.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/523-polaris.jpg",
       "lg":
@@ -19511,8 +19122,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/524-power-girl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/524-power-girl.jpg",
+      "sm": "assets/images/superhero_images_sm/524-power-girl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/524-power-girl.jpg",
       "lg":
@@ -19553,8 +19163,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/526-predator.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/526-predator.jpg",
+      "sm": "assets/images/superhero_images_sm/526-predator.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/526-predator.jpg",
       "lg":
@@ -19610,8 +19219,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/527-professor-x.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/527-professor-x.jpg",
+      "sm": "assets/images/superhero_images_sm/527-professor-x.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/527-professor-x.jpg",
       "lg":
@@ -19657,8 +19265,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/528-professor-zoom.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/528-professor-zoom.jpg",
+      "sm": "assets/images/superhero_images_sm/528-professor-zoom.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/528-professor-zoom.jpg",
       "lg":
@@ -19709,8 +19316,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/529-psylocke.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/529-psylocke.jpg",
+      "sm": "assets/images/superhero_images_sm/529-psylocke.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/529-psylocke.jpg",
       "lg":
@@ -19780,8 +19386,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/530-punisher.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/530-punisher.jpg",
+      "sm": "assets/images/superhero_images_sm/530-punisher.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/530-punisher.jpg",
       "lg":
@@ -19831,8 +19436,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/531-purple-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/531-purple-man.jpg",
+      "sm": "assets/images/superhero_images_sm/531-purple-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/531-purple-man.jpg",
       "lg":
@@ -19880,8 +19484,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/532-pyro.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/532-pyro.jpg",
+      "sm": "assets/images/superhero_images_sm/532-pyro.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/532-pyro.jpg",
       "lg":
@@ -19922,8 +19525,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/533-q.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/533-q.jpg",
+      "sm": "assets/images/superhero_images_sm/533-q.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/533-q.jpg",
       "lg":
@@ -19970,8 +19572,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/535-question.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/535-question.jpg",
+      "sm": "assets/images/superhero_images_sm/535-question.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/535-question.jpg",
       "lg":
@@ -20022,8 +19623,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/536-quicksilver.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/536-quicksilver.jpg",
+      "sm": "assets/images/superhero_images_sm/536-quicksilver.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/536-quicksilver.jpg",
       "lg":
@@ -20064,8 +19664,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/537-quill.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/537-quill.jpg",
+      "sm": "assets/images/superhero_images_sm/537-quill.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/537-quill.jpg",
       "lg":
@@ -20113,8 +19712,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/538-ras-al-ghul.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/538-ras-al-ghul.jpg",
+      "sm": "assets/images/superhero_images_sm/538-ras-al-ghul.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/538-ras-al-ghul.jpg",
       "lg":
@@ -20155,8 +19753,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/539-rachel-pirzad.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/539-rachel-pirzad.jpg",
+      "sm": "assets/images/superhero_images_sm/539-rachel-pirzad.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/539-rachel-pirzad.jpg",
       "lg":
@@ -20201,8 +19798,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/540-rambo.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/540-rambo.jpg",
+      "sm": "assets/images/superhero_images_sm/540-rambo.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/540-rambo.jpg",
       "lg":
@@ -20247,8 +19843,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/541-raphael.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/541-raphael.jpg",
+      "sm": "assets/images/superhero_images_sm/541-raphael.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/541-raphael.jpg",
       "lg":
@@ -20293,8 +19888,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/542-raven.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/542-raven.jpg",
+      "sm": "assets/images/superhero_images_sm/542-raven.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/542-raven.jpg",
       "lg":
@@ -20343,8 +19937,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/543-ray.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/543-ray.jpg",
+      "sm": "assets/images/superhero_images_sm/543-ray.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/543-ray.jpg",
       "lg":
@@ -20395,8 +19988,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/545-red-arrow.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/545-red-arrow.jpg",
+      "sm": "assets/images/superhero_images_sm/545-red-arrow.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/545-red-arrow.jpg",
       "lg":
@@ -20441,8 +20033,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/546-red-hood.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/546-red-hood.jpg",
+      "sm": "assets/images/superhero_images_sm/546-red-hood.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/546-red-hood.jpg",
       "lg":
@@ -20487,8 +20078,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/547-red-hulk.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/547-red-hulk.jpg",
+      "sm": "assets/images/superhero_images_sm/547-red-hulk.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/547-red-hulk.jpg",
       "lg":
@@ -20529,8 +20119,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/548-red-mist.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/548-red-mist.jpg",
+      "sm": "assets/images/superhero_images_sm/548-red-mist.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/548-red-mist.jpg",
       "lg":
@@ -20585,8 +20174,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/549-red-robin.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/549-red-robin.jpg",
+      "sm": "assets/images/superhero_images_sm/549-red-robin.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/549-red-robin.jpg",
       "lg":
@@ -20643,8 +20231,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/550-red-skull.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/550-red-skull.jpg",
+      "sm": "assets/images/superhero_images_sm/550-red-skull.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/550-red-skull.jpg",
       "lg":
@@ -20697,8 +20284,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/551-red-tornado.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/551-red-tornado.jpg",
+      "sm": "assets/images/superhero_images_sm/551-red-tornado.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/551-red-tornado.jpg",
       "lg":
@@ -20739,8 +20325,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/555-rey.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/555-rey.jpg",
+      "sm": "assets/images/superhero_images_sm/555-rey.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/555-rey.jpg",
       "lg":
@@ -20788,8 +20373,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/556-rhino.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/556-rhino.jpg",
+      "sm": "assets/images/superhero_images_sm/556-rhino.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/556-rhino.jpg",
       "lg":
@@ -20837,8 +20421,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/557-rick-flag.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/557-rick-flag.jpg",
+      "sm": "assets/images/superhero_images_sm/557-rick-flag.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/557-rick-flag.jpg",
       "lg":
@@ -20879,8 +20462,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/558-riddler.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/558-riddler.jpg",
+      "sm": "assets/images/superhero_images_sm/558-riddler.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/558-riddler.jpg",
       "lg":
@@ -20934,8 +20516,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/559-rip-hunter.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/559-rip-hunter.jpg",
+      "sm": "assets/images/superhero_images_sm/559-rip-hunter.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/559-rip-hunter.jpg",
       "lg":
@@ -20985,8 +20566,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/561-robin.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/561-robin.jpg",
+      "sm": "assets/images/superhero_images_sm/561-robin.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/561-robin.jpg",
       "lg":
@@ -21039,8 +20619,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/562-robin-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/562-robin-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/562-robin-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/562-robin-ii.jpg",
       "lg":
@@ -21089,8 +20668,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/563-robin-iii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/563-robin-iii.jpg",
+      "sm": "assets/images/superhero_images_sm/563-robin-iii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/563-robin-iii.jpg",
       "lg":
@@ -21136,8 +20714,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/564-robin-v.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/564-robin-v.jpg",
+      "sm": "assets/images/superhero_images_sm/564-robin-v.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/564-robin-v.jpg",
       "lg":
@@ -21178,8 +20755,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/565-robin-vi.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/565-robin-vi.jpg",
+      "sm": "assets/images/superhero_images_sm/565-robin-vi.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/565-robin-vi.jpg",
       "lg":
@@ -21233,8 +20809,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/566-rocket-raccoon.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/566-rocket-raccoon.jpg",
+      "sm": "assets/images/superhero_images_sm/566-rocket-raccoon.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/566-rocket-raccoon.jpg",
       "lg":
@@ -21289,8 +20864,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/567-rogue.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/567-rogue.jpg",
+      "sm": "assets/images/superhero_images_sm/567-rogue.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/567-rogue.jpg",
       "lg":
@@ -21353,8 +20927,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/no-portrait.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/no-portrait.jpg",
+      "sm": "assets/images/superhero_images_sm/no-portrait.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/no-portrait.jpg",
       "lg":
@@ -21395,8 +20968,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/569-rorschach.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/569-rorschach.jpg",
+      "sm": "assets/images/superhero_images_sm/569-rorschach.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/569-rorschach.jpg",
       "lg":
@@ -21443,8 +21015,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/570-sabretooth.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/570-sabretooth.jpg",
+      "sm": "assets/images/superhero_images_sm/570-sabretooth.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/570-sabretooth.jpg",
       "lg":
@@ -21492,8 +21063,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/571-sage.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/571-sage.jpg",
+      "sm": "assets/images/superhero_images_sm/571-sage.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/571-sage.jpg",
       "lg":
@@ -21538,8 +21108,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/572-sandman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/572-sandman.jpg",
+      "sm": "assets/images/superhero_images_sm/572-sandman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/572-sandman.jpg",
       "lg":
@@ -21589,8 +21158,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/573-sasquatch.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/573-sasquatch.jpg",
+      "sm": "assets/images/superhero_images_sm/573-sasquatch.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/573-sasquatch.jpg",
       "lg":
@@ -21639,8 +21207,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/574-sauron.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/574-sauron.jpg",
+      "sm": "assets/images/superhero_images_sm/574-sauron.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/574-sauron.jpg",
       "lg":
@@ -21685,8 +21252,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/575-savage-dragon.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/575-savage-dragon.jpg",
+      "sm": "assets/images/superhero_images_sm/575-savage-dragon.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/575-savage-dragon.jpg",
       "lg":
@@ -21730,8 +21296,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/576-scarecrow.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/576-scarecrow.jpg",
+      "sm": "assets/images/superhero_images_sm/576-scarecrow.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/576-scarecrow.jpg",
       "lg":
@@ -21777,8 +21342,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/577-scarlet-spider.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/577-scarlet-spider.jpg",
+      "sm": "assets/images/superhero_images_sm/577-scarlet-spider.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/577-scarlet-spider.jpg",
       "lg":
@@ -21823,8 +21387,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/578-scarlet-spider-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/578-scarlet-spider-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/578-scarlet-spider-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/578-scarlet-spider-ii.jpg",
       "lg":
@@ -21881,8 +21444,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/579-scarlet-witch.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/579-scarlet-witch.jpg",
+      "sm": "assets/images/superhero_images_sm/579-scarlet-witch.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/579-scarlet-witch.jpg",
       "lg":
@@ -21927,8 +21489,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/580-scorpia.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/580-scorpia.jpg",
+      "sm": "assets/images/superhero_images_sm/580-scorpia.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/580-scorpia.jpg",
       "lg":
@@ -21977,8 +21538,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/581-scorpion.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/581-scorpion.jpg",
+      "sm": "assets/images/superhero_images_sm/581-scorpion.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/581-scorpion.jpg",
       "lg":
@@ -22019,8 +21579,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/no-portrait.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/no-portrait.jpg",
+      "sm": "assets/images/superhero_images_sm/no-portrait.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/no-portrait.jpg",
       "lg":
@@ -22075,8 +21634,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/583-sentry.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/583-sentry.jpg",
+      "sm": "assets/images/superhero_images_sm/583-sentry.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/583-sentry.jpg",
       "lg":
@@ -22134,8 +21692,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/584-shadow-king.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/584-shadow-king.jpg",
+      "sm": "assets/images/superhero_images_sm/584-shadow-king.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/584-shadow-king.jpg",
       "lg":
@@ -22176,8 +21733,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/585-shadow-lass.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/585-shadow-lass.jpg",
+      "sm": "assets/images/superhero_images_sm/585-shadow-lass.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/585-shadow-lass.jpg",
       "lg":
@@ -22227,8 +21783,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/586-shadowcat.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/586-shadowcat.jpg",
+      "sm": "assets/images/superhero_images_sm/586-shadowcat.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/586-shadowcat.jpg",
       "lg":
@@ -22276,8 +21831,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/587-shang-chi.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/587-shang-chi.jpg",
+      "sm": "assets/images/superhero_images_sm/587-shang-chi.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/587-shang-chi.jpg",
       "lg":
@@ -22321,8 +21875,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/588-shatterstar.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/588-shatterstar.jpg",
+      "sm": "assets/images/superhero_images_sm/588-shatterstar.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/588-shatterstar.jpg",
       "lg":
@@ -22371,8 +21924,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/589-she-hulk.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/589-she-hulk.jpg",
+      "sm": "assets/images/superhero_images_sm/589-she-hulk.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/589-she-hulk.jpg",
       "lg":
@@ -22422,8 +21974,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/590-she-thing.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/590-she-thing.jpg",
+      "sm": "assets/images/superhero_images_sm/590-she-thing.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/590-she-thing.jpg",
       "lg":
@@ -22471,8 +22022,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/591-shocker.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/591-shocker.jpg",
+      "sm": "assets/images/superhero_images_sm/591-shocker.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/591-shocker.jpg",
       "lg":
@@ -22521,8 +22071,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/592-shriek.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/592-shriek.jpg",
+      "sm": "assets/images/superhero_images_sm/592-shriek.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/592-shriek.jpg",
       "lg":
@@ -22569,8 +22118,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/594-sif.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/594-sif.jpg",
+      "sm": "assets/images/superhero_images_sm/594-sif.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/594-sif.jpg",
       "lg":
@@ -22621,8 +22169,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/595-silk.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/595-silk.jpg",
+      "sm": "assets/images/superhero_images_sm/595-silk.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/595-silk.jpg",
       "lg":
@@ -22671,8 +22218,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/598-silver-surfer.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/598-silver-surfer.jpg",
+      "sm": "assets/images/superhero_images_sm/598-silver-surfer.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/598-silver-surfer.jpg",
       "lg":
@@ -22721,8 +22267,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/599-silverclaw.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/599-silverclaw.jpg",
+      "sm": "assets/images/superhero_images_sm/599-silverclaw.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/599-silverclaw.jpg",
       "lg":
@@ -22767,8 +22312,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/600-simon-baz.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/600-simon-baz.jpg",
+      "sm": "assets/images/superhero_images_sm/600-simon-baz.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/600-simon-baz.jpg",
       "lg":
@@ -22823,8 +22367,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/601-sinestro.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/601-sinestro.jpg",
+      "sm": "assets/images/superhero_images_sm/601-sinestro.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/601-sinestro.jpg",
       "lg":
@@ -22868,8 +22411,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/602-siren.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/602-siren.jpg",
+      "sm": "assets/images/superhero_images_sm/602-siren.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/602-siren.jpg",
       "lg":
@@ -22918,8 +22460,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/604-siryn.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/604-siryn.jpg",
+      "sm": "assets/images/superhero_images_sm/604-siryn.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/604-siryn.jpg",
       "lg":
@@ -22971,8 +22512,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/605-skaar.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/605-skaar.jpg",
+      "sm": "assets/images/superhero_images_sm/605-skaar.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/605-skaar.jpg",
       "lg":
@@ -23021,8 +22561,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/607-snowbird.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/607-snowbird.jpg",
+      "sm": "assets/images/superhero_images_sm/607-snowbird.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/607-snowbird.jpg",
       "lg":
@@ -23068,8 +22607,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/608-sobek.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/608-sobek.jpg",
+      "sm": "assets/images/superhero_images_sm/608-sobek.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/608-sobek.jpg",
       "lg":
@@ -23115,8 +22653,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/609-solomon-grundy.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/609-solomon-grundy.jpg",
+      "sm": "assets/images/superhero_images_sm/609-solomon-grundy.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/609-solomon-grundy.jpg",
       "lg":
@@ -23164,8 +22701,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/610-songbird.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/610-songbird.jpg",
+      "sm": "assets/images/superhero_images_sm/610-songbird.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/610-songbird.jpg",
       "lg":
@@ -23206,8 +22742,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/611-space-ghost.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/611-space-ghost.jpg",
+      "sm": "assets/images/superhero_images_sm/611-space-ghost.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/611-space-ghost.jpg",
       "lg":
@@ -23252,8 +22787,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/612-spawn.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/612-spawn.jpg",
+      "sm": "assets/images/superhero_images_sm/612-spawn.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/612-spawn.jpg",
       "lg":
@@ -23302,8 +22836,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/613-spectre.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/613-spectre.jpg",
+      "sm": "assets/images/superhero_images_sm/613-spectre.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/613-spectre.jpg",
       "lg":
@@ -23348,8 +22881,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/615-speedy.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/615-speedy.jpg",
+      "sm": "assets/images/superhero_images_sm/615-speedy.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/615-speedy.jpg",
       "lg":
@@ -23390,8 +22922,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/618-spider-girl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/618-spider-girl.jpg",
+      "sm": "assets/images/superhero_images_sm/618-spider-girl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/618-spider-girl.jpg",
       "lg":
@@ -23436,8 +22967,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/619-spider-gwen.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/619-spider-gwen.jpg",
+      "sm": "assets/images/superhero_images_sm/619-spider-gwen.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/619-spider-gwen.jpg",
       "lg":
@@ -23502,8 +23032,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/620-spider-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/620-spider-man.jpg",
+      "sm": "assets/images/superhero_images_sm/620-spider-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/620-spider-man.jpg",
       "lg":
@@ -23556,8 +23085,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/623-spider-woman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/623-spider-woman.jpg",
+      "sm": "assets/images/superhero_images_sm/623-spider-woman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/623-spider-woman.jpg",
       "lg":
@@ -23603,8 +23131,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/625-spider-woman-iii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/625-spider-woman-iii.jpg",
+      "sm": "assets/images/superhero_images_sm/625-spider-woman-iii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/625-spider-woman-iii.jpg",
       "lg":
@@ -23645,8 +23172,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/627-spock.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/627-spock.jpg",
+      "sm": "assets/images/superhero_images_sm/627-spock.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/627-spock.jpg",
       "lg":
@@ -23691,8 +23217,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/628-spyke.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/628-spyke.jpg",
+      "sm": "assets/images/superhero_images_sm/628-spyke.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/628-spyke.jpg",
       "lg":
@@ -23741,8 +23266,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/630-star-lord.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/630-star-lord.jpg",
+      "sm": "assets/images/superhero_images_sm/630-star-lord.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/630-star-lord.jpg",
       "lg":
@@ -23786,8 +23310,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/631-stardust.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/631-stardust.jpg",
+      "sm": "assets/images/superhero_images_sm/631-stardust.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/631-stardust.jpg",
       "lg":
@@ -23837,8 +23360,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/632-starfire.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/632-starfire.jpg",
+      "sm": "assets/images/superhero_images_sm/632-starfire.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/632-starfire.jpg",
       "lg":
@@ -23887,8 +23409,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/633-stargirl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/633-stargirl.jpg",
+      "sm": "assets/images/superhero_images_sm/633-stargirl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/633-stargirl.jpg",
       "lg":
@@ -23937,8 +23458,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/634-static.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/634-static.jpg",
+      "sm": "assets/images/superhero_images_sm/634-static.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/634-static.jpg",
       "lg":
@@ -23986,8 +23506,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/635-steel.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/635-steel.jpg",
+      "sm": "assets/images/superhero_images_sm/635-steel.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/635-steel.jpg",
       "lg":
@@ -24035,8 +23554,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/636-stephanie-powell.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/636-stephanie-powell.jpg",
+      "sm": "assets/images/superhero_images_sm/636-stephanie-powell.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/636-stephanie-powell.jpg",
       "lg":
@@ -24077,8 +23595,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/637-steppenwolf.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/637-steppenwolf.jpg",
+      "sm": "assets/images/superhero_images_sm/637-steppenwolf.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/637-steppenwolf.jpg",
       "lg":
@@ -24142,8 +23659,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/638-storm.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/638-storm.jpg",
+      "sm": "assets/images/superhero_images_sm/638-storm.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/638-storm.jpg",
       "lg":
@@ -24184,8 +23700,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/639-stormtrooper.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/639-stormtrooper.jpg",
+      "sm": "assets/images/superhero_images_sm/639-stormtrooper.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/639-stormtrooper.jpg",
       "lg":
@@ -24239,8 +23754,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/640-sunspot.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/640-sunspot.jpg",
+      "sm": "assets/images/superhero_images_sm/640-sunspot.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/640-sunspot.jpg",
       "lg":
@@ -24293,8 +23807,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/641-superboy.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/641-superboy.jpg",
+      "sm": "assets/images/superhero_images_sm/641-superboy.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/641-superboy.jpg",
       "lg":
@@ -24346,8 +23859,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/642-superboy-prime.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/642-superboy-prime.jpg",
+      "sm": "assets/images/superhero_images_sm/642-superboy-prime.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/642-superboy-prime.jpg",
       "lg":
@@ -24409,8 +23921,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/643-supergirl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/643-supergirl.jpg",
+      "sm": "assets/images/superhero_images_sm/643-supergirl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/643-supergirl.jpg",
       "lg":
@@ -24467,8 +23978,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/644-superman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/644-superman.jpg",
+      "sm": "assets/images/superhero_images_sm/644-superman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/644-superman.jpg",
       "lg":
@@ -24520,8 +24030,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/645-swamp-thing.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/645-swamp-thing.jpg",
+      "sm": "assets/images/superhero_images_sm/645-swamp-thing.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/645-swamp-thing.jpg",
       "lg":
@@ -24569,8 +24078,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/646-swarm.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/646-swarm.jpg",
+      "sm": "assets/images/superhero_images_sm/646-swarm.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/646-swarm.jpg",
       "lg":
@@ -24620,8 +24128,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/647-sylar.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/647-sylar.jpg",
+      "sm": "assets/images/superhero_images_sm/647-sylar.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/647-sylar.jpg",
       "lg":
@@ -24666,8 +24173,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/648-synch.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/648-synch.jpg",
+      "sm": "assets/images/superhero_images_sm/648-synch.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/648-synch.jpg",
       "lg":
@@ -24708,8 +24214,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/649-t-1000.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/649-t-1000.jpg",
+      "sm": "assets/images/superhero_images_sm/649-t-1000.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/649-t-1000.jpg",
       "lg":
@@ -24750,8 +24255,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/650-t-800.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/650-t-800.jpg",
+      "sm": "assets/images/superhero_images_sm/650-t-800.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/650-t-800.jpg",
       "lg":
@@ -24792,8 +24296,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/651-t-850.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/651-t-850.jpg",
+      "sm": "assets/images/superhero_images_sm/651-t-850.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/651-t-850.jpg",
       "lg":
@@ -24834,8 +24337,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/652-t-x.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/652-t-x.jpg",
+      "sm": "assets/images/superhero_images_sm/652-t-x.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/652-t-x.jpg",
       "lg":
@@ -24884,8 +24386,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/653-taskmaster.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/653-taskmaster.jpg",
+      "sm": "assets/images/superhero_images_sm/653-taskmaster.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/653-taskmaster.jpg",
       "lg":
@@ -24930,8 +24431,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/654-tempest.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/654-tempest.jpg",
+      "sm": "assets/images/superhero_images_sm/654-tempest.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/654-tempest.jpg",
       "lg":
@@ -24979,8 +24479,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/655-thanos.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/655-thanos.jpg",
+      "sm": "assets/images/superhero_images_sm/655-thanos.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/655-thanos.jpg",
       "lg":
@@ -25024,8 +24523,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/656-the-cape.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/656-the-cape.jpg",
+      "sm": "assets/images/superhero_images_sm/656-the-cape.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/656-the-cape.jpg",
       "lg":
@@ -25072,8 +24570,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/657-the-comedian.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/657-the-comedian.jpg",
+      "sm": "assets/images/superhero_images_sm/657-the-comedian.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/657-the-comedian.jpg",
       "lg":
@@ -25127,8 +24624,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/658-thing.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/658-thing.jpg",
+      "sm": "assets/images/superhero_images_sm/658-thing.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/658-thing.jpg",
       "lg":
@@ -25181,8 +24677,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/659-thor.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/659-thor.jpg",
+      "sm": "assets/images/superhero_images_sm/659-thor.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/659-thor.jpg",
       "lg":
@@ -25243,8 +24738,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/660-thor-girl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/660-thor-girl.jpg",
+      "sm": "assets/images/superhero_images_sm/660-thor-girl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/660-thor-girl.jpg",
       "lg":
@@ -25293,8 +24787,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/661-thunderbird.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/661-thunderbird.jpg",
+      "sm": "assets/images/superhero_images_sm/661-thunderbird.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/661-thunderbird.jpg",
       "lg":
@@ -25345,8 +24838,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/664-thunderstrike.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/664-thunderstrike.jpg",
+      "sm": "assets/images/superhero_images_sm/664-thunderstrike.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/664-thunderstrike.jpg",
       "lg":
@@ -25395,8 +24887,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/665-thundra.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/665-thundra.jpg",
+      "sm": "assets/images/superhero_images_sm/665-thundra.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/665-thundra.jpg",
       "lg":
@@ -25442,8 +24933,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/666-tiger-shark.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/666-tiger-shark.jpg",
+      "sm": "assets/images/superhero_images_sm/666-tiger-shark.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/666-tiger-shark.jpg",
       "lg":
@@ -25491,8 +24981,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/667-tigra.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/667-tigra.jpg",
+      "sm": "assets/images/superhero_images_sm/667-tigra.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/667-tigra.jpg",
       "lg":
@@ -25540,8 +25029,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/668-tinkerer.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/668-tinkerer.jpg",
+      "sm": "assets/images/superhero_images_sm/668-tinkerer.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/668-tinkerer.jpg",
       "lg":
@@ -25586,8 +25074,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/670-toad.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/670-toad.jpg",
+      "sm": "assets/images/superhero_images_sm/670-toad.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/670-toad.jpg",
       "lg":
@@ -25632,8 +25119,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/671-toxin.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/671-toxin.jpg",
+      "sm": "assets/images/superhero_images_sm/671-toxin.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/671-toxin.jpg",
       "lg":
@@ -25693,8 +25179,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/672-toxin.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/672-toxin.jpg",
+      "sm": "assets/images/superhero_images_sm/672-toxin.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/672-toxin.jpg",
       "lg":
@@ -25738,8 +25223,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/676-triplicate-girl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/676-triplicate-girl.jpg",
+      "sm": "assets/images/superhero_images_sm/676-triplicate-girl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/676-triplicate-girl.jpg",
       "lg":
@@ -25785,8 +25269,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/677-triton.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/677-triton.jpg",
+      "sm": "assets/images/superhero_images_sm/677-triton.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/677-triton.jpg",
       "lg":
@@ -25834,8 +25317,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/678-two-face.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/678-two-face.jpg",
+      "sm": "assets/images/superhero_images_sm/678-two-face.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/678-two-face.jpg",
       "lg":
@@ -25879,8 +25361,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/679-ultragirl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/679-ultragirl.jpg",
+      "sm": "assets/images/superhero_images_sm/679-ultragirl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/679-ultragirl.jpg",
       "lg":
@@ -25941,8 +25422,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/680-ultron.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/680-ultron.jpg",
+      "sm": "assets/images/superhero_images_sm/680-ultron.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/680-ultron.jpg",
       "lg":
@@ -25986,8 +25466,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/681-utgard-loki.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/681-utgard-loki.jpg",
+      "sm": "assets/images/superhero_images_sm/681-utgard-loki.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/681-utgard-loki.jpg",
       "lg":
@@ -26036,8 +25515,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/685-vanisher.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/685-vanisher.jpg",
+      "sm": "assets/images/superhero_images_sm/685-vanisher.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/685-vanisher.jpg",
       "lg":
@@ -26092,8 +25570,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/686-vegeta.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/686-vegeta.jpg",
+      "sm": "assets/images/superhero_images_sm/686-vegeta.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/686-vegeta.jpg",
       "lg":
@@ -26143,8 +25620,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/687-venom.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/687-venom.jpg",
+      "sm": "assets/images/superhero_images_sm/687-venom.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/687-venom.jpg",
       "lg":
@@ -26189,8 +25665,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/688-venom-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/688-venom-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/688-venom-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/688-venom-ii.jpg",
       "lg":
@@ -26240,8 +25715,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/689-venom-iii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/689-venom-iii.jpg",
+      "sm": "assets/images/superhero_images_sm/689-venom-iii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/689-venom-iii.jpg",
       "lg":
@@ -26283,8 +25757,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/690-venompool.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/690-venompool.jpg",
+      "sm": "assets/images/superhero_images_sm/690-venompool.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/690-venompool.jpg",
       "lg":
@@ -26328,8 +25801,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/692-vibe.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/692-vibe.jpg",
+      "sm": "assets/images/superhero_images_sm/692-vibe.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/692-vibe.jpg",
       "lg":
@@ -26376,8 +25848,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/693-vindicator.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/693-vindicator.jpg",
+      "sm": "assets/images/superhero_images_sm/693-vindicator.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/693-vindicator.jpg",
       "lg":
@@ -26426,8 +25897,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/696-violet-parr.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/696-violet-parr.jpg",
+      "sm": "assets/images/superhero_images_sm/696-violet-parr.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/696-violet-parr.jpg",
       "lg":
@@ -26477,8 +25947,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/697-vision.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/697-vision.jpg",
+      "sm": "assets/images/superhero_images_sm/697-vision.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/697-vision.jpg",
       "lg":
@@ -26524,8 +25993,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/699-vixen.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/699-vixen.jpg",
+      "sm": "assets/images/superhero_images_sm/699-vixen.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/699-vixen.jpg",
       "lg":
@@ -26573,8 +26041,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/701-vulture.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/701-vulture.jpg",
+      "sm": "assets/images/superhero_images_sm/701-vulture.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/701-vulture.jpg",
       "lg":
@@ -26618,8 +26085,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/702-walrus.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/702-walrus.jpg",
+      "sm": "assets/images/superhero_images_sm/702-walrus.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/702-walrus.jpg",
       "lg":
@@ -26669,8 +26135,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/703-war-machine.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/703-war-machine.jpg",
+      "sm": "assets/images/superhero_images_sm/703-war-machine.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/703-war-machine.jpg",
       "lg":
@@ -26718,8 +26183,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/705-warlock.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/705-warlock.jpg",
+      "sm": "assets/images/superhero_images_sm/705-warlock.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/705-warlock.jpg",
       "lg":
@@ -26763,8 +26227,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/706-warp.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/706-warp.jpg",
+      "sm": "assets/images/superhero_images_sm/706-warp.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/706-warp.jpg",
       "lg":
@@ -26810,8 +26273,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/707-warpath.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/707-warpath.jpg",
+      "sm": "assets/images/superhero_images_sm/707-warpath.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/707-warpath.jpg",
       "lg":
@@ -26860,8 +26322,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/708-wasp.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/708-wasp.jpg",
+      "sm": "assets/images/superhero_images_sm/708-wasp.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/708-wasp.jpg",
       "lg":
@@ -26906,8 +26367,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/709-watcher.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/709-watcher.jpg",
+      "sm": "assets/images/superhero_images_sm/709-watcher.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/709-watcher.jpg",
       "lg":
@@ -26948,8 +26408,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/711-white-canary.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/711-white-canary.jpg",
+      "sm": "assets/images/superhero_images_sm/711-white-canary.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/711-white-canary.jpg",
       "lg":
@@ -26993,8 +26452,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/713-wildfire.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/713-wildfire.jpg",
+      "sm": "assets/images/superhero_images_sm/713-wildfire.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/713-wildfire.jpg",
       "lg":
@@ -27045,8 +26503,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/714-winter-soldier.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/714-winter-soldier.jpg",
+      "sm": "assets/images/superhero_images_sm/714-winter-soldier.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/714-winter-soldier.jpg",
       "lg":
@@ -27096,8 +26553,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/716-wolfsbane.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/716-wolfsbane.jpg",
+      "sm": "assets/images/superhero_images_sm/716-wolfsbane.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/716-wolfsbane.jpg",
       "lg":
@@ -27161,8 +26617,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/717-wolverine.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/717-wolverine.jpg",
+      "sm": "assets/images/superhero_images_sm/717-wolverine.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/717-wolverine.jpg",
       "lg":
@@ -27212,8 +26667,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/718-wonder-girl.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/718-wonder-girl.jpg",
+      "sm": "assets/images/superhero_images_sm/718-wonder-girl.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/718-wonder-girl.jpg",
       "lg":
@@ -27262,8 +26716,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/719-wonder-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/719-wonder-man.jpg",
+      "sm": "assets/images/superhero_images_sm/719-wonder-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/719-wonder-man.jpg",
       "lg":
@@ -27320,8 +26773,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/720-wonder-woman.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/720-wonder-woman.jpg",
+      "sm": "assets/images/superhero_images_sm/720-wonder-woman.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/720-wonder-woman.jpg",
       "lg":
@@ -27370,8 +26822,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/722-wyatt-wingfoot.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/722-wyatt-wingfoot.jpg",
+      "sm": "assets/images/superhero_images_sm/722-wyatt-wingfoot.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/722-wyatt-wingfoot.jpg",
       "lg":
@@ -27428,8 +26879,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/723-x-23.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/723-x-23.jpg",
+      "sm": "assets/images/superhero_images_sm/723-x-23.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/723-x-23.jpg",
       "lg":
@@ -27478,8 +26928,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/724-x-man.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/724-x-man.jpg",
+      "sm": "assets/images/superhero_images_sm/724-x-man.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/724-x-man.jpg",
       "lg":
@@ -27531,8 +26980,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/726-yellowjacket.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/726-yellowjacket.jpg",
+      "sm": "assets/images/superhero_images_sm/726-yellowjacket.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/726-yellowjacket.jpg",
       "lg":
@@ -27580,8 +27028,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/727-yellowjacket-ii.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/727-yellowjacket-ii.jpg",
+      "sm": "assets/images/superhero_images_sm/727-yellowjacket-ii.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/727-yellowjacket-ii.jpg",
       "lg":
@@ -27626,8 +27073,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/728-ymir.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/728-ymir.jpg",
+      "sm": "assets/images/superhero_images_sm/728-ymir.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/728-ymir.jpg",
       "lg":
@@ -27673,8 +27119,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/729-yoda.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/729-yoda.jpg",
+      "sm": "assets/images/superhero_images_sm/729-yoda.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/729-yoda.jpg",
       "lg":
@@ -27720,8 +27165,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/730-zatanna.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/730-zatanna.jpg",
+      "sm": "assets/images/superhero_images_sm/730-zatanna.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/730-zatanna.jpg",
       "lg":
@@ -27766,8 +27210,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/731-zoom.jpg",
-      "sm":
-          "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/731-zoom.jpg",
+      "sm": "assets/images/superhero_images_sm/731-zoom.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/731-zoom.jpg",
       "lg":

@@ -199,6 +199,7 @@ class _BarChart extends StatelessWidget {
         alignment: BarChartAlignment.spaceAround,
         maxY: 120,
       ),
+      swapAnimationDuration: const Duration(milliseconds: 300),
     );
   }
 
@@ -300,8 +301,8 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.strength,
             groupValue: selectedPowerStat,
             toY: data.strength.toDouble(),
+            colorTwo: theme.colorScheme.primary.withOpacity(0.4),
             colorOne: theme.colorScheme.primary,
-            colorTwo: Colors.yellowAccent[100]!,
           ),
         ],
         showingTooltipIndicators: [0],

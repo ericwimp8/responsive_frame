@@ -1,6 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'dart:async';
 import 'package:example/barrel.dart';
-
 import 'package:flutter/material.dart';
 
 class SuperHeroOverview extends StatelessWidget {
@@ -11,9 +10,10 @@ class SuperHeroOverview extends StatelessWidget {
     final selectedHero = SuperHeroData.of(context).data.selectedHero;
 
     return AppAnimatedSwitcherSlideFade(
+      duration: const Duration(milliseconds: 400),
       begin: const Offset(0, 0.03),
       child: _Overview(
-        key: ValueKey(selectedHero.id),
+        key: ObjectKey(selectedHero),
         selectedHero: selectedHero,
       ),
     );
@@ -24,46 +24,14 @@ class _Overview extends StatelessWidget {
   const _Overview({required this.selectedHero, super.key});
   final SuperHero selectedHero;
 
-  Widget _profileImage(SuperHero superHero) {
-    if (superHero.id == 0 || superHero.id == -1) {
-      return ConstrainedBox(
-        constraints: const BoxConstraints(
-          maxWidth: 180,
-        ),
-        child: AspectRatio(
-          aspectRatio: 0.6,
-          child: Image.asset(
-            fit: BoxFit.cover,
-            'assets/images/bananaman.png',
-          ),
-        ),
-      );
-    }
-    return ConstrainedBox(
-      constraints: const BoxConstraints(
-        maxWidth: 180,
-      ),
-      child: AspectRatio(
-        aspectRatio: 0.6,
-        child: CachedNetworkImage(
-          fit: BoxFit.cover,
-          imageUrl: superHero.images.md,
-          progressIndicatorBuilder: (context, url, downloadProgress) => Align(
-            child: CircularProgressIndicator(value: downloadProgress.progress),
-          ),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _profileImage(selectedHero),
+        ProfileImage(superHero: selectedHero),
         Text(
           '${selectedHero.name} - ${selectedHero.biography.alignmentFormatted}',
           style: theme.textTheme.headlineSmall,
@@ -229,6 +197,93 @@ class _InfoRow extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ProfileImage extends StatefulWidget {
+  const ProfileImage({
+    required this.superHero,
+    super.key,
+  });
+  final SuperHero superHero;
+  @override
+  State<ProfileImage> createState() => _ProfileImageState();
+}
+
+class _ProfileImageState extends State<ProfileImage> {
+  String url = '';
+
+  void updateThemeFromImage(
+    ImageProvider imageProvider,
+    AppThemeState state,
+    String newUrl,
+  ) {
+    if (newUrl != url && state.data.useDynamicTheme) {
+      url = newUrl;
+      unawaited(state.updateThemeFromImage(imageProvider));
+    }
+  }
+
+  void setDefaultTheme(AppThemeState state, String newUrl) {
+    if (newUrl != url) {
+      url = newUrl;
+      Future(() {
+        state.setDefaultTheme();
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppThemeDataData.of(context);
+    if (widget.superHero.id == -1) {
+      const url = 'assets/images/bananaman.png';
+
+      return ConstrainedBox(
+        constraints: const BoxConstraints(
+          maxWidth: 180,
+        ),
+        child: const AspectRatio(
+          aspectRatio: 0.6,
+          child: Image(image: AssetImage(url)),
+        ),
+      );
+    }
+
+    final provider = AssetImage(widget.superHero.images.sm);
+    updateThemeFromImage(
+      provider,
+      state,
+      widget.superHero.images.md,
+    );
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        maxWidth: 180,
+      ),
+      child: AspectRatio(
+        aspectRatio: 0.6,
+        child: Image(
+          image: provider,
+        ),
+
+        // CachedNetworkImage(
+        //   fit: BoxFit.cover,
+        //   imageUrl: widget.superHero.images.md,
+        //   progressIndicatorBuilder: (context, url, downloadProgress) => Align(
+        //     child: CircularProgressIndicator(value: downloadProgress.progress),
+        //   ),
+        //   errorWidget: (context, url, error) => const Icon(Icons.error),
+        //   imageBuilder: (context, imageProvider) {
+        //     updateThemeFromImage(
+        //       imageProvider,
+        //       state,
+        //       widget.superHero.images.md,
+        //     );
+        //     return Image(image: imageProvider);
+        //   },
+        // ),
       ),
     );
   }

@@ -49,10 +49,8 @@ class Menu extends StatelessWidget {
                     leading: const Icon(Symbols.groups_rounded),
                     title: const Text('Battle Hardened'),
                   ),
-                  const MenuSwitchTile(
-                    title: Text('Dark Mode'),
-                    leading: Icon(Symbols.dark_mode_rounded),
-                  ),
+                  const DarkModeSwitch(),
+                  const DynamicThemeSwitch(),
                 ],
               ),
             ),
@@ -151,18 +149,8 @@ class MenuTile extends StatelessWidget {
   }
 }
 
-class MenuSwitchTile extends StatelessWidget {
-  const MenuSwitchTile({
-    required this.title,
-    required this.leading,
-    this.onTap,
-    this.selected = false,
-    super.key,
-  });
-  final Widget title;
-  final Widget leading;
-  final bool selected;
-  final VoidCallback? onTap;
+class DarkModeSwitch extends StatelessWidget {
+  const DarkModeSwitch({super.key});
 
   void updateTheme(bool isDark, AppThemeState state) {
     state.updateThemeMode(
@@ -181,6 +169,29 @@ class MenuSwitchTile extends StatelessWidget {
       trailing: Switch(
         value: state.isDark,
         onChanged: (value) => updateTheme(value, state),
+      ),
+    );
+  }
+}
+
+class DynamicThemeSwitch extends StatelessWidget {
+  const DynamicThemeSwitch({super.key});
+
+  void updateTheme(AppThemeState state, bool isDynamic) {
+    state.updateDynamicTheme(isDynamic);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppThemeDataData.of(context);
+    final isDynamic = state.data.useDynamicTheme;
+    return MenuTile(
+      onTap: () => updateTheme(state, !isDynamic),
+      leading: const Icon(Symbols.dark_mode_rounded),
+      title: const Text('Dynamic Theme'),
+      trailing: Switch(
+        value: isDynamic,
+        onChanged: (value) => updateTheme(state, value),
       ),
     );
   }

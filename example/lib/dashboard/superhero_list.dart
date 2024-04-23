@@ -27,6 +27,7 @@ class _SuperHeroListState extends State<SuperHeroList> {
     final superheroList = state.data.superheroList
         .where((element) => element.name.toLowerCase().contains(searchFilter))
         .toList();
+
     return Padding(
       padding: const EdgeInsets.only(right: 16),
       child: Column(

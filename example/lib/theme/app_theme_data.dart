@@ -1,3 +1,4 @@
+import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 
 @immutable
@@ -6,27 +7,36 @@ class AppThemeData {
     required this.themeMode,
     required this.light,
     required this.dark,
+    required this.appTheme,
+    this.useDynamicTheme = false,
   });
 
   final ThemeMode themeMode;
   final ThemeData light;
   final ThemeData dark;
+  final AppTheme appTheme;
+  final bool useDynamicTheme;
 
   AppThemeData copyWith({
     ThemeMode? themeMode,
     ThemeData? light,
     ThemeData? dark,
+    AppTheme? appTheme,
+    bool? useDynamicTheme,
   }) {
     return AppThemeData(
       themeMode: themeMode ?? this.themeMode,
       light: light ?? this.light,
       dark: dark ?? this.dark,
+      appTheme: appTheme ?? this.appTheme,
+      useDynamicTheme: useDynamicTheme ?? this.useDynamicTheme,
     );
   }
 
   @override
-  String toString() =>
-      'AppThemeData(themeMode: $themeMode, light: $light, dark: $dark)';
+  String toString() {
+    return 'AppThemeData(themeMode: $themeMode, light: $light, dark: $dark, appTheme: $appTheme, useDynamicTheme: $useDynamicTheme)';
+  }
 
   @override
   bool operator ==(Object other) {
@@ -35,11 +45,19 @@ class AppThemeData {
     return other is AppThemeData &&
         other.themeMode == themeMode &&
         other.light == light &&
-        other.dark == dark;
+        other.dark == dark &&
+        other.appTheme == appTheme &&
+        other.useDynamicTheme == useDynamicTheme;
   }
 
   @override
-  int get hashCode => themeMode.hashCode ^ light.hashCode ^ dark.hashCode;
+  int get hashCode {
+    return themeMode.hashCode ^
+        light.hashCode ^
+        dark.hashCode ^
+        appTheme.hashCode ^
+        useDynamicTheme.hashCode;
+  }
 }
 
 class AppThemeState with ChangeNotifier {
@@ -51,42 +69,46 @@ class AppThemeState with ChangeNotifier {
   AppThemeData get data => _data;
   bool get isDark => _data.themeMode == ThemeMode.dark;
 
-  void updateThemeSeeded(
-    Color seededColor,
-  ) {
-    _data = _data.copyWith(
-      dark: ThemeData.from(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: seededColor,
-          brightness: Brightness.dark,
-        ),
-      ),
-      light: ThemeData.from(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: seededColor,
-        ),
-      ),
-    );
+  void updateThemeMode(ThemeMode themeMode) {
+    _data = _data.copyWith(themeMode: themeMode);
     notifyListeners();
   }
 
-  // void updateTheme(AppThemeData Function(AppThemeData value) appTheme) {
-  //   _data = appTheme(_data.copyWith());
-  // }
+  void updateDynamicTheme(bool value) {
+    _data = _data.copyWith(useDynamicTheme: value);
+    notifyListeners();
+  }
 
-  void updateThemeMode(ThemeMode themeMode) {
-    _data = _data.copyWith(themeMode: themeMode);
+  void setDefaultTheme() {
+    if (_data.appTheme == AppTheme.dashboard) {
+      _data = _data.copyWith(
+        dark: DashboardTheme.dark(),
+        light: DashboardTheme.light(),
+      );
+    }
+
+    notifyListeners();
+  }
+
+  Future<void> updateThemeFromImage(ImageProvider imageProvider) async {
+    if (_data.appTheme == AppTheme.dashboard) {
+      final light =
+          await ColorScheme.fromImageProvider(provider: imageProvider);
+      final dark = await ColorScheme.fromImageProvider(
+        provider: imageProvider,
+        brightness: Brightness.dark,
+      );
+      _data = _data.copyWith(
+        light: DashboardTheme.light(colorScheme: light),
+        dark: DashboardTheme.dark(colorScheme: dark),
+      );
+    }
     notifyListeners();
   }
 
   @override
   String toString() =>
       'AppThemeState(initialValue: $initialValue, data: AppThemeState: $_data)';
-}
-
-enum AppTheme {
-  dashboard,
-  seeded,
 }
 
 class AppThemeDataData extends InheritedNotifier<AppThemeState> {
@@ -120,4 +142,9 @@ class AppThemeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container();
   }
+}
+
+enum AppTheme {
+  dashboard,
+  seeded,
 }
