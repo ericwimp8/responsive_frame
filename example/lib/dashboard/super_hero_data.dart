@@ -62,12 +62,12 @@ class SuperHeroDataModel {
   );
 
   SuperHeroDataModel copyWith({
-    List<SuperHero>? heroList,
+    List<SuperHero>? superheroList,
     SuperHero? selectedHero,
     PowerStatsEnum? selectedPowerStat,
   }) {
     return SuperHeroDataModel(
-      superheroList: heroList ?? this.superheroList,
+      superheroList: superheroList ?? this.superheroList,
       selectedHero: selectedHero ?? this.selectedHero,
       selectedPowerStat: selectedPowerStat ?? this.selectedPowerStat,
     );
