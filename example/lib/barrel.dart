@@ -14,3 +14,5 @@ export 'dashboard/super_hero_json.dart';
 export 'dashboard/super_hero_overview.dart';
 export 'dashboard/superhero_list.dart';
 export 'main.dart';
+export 'theme/app_theme_data.dart';
+export 'theme/app_theme_wrapper.dart';

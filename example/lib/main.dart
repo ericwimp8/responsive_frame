@@ -1,7 +1,4 @@
-import 'package:example/dashboard/dashboard.dart';
-import 'package:example/dashboard/dashboard_theme.dart';
-import 'package:example/theme/app_theme_data.dart';
-import 'package:example/theme/app_theme_wrapper.dart';
+import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppThemeWrapper(
       initialValue: AppThemeData(
+        appTheme: AppTheme.dashboard,
         themeMode: ThemeMode.dark,
         light: DashboardTheme.light(),
         dark: DashboardTheme.dark(),
