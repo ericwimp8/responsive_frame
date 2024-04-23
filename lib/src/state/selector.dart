@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, use_to_and_as_if_applicable
+
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -153,7 +155,7 @@ class Nested extends StatelessWidget implements SingleChildWidget {
     required List<SingleChildWidget> children,
     super.key,
     Widget? child,
-  })  : assert(children.isNotEmpty),
+  })  : assert(children.isNotEmpty, ''),
         _children = children,
         _child = child;
 
