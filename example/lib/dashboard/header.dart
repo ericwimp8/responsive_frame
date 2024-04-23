@@ -1,5 +1,5 @@
+import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
-import 'package:material_symbols_icons/symbols.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
@@ -59,40 +59,6 @@ class _ProfileButtonState extends State<ProfileButton> {
           'Banana Man',
           maxLines: 1,
           overflow: TextOverflow.fade,
-        ),
-      ),
-    );
-  }
-}
-
-class Search extends StatelessWidget {
-  const Search({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 170, minWidth: 50),
-      child: TextField(
-        decoration: InputDecoration(
-          hintText: 'Search',
-          hintStyle: theme.textTheme.titleMedium,
-          suffixIcon: Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: Material(
-              clipBehavior: Clip.antiAlias,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              color: theme.colorScheme.primary,
-              child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Symbols.search_rounded,
-                ),
-              ),
-            ),
-          ),
         ),
       ),
     );

@@ -31,7 +31,7 @@ abstract class DashboardTheme {
       ),
       selectedColor: colorScheme.onPrimary,
       selectedTileColor: colorScheme.primary,
-      tileColor: colorScheme.onSurface.withOpacity(0.07),
+      tileColor: colorScheme.surfaceTint,
       textColor: colorScheme.onSurface.withOpacity(0.5),
     );
 

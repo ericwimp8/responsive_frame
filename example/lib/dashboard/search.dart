@@ -1,0 +1,65 @@
+import 'package:example/barrel.dart';
+import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
+
+class Search extends StatefulWidget {
+  const Search({
+    super.key,
+    this.onChanged,
+    this.clear,
+  });
+  final ValueChanged<String>? onChanged;
+  final VoidCallback? clear;
+
+  @override
+  State<Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  final controller = TextEditingController();
+
+  void _clear() {
+    widget.clear?.call();
+    controller.clear();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return TextField(
+      controller: controller,
+      onChanged: widget.onChanged,
+      decoration: InputDecoration(
+        hintText: 'Search',
+        hintStyle: theme.textTheme.titleMedium,
+        suffixIcon: AppAnimatedSwitcherScale(
+          child: controller.text.isEmpty
+              ? const SizedBox()
+              : Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: Material(
+                    clipBehavior: Clip.antiAlias,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    color: theme.colorScheme.primary,
+                    child: IconButton(
+                      color: theme.colorScheme.onPrimary,
+                      onPressed: _clear,
+                      icon: const Icon(
+                        Symbols.close_rounded,
+                      ),
+                    ),
+                  ),
+                ),
+        ),
+      ),
+    );
+  }
+}

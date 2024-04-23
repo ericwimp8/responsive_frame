@@ -13,16 +13,16 @@ List<SuperHero> _parseHeroes(String superHeroes) {
 @immutable
 class SuperHeroDataModel {
   const SuperHeroDataModel({
-    required this.heroList,
+    required this.superheroList,
     required this.selectedHero,
     required this.selectedPowerStat,
   });
-  final List<SuperHero> heroList;
+  final List<SuperHero> superheroList;
   final SuperHero selectedHero;
   final PowerStatsEnum selectedPowerStat;
 
   static const empty = SuperHeroDataModel(
-    heroList: [],
+    superheroList: [],
     selectedHero: SuperHero(
       id: -1,
       name: '',
@@ -67,7 +67,7 @@ class SuperHeroDataModel {
     PowerStatsEnum? selectedPowerStat,
   }) {
     return SuperHeroDataModel(
-      heroList: heroList ?? this.heroList,
+      superheroList: heroList ?? this.superheroList,
       selectedHero: selectedHero ?? this.selectedHero,
       selectedPowerStat: selectedPowerStat ?? this.selectedPowerStat,
     );
@@ -75,7 +75,7 @@ class SuperHeroDataModel {
 
   @override
   String toString() =>
-      'SuperHeroDataModel(heroList: $heroList, selectedHero: $selectedHero, selectedPowerStat: $selectedPowerStat)';
+      'SuperHeroDataModel(heroList: $superheroList, selectedHero: $selectedHero, selectedPowerStat: $selectedPowerStat)';
 
   @override
   bool operator ==(Object other) {
@@ -99,7 +99,7 @@ class SuperHeroState with ChangeNotifier {
     final heroList = await compute(_parseHeroes, jsonEncode(superHeroJson));
 
     _data = SuperHeroDataModel(
-      heroList: heroList,
+      superheroList: heroList,
       selectedHero: heroList.first,
       selectedPowerStat: PowerStatsEnum.intelligence,
     );

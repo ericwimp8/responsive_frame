@@ -24,6 +24,7 @@ class _DashBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final state = SuperHeroData.of(context);
 
     Widget child;
@@ -41,11 +42,57 @@ class _DashBoard extends StatelessWidget {
             bodyTopMinHeight: 0,
             leftEndMinWidth: 200,
             leftEndMaxWidth: 300,
+            bodyMaxWidth: double.infinity,
           ),
           bodyTop: Header(),
         ),
         mobile: (context) {
-          return const FrameConfig();
+          return FrameConfig(
+            leftEnd: const Menu(),
+            rightEnd: const SuperHeroList(),
+            dimensions: const DimensionsConfig(
+              rightEndFillVertical: false,
+              rightEndMaxWidth: 280,
+              rightEndMinWidth: 280,
+              leftEndMaxWidth: 250,
+              bodyMaxWidth: double.infinity,
+            ),
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: DashboardCard(
+                child: SingleChildScrollView(
+                  child: IntrinsicHeight(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Flexible(
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 700),
+                            child: const SuperHeroOverview(),
+                          ),
+                        ),
+                        VerticalDivider(
+                          width: 80,
+                          endIndent: 10,
+                          indent: 10,
+                          color: theme.colorScheme.onSurface.withOpacity(0.07),
+                        ),
+                        Flexible(
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(
+                              maxWidth: 400,
+                            ),
+                            child: const Statistics(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
         },
         // tablet: (context) {
         //   return FrameConfig(
@@ -69,56 +116,65 @@ class _DashBoard extends StatelessWidget {
         //     ),
         //   );
         // },
-        desktop: (context) {
-          return const FrameConfig(
-            leftEnd: Menu(),
-            rightEnd: Statistics(),
-            dimensions: DimensionsConfig(
-              rightEndFillVertical: false,
-              rightEndMaxWidth: 280,
-              rightEndMinWidth: 280,
-              leftEndMaxWidth: 250,
+        // desktop: (context) {
+        //   return const FrameConfig(
+        //     leftEnd: Menu(),
+        //     rightEnd: Statistics(),
+        //     dimensions: DimensionsConfig(
+        //       rightEndFillVertical: false,
+        //       rightEndMaxWidth: 280,
+        //       rightEndMinWidth: 280,
+        //       leftEndMaxWidth: 250,
 
-              // bodyAlignment: Alignment.topCenter,
-            ),
-            body: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: SuperHeroOverview(),
-            ),
-          );
-        },
-        desktopLarge: (context) {
-          return FrameConfig(
-            leftEnd: const Menu(),
-            rightEnd: const Statistics(),
-            dimensions: const DimensionsConfig(
-              rightEndFillVertical: false,
-              rightEndMaxWidth: 280,
-              rightEndMinWidth: 280,
-              leftEndMaxWidth: 250,
-              bodyMaxWidth: 900,
-            ),
-            body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                children: [
-                  Flexible(
-                    flex: 3,
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(minWidth: 300),
-                      child: const SuperHeroOverview(),
-                    ),
-                  ),
-                  const Padding(padding: EdgeInsets.only(left: 16)),
-                  const Flexible(
-                    flex: 2,
-                    child: Statistics(),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
+        //       // bodyAlignment: Alignment.topCenter,
+        //     ),
+        //     body: Padding(
+        //       padding: EdgeInsets.symmetric(horizontal: 16),
+        //       child: SingleChildScrollView(
+        //         child: SuperHeroOverview(),
+        //       ),
+        //     ),
+        //   );
+        // },
+        // desktopLarge: (context) {
+        //   return FrameConfig(
+        //     leftEnd: const Menu(),
+        //     rightEnd: const SuperHeroList(),
+        //     dimensions: const DimensionsConfig(
+        //       rightEndFillVertical: false,
+        //       rightEndMaxWidth: 280,
+        //       rightEndMinWidth: 280,
+        //       leftEndMaxWidth: 250,
+        //       bodyMaxWidth: double.infinity,
+        //     ),
+        //     body: Container(
+        //       color: Colors.red,
+        //       child: Padding(
+        //         padding: const EdgeInsets.symmetric(horizontal: 16),
+        //         child: SingleChildScrollView(
+        //           child: Row(
+        //             crossAxisAlignment: CrossAxisAlignment.start,
+        //             mainAxisSize: MainAxisSize.min,
+        //             children: [
+        //               Flexible(
+        //                 flex: 3,
+        //                 child: ConstrainedBox(
+        //                   constraints: const BoxConstraints(minWidth: 300),
+        //                   child: const SuperHeroOverview(),
+        //                 ),
+        //               ),
+        //               const Padding(padding: EdgeInsets.only(left: 16)),
+        //               const Flexible(
+        //                 flex: 2,
+        //                 child: Statistics(),
+        //               ),
+        //             ],
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //   );
+        // },
       );
     }
 
