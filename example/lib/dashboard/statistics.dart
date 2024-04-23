@@ -1,6 +1,7 @@
 import 'package:example/barrel.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_frame/responsive_frame.dart';
 
 class Statistics extends StatefulWidget {
   const Statistics({super.key});
@@ -27,10 +28,8 @@ class _StatisticsState extends State<Statistics> {
           groupValue: state.selectedPowerStat,
           onTap: setSelectedPowerState,
           title: Text(PowerStatsEnum.intelligence.label),
-          leading: const ImageIcon(
-            AssetImage('assets/images/intelligence.png'),
-            color: DashboardTheme.blue,
-          ),
+          leadingPath: 'assets/images/intelligence.png',
+          leadingColor: theme.colorScheme.tertiary,
           trailing: Text(state.selectedHero.powerstats.intelligence.toString()),
         ),
         StatsTile(
@@ -38,10 +37,8 @@ class _StatisticsState extends State<Statistics> {
           groupValue: state.selectedPowerStat,
           value: PowerStatsEnum.strength,
           title: Text(PowerStatsEnum.strength.label),
-          leading: ImageIcon(
-            const AssetImage('assets/images/strength.png'),
-            color: theme.colorScheme.primary,
-          ),
+          leadingPath: 'assets/images/strength.png',
+          leadingColor: theme.colorScheme.primary,
           trailing: Text(state.selectedHero.powerstats.strength.toString()),
         ),
         StatsTile(
@@ -49,10 +46,8 @@ class _StatisticsState extends State<Statistics> {
           groupValue: state.selectedPowerStat,
           value: PowerStatsEnum.speed,
           title: Text(PowerStatsEnum.speed.name),
-          leading: const ImageIcon(
-            AssetImage('assets/images/speed.png'),
-            color: DashboardTheme.steelPink,
-          ),
+          leadingPath: 'assets/images/speed.png',
+          leadingColor: theme.colorScheme.tertiaryContainer,
           trailing: Text(state.selectedHero.powerstats.speed.toString()),
         ),
         StatsTile(
@@ -60,10 +55,8 @@ class _StatisticsState extends State<Statistics> {
           groupValue: state.selectedPowerStat,
           value: PowerStatsEnum.durability,
           title: Text(PowerStatsEnum.durability.label),
-          leading: ImageIcon(
-            const AssetImage('assets/images/durability.png'),
-            color: theme.colorScheme.secondary,
-          ),
+          leadingPath: 'assets/images/durability.png',
+          leadingColor: theme.colorScheme.secondary,
           trailing: Text(state.selectedHero.powerstats.durability.toString()),
         ),
         StatsTile(
@@ -71,10 +64,8 @@ class _StatisticsState extends State<Statistics> {
           groupValue: state.selectedPowerStat,
           value: PowerStatsEnum.power,
           title: Text(PowerStatsEnum.power.label),
-          leading: const ImageIcon(
-            AssetImage('assets/images/power.png'),
-            color: DashboardTheme.electricPurple,
-          ),
+          leadingPath: 'assets/images/power.png',
+          leadingColor: theme.colorScheme.secondaryContainer,
           trailing: Text(state.selectedHero.powerstats.power.toString()),
         ),
         StatsTile(
@@ -82,10 +73,8 @@ class _StatisticsState extends State<Statistics> {
           groupValue: state.selectedPowerStat,
           value: PowerStatsEnum.combat,
           title: Text(PowerStatsEnum.combat.label),
-          leading: ImageIcon(
-            const AssetImage('assets/images/combat.png'),
-            color: theme.colorScheme.primaryContainer,
-          ),
+          leadingPath: 'assets/images/combat.png',
+          leadingColor: theme.colorScheme.primaryContainer,
           trailing: Text(state.selectedHero.powerstats.combat.toString()),
         ),
       ],
@@ -96,17 +85,19 @@ class _StatisticsState extends State<Statistics> {
 class StatsTile extends StatelessWidget {
   const StatsTile({
     required this.title,
-    required this.leading,
     required this.trailing,
     required this.value,
     required this.groupValue,
     required this.onTap,
+    required this.leadingPath,
+    required this.leadingColor,
     super.key,
   });
   final Widget title;
   final PowerStatsEnum value;
   final PowerStatsEnum groupValue;
-  final Widget leading;
+  final String leadingPath;
+  final Color leadingColor;
   final Widget trailing;
 
   final void Function(PowerStatsEnum value) onTap;
@@ -117,6 +108,7 @@ class StatsTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: ListTile(
+        contentPadding: const EdgeInsets.fromLTRB(0, 0, 16, 0),
         selectedTileColor: Colors.transparent,
         selectedColor: theme.colorScheme.onSurface,
         selected: selected,
@@ -132,15 +124,56 @@ class StatsTile extends StatelessWidget {
             width: 2,
             color: selected
                 ? theme.colorScheme.primary
-                : theme.colorScheme.secondaryContainer.withOpacity(0.1),
+                : theme.colorScheme.secondaryContainer.withOpacity(0.3),
           ),
         ),
         leadingAndTrailingTextStyle: theme.textTheme.bodyMedium?.copyWith(
           fontWeight: FontWeight.w600,
         ),
-        leading: leading,
+        leading: _StatisticsTileLeading(
+          theme: theme,
+          leadingPath: leadingPath,
+          leadingColor: leadingColor,
+        ),
         title: title,
         trailing: trailing,
+      ),
+    );
+  }
+}
+
+class _StatisticsTileLeading extends StatelessWidget {
+  const _StatisticsTileLeading({
+    required this.theme,
+    required this.leadingPath,
+    required this.leadingColor,
+  });
+
+  final ThemeData theme;
+  final String leadingPath;
+  final Color leadingColor;
+
+  Color _color() {
+    return theme.brightness == Brightness.dark
+        ? leadingColor.lighten(30)
+        : leadingColor.darken(30);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 1,
+      child: Padding(
+        padding: const EdgeInsets.all(2),
+        child: ClipRRect(
+          borderRadius: kDefaultBorderRadius,
+          child: ColoredBox(
+            color: theme.colorScheme.surface.withOpacity(0.5),
+            child: Align(
+              child: ImageIcon(AssetImage(leadingPath), color: _color()),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -184,10 +217,14 @@ class _BarChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final heroData = SuperHeroData.of(context);
+
     final theme = Theme.of(context);
     return BarChart(
       BarChartData(
-        barTouchData: barTouchData(theme),
+        barTouchData: barTouchData(
+          theme,
+          heroData.setSelectedPowerStat,
+        ),
         titlesData: titlesData(theme),
         borderData: borderData,
         barGroups: barGroups(
@@ -203,8 +240,18 @@ class _BarChart extends StatelessWidget {
     );
   }
 
-  BarTouchData barTouchData(ThemeData theme) => BarTouchData(
-        enabled: false,
+  BarTouchData barTouchData(
+    ThemeData theme,
+    void Function(PowerStatsEnum) onTouch,
+  ) =>
+      BarTouchData(
+        touchCallback: (p0, p1) {
+          final props = p1?.spot?.spot.props;
+          if (props != null && props.isNotEmpty && props.first != null) {
+            onTouch(PowerStatsEnum.values[(props.first! as double).toInt()]);
+          }
+        },
+        enabled: true,
         touchTooltipData: BarTouchTooltipData(
           getTooltipColor: (group) => Colors.transparent,
           tooltipPadding: EdgeInsets.zero,
@@ -288,8 +335,8 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.intelligence,
             groupValue: selectedPowerStat,
             toY: data.intelligence.toDouble(),
-            colorOne: DashboardTheme.blue,
-            colorTwo: Colors.blue[300]!,
+            colorOne: theme.colorScheme.tertiary.darken(70),
+            colorTwo: theme.colorScheme.tertiary.lighten(50),
           ),
         ],
         showingTooltipIndicators: [0],
@@ -301,8 +348,8 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.strength,
             groupValue: selectedPowerStat,
             toY: data.strength.toDouble(),
-            colorTwo: theme.colorScheme.primary.withOpacity(0.4),
-            colorOne: theme.colorScheme.primary,
+            colorOne: theme.colorScheme.primary.darken(70),
+            colorTwo: theme.colorScheme.primary.lighten(),
           ),
         ],
         showingTooltipIndicators: [0],
@@ -314,8 +361,8 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.speed,
             groupValue: selectedPowerStat,
             toY: data.speed.toDouble(),
-            colorOne: DashboardTheme.steelPink,
-            colorTwo: Colors.pink[200]!,
+            colorOne: theme.colorScheme.tertiaryContainer.darken(70),
+            colorTwo: theme.colorScheme.tertiaryContainer.lighten(),
           ),
         ],
         showingTooltipIndicators: [0],
@@ -327,8 +374,8 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.durability,
             groupValue: selectedPowerStat,
             toY: data.durability.toDouble(),
-            colorOne: DashboardTheme.sgbusGreen,
-            colorTwo: Colors.green[200]!,
+            colorOne: theme.colorScheme.secondary.darken(70),
+            colorTwo: theme.colorScheme.secondary.lighten(),
           ),
         ],
         showingTooltipIndicators: [0],
@@ -340,8 +387,8 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.power,
             groupValue: selectedPowerStat,
             toY: data.power.toDouble(),
-            colorOne: DashboardTheme.electricPurple,
-            colorTwo: Colors.purple[200]!,
+            colorOne: theme.colorScheme.secondaryContainer.darken(70),
+            colorTwo: theme.colorScheme.secondaryContainer.lighten(),
           ),
         ],
         showingTooltipIndicators: [0],
@@ -353,8 +400,8 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.combat,
             groupValue: selectedPowerStat,
             toY: data.combat.toDouble(),
-            colorOne: DashboardTheme.orangePeel,
-            colorTwo: Colors.orangeAccent[100]!,
+            colorOne: theme.colorScheme.surfaceVariant.darken(70),
+            colorTwo: theme.colorScheme.primaryContainer.lighten(),
           ),
         ],
         showingTooltipIndicators: [0],

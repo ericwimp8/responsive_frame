@@ -27,7 +27,7 @@ class _SuperHeroListState extends State<SuperHeroList> {
     final superheroList = state.data.superheroList
         .where((element) => element.name.toLowerCase().contains(searchFilter))
         .toList();
-
+    final selectedHero = state.data.selectedHero;
     return Padding(
       padding: const EdgeInsets.only(right: 16),
       child: Column(
@@ -50,6 +50,7 @@ class _SuperHeroListState extends State<SuperHeroList> {
                   child: _SuperHeroList(
                     key: ValueKey(superheroList.length),
                     superheroList: superheroList,
+                    selectedHero: selectedHero,
                     onChanged: (value) => selecteHero(value, state),
                   ),
                 ),
@@ -66,11 +67,12 @@ class _SuperHeroList extends StatelessWidget {
   const _SuperHeroList({
     required this.superheroList,
     required this.onChanged,
+    required this.selectedHero,
     super.key,
   });
 
   final List<SuperHero> superheroList;
-
+  final SuperHero selectedHero;
   final ValueChanged<SuperHero> onChanged;
 
   @override
@@ -80,11 +82,14 @@ class _SuperHeroList extends StatelessWidget {
       child: ListView.builder(
         itemCount: superheroList.length,
         itemBuilder: (context, index) {
+          final superHero = superheroList[index];
+          final selected = superHero == selectedHero;
           return ListTile(
+            selected: selected,
             textColor: theme.colorScheme.onSurface,
-            onTap: () => onChanged(superheroList[index]),
+            onTap: () => onChanged(superHero),
             shape: const RoundedRectangleBorder(),
-            title: Text(superheroList[index].name),
+            title: Text(superHero.name),
           );
         },
       ),

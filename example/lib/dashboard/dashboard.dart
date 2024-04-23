@@ -58,36 +58,34 @@ class _DashBoard extends StatelessWidget {
               bodyMaxWidth: double.infinity,
             ),
             body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
               child: DashboardCard(
                 child: SingleChildScrollView(
-                  child: IntrinsicHeight(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Flexible(
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 700),
-                            child: const SuperHeroOverview(),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Flexible(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 700),
+                          child: const SuperHeroOverview(),
+                        ),
+                      ),
+                      VerticalDivider(
+                        width: 80,
+                        endIndent: 10,
+                        indent: 10,
+                        color: theme.colorScheme.onSurface.withOpacity(0.07),
+                      ),
+                      Flexible(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(
+                            maxWidth: 400,
                           ),
+                          child: const Statistics(),
                         ),
-                        VerticalDivider(
-                          width: 80,
-                          endIndent: 10,
-                          indent: 10,
-                          color: theme.colorScheme.onSurface.withOpacity(0.07),
-                        ),
-                        Flexible(
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(
-                              maxWidth: 400,
-                            ),
-                            child: const Statistics(),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),

@@ -16,3 +16,4 @@ export 'dashboard/superhero_list.dart';
 export 'main.dart';
 export 'theme/app_theme_data.dart';
 export 'theme/app_theme_wrapper.dart';
+export 'utils/color_extension.dart';
