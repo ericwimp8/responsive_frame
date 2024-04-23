@@ -10,9 +10,12 @@ class SuperHeroOverview extends StatelessWidget {
   Widget build(BuildContext context) {
     final selectedHero = SuperHeroData.of(context).data.selectedHero;
 
-    return _Overview(
-      key: ValueKey(selectedHero.id),
-      selectedHero: selectedHero,
+    return AppAnimatedSwitcherSlideFade(
+      begin: const Offset(0, 0.03),
+      child: _Overview(
+        key: ValueKey(selectedHero.id),
+        selectedHero: selectedHero,
+      ),
     );
   }
 }

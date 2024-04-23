@@ -112,12 +112,14 @@ class MenuTile extends StatelessWidget {
   const MenuTile({
     required this.title,
     required this.leading,
+    this.trailing,
     this.onTap,
     this.selected = false,
     super.key,
   });
   final Widget title;
   final Widget leading;
+  final Widget? trailing;
   final bool selected;
   final VoidCallback? onTap;
   @override
@@ -126,6 +128,7 @@ class MenuTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         shape: !selected
             ? RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
@@ -133,12 +136,16 @@ class MenuTile extends StatelessWidget {
             : null,
         titleTextStyle: selected
             ? theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600)
-            : theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w300),
+            : theme.textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.w400,
+                color: theme.colorScheme.onSurface,
+              ),
+        textColor: theme.colorScheme.onSurface,
         selected: selected,
-        textColor: theme.colorScheme.onSurface.withOpacity(0.3),
         onTap: onTap,
         leading: leading,
         title: title,
+        trailing: trailing,
       ),
     );
   }
@@ -167,12 +174,13 @@ class MenuSwitchTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = AppThemeDataData.of(context);
     final isDark = state.isDark;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      child: SwitchListTile(
+    return MenuTile(
+      onTap: () => updateTheme(!isDark, state),
+      leading: const Icon(Symbols.dark_mode_rounded),
+      title: const Text('Dark Mode'),
+      trailing: Switch(
+        value: state.isDark,
         onChanged: (value) => updateTheme(value, state),
-        value: isDark,
-        title: title,
       ),
     );
   }
