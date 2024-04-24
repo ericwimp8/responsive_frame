@@ -20,12 +20,12 @@ class MyApp extends StatelessWidget {
       child: (context) {
         final theme = AppThemeDataData.of(context);
 
-        return MaterialApp(
+        return MaterialApp.router(
+          routerConfig: router,
           title: 'Flutter Demo',
           themeMode: theme.data.themeMode,
           theme: theme.data.light,
           darkTheme: theme.data.dark,
-          home: const Dashboard(),
         );
       },
     );

@@ -2,14 +2,14 @@ import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-class Dashboard extends StatefulWidget {
-  const Dashboard({super.key});
+class SuperheroDashboard extends StatefulWidget {
+  const SuperheroDashboard({super.key});
 
   @override
-  State<Dashboard> createState() => _DashboardState();
+  State<SuperheroDashboard> createState() => _SuperheroDashboardState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _SuperheroDashboardState extends State<SuperheroDashboard> {
   @override
   Widget build(BuildContext context) {
     return SuperheroData(
