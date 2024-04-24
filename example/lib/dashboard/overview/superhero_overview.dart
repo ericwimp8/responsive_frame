@@ -8,7 +8,7 @@ class SuperHeroOverview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final selectedHero = SuperHeroData.of(context).data.selectedHero;
+    final selectedHero = SuperheroData.of(context).data.selectedHero;
 
     return AppAnimatedSwitcherSlideFade(
       duration: const Duration(milliseconds: 200),
@@ -23,7 +23,7 @@ class SuperHeroOverview extends StatelessWidget {
 
 class _Overview extends StatelessWidget {
   const _Overview({required this.selectedHero, super.key});
-  final SuperHero selectedHero;
+  final Superhero selectedHero;
 
   @override
   Widget build(BuildContext context) {
@@ -145,7 +145,7 @@ class ProfileImage extends StatefulWidget {
     required this.superHero,
     super.key,
   });
-  final SuperHero superHero;
+  final Superhero superHero;
   @override
   State<ProfileImage> createState() => _ProfileImageState();
 }

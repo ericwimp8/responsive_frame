@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 
 @immutable
-class SuperHero {
-  const SuperHero({
+class Superhero {
+  const Superhero({
     required this.id,
     required this.name,
     required this.slug,
@@ -14,8 +14,8 @@ class SuperHero {
     required this.images,
   });
 
-  factory SuperHero.fromJson(Map<String, dynamic> json) {
-    return SuperHero(
+  factory Superhero.fromJson(Map<String, dynamic> json) {
+    return Superhero(
       id: json['id'] as int,
       name: json['name'] as String,
       slug: json['slug'] as String,
@@ -45,7 +45,7 @@ class SuperHero {
     return 'SuperHero(id: $id, name: $name, slug: $slug, powerstats: $powerstats, appearance: $appearance, biography: $biography, work: $work, connections: $connections, images: $images)';
   }
 
-  SuperHero copyWith({
+  Superhero copyWith({
     int? id,
     String? name,
     String? slug,
@@ -56,7 +56,7 @@ class SuperHero {
     Connections? connections,
     Images? images,
   }) {
-    return SuperHero(
+    return Superhero(
       id: id ?? this.id,
       name: name ?? this.name,
       slug: slug ?? this.slug,
@@ -73,7 +73,7 @@ class SuperHero {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is SuperHero &&
+    return other is Superhero &&
         other.id == id &&
         other.name == name &&
         other.slug == slug &&

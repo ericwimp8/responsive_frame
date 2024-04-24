@@ -12,8 +12,8 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    return SuperHeroData(
-      notifier: SuperHeroState(),
+    return SuperheroData(
+      notifier: SuperheroState(),
       child: const _DashBoard(),
     );
   }
@@ -25,9 +25,9 @@ class _DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final state = SuperHeroData.of(context);
+    final state = SuperheroData.of(context);
 
-    if (state.data == SuperHeroDataModel.empty) {
+    if (state.data == SuperheroDataModel.empty) {
       return const Material(
         child: Center(
           child: CircularProgressIndicator(),

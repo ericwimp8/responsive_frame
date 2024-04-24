@@ -12,13 +12,13 @@ class Statistics extends StatefulWidget {
 
 class _StatisticsState extends State<Statistics> {
   void setSelectedPowerState(PowerStatsEnum value) {
-    SuperHeroData.of(context).setSelectedPowerStat(value);
+    SuperheroData.of(context).setSelectedPowerStat(value);
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final state = SuperHeroData.of(context).data;
+    final state = SuperheroData.of(context).data;
 
     return Column(
       children: [
@@ -196,7 +196,7 @@ class Chart extends StatefulWidget {
 class _ChartState extends State<Chart> {
   @override
   Widget build(BuildContext context) {
-    final state = SuperHeroData.of(context).data.selectedPowerStat;
+    final state = SuperheroData.of(context).data.selectedPowerStat;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Material(
@@ -223,7 +223,7 @@ class _BarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final heroData = SuperHeroData.of(context);
+    final heroData = SuperheroData.of(context);
 
     final theme = Theme.of(context);
     return BarChart(

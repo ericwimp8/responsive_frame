@@ -38,7 +38,8 @@ class _SearchState extends State<Search> {
       onChanged: widget.onChanged,
       decoration: InputDecoration(
         hintText: 'Search',
-        hintStyle: theme.textTheme.titleMedium,
+        hintStyle: theme.textTheme.titleMedium
+            ?.copyWith(color: theme.colorScheme.onSurface.withOpacity(0.7)),
         suffixIcon: AppAnimatedSwitcherScale(
           child: controller.text.isEmpty
               ? const SizedBox()

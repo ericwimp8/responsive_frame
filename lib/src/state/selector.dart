@@ -3,7 +3,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_frame/responsive_frame.dart';
 
 typedef ShouldRebuild<T> = bool Function(T previous, T next);
 
@@ -76,7 +75,7 @@ class _Selector0State<T> extends SingleChildState<Selector0<T>> {
   }
 }
 
-class Selector<A, S> extends Selector0<S> {
+class Selector<A extends InheritedNotifier, S> extends Selector0<S> {
   Selector({
     required super.builder,
     required S Function(BuildContext, A) selector,
@@ -84,8 +83,7 @@ class Selector<A, S> extends Selector0<S> {
     super.shouldRebuild,
     super.child,
   }) : super(
-          selector: (context) =>
-              selector(context, ResponsiveData.of(context) as A),
+          selector: (context) => selector(context, WithOf.of<A>(context)),
         );
 }
 
@@ -510,5 +508,25 @@ mixin SingleChildInheritedElementMixin
       return _parent!.injectedChild!;
     }
     return super.build();
+  }
+}
+
+class WithOf<T extends Listenable> extends InheritedNotifier<T> {
+  const WithOf({
+    required T super.notifier,
+    required super.child,
+    super.key,
+  });
+
+  static K of<K extends InheritedNotifier>(
+    BuildContext context,
+  ) {
+    final result = context.dependOnInheritedWidgetOfExactType<K>();
+    if (result == null) {
+      throw FlutterError(
+        'SuperHeroData was not found in the widget tree. Make sure to wrap your widget tree with a SuperHeroData.',
+      );
+    }
+    return result;
   }
 }

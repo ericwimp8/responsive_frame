@@ -25,7 +25,7 @@ class _SuperHeroListState extends State<SuperHeroList> {
     });
   }
 
-  void selectHero(SuperHero value, SuperHeroState state) {
+  void selectHero(Superhero value, SuperheroState state) {
     state.setSelectedHero(value);
   }
 
@@ -39,8 +39,9 @@ class _SuperHeroListState extends State<SuperHeroList> {
 
   @override
   Widget build(BuildContext context) {
-    final state = SuperHeroData.of(context);
-    final superheroList = state.data.superheroList
+    final state = SuperheroData.of(context);
+    final superheroList = state.data
+        .filteredList()
         .where((element) => element.name.toLowerCase().contains(searchFilter))
         .toList();
 
@@ -115,9 +116,9 @@ class _SuperHeroList extends StatelessWidget {
     super.key,
   });
 
-  final List<SuperHero> superheroList;
-  final SuperHero selectedHero;
-  final ValueChanged<SuperHero> onChanged;
+  final List<Superhero> superheroList;
+  final Superhero selectedHero;
+  final ValueChanged<Superhero> onChanged;
   final int selectedIndex;
   final ValueChanged<int> onIndexChanged;
 
@@ -160,11 +161,11 @@ class SuperHeroTile extends StatefulWidget {
     required this.onFocusChanged,
     super.key,
   });
-  final SuperHero superHero;
+  final Superhero superHero;
   final bool selected;
   final int index;
   final ThemeData theme;
-  final ValueChanged<SuperHero> onChanged;
+  final ValueChanged<Superhero> onChanged;
   final void Function(bool focus, int index) onFocusChanged;
 
   @override
@@ -176,7 +177,7 @@ class _SuperHeroTileState extends State<SuperHeroTile> {
 
   void onFocus(bool value) {
     setState(() {
-      hasFocus = true;
+      hasFocus = value;
     });
     widget.onFocusChanged(value, widget.index);
   }
@@ -184,12 +185,13 @@ class _SuperHeroTileState extends State<SuperHeroTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      focusColor:
-          widget.selected ? null : widget.theme.colorScheme.secondaryContainer,
+      focusColor: widget.theme.colorScheme.secondary,
       autofocus: widget.index == 0,
       onFocusChange: onFocus,
       selected: widget.selected,
-      textColor: widget.theme.colorScheme.onSurface,
+      textColor: hasFocus
+          ? widget.theme.colorScheme.onSecondary
+          : widget.theme.colorScheme.onSurface,
       onTap: () => widget.onChanged(widget.superHero),
       shape: const RoundedRectangleBorder(),
       title: Text(widget.superHero.name),
