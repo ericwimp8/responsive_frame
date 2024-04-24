@@ -4,6 +4,8 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+// TODO(ericwimp): move this into it's own package
+
 typedef ShouldRebuild<T> = bool Function(T previous, T next);
 
 class Selector0<T> extends SingleChildStatefulWidget {
@@ -511,6 +513,7 @@ mixin SingleChildInheritedElementMixin
   }
 }
 
+// TODO(ericwimp): name this properly
 class WithOf<T extends Listenable> extends InheritedNotifier<T> {
   const WithOf({
     required T super.notifier,
@@ -524,7 +527,7 @@ class WithOf<T extends Listenable> extends InheritedNotifier<T> {
     final result = context.dependOnInheritedWidgetOfExactType<K>();
     if (result == null) {
       throw FlutterError(
-        'SuperHeroData was not found in the widget tree. Make sure to wrap your widget tree with a SuperHeroData.',
+        '$K was not found in the widget tree. Make sure to wrap your widget tree with a $K.',
       );
     }
     return result;
