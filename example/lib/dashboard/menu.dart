@@ -37,7 +37,7 @@ class Menu extends StatelessWidget {
                   MenuTile(
                     onTap: () {},
                     leading: const Icon(Symbols.ssid_chart_rounded),
-                    title: const Text('Villians'),
+                    title: const Text('Villans'),
                   ),
                   MenuTile(
                     onTap: () {},
