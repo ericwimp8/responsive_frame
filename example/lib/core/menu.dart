@@ -1,13 +1,22 @@
+import 'package:example/barrel.dart';
 import 'package:example/theme/app_theme_data.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
 
+  void navigate(BuildContext context, HeroesHomeLocation location) {
+    GoRouter.of(context).go('/heroes_home/${location.name}');
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final routeState = GoRouterState.of(context);
+    final location = getRouteLocation(HeroesHomeLocation.values, routeState);
+
     return Material(
       color: theme.colorScheme.surfaceTint,
       child: Padding(
@@ -30,22 +39,28 @@ class Menu extends StatelessWidget {
                     onTap: () {},
                   ),
                   MenuTile(
-                    onTap: () {},
+                    selected: location == HeroesHomeLocation.all,
+                    onTap: () => navigate(context, HeroesHomeLocation.all),
                     leading: const Icon(Symbols.send_money_rounded),
                     title: const Text('Heroes'),
                   ),
                   MenuTile(
-                    onTap: () {},
+                    selected: location == HeroesHomeLocation.villans,
+                    onTap: () => navigate(context, HeroesHomeLocation.villans),
                     leading: const Icon(Symbols.ssid_chart_rounded),
                     title: const Text('Villans'),
                   ),
                   MenuTile(
-                    onTap: () {},
+                    selected: location == HeroesHomeLocation.masterMinds,
+                    onTap: () =>
+                        navigate(context, HeroesHomeLocation.masterMinds),
                     leading: const Icon(Symbols.groups_rounded),
                     title: const Text('Master Minds'),
                   ),
                   MenuTile(
-                    onTap: () {},
+                    selected: location == HeroesHomeLocation.battleHardened,
+                    onTap: () =>
+                        navigate(context, HeroesHomeLocation.battleHardened),
                     leading: const Icon(Symbols.groups_rounded),
                     title: const Text('Battle Hardened'),
                   ),

@@ -17,17 +17,14 @@ final router = GoRouter(
     GoRoute(
       path: '/',
       redirect: (context, state) =>
-          '/heroes_home/${HeroesHomeLocation.all.path}',
+          '/heroes_home/${HeroesHomeLocation.all.name}',
     ),
     GoRoute(
       path: '/heroes_home/:fid',
       builder: (context, state) {
-        final fid = state.pathParameters['fid']!;
-
-        final location = HeroesHomeLocation.values.firstWhere(
-          (element) => element.path == fid,
-          orElse: () =>
-              throw ArgumentError('HeroesHomeLocation not found: $fid'),
+        final location = getRouteLocation<HeroesHomeLocation>(
+          HeroesHomeLocation.values,
+          state,
         );
 
         return HeroesHome(key: state.pageKey, location: location);
@@ -35,3 +32,11 @@ final router = GoRouter(
     ),
   ],
 );
+
+T getRouteLocation<T extends Enum>(List<T> values, GoRouterState state) {
+  final fid = state.pathParameters['fid']!;
+  return values.firstWhere(
+    (element) => element.name == fid,
+    orElse: () => throw ArgumentError('HeroesHomeLocation not found: $fid'),
+  );
+}

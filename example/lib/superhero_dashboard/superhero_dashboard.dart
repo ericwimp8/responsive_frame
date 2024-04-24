@@ -14,13 +14,13 @@ class _SuperheroDashboardState extends State<SuperheroDashboard> {
   Widget build(BuildContext context) {
     return SuperheroData(
       notifier: SuperheroState(),
-      child: const _DashBoard(),
+      child: const _Dashboard(),
     );
   }
 }
 
-class _DashBoard extends StatelessWidget {
-  const _DashBoard();
+class _Dashboard extends StatelessWidget {
+  const _Dashboard();
 
   @override
   Widget build(BuildContext context) {
