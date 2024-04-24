@@ -1,7 +1,7 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_frame/responsive_frame.dart';
+import 'package:go_router/go_router.dart';
 
 class Header extends StatefulWidget {
   const Header({super.key});
@@ -11,9 +11,10 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
-  void updateFilter(HeroFilter? value) {
-    if (value != null) {
-      SuperheroData.of(context).updateHeroFilter(value);
+  void navigate(SuperheroeDashboardLocation? location) {
+    if (location != null) {
+      GoRouter.of(context)
+          .go('${RoutePaths.superHeroDashBoard}${location.name}');
     }
   }
 
@@ -21,99 +22,89 @@ class _HeaderState extends State<Header> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Selector<SuperheroData, HeroFilter>(
-      selector: (context, superHeroData) {
-        return superHeroData.notifier!.data.heroFilter;
-      },
-      builder: (context, filter, child) {
-        return Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CupertinoSlidingSegmentedControl<HeroFilter>(
-                backgroundColor: theme.colorScheme.surfaceTint,
-                thumbColor: theme.colorScheme.primary,
+    final filter = getRouteLocation(
+      SuperheroeDashboardLocation.values,
+      GoRouterState.of(context),
+    );
+
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CupertinoSlidingSegmentedControl<SuperheroeDashboardLocation>(
+            backgroundColor: theme.colorScheme.surfaceTint,
+            thumbColor: theme.colorScheme.primary,
+            groupValue: filter,
+            onValueChanged: navigate,
+            children: <SuperheroeDashboardLocation, Widget>{
+              SuperheroeDashboardLocation.all: _SegmentButton(
+                label: 'All',
+                value: SuperheroeDashboardLocation.all,
                 groupValue: filter,
-                onValueChanged: updateFilter,
-                children: <HeroFilter, Widget>{
-                  HeroFilter.all: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      'All',
-                      style: theme.textTheme.titleMedium,
-                    ),
-                  ),
-                  HeroFilter.superHeroes: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      'Super Heroes',
-                      style: theme.textTheme.titleMedium,
-                    ),
-                  ),
-                  HeroFilter.villans: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      'Villans',
-                      style: theme.textTheme.titleMedium,
-                    ),
-                  ),
-                  HeroFilter.battleHardened: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      'Battle Hardened',
-                      style: theme.textTheme.titleMedium,
-                    ),
-                  ),
-                  HeroFilter.masterMinds: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      'Master Minds',
-                      style: theme.textTheme.titleMedium,
-                    ),
-                  ),
-                },
               ),
-            ],
+              SuperheroeDashboardLocation.superheroes: _SegmentButton(
+                label: 'Superheroes',
+                value: SuperheroeDashboardLocation.superheroes,
+                groupValue: filter,
+              ),
+              SuperheroeDashboardLocation.villains: _SegmentButton(
+                label: 'Villains',
+                value: SuperheroeDashboardLocation.villains,
+                groupValue: filter,
+              ),
+              SuperheroeDashboardLocation.masterMinds: _SegmentButton(
+                label: 'Maste Minds',
+                value: SuperheroeDashboardLocation.masterMinds,
+                groupValue: filter,
+              ),
+              SuperheroeDashboardLocation.battleHardened: _SegmentButton(
+                label: 'Battle Hardened',
+                value: SuperheroeDashboardLocation.battleHardened,
+                groupValue: filter,
+              ),
+            },
           ),
-        );
-      },
+        ],
+      ),
     );
   }
 }
 
-enum HeroFilter {
-  villans,
-  superHeroes,
-  battleHardened,
-  masterMinds,
-  all,
+class _SegmentButton extends StatelessWidget {
+  const _SegmentButton({
+    required this.label,
+    required this.value,
+    required this.groupValue,
+    // ignore: unused_element
+    super.key,
+  });
+  final String label;
+  final SuperheroeDashboardLocation value;
+  final SuperheroeDashboardLocation groupValue;
+  TextStyle textStyle(
+    ThemeData theme,
+    SuperheroeDashboardLocation filter,
+    SuperheroeDashboardLocation location,
+  ) {
+    return theme.textTheme.titleMedium!.copyWith(
+      color: filter == location ? theme.colorScheme.onPrimary : null,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      child: Text(
+        label,
+        style: textStyle(
+          theme,
+          groupValue,
+          value,
+        ),
+      ),
+    );
+  }
 }
-
-// class ProfileButton extends StatefulWidget {
-//   const ProfileButton({super.key});
-
-//   @override
-//   State<ProfileButton> createState() => _ProfileButtonState();
-// }
-
-// class _ProfileButtonState extends State<ProfileButton> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return ConstrainedBox(
-//       constraints: const BoxConstraints(maxWidth: 205, minWidth: 50),
-//       child: ExpansionTile(
-//         tilePadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 3),
-//         leading: CircleAvatar(
-//           backgroundColor: Colors.black.withOpacity(0.1),
-//           foregroundImage: const AssetImage('assets/images/bananaman.png'),
-//         ),
-//         title: const Text(
-//           'Banana Man',
-//           maxLines: 1,
-//           overflow: TextOverflow.fade,
-//         ),
-//       ),
-//     );
-//   }
-// }

@@ -1,6 +1,7 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
 class SuperheroMenuList extends StatefulWidget {
@@ -40,8 +41,11 @@ class _SuperheroMenuListState extends State<SuperheroMenuList> {
   @override
   Widget build(BuildContext context) {
     final state = SuperheroData.of(context);
+    final routerState = GoRouterState.of(context);
+    final location =
+        getRouteLocation(SuperheroeDashboardLocation.values, routerState);
     final superheroList = state.data
-        .filteredList()
+        .filteredList(location)
         .where((element) => element.name.toLowerCase().contains(searchFilter))
         .toList();
 

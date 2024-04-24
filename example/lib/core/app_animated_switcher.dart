@@ -40,11 +40,13 @@ class AppAnimatedSwitcherSlideFade extends StatelessWidget {
     required this.child,
     super.key,
     this.duration = kDefaultAnimationDuration,
+    this.reverseDuration = kDefaultAnimationDuration,
     this.begin = const Offset(0, 0.3),
     this.end = Offset.zero,
   });
   final Widget? child;
   final Duration duration;
+  final Duration reverseDuration;
   final Offset begin;
   final Offset end;
 
@@ -94,12 +96,14 @@ class AppAnimatedSwitcherScale extends StatelessWidget {
     required this.child,
     super.key,
     this.duration = kDefaultAnimationDuration,
+    this.reverseDuration = kDefaultAnimationDuration,
     this.begin = 0.97,
     this.end = 1,
     this.scaleAlignment = Alignment.center,
   });
   final Widget? child;
   final Duration duration;
+  final Duration reverseDuration;
   final double begin;
   final double end;
   final Alignment scaleAlignment;

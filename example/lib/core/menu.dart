@@ -43,14 +43,24 @@ class Menu extends StatelessWidget {
                     onTap: () =>
                         navigate(context, SuperheroeDashboardLocation.all),
                     leading: const Icon(Symbols.send_money_rounded),
-                    title: const Text('Heroes'),
+                    title: const Text('All'),
                   ),
                   MenuTile(
-                    selected: location == SuperheroeDashboardLocation.villans,
+                    selected:
+                        location == SuperheroeDashboardLocation.superheroes,
+                    onTap: () => navigate(
+                      context,
+                      SuperheroeDashboardLocation.superheroes,
+                    ),
+                    leading: const Icon(Symbols.send_money_rounded),
+                    title: const Text('Superheroes'),
+                  ),
+                  MenuTile(
+                    selected: location == SuperheroeDashboardLocation.villains,
                     onTap: () =>
-                        navigate(context, SuperheroeDashboardLocation.villans),
+                        navigate(context, SuperheroeDashboardLocation.villains),
                     leading: const Icon(Symbols.ssid_chart_rounded),
-                    title: const Text('Villans'),
+                    title: const Text('Villains'),
                   ),
                   MenuTile(
                     selected:

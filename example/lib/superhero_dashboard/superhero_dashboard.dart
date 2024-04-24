@@ -153,8 +153,8 @@ class DesktopBody extends StatelessWidget {
         SuperheroeDashboardLocation.all => const SuperheroList(
             key: ValueKey(SuperheroeDashboardLocation.all),
           ),
-        SuperheroeDashboardLocation.villans => const SuperheroList(
-            key: ValueKey(SuperheroeDashboardLocation.villans),
+        SuperheroeDashboardLocation.villains => const SuperheroList(
+            key: ValueKey(SuperheroeDashboardLocation.villains),
           ),
         SuperheroeDashboardLocation.superheroes => const SuperheroList(
             key: ValueKey(SuperheroeDashboardLocation.superheroes),
@@ -165,8 +165,6 @@ class DesktopBody extends StatelessWidget {
         SuperheroeDashboardLocation.battleHardened => const SuperheroList(
             key: ValueKey(SuperheroeDashboardLocation.battleHardened),
           ),
-        SuperheroeDashboardLocation.superheroOverview =>
-          const SuperheroOverviewBody(),
       };
 
   @override
@@ -175,6 +173,11 @@ class DesktopBody extends StatelessWidget {
     final location =
         getRouteLocation(SuperheroeDashboardLocation.values, routeState);
 
-    return _buildBody(location);
+    return AppAnimatedSwitcherScale(
+      duration: kDefaultAnimationDurationLong,
+      reverseDuration: kDefaultAnimationDurationLong,
+      begin: 0.9,
+      child: _buildBody(location),
+    );
   }
 }

@@ -3,11 +3,10 @@ import 'package:go_router/go_router.dart';
 
 enum SuperheroeDashboardLocation {
   all,
-  villans,
+  villains,
   superheroes,
   masterMinds,
   battleHardened,
-  superheroOverview;
 }
 
 abstract class RoutePaths {

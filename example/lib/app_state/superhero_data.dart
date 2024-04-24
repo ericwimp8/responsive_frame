@@ -16,29 +16,27 @@ class SuperheroDataModel {
     required this.superheroList,
     required this.selectedHero,
     required this.selectedPowerStat,
-    required this.heroFilter,
   });
   final List<Superhero> superheroList;
   final Superhero selectedHero;
   final PowerStatsEnum selectedPowerStat;
-  final HeroFilter heroFilter;
 
-  List<Superhero> filteredList() {
+  List<Superhero> filteredList(SuperheroeDashboardLocation heroFilter) {
     return switch (heroFilter) {
-      HeroFilter.all => superheroList,
-      HeroFilter.superHeroes => [
+      SuperheroeDashboardLocation.all => superheroList,
+      SuperheroeDashboardLocation.superheroes => [
           ...superheroList
               .where((element) => element.biography.alignment == 'good'),
         ],
-      HeroFilter.villans => [
+      SuperheroeDashboardLocation.villains => [
           ...superheroList
               .where((element) => element.biography.alignment == 'bad'),
         ],
-      HeroFilter.masterMinds => [
+      SuperheroeDashboardLocation.masterMinds => [
           ...superheroList
               .where((element) => element.powerstats.intelligence > 95),
         ],
-      HeroFilter.battleHardened => [
+      SuperheroeDashboardLocation.battleHardened => [
           ...superheroList.where(
             (element) =>
                 element.powerstats.durability >= 85 &&
@@ -50,7 +48,6 @@ class SuperheroDataModel {
   }
 
   static const empty = SuperheroDataModel(
-    heroFilter: HeroFilter.all,
     superheroList: [],
     selectedHero: Superhero(
       id: -1,
@@ -94,19 +91,17 @@ class SuperheroDataModel {
     List<Superhero>? superheroList,
     Superhero? selectedHero,
     PowerStatsEnum? selectedPowerStat,
-    HeroFilter? heroFilter,
   }) {
     return SuperheroDataModel(
       superheroList: superheroList ?? this.superheroList,
       selectedHero: selectedHero ?? this.selectedHero,
       selectedPowerStat: selectedPowerStat ?? this.selectedPowerStat,
-      heroFilter: heroFilter ?? this.heroFilter,
     );
   }
 
   @override
   String toString() {
-    return 'SuperHeroDataModel(superheroList: $superheroList, selectedHero: $selectedHero, selectedPowerStat: $selectedPowerStat, heroFilter: $heroFilter)';
+    return 'SuperHeroDataModel(superheroList: $superheroList, selectedHero: $selectedHero, selectedPowerStat: $selectedPowerStat)';
   }
 
   @override
@@ -116,16 +111,14 @@ class SuperheroDataModel {
     return other is SuperheroDataModel &&
         listEquals(other.superheroList, superheroList) &&
         other.selectedHero == selectedHero &&
-        other.selectedPowerStat == selectedPowerStat &&
-        other.heroFilter == heroFilter;
+        other.selectedPowerStat == selectedPowerStat;
   }
 
   @override
   int get hashCode {
     return superheroList.hashCode ^
         selectedHero.hashCode ^
-        selectedPowerStat.hashCode ^
-        heroFilter.hashCode;
+        selectedPowerStat.hashCode;
   }
 }
 
@@ -139,7 +132,6 @@ class SuperheroState with ChangeNotifier {
     final heroList = await compute(_parseHeroes, jsonEncode(superHeroJson));
 
     _data = SuperheroDataModel(
-      heroFilter: HeroFilter.all,
       superheroList: heroList,
       selectedHero: heroList.first,
       selectedPowerStat: PowerStatsEnum.intelligence,
@@ -157,11 +149,6 @@ class SuperheroState with ChangeNotifier {
 
   void setSelectedPowerStat(PowerStatsEnum value) {
     _data = _data.copyWith(selectedPowerStat: value);
-    notifyListeners();
-  }
-
-  void updateHeroFilter(HeroFilter filter) {
-    _data = _data.copyWith(heroFilter: filter);
     notifyListeners();
   }
 }
