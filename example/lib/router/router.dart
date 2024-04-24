@@ -1,33 +1,31 @@
 import 'package:example/barrel.dart';
 import 'package:go_router/go_router.dart';
 
-enum HeroesHomeLocation {
-  all('all'),
-  villans('villans'),
-  superheroes('superheroes'),
-  masterMinds('masterMinds'),
-  battleHardened('battleHardened');
+enum SuperheroeDashboardLocation {
+  all,
+  villans,
+  superheroes,
+  masterMinds,
+  battleHardened,
+  superheroOverview;
+}
 
-  const HeroesHomeLocation(this.path);
-  final String path;
+abstract class RoutePaths {
+  static const String superHeroDashBoard = '/super_heroes_dashboard/';
 }
 
 final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      redirect: (context, state) =>
-          '/heroes_home/${HeroesHomeLocation.all.name}',
+      redirect: (context, state) {
+        return '${RoutePaths.superHeroDashBoard}${SuperheroeDashboardLocation.all.name}';
+      },
     ),
     GoRoute(
-      path: '/heroes_home/:fid',
+      path: '${RoutePaths.superHeroDashBoard}:fid',
       builder: (context, state) {
-        final location = getRouteLocation<HeroesHomeLocation>(
-          HeroesHomeLocation.values,
-          state,
-        );
-
-        return HeroesHome(key: state.pageKey, location: location);
+        return SuperheroDashboard(key: state.pageKey);
       },
     ),
   ],

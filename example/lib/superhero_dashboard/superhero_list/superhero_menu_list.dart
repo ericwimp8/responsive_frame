@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-class SuperHeroList extends StatefulWidget {
-  const SuperHeroList({super.key});
+class SuperheroMenuList extends StatefulWidget {
+  const SuperheroMenuList({super.key});
 
   @override
-  State<SuperHeroList> createState() => _SuperHeroListState();
+  State<SuperheroMenuList> createState() => _SuperheroMenuListState();
 }
 
-class _SuperHeroListState extends State<SuperHeroList> {
+class _SuperheroMenuListState extends State<SuperheroMenuList> {
   final controller = TextEditingController();
   @override
   void dispose() {
@@ -84,7 +84,7 @@ class _SuperHeroListState extends State<SuperHeroList> {
                         child: AppAnimatedSwitcherSlideFade(
                           begin: const Offset(0, 0.03),
                           duration: const Duration(milliseconds: 300),
-                          child: _SuperHeroList(
+                          child: _SuperheroList(
                             onIndexChanged: updateSelectedIndex,
                             selectedIndex: selectedIndex,
                             key: ValueKey(superheroList.length),
@@ -106,8 +106,8 @@ class _SuperHeroListState extends State<SuperHeroList> {
   }
 }
 
-class _SuperHeroList extends StatelessWidget {
-  const _SuperHeroList({
+class _SuperheroList extends StatelessWidget {
+  const _SuperheroList({
     required this.superheroList,
     required this.onChanged,
     required this.selectedHero,
@@ -137,7 +137,7 @@ class _SuperHeroList extends StatelessWidget {
         itemBuilder: (context, index) {
           final superHero = superheroList[index];
           final selected = superHero == selectedHero;
-          return SuperHeroTile(
+          return SuperheroTile(
             superHero: superHero,
             selected: selected,
             index: index,
@@ -151,8 +151,8 @@ class _SuperHeroList extends StatelessWidget {
   }
 }
 
-class SuperHeroTile extends StatefulWidget {
-  const SuperHeroTile({
+class SuperheroTile extends StatefulWidget {
+  const SuperheroTile({
     required this.superHero,
     required this.selected,
     required this.index,
@@ -169,10 +169,10 @@ class SuperHeroTile extends StatefulWidget {
   final void Function(bool focus, int index) onFocusChanged;
 
   @override
-  State<SuperHeroTile> createState() => _SuperHeroTileState();
+  State<SuperheroTile> createState() => _SuperheroTileState();
 }
 
-class _SuperHeroTileState extends State<SuperHeroTile> {
+class _SuperheroTileState extends State<SuperheroTile> {
   bool hasFocus = false;
 
   void onFocus(bool value) {

@@ -1,5 +1,4 @@
 import 'package:example/barrel.dart';
-import 'package:example/theme/app_theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
@@ -7,15 +6,16 @@ import 'package:material_symbols_icons/symbols.dart';
 class Menu extends StatelessWidget {
   const Menu({super.key});
 
-  void navigate(BuildContext context, HeroesHomeLocation location) {
-    GoRouter.of(context).go('/heroes_home/${location.name}');
+  void navigate(BuildContext context, SuperheroeDashboardLocation location) {
+    GoRouter.of(context).go('${RoutePaths.superHeroDashBoard}${location.name}');
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final routeState = GoRouterState.of(context);
-    final location = getRouteLocation(HeroesHomeLocation.values, routeState);
+    final location =
+        getRouteLocation(SuperheroeDashboardLocation.values, routeState);
 
     return Material(
       color: theme.colorScheme.surfaceTint,
@@ -39,28 +39,36 @@ class Menu extends StatelessWidget {
                     onTap: () {},
                   ),
                   MenuTile(
-                    selected: location == HeroesHomeLocation.all,
-                    onTap: () => navigate(context, HeroesHomeLocation.all),
+                    selected: location == SuperheroeDashboardLocation.all,
+                    onTap: () =>
+                        navigate(context, SuperheroeDashboardLocation.all),
                     leading: const Icon(Symbols.send_money_rounded),
                     title: const Text('Heroes'),
                   ),
                   MenuTile(
-                    selected: location == HeroesHomeLocation.villans,
-                    onTap: () => navigate(context, HeroesHomeLocation.villans),
+                    selected: location == SuperheroeDashboardLocation.villans,
+                    onTap: () =>
+                        navigate(context, SuperheroeDashboardLocation.villans),
                     leading: const Icon(Symbols.ssid_chart_rounded),
                     title: const Text('Villans'),
                   ),
                   MenuTile(
-                    selected: location == HeroesHomeLocation.masterMinds,
-                    onTap: () =>
-                        navigate(context, HeroesHomeLocation.masterMinds),
+                    selected:
+                        location == SuperheroeDashboardLocation.masterMinds,
+                    onTap: () => navigate(
+                      context,
+                      SuperheroeDashboardLocation.masterMinds,
+                    ),
                     leading: const Icon(Symbols.groups_rounded),
                     title: const Text('Master Minds'),
                   ),
                   MenuTile(
-                    selected: location == HeroesHomeLocation.battleHardened,
-                    onTap: () =>
-                        navigate(context, HeroesHomeLocation.battleHardened),
+                    selected:
+                        location == SuperheroeDashboardLocation.battleHardened,
+                    onTap: () => navigate(
+                      context,
+                      SuperheroeDashboardLocation.battleHardened,
+                    ),
                     leading: const Icon(Symbols.groups_rounded),
                     title: const Text('Battle Hardened'),
                   ),
