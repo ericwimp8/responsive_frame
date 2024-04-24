@@ -1,6 +1,6 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:example/barrel.dart';
-import 'package:example/dashboard/overview/overview_section.dart';
 import 'package:flutter/material.dart';
 
 class SuperHeroOverview extends StatelessWidget {
@@ -11,8 +11,8 @@ class SuperHeroOverview extends StatelessWidget {
     final selectedHero = SuperHeroData.of(context).data.selectedHero;
 
     return AppAnimatedSwitcherSlideFade(
-      duration: const Duration(milliseconds: 400),
-      begin: const Offset(0, 0.03),
+      duration: const Duration(milliseconds: 200),
+      begin: const Offset(0, 0.1),
       child: _Overview(
         key: ObjectKey(selectedHero),
         selectedHero: selectedHero,
@@ -175,19 +175,12 @@ class _ProfileImageState extends State<ProfileImage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final state = AppThemeDataData.of(context);
     if (widget.superHero.id == -1) {
-      const url = 'assets/images/bananaman.png';
+      // TODO(ericwimp): work out why this condition is meet sometimes it shouldn't  be
 
-      return ConstrainedBox(
-        constraints: const BoxConstraints(
-          maxWidth: 180,
-        ),
-        child: const AspectRatio(
-          aspectRatio: 0.6,
-          child: Image(image: AssetImage(url)),
-        ),
-      );
+      throw Exception('empty data');
     }
 
     final provider = AssetImage(widget.superHero.images.sm);
@@ -196,14 +189,97 @@ class _ProfileImageState extends State<ProfileImage> {
       state,
       widget.superHero.images.md,
     );
-    return ConstrainedBox(
-      constraints: const BoxConstraints(
-        maxWidth: 180,
-      ),
-      child: AspectRatio(
-        aspectRatio: 0.6,
-        child: Image(
-          image: provider,
+
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Material(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
+          side: BorderSide(
+            width: 3,
+            color: theme.colorScheme.primary.withOpacity(0.3),
+          ),
+        ),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              alignment: Alignment.bottomCenter,
+              fit: BoxFit.cover,
+              image: provider,
+            ),
+          ),
+          child: BackdropFilter(
+            blendMode: BlendMode.src,
+            filter: ImageFilter.blur(
+              sigmaX: 12,
+              sigmaY: 12,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Align(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: Material(
+                            elevation: 20,
+                            shadowColor: Colors.black,
+                            clipBehavior: Clip.antiAlias,
+                            shape: BeveledRectangleBorder(
+                              borderRadius: BorderRadius.circular(40),
+                              side: BorderSide(
+                                color: theme.colorScheme.primary,
+                                width: 2,
+                              ),
+                            ),
+                            child: ConstrainedBox(
+                              constraints: const BoxConstraints(
+                                maxWidth: 210,
+                              ),
+                              child: AspectRatio(
+                                aspectRatio: 0.7,
+                                child: Image(
+                                  fit: BoxFit.cover,
+                                  image: provider,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Text(
+                          widget.superHero.name.toUpperCase(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            height: 0,
+                            fontSize: 30,
+                            fontFamily: 'JosefinSans',
+                            fontVariations: <FontVariation>[
+                              FontVariation('wght', 400),
+                            ],
+                          ),
+                        ),
+                        Text(
+                          widget.superHero.biography.fullName,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontFamily: 'JosefinSans',
+                            fontVariations: <FontVariation>[
+                              FontVariation('wght', 400),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

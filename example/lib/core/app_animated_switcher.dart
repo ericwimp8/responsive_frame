@@ -52,6 +52,16 @@ class AppAnimatedSwitcherSlideFade extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedSwitcher(
       duration: duration,
+      reverseDuration: const Duration(milliseconds: 180),
+      layoutBuilder: (currentChild, previousChildren) {
+        return Stack(
+          alignment: Alignment.topCenter,
+          children: <Widget>[
+            ...previousChildren,
+            if (currentChild != null) currentChild,
+          ],
+        );
+      },
       transitionBuilder: (child, animation) {
         return FadeTransition(
           opacity: Tween<double>(begin: 0, end: 1).animate(

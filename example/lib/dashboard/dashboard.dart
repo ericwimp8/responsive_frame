@@ -27,15 +27,14 @@ class _DashBoard extends StatelessWidget {
     final theme = Theme.of(context);
     final state = SuperHeroData.of(context);
 
-    Widget child;
     if (state.data == SuperHeroDataModel.empty) {
-      child = const Material(
+      return const Material(
         child: Center(
           child: CircularProgressIndicator(),
         ),
       );
     } else {
-      child = ResponsiveFrameLayout(
+      return ResponsiveFrameLayout(
         persistentFrameConfig: const FrameConfig(
           dimensions: DimensionsConfig(
             bodyTopMaxHeight: double.infinity,
@@ -67,7 +66,7 @@ class _DashBoard extends StatelessWidget {
                     children: [
                       Flexible(
                         child: ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 700),
+                          constraints: const BoxConstraints(maxWidth: 500),
                           child: const SuperHeroOverview(),
                         ),
                       ),
@@ -175,7 +174,5 @@ class _DashBoard extends StatelessWidget {
         // },
       );
     }
-
-    return AppAnimatedSwitcherSlideFade(child: child);
   }
 }

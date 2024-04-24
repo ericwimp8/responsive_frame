@@ -153,24 +153,31 @@ class _StatisticsTileLeading extends StatelessWidget {
   final String leadingPath;
   final Color leadingColor;
 
-  Color _color() {
-    return theme.brightness == Brightness.dark
-        ? leadingColor.lighten(30)
-        : leadingColor.darken(30);
-  }
-
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 1,
       child: Padding(
-        padding: const EdgeInsets.all(2),
-        child: ClipRRect(
+        padding: const EdgeInsets.all(4),
+        child: Material(
+          clipBehavior: Clip.antiAlias,
           borderRadius: kDefaultBorderRadius,
-          child: ColoredBox(
-            color: theme.colorScheme.surface.withOpacity(0.5),
-            child: Align(
-              child: ImageIcon(AssetImage(leadingPath), color: _color()),
+          color: leadingColor,
+          child: Align(
+            child: DecoratedBox(
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 10,
+                    spreadRadius: 10,
+                    color: Colors.black38,
+                  ),
+                ],
+              ),
+              child: ImageIcon(
+                AssetImage(leadingPath),
+                color: Colors.white,
+              ),
             ),
           ),
         ),
@@ -335,8 +342,9 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.intelligence,
             groupValue: selectedPowerStat,
             toY: data.intelligence.toDouble(),
-            colorOne: theme.colorScheme.tertiary.darken(70),
-            colorTwo: theme.colorScheme.tertiary.lighten(50),
+            colorOne: theme.colorScheme.tertiary,
+            colorTwo: theme.colorScheme.tertiary,
+            theme: theme,
           ),
         ],
         showingTooltipIndicators: [0],
@@ -348,8 +356,9 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.strength,
             groupValue: selectedPowerStat,
             toY: data.strength.toDouble(),
-            colorOne: theme.colorScheme.primary.darken(70),
-            colorTwo: theme.colorScheme.primary.lighten(),
+            colorOne: theme.colorScheme.primary,
+            colorTwo: theme.colorScheme.primary,
+            theme: theme,
           ),
         ],
         showingTooltipIndicators: [0],
@@ -361,8 +370,9 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.speed,
             groupValue: selectedPowerStat,
             toY: data.speed.toDouble(),
-            colorOne: theme.colorScheme.tertiaryContainer.darken(70),
-            colorTwo: theme.colorScheme.tertiaryContainer.lighten(),
+            colorOne: theme.colorScheme.tertiaryContainer,
+            colorTwo: theme.colorScheme.tertiaryContainer,
+            theme: theme,
           ),
         ],
         showingTooltipIndicators: [0],
@@ -374,8 +384,9 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.durability,
             groupValue: selectedPowerStat,
             toY: data.durability.toDouble(),
-            colorOne: theme.colorScheme.secondary.darken(70),
-            colorTwo: theme.colorScheme.secondary.lighten(),
+            colorOne: theme.colorScheme.secondary,
+            colorTwo: theme.colorScheme.secondary,
+            theme: theme,
           ),
         ],
         showingTooltipIndicators: [0],
@@ -387,8 +398,9 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.power,
             groupValue: selectedPowerStat,
             toY: data.power.toDouble(),
-            colorOne: theme.colorScheme.secondaryContainer.darken(70),
-            colorTwo: theme.colorScheme.secondaryContainer.lighten(),
+            colorOne: theme.colorScheme.secondaryContainer,
+            colorTwo: theme.colorScheme.secondaryContainer,
+            theme: theme,
           ),
         ],
         showingTooltipIndicators: [0],
@@ -400,27 +412,15 @@ class _BarChart extends StatelessWidget {
             value: PowerStatsEnum.combat,
             groupValue: selectedPowerStat,
             toY: data.combat.toDouble(),
-            colorOne: theme.colorScheme.surfaceVariant.darken(70),
-            colorTwo: theme.colorScheme.primaryContainer.lighten(),
+            colorOne: theme.colorScheme.primaryContainer,
+            colorTwo: theme.colorScheme.primaryContainer,
+            theme: theme,
           ),
         ],
         showingTooltipIndicators: [0],
       ),
     ];
   }
-}
-
-class StatisticsModel {
-  StatisticsModel({
-    required this.name,
-    required this.icon,
-    required this.value,
-    required this.selected,
-  });
-  final String name;
-  final IconData icon;
-  final int value;
-  final bool selected;
 }
 
 class _BarData extends BarChartRodData {
@@ -430,12 +430,14 @@ class _BarData extends BarChartRodData {
     required this.value,
     required this.colorOne,
     required this.colorTwo,
+    required this.theme,
   });
 
   final PowerStatsEnum value;
   final PowerStatsEnum groupValue;
   final Color colorOne;
   final Color colorTwo;
+  final ThemeData theme;
 
   bool get selected => value == groupValue;
 
@@ -447,19 +449,19 @@ class _BarData extends BarChartRodData {
 
   @override
   BorderSide get borderSide => selected
-      ? const BorderSide(color: Colors.white38, width: 3)
-      : BorderSide.none;
+      ? BorderSide(color: theme.colorScheme.primary.withOpacity(0.3), width: 3)
+      : BorderSide(color: theme.colorScheme.primary.withOpacity(0.1));
 
   @override
   Gradient get gradient => LinearGradient(
         colors: selected
             ? [
-                colorOne,
-                colorTwo,
+                colorTwo.darken(20),
+                colorOne.lighten(),
               ]
             : [
-                colorOne.withOpacity(0.6),
-                colorTwo.withOpacity(0.6),
+                colorTwo.darken(30).withOpacity(0.9),
+                colorOne.lighten(20).withOpacity(0.9),
               ],
         begin: Alignment.bottomCenter,
         end: Alignment.topCenter,

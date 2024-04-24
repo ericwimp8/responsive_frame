@@ -7,26 +7,27 @@ class Search extends StatefulWidget {
     super.key,
     this.onChanged,
     this.clear,
+    this.controller,
   });
   final ValueChanged<String>? onChanged;
   final VoidCallback? clear;
-
+  final TextEditingController? controller;
   @override
   State<Search> createState() => _SearchState();
 }
 
 class _SearchState extends State<Search> {
-  final controller = TextEditingController();
+  late final TextEditingController controller;
+
+  @override
+  void initState() {
+    controller = widget.controller ?? TextEditingController();
+    super.initState();
+  }
 
   void _clear() {
     widget.clear?.call();
     controller.clear();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
   }
 
   @override

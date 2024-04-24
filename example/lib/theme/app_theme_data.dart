@@ -8,7 +8,7 @@ class AppThemeData {
     required this.light,
     required this.dark,
     required this.appTheme,
-    this.useDynamicTheme = false,
+    this.useDynamicTheme = true,
   });
 
   final ThemeMode themeMode;
