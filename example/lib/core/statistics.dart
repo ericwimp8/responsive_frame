@@ -11,73 +11,80 @@ class Statistics extends StatefulWidget {
 }
 
 class _StatisticsState extends State<Statistics> {
-  void setSelectedPowerState(PowerStatsEnum value) {
-    SuperheroData.of(context).setSelectedPowerStat(value);
+  void setSelectedPowerState(PowerStatEnum value, BuildContext context) {
+    WithUpdate.of<PowerStatsState>(context).setSelectedPowerStat(value);
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final state = SuperheroData.of(context).data;
+    final state = With.of<Superhero>(context);
 
-    return Column(
-      children: [
-        const Chart(),
-        StatsTile(
-          value: PowerStatsEnum.intelligence,
-          groupValue: state.selectedPowerStat,
-          onTap: setSelectedPowerState,
-          title: Text(PowerStatsEnum.intelligence.label),
-          leadingPath: 'assets/images/intelligence.png',
-          leadingColor: theme.colorScheme.tertiary,
-          trailing: Text(state.selectedHero.powerstats.intelligence.toString()),
-        ),
-        StatsTile(
-          onTap: setSelectedPowerState,
-          groupValue: state.selectedPowerStat,
-          value: PowerStatsEnum.strength,
-          title: Text(PowerStatsEnum.strength.label),
-          leadingPath: 'assets/images/strength.png',
-          leadingColor: theme.colorScheme.primary,
-          trailing: Text(state.selectedHero.powerstats.strength.toString()),
-        ),
-        StatsTile(
-          onTap: setSelectedPowerState,
-          groupValue: state.selectedPowerStat,
-          value: PowerStatsEnum.speed,
-          title: Text(PowerStatsEnum.speed.name),
-          leadingPath: 'assets/images/speed.png',
-          leadingColor: theme.colorScheme.tertiaryContainer,
-          trailing: Text(state.selectedHero.powerstats.speed.toString()),
-        ),
-        StatsTile(
-          onTap: setSelectedPowerState,
-          groupValue: state.selectedPowerStat,
-          value: PowerStatsEnum.durability,
-          title: Text(PowerStatsEnum.durability.label),
-          leadingPath: 'assets/images/durability.png',
-          leadingColor: theme.colorScheme.secondary,
-          trailing: Text(state.selectedHero.powerstats.durability.toString()),
-        ),
-        StatsTile(
-          onTap: setSelectedPowerState,
-          groupValue: state.selectedPowerStat,
-          value: PowerStatsEnum.power,
-          title: Text(PowerStatsEnum.power.label),
-          leadingPath: 'assets/images/power.png',
-          leadingColor: theme.colorScheme.secondaryContainer,
-          trailing: Text(state.selectedHero.powerstats.power.toString()),
-        ),
-        StatsTile(
-          onTap: setSelectedPowerState,
-          groupValue: state.selectedPowerStat,
-          value: PowerStatsEnum.combat,
-          title: Text(PowerStatsEnum.combat.label),
-          leadingPath: 'assets/images/combat.png',
-          leadingColor: theme.colorScheme.primaryContainer,
-          trailing: Text(state.selectedHero.powerstats.combat.toString()),
-        ),
-      ],
+    return PowerStatsStateWrapper(
+      powerStats: state.powerstats,
+      selectedPowerStat: PowerStatEnum.intelligence,
+      child: (context) {
+        final state = WithUpdate.of<PowerStatsState>(context);
+        return Column(
+          children: [
+            const Chart(),
+            StatsTile(
+              value: PowerStatEnum.intelligence,
+              groupValue: state.selectedPowerStat,
+              onTap: (value) => setSelectedPowerState(value, context),
+              title: Text(PowerStatEnum.intelligence.label),
+              leadingPath: 'assets/images/intelligence.png',
+              leadingColor: theme.colorScheme.tertiary,
+              trailing: Text(state.powerStats.intelligence.toString()),
+            ),
+            StatsTile(
+              onTap: (value) => setSelectedPowerState(value, context),
+              groupValue: state.selectedPowerStat,
+              value: PowerStatEnum.strength,
+              title: Text(PowerStatEnum.strength.label),
+              leadingPath: 'assets/images/strength.png',
+              leadingColor: theme.colorScheme.primary,
+              trailing: Text(state.powerStats.strength.toString()),
+            ),
+            StatsTile(
+              onTap: (value) => setSelectedPowerState(value, context),
+              groupValue: state.selectedPowerStat,
+              value: PowerStatEnum.speed,
+              title: Text(PowerStatEnum.speed.name),
+              leadingPath: 'assets/images/speed.png',
+              leadingColor: theme.colorScheme.tertiaryContainer,
+              trailing: Text(state.powerStats.speed.toString()),
+            ),
+            StatsTile(
+              onTap: (value) => setSelectedPowerState(value, context),
+              groupValue: state.selectedPowerStat,
+              value: PowerStatEnum.durability,
+              title: Text(PowerStatEnum.durability.label),
+              leadingPath: 'assets/images/durability.png',
+              leadingColor: theme.colorScheme.secondary,
+              trailing: Text(state.powerStats.durability.toString()),
+            ),
+            StatsTile(
+              onTap: (value) => setSelectedPowerState(value, context),
+              groupValue: state.selectedPowerStat,
+              value: PowerStatEnum.power,
+              title: Text(PowerStatEnum.power.label),
+              leadingPath: 'assets/images/power.png',
+              leadingColor: theme.colorScheme.secondaryContainer,
+              trailing: Text(state.powerStats.power.toString()),
+            ),
+            StatsTile(
+              onTap: (value) => setSelectedPowerState(value, context),
+              groupValue: state.selectedPowerStat,
+              value: PowerStatEnum.combat,
+              title: Text(PowerStatEnum.combat.label),
+              leadingPath: 'assets/images/combat.png',
+              leadingColor: theme.colorScheme.primaryContainer,
+              trailing: Text(state.powerStats.combat.toString()),
+            ),
+          ],
+        );
+      },
     );
   }
 }
@@ -94,13 +101,13 @@ class StatsTile extends StatelessWidget {
     super.key,
   });
   final Widget title;
-  final PowerStatsEnum value;
-  final PowerStatsEnum groupValue;
+  final PowerStatEnum value;
+  final PowerStatEnum groupValue;
   final String leadingPath;
   final Color leadingColor;
   final Widget trailing;
 
-  final void Function(PowerStatsEnum value) onTap;
+  final void Function(PowerStatEnum value) onTap;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -196,7 +203,7 @@ class Chart extends StatefulWidget {
 class _ChartState extends State<Chart> {
   @override
   Widget build(BuildContext context) {
-    final state = SuperheroData.of(context).data.selectedPowerStat;
+    final state = WithUpdate.of<PowerStatsState>(context).selectedPowerStat;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Material(
@@ -223,20 +230,20 @@ class _BarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final heroData = SuperheroData.of(context);
+    final state = WithUpdate.of<PowerStatsState>(context);
 
     final theme = Theme.of(context);
     return BarChart(
       BarChartData(
         barTouchData: barTouchData(
           theme,
-          heroData.setSelectedPowerStat,
+          state.setSelectedPowerStat,
         ),
         titlesData: titlesData(theme),
         borderData: borderData,
         barGroups: barGroups(
-          heroData.data.selectedPowerStat,
-          heroData.data.selectedHero.powerstats,
+          state.selectedPowerStat,
+          state.powerStats,
           theme,
         ),
         gridData: const FlGridData(show: false),
@@ -249,13 +256,13 @@ class _BarChart extends StatelessWidget {
 
   BarTouchData barTouchData(
     ThemeData theme,
-    void Function(PowerStatsEnum) onTouch,
+    void Function(PowerStatEnum) onTouch,
   ) =>
       BarTouchData(
         touchCallback: (p0, p1) {
           final props = p1?.spot?.spot.props;
           if (props != null && props.isNotEmpty && props.first != null) {
-            onTouch(PowerStatsEnum.values[(props.first! as double).toInt()]);
+            onTouch(PowerStatEnum.values[(props.first! as double).toInt()]);
           }
         },
         enabled: true,
@@ -330,7 +337,7 @@ class _BarChart extends StatelessWidget {
       );
 
   List<BarChartGroupData> barGroups(
-    PowerStatsEnum selectedPowerStat,
+    PowerStatEnum selectedPowerStat,
     PowerStats data,
     ThemeData theme,
   ) {
@@ -339,7 +346,7 @@ class _BarChart extends StatelessWidget {
         x: 0,
         barRods: [
           _BarData(
-            value: PowerStatsEnum.intelligence,
+            value: PowerStatEnum.intelligence,
             groupValue: selectedPowerStat,
             toY: data.intelligence.toDouble(),
             colorOne: theme.colorScheme.tertiary,
@@ -353,7 +360,7 @@ class _BarChart extends StatelessWidget {
         x: 1,
         barRods: [
           _BarData(
-            value: PowerStatsEnum.strength,
+            value: PowerStatEnum.strength,
             groupValue: selectedPowerStat,
             toY: data.strength.toDouble(),
             colorOne: theme.colorScheme.primary,
@@ -367,7 +374,7 @@ class _BarChart extends StatelessWidget {
         x: 2,
         barRods: [
           _BarData(
-            value: PowerStatsEnum.speed,
+            value: PowerStatEnum.speed,
             groupValue: selectedPowerStat,
             toY: data.speed.toDouble(),
             colorOne: theme.colorScheme.tertiaryContainer,
@@ -381,7 +388,7 @@ class _BarChart extends StatelessWidget {
         x: 3,
         barRods: [
           _BarData(
-            value: PowerStatsEnum.durability,
+            value: PowerStatEnum.durability,
             groupValue: selectedPowerStat,
             toY: data.durability.toDouble(),
             colorOne: theme.colorScheme.secondary,
@@ -395,7 +402,7 @@ class _BarChart extends StatelessWidget {
         x: 4,
         barRods: [
           _BarData(
-            value: PowerStatsEnum.power,
+            value: PowerStatEnum.power,
             groupValue: selectedPowerStat,
             toY: data.power.toDouble(),
             colorOne: theme.colorScheme.secondaryContainer,
@@ -409,7 +416,7 @@ class _BarChart extends StatelessWidget {
         x: 5,
         barRods: [
           _BarData(
-            value: PowerStatsEnum.combat,
+            value: PowerStatEnum.combat,
             groupValue: selectedPowerStat,
             toY: data.combat.toDouble(),
             colorOne: theme.colorScheme.primaryContainer,
@@ -433,8 +440,8 @@ class _BarData extends BarChartRodData {
     required this.theme,
   });
 
-  final PowerStatsEnum value;
-  final PowerStatsEnum groupValue;
+  final PowerStatEnum value;
+  final PowerStatEnum groupValue;
   final Color colorOne;
   final Color colorTwo;
   final ThemeData theme;
@@ -466,4 +473,44 @@ class _BarData extends BarChartRodData {
         begin: Alignment.bottomCenter,
         end: Alignment.topCenter,
       );
+}
+
+class PowerStatsStateWrapper extends StatelessWidget {
+  const PowerStatsStateWrapper({
+    required this.child,
+    required this.powerStats,
+    required this.selectedPowerStat,
+    super.key,
+  });
+  final WidgetBuilder child;
+  final PowerStatEnum selectedPowerStat;
+  final PowerStats powerStats;
+  @override
+  Widget build(BuildContext context) {
+    return WithUpdate(
+      notifier: PowerStatsState(
+        initialPowerStats: powerStats,
+        initialSelectedPowerStat: selectedPowerStat,
+      ),
+      child: Builder(builder: child),
+    );
+  }
+}
+
+class PowerStatsState with ChangeNotifier {
+  PowerStatsState({
+    required PowerStatEnum initialSelectedPowerStat,
+    required PowerStats initialPowerStats,
+  })  : _powerStats = initialPowerStats,
+        _selectedPowerStat = initialSelectedPowerStat;
+  PowerStatEnum _selectedPowerStat;
+  final PowerStats _powerStats;
+
+  PowerStatEnum get selectedPowerStat => _selectedPowerStat;
+  PowerStats get powerStats => _powerStats;
+
+  void setSelectedPowerStat(PowerStatEnum value) {
+    _selectedPowerStat = value;
+    notifyListeners();
+  }
 }

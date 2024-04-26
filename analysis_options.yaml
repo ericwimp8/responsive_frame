@@ -17,6 +17,7 @@ analyzer:
     flutter_style_todos: false
     use_setters_to_change_properties: false
     sort_pub_dependencies: false
+    no_leading_underscores_for_local_identifiers: false
 
 linter:
   rules:

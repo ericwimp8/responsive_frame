@@ -1,6 +1,8 @@
 import 'package:example/barrel.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
 
 class Header extends StatefulWidget {
@@ -11,59 +13,90 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
-  void navigate(SuperheroeDashboardLocation? location) {
+  final controller = TextEditingController();
+
+  @override
+  void initState() {
+    setInitialSearchValue();
+    super.initState();
+  }
+
+  void setInitialSearchValue() {
+    Future(() {
+      if (mounted) {
+        final search = WithUpdate.of<SuperheroState>(context).data.search;
+        controller.text = search;
+      }
+    });
+  }
+
+  void navigate(HeroFilter? location) {
     if (location != null) {
-      GoRouter.of(context)
-          .go('${RoutePaths.superHeroDashBoard}${location.name}');
+      GoRouter.of(context).go(
+        '${RoutePaths.superHeroDashBoard}/${location.name}${RoutePaths.noIndex}',
+      );
     }
+  }
+
+  void search(String value) {
+    WithUpdate.of<SuperheroState>(context).searchAndFilter(search: value);
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
-    final filter = getRouteLocation(
-      SuperheroeDashboardLocation.values,
-      GoRouterState.of(context),
-    );
-
+    final routeState = GoRouterState.of(context);
+    final location =
+        getRouteLocation(SuperheroeDashboardLocation.values, routeState);
+    final filter =
+        WithUpdate.of<SuperheroState>(context).getFilterFromLocation(location);
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CupertinoSlidingSegmentedControl<SuperheroeDashboardLocation>(
-            backgroundColor: theme.colorScheme.surfaceTint,
-            thumbColor: theme.colorScheme.primary,
-            groupValue: filter,
-            onValueChanged: navigate,
-            children: <SuperheroeDashboardLocation, Widget>{
-              SuperheroeDashboardLocation.all: _SegmentButton(
-                label: 'All',
-                value: SuperheroeDashboardLocation.all,
-                groupValue: filter,
-              ),
-              SuperheroeDashboardLocation.superheroes: _SegmentButton(
-                label: 'Superheroes',
-                value: SuperheroeDashboardLocation.superheroes,
-                groupValue: filter,
-              ),
-              SuperheroeDashboardLocation.villains: _SegmentButton(
-                label: 'Villains',
-                value: SuperheroeDashboardLocation.villains,
-                groupValue: filter,
-              ),
-              SuperheroeDashboardLocation.masterMinds: _SegmentButton(
-                label: 'Maste Minds',
-                value: SuperheroeDashboardLocation.masterMinds,
-                groupValue: filter,
-              ),
-              SuperheroeDashboardLocation.battleHardened: _SegmentButton(
-                label: 'Battle Hardened',
-                value: SuperheroeDashboardLocation.battleHardened,
-                groupValue: filter,
-              ),
-            },
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 200),
+            child: Search(
+              onChanged: search,
+              controller: controller,
+            ),
+          ),
+          const Gap(16),
+          Expanded(
+            child: CupertinoSlidingSegmentedControl<HeroFilter>(
+              backgroundColor: theme.colorScheme.surfaceTint,
+              thumbColor: theme.colorScheme.primary,
+              groupValue: filter,
+              onValueChanged: navigate,
+              children: <HeroFilter, Widget>{
+                HeroFilter.all: _SegmentButton(
+                  label: 'All',
+                  value: HeroFilter.all,
+                  groupValue: filter,
+                ),
+                HeroFilter.superheroes: _SegmentButton(
+                  label: 'Superheroes',
+                  value: HeroFilter.superheroes,
+                  groupValue: filter,
+                ),
+                HeroFilter.villains: _SegmentButton(
+                  label: 'Villains',
+                  value: HeroFilter.villains,
+                  groupValue: filter,
+                ),
+                HeroFilter.masterMinds: _SegmentButton(
+                  label: 'Maste Minds',
+                  value: HeroFilter.masterMinds,
+                  groupValue: filter,
+                ),
+                HeroFilter.battleHardened: _SegmentButton(
+                  label: 'Battle Hardened',
+                  value: HeroFilter.battleHardened,
+                  groupValue: filter,
+                ),
+              },
+            ),
           ),
         ],
       ),
@@ -80,12 +113,12 @@ class _SegmentButton extends StatelessWidget {
     super.key,
   });
   final String label;
-  final SuperheroeDashboardLocation value;
-  final SuperheroeDashboardLocation groupValue;
+  final HeroFilter value;
+  final HeroFilter groupValue;
   TextStyle textStyle(
     ThemeData theme,
-    SuperheroeDashboardLocation filter,
-    SuperheroeDashboardLocation location,
+    HeroFilter filter,
+    HeroFilter location,
   ) {
     return theme.textTheme.titleMedium!.copyWith(
       color: filter == location ? theme.colorScheme.onPrimary : null,
@@ -96,8 +129,8 @@ class _SegmentButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-      child: Text(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+      child: TextNoOverflow(
         label,
         style: textStyle(
           theme,

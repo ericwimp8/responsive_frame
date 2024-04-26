@@ -111,39 +111,6 @@ class AppThemeState with ChangeNotifier {
       'AppThemeState(initialValue: $initialValue, data: AppThemeState: $_data)';
 }
 
-class AppThemeDataData extends InheritedNotifier<AppThemeState> {
-  const AppThemeDataData({
-    required AppThemeState super.notifier,
-    required super.child,
-    super.key,
-  });
-
-  static AppThemeState of(BuildContext context) {
-    final result =
-        context.dependOnInheritedWidgetOfExactType<AppThemeDataData>();
-    if (result == null) {
-      throw FlutterError(
-        'AppThemeDataData was not found in the widget tree. Make sure to wrap your widget tree with a AppThemeDataData.',
-      );
-    }
-    return result.notifier!;
-  }
-
-  @override
-  bool updateShouldNotify(AppThemeDataData oldWidget) {
-    return oldWidget.notifier?.data != notifier?.data;
-  }
-}
-
-class AppThemeWidget extends StatelessWidget {
-  const AppThemeWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
 enum AppTheme {
   dashboard,
   seeded,

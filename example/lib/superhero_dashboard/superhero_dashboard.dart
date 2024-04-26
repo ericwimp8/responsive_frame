@@ -24,7 +24,11 @@ class _Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SuperheroDataWrapper(
       child: (context) {
-        final state = SuperheroData.of(context);
+        final routerState = GoRouterState.of(context);
+        final location =
+            getRouteLocation(SuperheroeDashboardLocation.values, routerState);
+
+        final state = WithUpdate.of<SuperheroState>(context);
 
         if (state.data == SuperheroDataModel.empty) {
           return const Material(
@@ -42,20 +46,25 @@ class _Dashboard extends StatelessWidget {
                 leftEndMaxWidth: 300,
                 bodyMaxWidth: double.infinity,
               ),
-              bodyTop: Header(),
+              // bodyTop: Header(),
             ),
             mobile: (context) {
-              return const FrameConfig(
-                leftEnd: Menu(),
-                rightEnd: SuperheroMenuList(),
-                dimensions: DimensionsConfig(
+              return FrameConfig(
+                bodyTop: location != SuperheroeDashboardLocation.overview
+                    ? const Header()
+                    : null,
+                rightEnd: location == SuperheroeDashboardLocation.overview
+                    ? const SuperheroMenuList()
+                    : null,
+                leftEnd: const Menu(),
+                dimensions: const DimensionsConfig(
                   rightEndFillVertical: false,
                   rightEndMaxWidth: 280,
                   rightEndMinWidth: 280,
                   leftEndMaxWidth: 250,
                   bodyMaxWidth: double.infinity,
                 ),
-                body: DesktopBody(),
+                body: const DesktopBody(),
               );
             },
             // tablet: (context) {
@@ -149,7 +158,8 @@ class _Dashboard extends StatelessWidget {
 class DesktopBody extends StatelessWidget {
   const DesktopBody({super.key});
 
-  Widget _buildBody(SuperheroeDashboardLocation location) => switch (location) {
+  Widget _buildBody(SuperheroeDashboardLocation location, int index) =>
+      switch (location) {
         SuperheroeDashboardLocation.all => const SuperheroList(
             key: ValueKey(SuperheroeDashboardLocation.all),
           ),
@@ -165,19 +175,20 @@ class DesktopBody extends StatelessWidget {
         SuperheroeDashboardLocation.battleHardened => const SuperheroList(
             key: ValueKey(SuperheroeDashboardLocation.battleHardened),
           ),
+        _ => const SuperheroOverviewBody(),
       };
 
   @override
   Widget build(BuildContext context) {
     final routeState = GoRouterState.of(context);
+    final index = getParamIndex(routeState);
     final location =
         getRouteLocation(SuperheroeDashboardLocation.values, routeState);
-
     return AppAnimatedSwitcherScale(
       duration: kDefaultAnimationDurationLong,
       reverseDuration: kDefaultAnimationDurationLong,
       begin: 0.9,
-      child: _buildBody(location),
+      child: _buildBody(location, index),
     );
   }
 }

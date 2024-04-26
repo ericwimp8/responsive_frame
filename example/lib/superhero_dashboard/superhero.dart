@@ -40,11 +40,6 @@ class Superhero {
   final Connections connections;
   final Images images;
 
-  @override
-  String toString() {
-    return 'SuperHero(id: $id, name: $name, slug: $slug, powerstats: $powerstats, appearance: $appearance, biography: $biography, work: $work, connections: $connections, images: $images)';
-  }
-
   Superhero copyWith({
     int? id,
     String? name,
@@ -97,6 +92,11 @@ class Superhero {
         connections.hashCode ^
         images.hashCode;
   }
+
+  @override
+  String toString() {
+    return 'Superhero(id: $id, name: $name, slug: $slug, powerstats: $powerstats, appearance: $appearance, biography: $biography, work: $work, connections: $connections, images: $images)';
+  }
 }
 
 @immutable
@@ -127,13 +127,13 @@ class PowerStats {
   final int power;
   final int combat;
 
-  Map<PowerStatsEnum, int> get values => {
-        PowerStatsEnum.intelligence: intelligence,
-        PowerStatsEnum.strength: strength,
-        PowerStatsEnum.speed: speed,
-        PowerStatsEnum.durability: durability,
-        PowerStatsEnum.power: power,
-        PowerStatsEnum.combat: combat,
+  Map<PowerStatEnum, int> get values => {
+        PowerStatEnum.intelligence: intelligence,
+        PowerStatEnum.strength: strength,
+        PowerStatEnum.speed: speed,
+        PowerStatEnum.durability: durability,
+        PowerStatEnum.power: power,
+        PowerStatEnum.combat: combat,
       };
 
   PowerStats copyWith({
@@ -152,11 +152,6 @@ class PowerStats {
       power: power ?? this.power,
       combat: combat ?? this.combat,
     );
-  }
-
-  @override
-  String toString() {
-    return 'PowerStats(intelligence: $intelligence, strength: $strength, speed: $speed, durability: $durability, power: $power, combat: $combat)';
   }
 
   @override
@@ -181,9 +176,14 @@ class PowerStats {
         power.hashCode ^
         combat.hashCode;
   }
+
+  @override
+  String toString() {
+    return 'PowerStats(intelligence: $intelligence, strength: $strength, speed: $speed, durability: $durability, power: $power, combat: $combat)';
+  }
 }
 
-enum PowerStatsEnum {
+enum PowerStatEnum {
   intelligence('Intelligence'),
   strength('Strength'),
   speed('Speed'),
@@ -191,7 +191,7 @@ enum PowerStatsEnum {
   power('Power'),
   combat('Combat');
 
-  const PowerStatsEnum(this.label);
+  const PowerStatEnum(this.label);
   final String label;
 }
 
@@ -254,11 +254,6 @@ class Appearance {
   }
 
   @override
-  String toString() {
-    return 'Appearance(gender: $gender, race: $race, heightImperial: $heightImperial, heightMetric: $heightMetric, weightImperial: $weightImperial, weightMetric: $weightMetric, eyeColor: $eyeColor, hairColor: $hairColor)';
-  }
-
-  @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
@@ -283,6 +278,11 @@ class Appearance {
         weightMetric.hashCode ^
         eyeColor.hashCode ^
         hairColor.hashCode;
+  }
+
+  @override
+  String toString() {
+    return 'Appearance(gender: $gender, race: $race, heightImperial: $heightImperial, heightMetric: $heightMetric, weightImperial: $weightImperial, weightMetric: $weightMetric, eyeColor: $eyeColor, hairColor: $hairColor)';
   }
 }
 
@@ -368,11 +368,6 @@ class Biography {
         alignment.hashCode;
   }
 
-  @override
-  String toString() {
-    return 'Biography(fullName: $fullName, alterEgos: $alterEgos, aliases: $aliases, placeOfBirth: $placeOfBirth, firstAppearance: $firstAppearance, publisher: $publisher, alignment: $alignment)';
-  }
-
   Biography copyWith({
     String? fullName,
     String? alterEgos,
@@ -391,6 +386,11 @@ class Biography {
       publisher: publisher ?? this.publisher,
       alignment: alignment ?? this.alignment,
     );
+  }
+
+  @override
+  String toString() {
+    return 'Biography(fullName: $fullName, alterEgos: $alterEgos, aliases: $aliases, placeOfBirth: $placeOfBirth, firstAppearance: $firstAppearance, publisher: $publisher, alignment: $alignment)';
   }
 }
 

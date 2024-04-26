@@ -1,16 +1,22 @@
 import 'package:example/barrel.dart';
 import 'package:go_router/go_router.dart';
 
+// This matches up with HeroFilter in router.dart
+// the names must be equal
 enum SuperheroeDashboardLocation {
   all,
   villains,
   superheroes,
   masterMinds,
   battleHardened,
+  overview,
 }
 
 abstract class RoutePaths {
-  static const String superHeroDashBoard = '/super_heroes_dashboard/';
+  static const String superHeroDashBoard = '/super_heroes_dashboard';
+  static const String dashboardLocationID = 'dlid';
+  static const String superheroIndex = 'shi';
+  static const String noIndex = '/-1';
 }
 
 final router = GoRouter(
@@ -18,11 +24,12 @@ final router = GoRouter(
     GoRoute(
       path: '/',
       redirect: (context, state) {
-        return '${RoutePaths.superHeroDashBoard}${SuperheroeDashboardLocation.all.name}';
+        return '${RoutePaths.superHeroDashBoard}/${SuperheroeDashboardLocation.all.name}${RoutePaths.noIndex}';
       },
     ),
     GoRoute(
-      path: '${RoutePaths.superHeroDashBoard}:fid',
+      path:
+          '${RoutePaths.superHeroDashBoard}/:${RoutePaths.dashboardLocationID}/:${RoutePaths.superheroIndex}',
       builder: (context, state) {
         return SuperheroDashboard(key: state.pageKey);
       },
@@ -31,9 +38,24 @@ final router = GoRouter(
 );
 
 T getRouteLocation<T extends Enum>(List<T> values, GoRouterState state) {
-  final fid = state.pathParameters['fid']!;
+  final id = state.pathParameters[RoutePaths.dashboardLocationID];
+  if (id == null) {
+    throw ArgumentError('HeroesHomeLocation not found: $id');
+  }
+
   return values.firstWhere(
-    (element) => element.name == fid,
-    orElse: () => throw ArgumentError('HeroesHomeLocation not found: $fid'),
+    (element) => element.name == id,
+    orElse: () => throw ArgumentError('HeroesHomeLocation not found: $id'),
   );
+}
+
+int getParamIndex(GoRouterState state) {
+  final id = state.pathParameters[RoutePaths.superheroIndex]!;
+  final index = int.tryParse(id);
+  if (index == null) {
+    throw Exception(
+      'Invalid state.pathParameters: $id',
+    );
+  }
+  return index;
 }

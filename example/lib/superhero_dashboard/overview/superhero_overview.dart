@@ -3,12 +3,17 @@ import 'dart:ui';
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 
-class SuperHeroOverview extends StatelessWidget {
+class SuperHeroOverview extends StatefulWidget {
   const SuperHeroOverview({super.key});
 
   @override
+  State<SuperHeroOverview> createState() => _SuperHeroOverviewState();
+}
+
+class _SuperHeroOverviewState extends State<SuperHeroOverview> {
+  @override
   Widget build(BuildContext context) {
-    final selectedHero = SuperheroData.of(context).data.selectedHero;
+    final selectedHero = With.of<Superhero>(context);
 
     return AppAnimatedSwitcherSlideFade(
       duration: const Duration(milliseconds: 200),
@@ -164,32 +169,26 @@ class _ProfileImageState extends State<ProfileImage> {
     }
   }
 
-  void setDefaultTheme(AppThemeState state, String newUrl) {
-    if (newUrl != url) {
-      url = newUrl;
-      Future(() {
-        state.setDefaultTheme();
-      });
+  AssetImage? provider;
+  String? imagePath;
+  @override
+  void didChangeDependencies() {
+    if (imagePath != widget.superHero.images.sm) {
+      imagePath = widget.superHero.images.sm;
+      provider = AssetImage(widget.superHero.images.sm);
+      updateThemeFromImage(
+        provider!,
+        WithUpdate.of<AppThemeState>(context),
+        widget.superHero.images.md,
+      );
     }
+
+    super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final state = AppThemeDataData.of(context);
-    if (widget.superHero.id == -1) {
-      // TODO(ericwimp): work out why this condition is meet sometimes it shouldn't  be
-
-      throw Exception('empty data');
-    }
-
-    final provider = AssetImage(widget.superHero.images.sm);
-    updateThemeFromImage(
-      provider,
-      state,
-      widget.superHero.images.md,
-    );
-
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Material(
@@ -206,7 +205,7 @@ class _ProfileImageState extends State<ProfileImage> {
             image: DecorationImage(
               alignment: Alignment.bottomCenter,
               fit: BoxFit.cover,
-              image: provider,
+              image: provider!,
             ),
           ),
           child: BackdropFilter(
@@ -244,7 +243,7 @@ class _ProfileImageState extends State<ProfileImage> {
                                 aspectRatio: 0.7,
                                 child: Image(
                                   fit: BoxFit.cover,
-                                  image: provider,
+                                  image: provider!,
                                 ),
                               ),
                             ),

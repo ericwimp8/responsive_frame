@@ -1,28 +1,62 @@
 import 'package:example/barrel.dart';
+import 'package:example/superhero_dashboard/superhero_list/superhero_list_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class SuperheroList extends StatelessWidget {
+class SuperheroList extends StatefulWidget {
   const SuperheroList({super.key});
 
   @override
+  State<SuperheroList> createState() => _SuperheroListState();
+}
+
+class _SuperheroListState extends State<SuperheroList> {
+  void selectHero(int id) {
+    GoRouter.of(context).go(
+      '${RoutePaths.superHeroDashBoard}/${SuperheroeDashboardLocation.overview.name}/$id',
+    );
+  }
+
+  HeroFilter? heroFilter;
+
+  @override
+  void didChangeDependencies() {
+    if (heroFilter == null) {
+      final routerState = GoRouterState.of(context);
+      final state = WithUpdate.of<SuperheroState>(context);
+      final location =
+          getRouteLocation(SuperheroeDashboardLocation.values, routerState);
+      final heroFilter = state.getFilterFromLocation(location);
+
+      this.heroFilter = heroFilter;
+      Future(() {
+        state.searchAndFilter(heroFilter: heroFilter);
+      });
+    }
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final routeState = GoRouterState.of(context);
-    final location =
-        getRouteLocation(SuperheroeDashboardLocation.values, routeState);
-    final superHeroDataState = SuperheroData.of(context);
-    final superheroList = superHeroDataState.data.filteredList(location);
-    return DashboardCard(
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
+    return SuperheroListWrapper(
+      isFiltered: true,
+      builder: (context, value, child) => Material(
+        child: GridView.builder(
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+          itemCount: value.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 6,
+            mainAxisSpacing: 16,
+            crossAxisSpacing: 16,
+          ),
+          itemBuilder: (context, index) {
+            final superhero = value[index];
+            return ListTile(
+              onTap: () => selectHero(superhero.id),
+              title: Text(superhero.name),
+            );
+          },
         ),
-        itemBuilder: (context, index) {
-          final superhero = superheroList[index];
-          return ListTile(
-            title: Text(superhero.name),
-          );
-        },
       ),
     );
   }

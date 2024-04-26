@@ -6,11 +6,9 @@ class Search extends StatefulWidget {
   const Search({
     super.key,
     this.onChanged,
-    this.clear,
     this.controller,
   });
   final ValueChanged<String>? onChanged;
-  final VoidCallback? clear;
   final TextEditingController? controller;
   @override
   State<Search> createState() => _SearchState();
@@ -26,8 +24,12 @@ class _SearchState extends State<Search> {
   }
 
   void _clear() {
-    widget.clear?.call();
+    widget.onChanged?.call('');
     controller.clear();
+  }
+
+  void onChanged(String value) {
+    widget.onChanged?.call(value);
   }
 
   @override

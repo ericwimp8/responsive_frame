@@ -7,7 +7,9 @@ class Menu extends StatelessWidget {
   const Menu({super.key});
 
   void navigate(BuildContext context, SuperheroeDashboardLocation location) {
-    GoRouter.of(context).go('${RoutePaths.superHeroDashBoard}${location.name}');
+    GoRouter.of(context).go(
+      '${RoutePaths.superHeroDashBoard}/${location.name}${RoutePaths.noIndex}',
+    );
   }
 
   @override
@@ -32,17 +34,22 @@ class Menu extends StatelessWidget {
                     child:
                         Text('DASHBOARDS', style: theme.textTheme.titleSmall),
                   ),
-                  MenuTile(
-                    selected: true,
-                    title: const Text('Overview'),
-                    leading: const Icon(Symbols.overview_key_rounded),
-                    onTap: () {},
+                  AppAnimatedSwitcherSizeFade(
+                    child: location == SuperheroeDashboardLocation.overview
+                        ? MenuTile(
+                            selected: true,
+                            title: const Text('Overview'),
+                            leadingWidget:
+                                const Icon(Symbols.overview_key_rounded),
+                            onTap: () {},
+                          )
+                        : const SizedBox(),
                   ),
                   MenuTile(
                     selected: location == SuperheroeDashboardLocation.all,
                     onTap: () =>
                         navigate(context, SuperheroeDashboardLocation.all),
-                    leading: const Icon(Symbols.send_money_rounded),
+                    leading: 'assets/images/all.png',
                     title: const Text('All'),
                   ),
                   MenuTile(
@@ -52,14 +59,14 @@ class Menu extends StatelessWidget {
                       context,
                       SuperheroeDashboardLocation.superheroes,
                     ),
-                    leading: const Icon(Symbols.send_money_rounded),
+                    leading: 'assets/images/superheroes.png',
                     title: const Text('Superheroes'),
                   ),
                   MenuTile(
                     selected: location == SuperheroeDashboardLocation.villains,
                     onTap: () =>
                         navigate(context, SuperheroeDashboardLocation.villains),
-                    leading: const Icon(Symbols.ssid_chart_rounded),
+                    leading: 'assets/images/villains.png',
                     title: const Text('Villains'),
                   ),
                   MenuTile(
@@ -69,7 +76,7 @@ class Menu extends StatelessWidget {
                       context,
                       SuperheroeDashboardLocation.masterMinds,
                     ),
-                    leading: const Icon(Symbols.groups_rounded),
+                    leading: 'assets/images/intelligence.png',
                     title: const Text('Master Minds'),
                   ),
                   MenuTile(
@@ -79,7 +86,7 @@ class Menu extends StatelessWidget {
                       context,
                       SuperheroeDashboardLocation.battleHardened,
                     ),
-                    leading: const Icon(Symbols.groups_rounded),
+                    leading: 'assets/images/combat.png',
                     title: const Text('Battle Hardened'),
                   ),
                   const DarkModeSwitch(),
@@ -142,14 +149,23 @@ class MenuHeader extends StatelessWidget {
 class MenuTile extends StatelessWidget {
   const MenuTile({
     required this.title,
-    required this.leading,
+    this.leading,
+    this.leadingWidget,
     this.trailing,
     this.onTap,
     this.selected = false,
     super.key,
-  });
+  })  : assert(
+          leadingWidget == null || leading == null,
+          'Both leading and leadingWidget cannot be set, one must be null',
+        ),
+        assert(
+          leadingWidget != null || leading != null,
+          'leading or leadingWidget must be be not null',
+        );
   final Widget title;
-  final Widget leading;
+  final String? leading;
+  final Widget? leadingWidget;
   final Widget? trailing;
   final bool selected;
   final VoidCallback? onTap;
@@ -169,12 +185,18 @@ class MenuTile extends StatelessWidget {
             ? theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600)
             : theme.textTheme.bodyLarge?.copyWith(
                 fontWeight: FontWeight.w400,
-                color: theme.colorScheme.onSurface,
+                color: theme.colorScheme.onSurface.withOpacity(0.5),
               ),
-        textColor: theme.colorScheme.onSurface,
+        textColor: theme.colorScheme.onSurface.withOpacity(0.5),
         selected: selected,
         onTap: onTap,
-        leading: leading,
+        leading: leadingWidget ??
+            ImageIcon(
+              AssetImage(leading!),
+              color: selected
+                  ? theme.colorScheme.onPrimary
+                  : theme.iconTheme.color!.withOpacity(0.5),
+            ),
         title: title,
         trailing: trailing,
       ),
@@ -193,12 +215,21 @@ class DarkModeSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = AppThemeDataData.of(context);
+    final state = WithUpdate.of<AppThemeState>(context);
     final isDark = state.isDark;
+    final theme = Theme.of(context);
     return MenuTile(
       onTap: () => updateTheme(!isDark, state),
-      leading: const Icon(Symbols.dark_mode_rounded),
-      title: const Text('Dark Mode'),
+      leadingWidget: const Icon(Symbols.dark_mode_rounded),
+      title: Text(
+        'Dark Mode',
+        style: isDark
+            ? theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600)
+            : theme.textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.w400,
+                color: theme.colorScheme.onSurface.withOpacity(0.5),
+              ),
+      ),
       trailing: Switch(
         value: state.isDark,
         onChanged: (value) => updateTheme(value, state),
@@ -216,12 +247,21 @@ class DynamicThemeSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = AppThemeDataData.of(context);
+    final state = WithUpdate.of<AppThemeState>(context);
     final isDynamic = state.data.useDynamicTheme;
+    final theme = Theme.of(context);
     return MenuTile(
       onTap: () => updateTheme(state, !isDynamic),
-      leading: const Icon(Symbols.dark_mode_rounded),
-      title: const Text('Dynamic Theme'),
+      leadingWidget: const Icon(Symbols.dark_mode_rounded),
+      title: Text(
+        'Dynamic Theme',
+        style: isDynamic
+            ? theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600)
+            : theme.textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.w400,
+                color: theme.colorScheme.onSurface.withOpacity(0.5),
+              ),
+      ),
       trailing: Switch(
         value: isDynamic,
         onChanged: (value) => updateTheme(state, value),

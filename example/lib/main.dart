@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         dark: DashboardTheme.dark(),
       ),
       child: (context) {
-        final theme = AppThemeDataData.of(context);
+        final theme = WithUpdate.of<AppThemeState>(context);
 
         return MaterialApp.router(
           routerConfig: router,

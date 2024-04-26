@@ -1,4 +1,5 @@
 import 'package:example/barrel.dart';
+import 'package:example/superhero_dashboard/superhero_list/superhero_list_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -12,45 +13,54 @@ class SuperheroMenuList extends StatefulWidget {
 }
 
 class _SuperheroMenuListState extends State<SuperheroMenuList> {
-  final controller = TextEditingController();
+  TextEditingController? controller;
+  int focusedHeroId = 0;
+  GoRouterState? routerState;
+  int? heroId;
+  Superhero? superhero;
+
   @override
   void dispose() {
-    controller.dispose();
+    controller?.dispose();
     super.dispose();
   }
 
-  String searchFilter = '';
-  void _filterList(String newFilter) {
+  void selectHero(int id) {
+    GoRouter.of(context).go(
+      '${RoutePaths.superHeroDashBoard}/${SuperheroeDashboardLocation.overview.name}/$id',
+    );
+  }
+
+  void updateFocusHeroId(int id) {
     setState(() {
-      searchFilter = newFilter;
+      focusedHeroId = id;
     });
   }
 
-  void selectHero(Superhero value, SuperheroState state) {
-    state.setSelectedHero(value);
+  void _search(String search) {
+    WithUpdate.of<SuperheroState>(context).searchAndFilter(search: search);
   }
 
-  void updateSelectedIndex(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
+  @override
+  void didChangeDependencies() {
+    if (controller == null) {
+      controller = TextEditingController();
+      controller?.text = WithUpdate.of<SuperheroState>(context).data.search;
+    }
+    routerState = GoRouterState.of(context);
+    heroId = getParamIndex(routerState!);
 
-  int selectedIndex = 0;
+    final superhero =
+        WithUpdate.of<SuperheroState>(context).getHeroFromID(heroId!);
+
+    if (this.superhero != superhero) {
+      this.superhero = superhero;
+    }
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final state = SuperheroData.of(context);
-    final routerState = GoRouterState.of(context);
-    final location =
-        getRouteLocation(SuperheroeDashboardLocation.values, routerState);
-    final superheroList = state.data
-        .filteredList(location)
-        .where((element) => element.name.toLowerCase().contains(searchFilter))
-        .toList();
-
-    final selectedHero = state.data.selectedHero;
-
     return FocusScope(
       child: Builder(
         builder: (context) {
@@ -63,21 +73,20 @@ class _SuperheroMenuListState extends State<SuperheroMenuList> {
                 FocusScope.of(context).nextFocus();
               },
               const SingleActivator(LogicalKeyboardKey.enter): () {
-                selectHero(superheroList[selectedIndex], state);
+                selectHero(focusedHeroId);
               },
               const SingleActivator(LogicalKeyboardKey.escape):
-                  controller.clear,
+                  controller!.clear,
             },
             child: Padding(
-              padding: const EdgeInsets.only(right: 16),
+              padding: const EdgeInsets.only(right: 16, top: 16),
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
+                    padding: const EdgeInsets.only(bottom: 16),
                     child: Search(
                       controller: controller,
-                      onChanged: _filterList,
-                      clear: () => _filterList(''),
+                      onChanged: _search,
                     ),
                   ),
                   Expanded(
@@ -85,17 +94,20 @@ class _SuperheroMenuListState extends State<SuperheroMenuList> {
                       padding: const EdgeInsets.only(bottom: 16),
                       child: ClipRRect(
                         borderRadius: kDefaultBorderRadius,
-                        child: AppAnimatedSwitcherSlideFade(
-                          begin: const Offset(0, 0.03),
-                          duration: const Duration(milliseconds: 300),
-                          child: _SuperheroList(
-                            onIndexChanged: updateSelectedIndex,
-                            selectedIndex: selectedIndex,
-                            key: ValueKey(superheroList.length),
-                            superheroList: superheroList,
-                            selectedHero: selectedHero,
-                            onChanged: (value) => selectHero(value, state),
-                          ),
+                        child: SuperheroListWrapper(
+                          builder: (_, value, __) {
+                            return AppAnimatedSwitcherSlideFade(
+                              begin: const Offset(0, 0.03),
+                              duration: const Duration(milliseconds: 300),
+                              child: _SuperheroList(
+                                onFocus: updateFocusHeroId,
+                                key: ValueKey(value.length),
+                                superheroList: value,
+                                selectedHero: superhero!,
+                                onChanged: selectHero,
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -114,23 +126,15 @@ class _SuperheroList extends StatelessWidget {
   const _SuperheroList({
     required this.superheroList,
     required this.onChanged,
+    required this.onFocus,
     required this.selectedHero,
-    required this.selectedIndex,
-    required this.onIndexChanged,
     super.key,
   });
 
   final List<Superhero> superheroList;
   final Superhero selectedHero;
-  final ValueChanged<Superhero> onChanged;
-  final int selectedIndex;
-  final ValueChanged<int> onIndexChanged;
-
-  void onFocusChange(bool value, int index) {
-    if (value) {
-      onIndexChanged(index);
-    }
-  }
+  final ValueChanged<int> onChanged;
+  final ValueChanged<int> onFocus;
 
   @override
   Widget build(BuildContext context) {
@@ -139,15 +143,15 @@ class _SuperheroList extends StatelessWidget {
       child: ListView.builder(
         itemCount: superheroList.length,
         itemBuilder: (context, index) {
-          final superHero = superheroList[index];
-          final selected = superHero == selectedHero;
+          final superhero = superheroList[index];
+          final selected = superhero == selectedHero;
           return SuperheroTile(
-            superHero: superHero,
+            superHero: superhero,
             selected: selected,
             index: index,
             theme: theme,
-            onChanged: onChanged,
-            onFocusChanged: onFocusChange,
+            onChanged: () => onChanged(superhero.id),
+            onFocus: () => onFocus(superhero.id),
           );
         },
       ),
@@ -162,15 +166,15 @@ class SuperheroTile extends StatefulWidget {
     required this.index,
     required this.theme,
     required this.onChanged,
-    required this.onFocusChanged,
+    required this.onFocus,
     super.key,
   });
   final Superhero superHero;
   final bool selected;
   final int index;
   final ThemeData theme;
-  final ValueChanged<Superhero> onChanged;
-  final void Function(bool focus, int index) onFocusChanged;
+  final VoidCallback onChanged;
+  final void Function() onFocus;
 
   @override
   State<SuperheroTile> createState() => _SuperheroTileState();
@@ -183,7 +187,9 @@ class _SuperheroTileState extends State<SuperheroTile> {
     setState(() {
       hasFocus = value;
     });
-    widget.onFocusChanged(value, widget.index);
+    if (value) {
+      widget.onFocus();
+    }
   }
 
   @override
@@ -196,7 +202,7 @@ class _SuperheroTileState extends State<SuperheroTile> {
       textColor: hasFocus
           ? widget.theme.colorScheme.onSecondary
           : widget.theme.colorScheme.onSurface,
-      onTap: () => widget.onChanged(widget.superHero),
+      onTap: () => widget.onChanged(),
       shape: const RoundedRectangleBorder(),
       title: Text(widget.superHero.name),
     );
