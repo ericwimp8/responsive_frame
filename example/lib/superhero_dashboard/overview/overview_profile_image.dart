@@ -6,10 +6,10 @@ import 'package:with_value/with_value.dart';
 
 class OverviewProfileImage extends StatefulWidget {
   const OverviewProfileImage({
-    required this.superHero,
+    required this.superhero,
     super.key,
   });
-  final Superhero superHero;
+  final Superhero superhero;
   @override
   State<OverviewProfileImage> createState() => _OverviewProfileImageState();
 }
@@ -32,13 +32,13 @@ class _OverviewProfileImageState extends State<OverviewProfileImage> {
   String? imagePath;
   @override
   void didChangeDependencies() {
-    if (imagePath != widget.superHero.images.sm) {
-      imagePath = widget.superHero.images.sm;
-      provider = AssetImage(widget.superHero.images.sm);
+    if (imagePath != widget.superhero.images.sm) {
+      imagePath = widget.superhero.images.sm;
+      provider = AssetImage(widget.superhero.images.sm);
       updateThemeFromImage(
         provider!,
         WithValueUpdate.of<AppThemeState>(context),
-        widget.superHero.images.md,
+        widget.superhero.images.md,
       );
     }
 
@@ -48,6 +48,10 @@ class _OverviewProfileImageState extends State<OverviewProfileImage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return ProfileImage(theme: theme, provider: provider, widget: widget);
+    return ProfileImage(
+      theme: theme,
+      provider: provider,
+      superhero: widget.superhero,
+    );
   }
 }

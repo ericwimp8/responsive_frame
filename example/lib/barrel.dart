@@ -1,3 +1,4 @@
+export 'app_state/selected_superhero_wrapper.dart';
 export 'app_state/superhero_data.dart';
 export 'app_state/superhero_data_wrapper.dart';
 export 'app_state/superhero_json.dart';
@@ -16,7 +17,9 @@ export 'superhero_dashboard/core/search.dart';
 export 'superhero_dashboard/overview/info_row.dart';
 export 'superhero_dashboard/overview/overview_profile_image.dart';
 export 'superhero_dashboard/overview/overview_section.dart';
-export 'superhero_dashboard/overview/statistics.dart';
+export 'superhero_dashboard/overview/statistics/statistics.dart';
+export 'superhero_dashboard/overview/statistics/statistics_state.dart';
+export 'superhero_dashboard/overview/statistics/statistics_wrapper.dart';
 export 'superhero_dashboard/overview/superhero_overview.dart';
 export 'superhero_dashboard/overview/superhero_overview_body.dart';
 export 'superhero_dashboard/superhero.dart';

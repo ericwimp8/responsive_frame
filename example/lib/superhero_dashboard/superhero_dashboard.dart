@@ -110,45 +110,25 @@ class _Dashboard extends StatelessWidget {
             //     ),
             //   );
             // },
-            // desktopLarge: (context) {
-            //   return FrameConfig(
-            //     leftEnd: const Menu(),
-            //     rightEnd: const SuperHeroList(),
-            //     dimensions: const DimensionsConfig(
-            //       rightEndFillVertical: false,
-            //       rightEndMaxWidth: 280,
-            //       rightEndMinWidth: 280,
-            //       leftEndMaxWidth: 250,
-            //       bodyMaxWidth: double.infinity,
-            //     ),
-            //     body: Container(
-            //       color: Colors.red,
-            //       child: Padding(
-            //         padding: const EdgeInsets.symmetric(horizontal: 16),
-            //         child: SingleChildScrollView(
-            //           child: Row(
-            //             crossAxisAlignment: CrossAxisAlignment.start,
-            //             mainAxisSize: MainAxisSize.min,
-            //             children: [
-            //               Flexible(
-            //                 flex: 3,
-            //                 child: ConstrainedBox(
-            //                   constraints: const BoxConstraints(minWidth: 300),
-            //                   child: const SuperHeroOverview(),
-            //                 ),
-            //               ),
-            //               const Padding(padding: EdgeInsets.only(left: 16)),
-            //               const Flexible(
-            //                 flex: 2,
-            //                 child: Statistics(),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //       ),
-            //     ),
-            //   );
-            // },
+            desktopLarge: (context) {
+              return FrameConfig(
+                bodyTop: location != SuperheroeDashboardLocation.overview
+                    ? const Header()
+                    : null,
+                rightEnd: location == SuperheroeDashboardLocation.overview
+                    ? const SuperheroMenuList()
+                    : null,
+                leftEnd: const Menu(),
+                dimensions: const DimensionsConfig(
+                  rightEndFillVertical: false,
+                  rightEndMaxWidth: 280,
+                  rightEndMinWidth: 280,
+                  leftEndMaxWidth: 250,
+                  bodyMaxWidth: double.infinity,
+                ),
+                body: const DesktopBody(),
+              );
+            },
           );
         }
       },
@@ -156,11 +136,15 @@ class _Dashboard extends StatelessWidget {
   }
 }
 
-class DesktopBody extends StatelessWidget {
+class DesktopBody extends StatefulWidget {
   const DesktopBody({super.key});
 
-  Widget _buildBody(SuperheroeDashboardLocation location, int index) =>
-      switch (location) {
+  @override
+  State<DesktopBody> createState() => _DesktopBodyState();
+}
+
+class _DesktopBodyState extends State<DesktopBody> {
+  Widget _buildBody(SuperheroeDashboardLocation location) => switch (location) {
         SuperheroeDashboardLocation.all => const SuperheroList(
             key: ValueKey(SuperheroeDashboardLocation.all),
           ),
@@ -179,17 +163,26 @@ class DesktopBody extends StatelessWidget {
         _ => const SuperheroOverviewBody(),
       };
 
+  SuperheroeDashboardLocation? currentLocation;
+
   @override
-  Widget build(BuildContext context) {
+  void didChangeDependencies() {
     final routeState = GoRouterState.of(context);
-    final index = getParamIndex(routeState);
     final location =
         getRouteLocation(SuperheroeDashboardLocation.values, routeState);
+    if (location != currentLocation) {
+      currentLocation = location;
+    }
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return AppAnimatedSwitcherScale(
       duration: kDefaultAnimationDurationLong,
       reverseDuration: kDefaultAnimationDurationLong,
       begin: 0.9,
-      child: _buildBody(location, index),
+      child: _buildBody(currentLocation!),
     );
   }
 }

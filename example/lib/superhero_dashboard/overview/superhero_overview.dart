@@ -1,7 +1,5 @@
-import 'dart:ui';
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
-import 'package:with_value/with_value.dart';
 
 class SuperHeroOverview extends StatefulWidget {
   const SuperHeroOverview({super.key});
@@ -13,15 +11,17 @@ class SuperHeroOverview extends StatefulWidget {
 class _SuperHeroOverviewState extends State<SuperHeroOverview> {
   @override
   Widget build(BuildContext context) {
-    final selectedHero = WithValue.of<Superhero>(context);
-
-    return AppAnimatedSwitcherSlideFade(
-      duration: const Duration(milliseconds: 200),
-      begin: const Offset(0, 0.1),
-      child: _Overview(
-        key: ObjectKey(selectedHero),
-        selectedHero: selectedHero,
-      ),
+    return SelectedSuperheroWrapper(
+      builder: (context, hero) {
+        return AppAnimatedSwitcherSlideFade(
+          duration: const Duration(milliseconds: 200),
+          begin: const Offset(0, 0.1),
+          child: _Overview(
+            key: ObjectKey(hero),
+            selectedHero: hero,
+          ),
+        );
+      },
     );
   }
 }
@@ -37,7 +37,7 @@ class _Overview extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        OverviewProfileImage(superHero: selectedHero),
+        OverviewProfileImage(superhero: selectedHero),
         Text(
           '${selectedHero.name} - ${selectedHero.biography.alignmentFormatted}',
           style: theme.textTheme.headlineSmall,

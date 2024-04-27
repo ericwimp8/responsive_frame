@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -38,6 +40,7 @@ class _SuperheroListState extends State<SuperheroList> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return SuperheroListWrapper(
       isFiltered: true,
       builder: (context, value, child) => Material(
@@ -51,11 +54,102 @@ class _SuperheroListState extends State<SuperheroList> {
           ),
           itemBuilder: (context, index) {
             final superhero = value[index];
-            return ListTile(
+            return GestureDetector(
               onTap: () => selectHero(superhero.id),
-              title: Text(superhero.name),
+              child: _ProfileImage(
+                theme: theme,
+                provider: AssetImage(superhero.images.sm),
+                superhero: superhero,
+              ),
             );
           },
+        ),
+      ),
+    );
+  }
+}
+
+class _ProfileImage extends StatelessWidget {
+  const _ProfileImage({
+    required this.theme,
+    required this.provider,
+    required this.superhero,
+    // ignore: unused_element
+    super.key,
+  });
+
+  final ThemeData theme;
+  final AssetImage? provider;
+  final Superhero superhero;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(16)),
+        side: BorderSide(
+          width: 3,
+          color: theme.colorScheme.surface.withOpacity(0.5),
+        ),
+      ),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            alignment: Alignment.bottomCenter,
+            fit: BoxFit.cover,
+            image: provider!,
+          ),
+        ),
+        child: BackdropFilter(
+          blendMode: BlendMode.src,
+          filter: ImageFilter.blur(
+            sigmaX: 12,
+            sigmaY: 12,
+          ),
+          child: Align(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(12, 16, 12, 8),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Material(
+                      elevation: 20,
+                      shadowColor: Colors.black,
+                      clipBehavior: Clip.antiAlias,
+                      shape: BeveledRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                        side: BorderSide(
+                          color: theme.colorScheme.surface.withOpacity(0.5),
+                          width: 2,
+                        ),
+                      ),
+                      child: AspectRatio(
+                        aspectRatio: 0.8,
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: provider!,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Padding(padding: EdgeInsets.all(6)),
+                  Text(
+                    superhero.name.toUpperCase(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      height: 0,
+                      fontSize: 15,
+                      fontFamily: 'JosefinSans',
+                      fontVariations: <FontVariation>[
+                        FontVariation('wght', 400),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

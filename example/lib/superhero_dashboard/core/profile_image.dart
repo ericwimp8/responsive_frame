@@ -7,13 +7,13 @@ class ProfileImage extends StatelessWidget {
   const ProfileImage({
     required this.theme,
     required this.provider,
-    required this.widget,
+    required this.superhero,
     super.key,
   });
 
   final ThemeData theme;
   final AssetImage? provider;
-  final OverviewProfileImage widget;
+  final Superhero superhero;
 
   @override
   Widget build(BuildContext context) {
@@ -42,69 +42,64 @@ class ProfileImage extends StatelessWidget {
               sigmaX: 12,
               sigmaY: 12,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Align(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 16),
-                          child: Material(
-                            elevation: 20,
-                            shadowColor: Colors.black,
-                            clipBehavior: Clip.antiAlias,
-                            shape: BeveledRectangleBorder(
-                              borderRadius: BorderRadius.circular(40),
-                              side: BorderSide(
-                                color: theme.colorScheme.primary,
-                                width: 2,
-                              ),
-                            ),
-                            child: ConstrainedBox(
-                              constraints: const BoxConstraints(
-                                maxWidth: 210,
-                              ),
-                              child: AspectRatio(
-                                aspectRatio: 0.7,
-                                child: Image(
-                                  fit: BoxFit.cover,
-                                  image: provider!,
-                                ),
-                              ),
+            child: Align(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: Material(
+                        elevation: 20,
+                        shadowColor: Colors.black,
+                        clipBehavior: Clip.antiAlias,
+                        shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                          side: BorderSide(
+                            color: theme.colorScheme.primary,
+                            width: 2,
+                          ),
+                        ),
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(
+                            maxWidth: 210,
+                          ),
+                          child: AspectRatio(
+                            aspectRatio: 0.8,
+                            child: Image(
+                              fit: BoxFit.cover,
+                              image: provider!,
                             ),
                           ),
                         ),
-                        Text(
-                          widget.superHero.name.toUpperCase(),
-                          style: const TextStyle(
-                            color: Colors.white,
-                            height: 0,
-                            fontSize: 30,
-                            fontFamily: 'JosefinSans',
-                            fontVariations: <FontVariation>[
-                              FontVariation('wght', 400),
-                            ],
-                          ),
-                        ),
-                        Text(
-                          widget.superHero.biography.fullName,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontFamily: 'JosefinSans',
-                            fontVariations: <FontVariation>[
-                              FontVariation('wght', 400),
-                            ],
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
+                    Text(
+                      superhero.name.toUpperCase(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        height: 0,
+                        fontSize: 30,
+                        fontFamily: 'JosefinSans',
+                        fontVariations: <FontVariation>[
+                          FontVariation('wght', 400),
+                        ],
+                      ),
+                    ),
+                    Text(
+                      superhero.biography.fullName,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontFamily: 'JosefinSans',
+                        fontVariations: <FontVariation>[
+                          FontVariation('wght', 400),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),
