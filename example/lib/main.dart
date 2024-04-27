@@ -1,5 +1,6 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
+import 'package:with_value/with_value.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         dark: DashboardTheme.dark(),
       ),
       child: (context) {
-        final theme = WithUpdate.of<AppThemeState>(context);
+        final theme = WithValueUpdate.of<AppThemeState>(context);
 
         return MaterialApp.router(
           routerConfig: router,

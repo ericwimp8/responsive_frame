@@ -2,6 +2,7 @@ import 'package:example/barrel.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
+import 'package:with_value/with_value.dart';
 
 class Statistics extends StatefulWidget {
   const Statistics({super.key});
@@ -12,19 +13,19 @@ class Statistics extends StatefulWidget {
 
 class _StatisticsState extends State<Statistics> {
   void setSelectedPowerState(PowerStatEnum value, BuildContext context) {
-    WithUpdate.of<PowerStatsState>(context).setSelectedPowerStat(value);
+    WithValueUpdate.of<PowerStatsState>(context).setSelectedPowerStat(value);
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final state = With.of<Superhero>(context);
+    final state = WithValue.of<Superhero>(context);
 
     return PowerStatsStateWrapper(
       powerStats: state.powerstats,
       selectedPowerStat: PowerStatEnum.intelligence,
       child: (context) {
-        final state = WithUpdate.of<PowerStatsState>(context);
+        final state = WithValueUpdate.of<PowerStatsState>(context);
         return Column(
           children: [
             const Chart(),
@@ -203,7 +204,8 @@ class Chart extends StatefulWidget {
 class _ChartState extends State<Chart> {
   @override
   Widget build(BuildContext context) {
-    final state = WithUpdate.of<PowerStatsState>(context).selectedPowerStat;
+    final state =
+        WithValueUpdate.of<PowerStatsState>(context).selectedPowerStat;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Material(
@@ -230,7 +232,7 @@ class _BarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = WithUpdate.of<PowerStatsState>(context);
+    final state = WithValueUpdate.of<PowerStatsState>(context);
 
     final theme = Theme.of(context);
     return BarChart(
@@ -487,7 +489,7 @@ class PowerStatsStateWrapper extends StatelessWidget {
   final PowerStats powerStats;
   @override
   Widget build(BuildContext context) {
-    return WithUpdate(
+    return WithValueUpdate(
       notifier: PowerStatsState(
         initialPowerStats: powerStats,
         initialSelectedPowerStat: selectedPowerStat,

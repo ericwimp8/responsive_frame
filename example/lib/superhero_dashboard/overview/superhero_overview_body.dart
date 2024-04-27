@@ -1,6 +1,7 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:with_value/with_value.dart';
 
 class SuperheroWrapper extends StatelessWidget {
   const SuperheroWrapper({
@@ -13,7 +14,7 @@ class SuperheroWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return With<Superhero>(
+    return WithValue<Superhero>(
       value: superhero,
       child: Builder(builder: child),
     );
@@ -37,7 +38,7 @@ class _SuperheroOverviewBodyState extends State<SuperheroOverviewBody> {
     routerState = GoRouterState.of(context);
     heroId = getParamIndex(routerState!);
     final superhero =
-        WithUpdate.of<SuperheroState>(context).getHeroFromID(heroId!);
+        WithValueUpdate.of<SuperheroState>(context).getHeroFromID(heroId!);
 
     if (this.superhero != superhero) {
       this.superhero = superhero;

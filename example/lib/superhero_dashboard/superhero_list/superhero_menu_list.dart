@@ -1,9 +1,9 @@
 import 'package:example/barrel.dart';
-import 'package:example/superhero_dashboard/superhero_list/superhero_list_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_frame/responsive_frame.dart';
+import 'package:with_value/with_value.dart';
 
 class SuperheroMenuList extends StatefulWidget {
   const SuperheroMenuList({super.key});
@@ -38,20 +38,21 @@ class _SuperheroMenuListState extends State<SuperheroMenuList> {
   }
 
   void _search(String search) {
-    WithUpdate.of<SuperheroState>(context).searchAndFilter(search: search);
+    WithValueUpdate.of<SuperheroState>(context).searchAndFilter(search: search);
   }
 
   @override
   void didChangeDependencies() {
     if (controller == null) {
       controller = TextEditingController();
-      controller?.text = WithUpdate.of<SuperheroState>(context).data.search;
+      controller?.text =
+          WithValueUpdate.of<SuperheroState>(context).data.search;
     }
     routerState = GoRouterState.of(context);
     heroId = getParamIndex(routerState!);
 
     final superhero =
-        WithUpdate.of<SuperheroState>(context).getHeroFromID(heroId!);
+        WithValueUpdate.of<SuperheroState>(context).getHeroFromID(heroId!);
 
     if (this.superhero != superhero) {
       this.superhero = superhero;
@@ -95,6 +96,7 @@ class _SuperheroMenuListState extends State<SuperheroMenuList> {
                       child: ClipRRect(
                         borderRadius: kDefaultBorderRadius,
                         child: SuperheroListWrapper(
+                          isFiltered: true,
                           builder: (_, value, __) {
                             return AppAnimatedSwitcherSlideFade(
                               begin: const Offset(0, 0.03),

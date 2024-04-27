@@ -1,8 +1,6 @@
-export 'app_state/selector.dart';
 export 'app_state/superhero_data.dart';
 export 'app_state/superhero_data_wrapper.dart';
 export 'app_state/superhero_json.dart';
-export 'app_state/with.dart';
 export 'core/app_animated_switcher.dart';
 export 'core/app_heading.dart';
 export 'core/app_size_fade_transition.dart';

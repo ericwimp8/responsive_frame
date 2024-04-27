@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
+import 'package:with_value/with_value.dart';
 
 class SuperHeroOverview extends StatefulWidget {
   const SuperHeroOverview({super.key});
@@ -13,7 +14,7 @@ class SuperHeroOverview extends StatefulWidget {
 class _SuperHeroOverviewState extends State<SuperHeroOverview> {
   @override
   Widget build(BuildContext context) {
-    final selectedHero = With.of<Superhero>(context);
+    final selectedHero = WithValue.of<Superhero>(context);
 
     return AppAnimatedSwitcherSlideFade(
       duration: const Duration(milliseconds: 200),
@@ -178,7 +179,7 @@ class _ProfileImageState extends State<ProfileImage> {
       provider = AssetImage(widget.superHero.images.sm);
       updateThemeFromImage(
         provider!,
-        WithUpdate.of<AppThemeState>(context),
+        WithValueUpdate.of<AppThemeState>(context),
         widget.superHero.images.md,
       );
     }

@@ -2,6 +2,7 @@ import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_frame/responsive_frame.dart';
+import 'package:with_value/with_value.dart';
 
 class SuperheroDashboard extends StatefulWidget {
   const SuperheroDashboard({super.key});
@@ -28,7 +29,7 @@ class _Dashboard extends StatelessWidget {
         final location =
             getRouteLocation(SuperheroeDashboardLocation.values, routerState);
 
-        final state = WithUpdate.of<SuperheroState>(context);
+        final state = WithValueUpdate.of<SuperheroState>(context);
 
         if (state.data == SuperheroDataModel.empty) {
           return const Material(

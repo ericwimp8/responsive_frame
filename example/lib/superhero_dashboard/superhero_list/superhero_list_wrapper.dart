@@ -1,5 +1,6 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
+import 'package:with_value/with_value.dart';
 
 class SuperheroListWrapper extends StatelessWidget {
   const SuperheroListWrapper({
@@ -11,7 +12,7 @@ class SuperheroListWrapper extends StatelessWidget {
   final bool isFiltered;
   @override
   Widget build(BuildContext context) {
-    return Selector<WithUpdate<SuperheroState>, List<Superhero>>(
+    return Selector<WithValueUpdate<SuperheroState>, List<Superhero>>(
       builder: builder,
       selector: (
         context,

@@ -1,5 +1,6 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
+import 'package:with_value/with_value.dart';
 
 class SuperheroDataWrapper extends StatelessWidget {
   const SuperheroDataWrapper({
@@ -10,7 +11,7 @@ class SuperheroDataWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WithUpdate(
+    return WithValueUpdate(
       notifier: SuperheroState(),
       child: Builder(builder: child),
     );

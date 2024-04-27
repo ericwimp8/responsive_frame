@@ -2,6 +2,7 @@ import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import 'package:with_value/with_value.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -215,7 +216,7 @@ class DarkModeSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = WithUpdate.of<AppThemeState>(context);
+    final state = WithValueUpdate.of<AppThemeState>(context);
     final isDark = state.isDark;
     final theme = Theme.of(context);
     return MenuTile(
@@ -247,7 +248,7 @@ class DynamicThemeSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = WithUpdate.of<AppThemeState>(context);
+    final state = WithValueUpdate.of<AppThemeState>(context);
     final isDynamic = state.data.useDynamicTheme;
     final theme = Theme.of(context);
     return MenuTile(

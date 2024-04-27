@@ -1,7 +1,7 @@
 import 'package:example/barrel.dart';
-import 'package:example/superhero_dashboard/superhero_list/superhero_list_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:with_value/with_value.dart';
 
 class SuperheroList extends StatefulWidget {
   const SuperheroList({super.key});
@@ -23,7 +23,7 @@ class _SuperheroListState extends State<SuperheroList> {
   void didChangeDependencies() {
     if (heroFilter == null) {
       final routerState = GoRouterState.of(context);
-      final state = WithUpdate.of<SuperheroState>(context);
+      final state = WithValueUpdate.of<SuperheroState>(context);
       final location =
           getRouteLocation(SuperheroeDashboardLocation.values, routerState);
       final heroFilter = state.getFilterFromLocation(location);

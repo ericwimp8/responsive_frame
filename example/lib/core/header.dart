@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
+import 'package:with_value/with_value.dart';
 
 class Header extends StatefulWidget {
   const Header({super.key});
@@ -24,7 +25,7 @@ class _HeaderState extends State<Header> {
   void setInitialSearchValue() {
     Future(() {
       if (mounted) {
-        final search = WithUpdate.of<SuperheroState>(context).data.search;
+        final search = WithValueUpdate.of<SuperheroState>(context).data.search;
         controller.text = search;
       }
     });
@@ -39,7 +40,7 @@ class _HeaderState extends State<Header> {
   }
 
   void search(String value) {
-    WithUpdate.of<SuperheroState>(context).searchAndFilter(search: value);
+    WithValueUpdate.of<SuperheroState>(context).searchAndFilter(search: value);
   }
 
   @override
@@ -48,8 +49,8 @@ class _HeaderState extends State<Header> {
     final routeState = GoRouterState.of(context);
     final location =
         getRouteLocation(SuperheroeDashboardLocation.values, routeState);
-    final filter =
-        WithUpdate.of<SuperheroState>(context).getFilterFromLocation(location);
+    final filter = WithValueUpdate.of<SuperheroState>(context)
+        .getFilterFromLocation(location);
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Row(

@@ -1,6 +1,6 @@
-import 'package:example/app_state/with.dart';
 import 'package:example/theme/app_theme_data.dart';
 import 'package:flutter/material.dart';
+import 'package:with_value/with_value.dart';
 
 class AppThemeWrapper extends StatelessWidget {
   const AppThemeWrapper({
@@ -12,7 +12,7 @@ class AppThemeWrapper extends StatelessWidget {
   final AppThemeData initialValue;
   @override
   Widget build(BuildContext context) {
-    return WithUpdate<AppThemeState>(
+    return WithValueUpdate<AppThemeState>(
       notifier: AppThemeState(initialValue),
       child: Builder(builder: child),
     );
