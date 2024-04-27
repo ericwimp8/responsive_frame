@@ -120,5 +120,5 @@ app.*.symbols
 !/dev/ci/**/Gemfile.lock
 
 #personal
-to_do.dart
+todo.dart
 
