@@ -7,6 +7,7 @@ class TextNoOverflow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      textAlign: TextAlign.center,
       text,
       overflow: TextOverflow.fade,
       maxLines: 1,

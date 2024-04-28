@@ -65,7 +65,7 @@ class _Dashboard extends StatelessWidget {
                   leftEndMaxWidth: 250,
                   bodyMaxWidth: double.infinity,
                 ),
-                body: const DesktopBody(),
+                body: const DesktopLargeBody(),
               );
             },
             // tablet: (context) {
@@ -90,26 +90,26 @@ class _Dashboard extends StatelessWidget {
             //     ),
             //   );
             // },
-            // desktop: (context) {
-            //   return const FrameConfig(
-            //     leftEnd: Menu(),
-            //     rightEnd: Statistics(),
-            //     dimensions: DimensionsConfig(
-            //       rightEndFillVertical: false,
-            //       rightEndMaxWidth: 280,
-            //       rightEndMinWidth: 280,
-            //       leftEndMaxWidth: 250,
+            desktop: (context) {
+              return FrameConfig(
+                bodyTop: location != SuperheroeDashboardLocation.overview
+                    ? const Header()
+                    : null,
+                leftEnd: const Menu(),
+                rightEnd: location == SuperheroeDashboardLocation.overview
+                    ? const SuperheroMenuList()
+                    : null,
+                dimensions: const DimensionsConfig(
+                  rightEndFillVertical: false,
+                  rightEndMaxWidth: 280,
+                  rightEndMinWidth: 280,
+                  leftEndMaxWidth: 250,
 
-            //       // bodyAlignment: Alignment.topCenter,
-            //     ),
-            //     body: Padding(
-            //       padding: EdgeInsets.symmetric(horizontal: 16),
-            //       child: SingleChildScrollView(
-            //         child: SuperHeroOverview(),
-            //       ),
-            //     ),
-            //   );
-            // },
+                  // bodyAlignment: Alignment.topCenter,
+                ),
+                body: const DesktopBody(),
+              );
+            },
             desktopLarge: (context) {
               return FrameConfig(
                 bodyTop: location != SuperheroeDashboardLocation.overview
@@ -121,12 +121,12 @@ class _Dashboard extends StatelessWidget {
                 leftEnd: const Menu(),
                 dimensions: const DimensionsConfig(
                   rightEndFillVertical: false,
-                  rightEndMaxWidth: 280,
-                  rightEndMinWidth: 280,
+                  rightEndMaxWidth: 230,
+                  rightEndMinWidth: 230,
                   leftEndMaxWidth: 250,
-                  bodyMaxWidth: double.infinity,
+                  bodyMaxWidth: 1200,
                 ),
-                body: const DesktopBody(),
+                body: const DesktopLargeBody(),
               );
             },
           );
@@ -146,6 +146,62 @@ class DesktopBody extends StatefulWidget {
 class _DesktopBodyState extends State<DesktopBody> {
   Widget _buildBody(SuperheroeDashboardLocation location) => switch (location) {
         SuperheroeDashboardLocation.all => const SuperheroList(
+            crossAxisCount: 4,
+            key: ValueKey(SuperheroeDashboardLocation.all),
+          ),
+        SuperheroeDashboardLocation.villains => const SuperheroList(
+            crossAxisCount: 4,
+            key: ValueKey(SuperheroeDashboardLocation.villains),
+          ),
+        SuperheroeDashboardLocation.superheroes => const SuperheroList(
+            crossAxisCount: 4,
+            key: ValueKey(SuperheroeDashboardLocation.superheroes),
+          ),
+        SuperheroeDashboardLocation.masterMinds => const SuperheroList(
+            crossAxisCount: 4,
+            key: ValueKey(SuperheroeDashboardLocation.masterMinds),
+          ),
+        SuperheroeDashboardLocation.battleHardened => const SuperheroList(
+            crossAxisCount: 4,
+            key: ValueKey(SuperheroeDashboardLocation.battleHardened),
+          ),
+        _ => const SuperheroDesktopOverviewBody(),
+      };
+
+  SuperheroeDashboardLocation? currentLocation;
+
+  @override
+  void didChangeDependencies() {
+    final routeState = GoRouterState.of(context);
+    final location =
+        getRouteLocation(SuperheroeDashboardLocation.values, routeState);
+    if (location != currentLocation) {
+      currentLocation = location;
+    }
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AppAnimatedSwitcherScale(
+      duration: kDefaultAnimationDurationLong,
+      reverseDuration: kDefaultAnimationDurationLong,
+      begin: 0.9,
+      child: _buildBody(currentLocation!),
+    );
+  }
+}
+
+class DesktopLargeBody extends StatefulWidget {
+  const DesktopLargeBody({super.key});
+
+  @override
+  State<DesktopLargeBody> createState() => _DesktopLargeBodyState();
+}
+
+class _DesktopLargeBodyState extends State<DesktopLargeBody> {
+  Widget _buildBody(SuperheroeDashboardLocation location) => switch (location) {
+        SuperheroeDashboardLocation.all => const SuperheroList(
             key: ValueKey(SuperheroeDashboardLocation.all),
           ),
         SuperheroeDashboardLocation.villains => const SuperheroList(
@@ -160,7 +216,7 @@ class _DesktopBodyState extends State<DesktopBody> {
         SuperheroeDashboardLocation.battleHardened => const SuperheroList(
             key: ValueKey(SuperheroeDashboardLocation.battleHardened),
           ),
-        _ => const SuperheroOverviewBody(),
+        _ => const SuperheroDesktopLargeOverviewBody(),
       };
 
   SuperheroeDashboardLocation? currentLocation;

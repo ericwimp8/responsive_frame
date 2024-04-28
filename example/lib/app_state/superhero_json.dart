@@ -17826,8 +17826,7 @@ final superHeroJson = [
     "images": {
       "xs":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/488-negasonic-teenage-warhead.jpg",
-      "sm":
-          "assets/images/superhero_images_sm/488-negasonic-teenage-warhead.jpg",
+      "sm": "assets/images/superhero_images_sm/no-portrait.jpg",
       "md":
           "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/488-negasonic-teenage-warhead.jpg",
       "lg":

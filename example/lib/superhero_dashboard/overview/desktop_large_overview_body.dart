@@ -1,8 +1,8 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 
-class SuperheroOverviewBody extends StatelessWidget {
-  const SuperheroOverviewBody({super.key});
+class SuperheroDesktopLargeOverviewBody extends StatelessWidget {
+  const SuperheroDesktopLargeOverviewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

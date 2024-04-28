@@ -4,9 +4,14 @@ import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:with_value/with_value.dart';
 
-class Menu extends StatelessWidget {
+class Menu extends StatefulWidget {
   const Menu({super.key});
 
+  @override
+  State<Menu> createState() => _MenuState();
+}
+
+class _MenuState extends State<Menu> {
   void navigate(BuildContext context, SuperheroeDashboardLocation location) {
     GoRouter.of(context).go(
       '${RoutePaths.superHeroDashBoard}/${location.name}${RoutePaths.noIndex}',

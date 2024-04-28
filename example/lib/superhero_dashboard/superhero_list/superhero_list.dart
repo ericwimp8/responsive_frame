@@ -1,13 +1,14 @@
 import 'dart:ui';
 
 import 'package:example/barrel.dart';
+import 'package:example/core/text_no_overflow.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:with_value/with_value.dart';
 
 class SuperheroList extends StatefulWidget {
-  const SuperheroList({super.key});
-
+  const SuperheroList({super.key, this.crossAxisCount = 5});
+  final int crossAxisCount;
   @override
   State<SuperheroList> createState() => _SuperheroListState();
 }
@@ -47,8 +48,8 @@ class _SuperheroListState extends State<SuperheroList> {
         child: GridView.builder(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           itemCount: value.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 6,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: widget.crossAxisCount,
             mainAxisSpacing: 16,
             crossAxisSpacing: 16,
           ),
@@ -134,7 +135,7 @@ class _ProfileImage extends StatelessWidget {
                     ),
                   ),
                   const Padding(padding: EdgeInsets.all(6)),
-                  Text(
+                  TextNoOverflow(
                     superhero.name.toUpperCase(),
                     style: const TextStyle(
                       color: Colors.white,
