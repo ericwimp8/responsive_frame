@@ -32,7 +32,8 @@ class ResponsiveFrameLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BreakpointDataWidget(
-      controller: BreakpointsController(
+      controller: BreakpointsController<ScreenSize>(
+        breakpoints: Breakpoints.defaultBreakpoints,
         initialHandlers: {
           'frameconfig':
               BreakpointHandler<FrameConfig Function(BuildContext), ScreenSize>(
@@ -83,11 +84,18 @@ class _FrameState extends State<_Frame> {
     _isInit = false;
   }
 
+  BreakpointHandler<FrameConfig Function(BuildContext), ScreenSize>? handler;
+
+  @override
+  void didChangeDependencies() {
+    handler ??= ResponsiveData.of<ScreenSize>(context)
+        .getHandler<FrameConfig Function(BuildContext context)>('frameconfig');
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final handler = ResponsiveData.of(context)
-        .getHandler<FrameConfig Function(BuildContext context)>('frameconfig');
-    final callback = handler.updateMetrics(MediaQuery.sizeOf(context).width);
+    final callback = handler!.updateMetrics(MediaQuery.sizeOf(context).width);
     final config = callback!.call(context);
 
     return Material(
@@ -173,16 +181,16 @@ class BreakpointDataWidget extends StatelessWidget {
   });
   final Widget child;
   // ignore: strict_raw_type
-  final BreakpointsController controller;
+  final BreakpointsController<ScreenSize> controller;
   @override
   Widget build(BuildContext context) {
-    return ResponsiveData(
-      notifier: ResponsiveDataChangeNotifier(
+    return ResponsiveData<ScreenSize>(
+      notifier: ResponsiveDataChangeNotifier<ScreenSize>(
         controller: controller,
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
-          ResponsiveData.of(context);
+          ResponsiveData.of<ScreenSize>(context);
 
           return child;
         },

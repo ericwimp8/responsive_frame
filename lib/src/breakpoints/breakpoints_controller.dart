@@ -5,8 +5,8 @@ import 'package:responsive_frame/responsive_frame.dart';
 @immutable
 class BreakpointsController<K extends Enum> {
   factory BreakpointsController({
-    Map<String, BreakpointHandler<Object, K>> initialHandlers = const {},
-    Breakpoints breakpoints = Breakpoints.defaultBreakpoints,
+    required Breakpoints<K> breakpoints,
+    Map<String, BreakpointHandler<Object?, K>> initialHandlers = const {},
   }) {
     return BreakpointsController._(
       initialHandlers: initialHandlers,
@@ -23,6 +23,7 @@ class BreakpointsController<K extends Enum> {
   static const defaultController = BreakpointsController<ScreenSize>._();
 
   BreakpointHandler<T, K> getHandler<T extends Object>(String key) {
+    print('less calls now');
     if (_handlers.containsKey(key)) {
       return _handlers[key]! as BreakpointHandler<T, K>;
     }
@@ -112,7 +113,6 @@ class BreakpointHandler<T extends Object?, K extends Enum> {
 
   T? updateMetrics(double size) {
     final currentScreenSize = _getScreenSize(size);
-    print(currentScreenSize);
     onChanged?.call(currentScreenSize);
 
     if (screenSizeCache == currentScreenSize && currentValue != null) {
