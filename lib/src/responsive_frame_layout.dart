@@ -32,22 +32,19 @@ class ResponsiveFrameLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BreakpointDataWidget(
-      controller: BreakpointsController<ScreenSize>(
-        breakpoints: Breakpoints.defaultBreakpoints,
-        initialHandlers: {
-          'frameconfig':
-              BreakpointHandler<FrameConfig Function(BuildContext), ScreenSize>(
-            values: {
-              ScreenSize.desktopLarge: desktopLarge,
-              ScreenSize.desktop: desktop,
-              ScreenSize.tablet: tablet,
-              ScreenSize.mobile: mobile,
-              ScreenSize.watch: watch,
-            },
-            breakpoints: breakpoints,
-          ),
-        },
-      ),
+      initialHandlers: {
+        'frameconfig':
+            BreakpointHandler<FrameConfig Function(BuildContext), ScreenSize>(
+          values: {
+            ScreenSize.desktopLarge: desktopLarge,
+            ScreenSize.desktop: desktop,
+            ScreenSize.tablet: tablet,
+            ScreenSize.mobile: mobile,
+            ScreenSize.watch: watch,
+          },
+          breakpoints: breakpoints,
+        ),
+      },
       child: _Frame(
         persistentFrameConfig: persistentFrameConfig,
         backgroundColor: backgroundColor,
@@ -84,19 +81,16 @@ class _FrameState extends State<_Frame> {
     _isInit = false;
   }
 
-  BreakpointHandler<FrameConfig Function(BuildContext), ScreenSize>? handler;
-
-  @override
-  void didChangeDependencies() {
-    handler ??= ResponsiveData.of<ScreenSize>(context)
-        .getHandler<FrameConfig Function(BuildContext context)>('frameconfig');
-    super.didChangeDependencies();
-  }
-
   @override
   Widget build(BuildContext context) {
-    final callback = handler!.updateMetrics(MediaQuery.sizeOf(context).width);
-    final config = callback!.call(context);
+    final handler = ResponsiveData.handlerOf<FrameConfig Function(BuildContext),
+        ScreenSize>(
+      context,
+      'frameconfig',
+      MediaQuery.sizeOf(context).width,
+    );
+
+    final config = handler.call(context);
 
     return Material(
       color: widget.backgroundColor,
@@ -173,20 +167,22 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
 
 The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.""";
 
-class BreakpointDataWidget extends StatelessWidget {
+class BreakpointDataWidget<K extends Enum> extends StatelessWidget {
   const BreakpointDataWidget({
     required this.child,
-    this.controller = BreakpointsController.defaultController,
+    this.initialHandlers = const {},
     super.key,
   });
   final Widget child;
+  final Map<String, BreakpointHandler<Object?, ScreenSize>> initialHandlers;
   // ignore: strict_raw_type
-  final BreakpointsController<ScreenSize> controller;
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveData<ScreenSize>(
       notifier: ResponsiveDataChangeNotifier<ScreenSize>(
-        controller: controller,
+        breakpoints: Breakpoints.defaultBreakpoints,
+        initialHandlers: initialHandlers,
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {

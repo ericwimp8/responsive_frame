@@ -1,24 +1,33 @@
 // ignore_for_file: strict_raw_type
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:responsive_frame/barrel.dart';
 import 'package:responsive_frame/responsive_frame.dart';
-import 'package:responsive_frame/src/breakpoints/breakpoints_controller.dart';
 
 class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
   ResponsiveDataChangeNotifier({
-    required this.controller,
-  });
+    required this.breakpoints,
+    Map<String, BreakpointHandler<Object?, K>> initialHandlers = const {},
+  }) : _handlers = initialHandlers;
+  final Breakpoints<K> breakpoints;
+  final Map<String, BreakpointHandler<Object?, K>> _handlers;
 
-  BreakpointsController<K> controller;
   BreakpointHandler<T, K> getHandler<T extends Object>(String key) {
-    return controller.getHandler<T>(key);
+    if (_handlers.containsKey(key)) {
+      return _handlers[key]! as BreakpointHandler<T, K>;
+    }
+    throw FlutterError(
+      'BreakpointsController: No handler found for key: $key. '
+      'Check that the key is correct or that the handler is added to the controller.',
+    );
   }
 
   void addAllHandlers<T extends Object>({
     required Map<String, BreakpointHandler<T, K>> handlers,
   }) {
-    controller.addAllHandlers<T>(handlers: handlers);
+    _handlers.addAll(handlers);
     notifyListeners();
   }
 
@@ -26,33 +35,33 @@ class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
     required String key,
     required BreakpointHandler<T, K> handler,
   }) {
-    controller.addHandler<T>(key: key, handler: handler);
+    _handlers[key] = handler;
     notifyListeners();
   }
 
   void removeAllHandlers() {
-    controller.removeAllHandlers();
+    _handlers.clear();
     notifyListeners();
   }
 
   void removeHandler(String key) {
-    controller.removeHandler(key);
+    _handlers.remove(key);
     notifyListeners();
   }
 
   void disposeHandler(String handlerKey) {
-    controller.disposeHandler(handlerKey);
+    _handlers.remove(handlerKey);
     notifyListeners();
   }
 
   K getScreenSize(double size) {
-    for (final entry in controller.breakpoints.values.entries) {
+    for (final entry in breakpoints.values.entries) {
       if (size >= entry.value) {
-        return entry.key as K;
+        return entry.key;
       }
     }
     throw Exception(
-      'No screen size found in ${controller.breakpoints.values}. ',
+      'No screen size found in ${breakpoints.values}. ',
     );
   }
 }
@@ -78,23 +87,25 @@ class ResponsiveData<K extends Enum>
     return result.notifier!;
   }
 
-  static BreakpointHandler handlerOf(
+  static T handlerOf<T extends Object, K extends Enum>(
     BuildContext context,
     String key,
+    double size,
   ) {
-    final result = context.dependOnInheritedWidgetOfExactType<ResponsiveData>();
+    final result =
+        context.dependOnInheritedWidgetOfExactType<ResponsiveData<K>>();
     if (result == null) {
       throw FlutterError(
         'ResponsiveData was not found in the widget tree. Make sure to wrap your widget tree with a ResponsiveData.',
       );
     }
-    return result.notifier!.getHandler(key);
+    return result.notifier!.getHandler<T>(key).updateMetrics(size)!;
   }
 
   @override
   bool updateShouldNotify(
     covariant InheritedNotifier<ResponsiveDataChangeNotifier> oldWidget,
   ) {
-    return oldWidget.notifier?.controller != notifier?.controller;
+    return mapEquals(oldWidget.notifier!._handlers, notifier!._handlers);
   }
 }
