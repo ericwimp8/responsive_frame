@@ -5,44 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 import 'package:responsive_frame/src/breakpoints/breakpoints_controller.dart';
 
-// @immutable
-// class ResponsiveDataState<T> {
-//   const ResponsiveDataState({
-//     required this.screenSize,
-//     required this.deviceWidth,
-//     required this.currentBreakpoint,
-//     required this.breakpoints,
-//   });
-//   final T screenSize;
-//   final double deviceWidth;
-//   final double currentBreakpoint;
-//   final Breakpoints<T> breakpoints;
-
-//   @override
-//   String toString() {
-//     return 'BreakpointState(screenSize: $screenSize, deviceWidth: $deviceWidth, currentBreakpoint: $currentBreakpoint, breakpoints: $breakpoints)';
-//   }
-
-//   @override
-//   bool operator ==(Object other) {
-//     if (identical(this, other)) return true;
-
-//     return other is ResponsiveDataState &&
-//         other.screenSize == screenSize &&
-//         other.deviceWidth == deviceWidth &&
-//         other.currentBreakpoint == currentBreakpoint &&
-//         other.breakpoints == breakpoints;
-//   }
-
-//   @override
-//   int get hashCode {
-//     return screenSize.hashCode ^
-//         deviceWidth.hashCode ^
-//         currentBreakpoint.hashCode ^
-//         breakpoints.hashCode;
-//   }
-// }
-
 class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
   ResponsiveDataChangeNotifier({
     required this.controller,
@@ -95,15 +57,19 @@ class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
   }
 }
 
-class ResponsiveData extends InheritedNotifier<ResponsiveDataChangeNotifier> {
+class ResponsiveData<K extends Enum>
+    extends InheritedNotifier<ResponsiveDataChangeNotifier<K>> {
   const ResponsiveData({
-    required ResponsiveDataChangeNotifier super.notifier,
+    required ResponsiveDataChangeNotifier<K> super.notifier,
     required super.child,
     super.key,
   });
 
-  static ResponsiveDataChangeNotifier of(BuildContext context) {
-    final result = context.dependOnInheritedWidgetOfExactType<ResponsiveData>();
+  static ResponsiveDataChangeNotifier<K> of<K extends Enum>(
+    BuildContext context,
+  ) {
+    final result =
+        context.dependOnInheritedWidgetOfExactType<ResponsiveData<K>>();
     if (result == null) {
       throw FlutterError(
         'ResponsiveData was not found in the widget tree. Make sure to wrap your widget tree with a ResponsiveData.',
