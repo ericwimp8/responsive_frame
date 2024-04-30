@@ -3,7 +3,7 @@ export 'src/animated_constrained_box.dart';
 export 'src/animations/animated_show_hide.dart';
 export 'src/animations/size_fade_transition.dart';
 export 'src/breakpoints/breakpoints.dart';
-export 'src/breakpoints/breakpoints_controller.dart';
+export 'src/breakpoints/breakpoints_handler.dart';
 export 'src/frame/constants.dart';
 export 'src/frame/dimensions_config.dart';
 export 'src/frame/frame.dart';
