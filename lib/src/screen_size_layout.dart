@@ -25,24 +25,25 @@ class ScreenSizeLayoutBuilder extends StatefulWidget {
 }
 
 class _ScreenSizeLayoutBuilderState extends State<ScreenSizeLayoutBuilder> {
-  late final contoller = BreakpointsController<Widget, ScreenSize>(
-    callbacks: {
-      ScreenSize.desktopLarge: widget.desktopLarge,
-      ScreenSize.desktop: widget.desktop,
-      ScreenSize.tablet: widget.tablet,
-      ScreenSize.mobile: widget.mobile,
-      ScreenSize.watch: widget.watch,
-    },
-    defaultValue: ScreenSize.mobile,
-    breakpoints: Breakpoints.defaultBreakpoints,
-  );
+  // late final contoller = BreakpointsController<Widget, ScreenSize>(
+  //   callbacks: {
+  //     ScreenSize.desktopLarge: widget.desktopLarge,
+  //     ScreenSize.desktop: widget.desktop,
+  //     ScreenSize.tablet: widget.tablet,
+  //     ScreenSize.mobile: widget.mobile,
+  //     ScreenSize.watch: widget.watch,
+  //   },
+  //   defaultValue: ScreenSize.mobile,
+  //   breakpoints: Breakpoints.defaultBreakpoints,
+  // );
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        return contoller.breakpointCallback(context);
-      },
-    );
+    return Container();
+    // return LayoutBuilder(
+    //   builder: (BuildContext context, BoxConstraints constraints) {
+    //     return contoller.breakpointCallback(context);
+    //   },
+    // );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:responsive_frame/barrel.dart';
 
 import 'package:responsive_frame/responsive_frame.dart';
 
@@ -31,19 +32,21 @@ class ResponsiveFrameLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BreakpointDataWidget(
-      controllers: {
-        'frameconfig': BreakpointsController<FrameConfig, ScreenSize>(
-          callbacks: {
-            ScreenSize.desktopLarge: desktopLarge,
-            ScreenSize.desktop: desktop,
-            ScreenSize.tablet: tablet,
-            ScreenSize.mobile: mobile,
-            ScreenSize.watch: watch,
-          },
-          breakpoints: Breakpoints.defaultBreakpoints,
-          defaultValue: ScreenSize.mobile,
-        ),
-      },
+      controller: BreakpointsController(
+        initialHandlers: {
+          'frameconfig':
+              BreakpointHandler<FrameConfig Function(BuildContext), ScreenSize>(
+            values: {
+              ScreenSize.desktopLarge: desktopLarge,
+              ScreenSize.desktop: desktop,
+              ScreenSize.tablet: tablet,
+              ScreenSize.mobile: mobile,
+              ScreenSize.watch: watch,
+            },
+            breakpoints: breakpoints,
+          ),
+        },
+      ),
       child: _Frame(
         persistentFrameConfig: persistentFrameConfig,
         backgroundColor: backgroundColor,
@@ -82,11 +85,11 @@ class _FrameState extends State<_Frame> {
 
   @override
   Widget build(BuildContext context) {
-    final controller = ResponsiveData.of(context)
-        .getController<FrameConfig, ScreenSize>('frameconfig');
-    final config = controller
-        .breakpointCallback(context)
-        .merge(widget.persistentFrameConfig);
+    final handler = ResponsiveData.of(context)
+        .getHandler<FrameConfig Function(BuildContext context)>('frameconfig');
+    final callback = handler.updateMetrics(MediaQuery.sizeOf(context).width);
+    final config = callback!.call(context);
+
     return Material(
       color: widget.backgroundColor,
       child: SafeArea(
@@ -165,22 +168,21 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 class BreakpointDataWidget extends StatelessWidget {
   const BreakpointDataWidget({
     required this.child,
-    this.controllers,
+    this.controller = BreakpointsController.defaultController,
     super.key,
   });
   final Widget child;
   // ignore: strict_raw_type
-  final Map<String, BreakpointsController>? controllers;
+  final BreakpointsController controller;
   @override
   Widget build(BuildContext context) {
     return ResponsiveData(
-      notifier: ResponsiveDataChangeNotifier<ScreenSize>(
-        controllers: controllers,
-        breakpoints: Breakpoints.defaultBreakpoints,
+      notifier: ResponsiveDataChangeNotifier(
+        controller: controller,
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
-          ResponsiveData.of(context).updateScreenSize();
+          ResponsiveData.of(context);
 
           return child;
         },

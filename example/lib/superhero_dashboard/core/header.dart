@@ -1,13 +1,7 @@
 import 'package:example/barrel.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-
 import 'package:go_router/go_router.dart';
-import 'package:responsive_frame/responsive_frame.dart';
 import 'package:with_value/with_value.dart';
 
 class Header extends StatefulWidget {
@@ -139,7 +133,6 @@ class _SegmentButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final screenSize = ResponsiveData.of(context).state.screenSize;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 14),
@@ -154,39 +147,38 @@ class _SegmentButton extends StatelessWidget {
                   color:
                       groupValue == value ? theme.colorScheme.onPrimary : null,
                 ),
-                if (screenSize != ScreenSize.desktopLarge)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: TextNoOverflow(
-                          label,
-                          style: textStyle(
-                            theme,
-                            groupValue,
-                            value,
-                          ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: TextNoOverflow(
+                        label,
+                        style: textStyle(
+                          theme,
+                          groupValue,
+                          value,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
-          if (screenSize == ScreenSize.desktopLarge)
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8),
-                child: TextNoOverflow(
-                  label,
-                  style: textStyle(
-                    theme,
-                    groupValue,
-                    value,
-                  ),
-                ),
-              ),
-            ),
+
+          // Flexible(
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(left: 8),
+          //     child: TextNoOverflow(
+          //       label,
+          //       style: textStyle(
+          //         theme,
+          //         groupValue,
+          //         value,
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

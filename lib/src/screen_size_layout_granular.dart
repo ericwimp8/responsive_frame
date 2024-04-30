@@ -43,31 +43,13 @@ class ScreenSizeLayoutGranular extends StatefulWidget {
 }
 
 class _ScreenSizeLayoutGranularState extends State<ScreenSizeLayoutGranular> {
-  late final controller = BreakpointsController<Widget, ScreenSizeGranular>(
-    callbacks: {
-      ScreenSizeGranular.desktopExtraLarge: widget.desktopExtraLarge,
-      ScreenSizeGranular.desktopLarge: widget.desktopLarge,
-      ScreenSizeGranular.desktopNormal: widget.desktopNormal,
-      ScreenSizeGranular.desktopSmall: widget.desktopSmall,
-      ScreenSizeGranular.tabletExtraLarge: widget.tabletExtraLarge,
-      ScreenSizeGranular.tabletLarge: widget.tabletLarge,
-      ScreenSizeGranular.tabletNormal: widget.tabletNormal,
-      ScreenSizeGranular.tabletSmall: widget.tabletSmall,
-      ScreenSizeGranular.mobileExtraLarge: widget.mobileExtraLarge,
-      ScreenSizeGranular.mobileLarge: widget.mobileLarge,
-      ScreenSizeGranular.mobileNormal: widget.mobileNormal,
-      ScreenSizeGranular.mobileSmall: widget.mobileSmall,
-      ScreenSizeGranular.watch: widget.watch,
-    },
-    defaultValue: ScreenSizeGranular.mobileNormal,
-    breakpoints: Breakpoints.defaultBreakpointsGranular,
-  );
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        return controller.breakpointCallback(context);
-      },
-    );
+    return Container();
+    // return LayoutBuilder(
+    //   builder: (BuildContext context, BoxConstraints constraints) {
+    //     return controller.breakpointCallback(context);
+    //   },
+    // );
   }
 }
