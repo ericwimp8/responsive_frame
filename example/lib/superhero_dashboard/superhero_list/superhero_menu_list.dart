@@ -79,43 +79,37 @@ class _SuperheroMenuListState extends State<SuperheroMenuList> {
               const SingleActivator(LogicalKeyboardKey.escape):
                   controller!.clear,
             },
-            child: Padding(
-              padding: const EdgeInsets.only(right: 16, top: 16),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
-                    child: Search(
-                      controller: controller,
-                      onChanged: _search,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16),
+                  child: SearchInput(
+                    controller: controller,
+                    onChanged: _search,
+                  ),
+                ),
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: kDefaultBorderRadius,
+                    child: SuperheroListWrapper(
+                      isFiltered: true,
+                      builder: (_, value, __) {
+                        return AppAnimatedSwitcherSlideFade(
+                          begin: const Offset(0, 0.03),
+                          duration: const Duration(milliseconds: 300),
+                          child: _SuperheroList(
+                            onFocus: updateFocusHeroId,
+                            key: ValueKey(value.length),
+                            superheroList: value,
+                            selectedHero: superhero!,
+                            onChanged: selectHero,
+                          ),
+                        );
+                      },
                     ),
                   ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
-                      child: ClipRRect(
-                        borderRadius: kDefaultBorderRadius,
-                        child: SuperheroListWrapper(
-                          isFiltered: true,
-                          builder: (_, value, __) {
-                            return AppAnimatedSwitcherSlideFade(
-                              begin: const Offset(0, 0.03),
-                              duration: const Duration(milliseconds: 300),
-                              child: _SuperheroList(
-                                onFocus: updateFocusHeroId,
-                                key: ValueKey(value.length),
-                                superheroList: value,
-                                selectedHero: superhero!,
-                                onChanged: selectHero,
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         },
@@ -206,7 +200,10 @@ class _SuperheroTileState extends State<SuperheroTile> {
           : widget.theme.colorScheme.onSurface,
       onTap: () => widget.onChanged(),
       shape: const RoundedRectangleBorder(),
-      title: Text(widget.superHero.name),
+      title: TextNoOverflow(
+        widget.superHero.name,
+        textAlign: TextAlign.left,
+      ),
     );
   }
 }

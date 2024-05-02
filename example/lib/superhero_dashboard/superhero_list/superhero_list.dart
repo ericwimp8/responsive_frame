@@ -46,7 +46,6 @@ class _SuperheroListState extends State<SuperheroList> {
       isFiltered: true,
       builder: (context, value, child) => Material(
         child: GridView.builder(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           itemCount: value.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: widget.crossAxisCount,

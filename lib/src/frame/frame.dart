@@ -143,7 +143,7 @@ class Frame extends StatelessWidget {
                       child: bodyBottom != null
                           ? FrameVerticalEnd(
                               maxHeight: dimensions?.bodyBottomMaxHeight,
-                              minHeight: dimensions?.bodyBottomMaxHeight,
+                              minHeight: dimensions?.bodyBottomMinHeight,
                               child: bodyBottom!,
                             )
                           : null,

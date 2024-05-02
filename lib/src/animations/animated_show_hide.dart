@@ -30,15 +30,23 @@ class _AnimatedShowHideState extends State<AnimatedShowHide>
   @override
   void initState() {
     _controller = AnimationController(vsync: this, duration: widget.duration);
+    _controller!.addListener(_listener);
     _animation = _controller!.drive(Tween<double>(begin: 0, end: 1));
     _controller!.forward();
     super.initState();
+  }
+
+  void _listener() {
+    if (_controller?.isDismissed ?? false) {
+      _outGoingChild = const SizedBox();
+    }
   }
 
   Widget? _outGoingChild;
 
   @override
   void dispose() {
+    _controller?.removeListener(_listener);
     _controller?.dispose();
     super.dispose();
   }

@@ -1,8 +1,9 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
-import 'package:with_value/with_value.dart';
+import 'package:responsive_frame/responsive_frame.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -33,71 +34,77 @@ class _MenuState extends State<Menu> {
           children: [
             const MenuHeader(),
             Expanded(
-              child: ListView(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 8, 8, 4),
-                    child:
-                        Text('DASHBOARDS', style: theme.textTheme.titleSmall),
-                  ),
-                  AppAnimatedSwitcherSizeFade(
-                    child: location == SuperheroeDashboardLocation.overview
-                        ? MenuTile(
-                            selected: true,
-                            title: const Text('Overview'),
-                            leadingWidget:
-                                const Icon(Symbols.overview_key_rounded),
-                            onTap: () {},
-                          )
-                        : const SizedBox(),
-                  ),
-                  MenuTile(
-                    selected: location == SuperheroeDashboardLocation.all,
-                    onTap: () =>
-                        navigate(context, SuperheroeDashboardLocation.all),
-                    leading: 'assets/images/all.png',
-                    title: const Text('All'),
-                  ),
-                  MenuTile(
-                    selected:
-                        location == SuperheroeDashboardLocation.superheroes,
-                    onTap: () => navigate(
-                      context,
-                      SuperheroeDashboardLocation.superheroes,
+              child: Material(
+                type: MaterialType.transparency,
+                child: ListView(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 8, 8, 4),
+                      child:
+                          Text('DASHBOARDS', style: theme.textTheme.titleSmall),
                     ),
-                    leading: 'assets/images/superheroes.png',
-                    title: const Text('Superheroes'),
-                  ),
-                  MenuTile(
-                    selected: location == SuperheroeDashboardLocation.villains,
-                    onTap: () =>
-                        navigate(context, SuperheroeDashboardLocation.villains),
-                    leading: 'assets/images/villains.png',
-                    title: const Text('Villains'),
-                  ),
-                  MenuTile(
-                    selected:
-                        location == SuperheroeDashboardLocation.masterMinds,
-                    onTap: () => navigate(
-                      context,
-                      SuperheroeDashboardLocation.masterMinds,
+                    AppAnimatedSwitcherSizeFade(
+                      child: location == SuperheroeDashboardLocation.overview
+                          ? MenuTile(
+                              selected: true,
+                              title: const Text('Overview'),
+                              leadingWidget:
+                                  const Icon(Symbols.overview_key_rounded),
+                              onTap: () {},
+                            )
+                          : const SizedBox(),
                     ),
-                    leading: 'assets/images/intelligence.png',
-                    title: const Text('Master Minds'),
-                  ),
-                  MenuTile(
-                    selected:
-                        location == SuperheroeDashboardLocation.battleHardened,
-                    onTap: () => navigate(
-                      context,
-                      SuperheroeDashboardLocation.battleHardened,
+                    MenuTile(
+                      selected: location == SuperheroeDashboardLocation.all,
+                      onTap: () =>
+                          navigate(context, SuperheroeDashboardLocation.all),
+                      leading: 'assets/images/all.png',
+                      title: const Text('All'),
                     ),
-                    leading: 'assets/images/combat.png',
-                    title: const Text('Battle Hardened'),
-                  ),
-                  const DarkModeSwitch(),
-                  const DynamicThemeSwitch(),
-                ],
+                    MenuTile(
+                      selected:
+                          location == SuperheroeDashboardLocation.superheroes,
+                      onTap: () => navigate(
+                        context,
+                        SuperheroeDashboardLocation.superheroes,
+                      ),
+                      leading: 'assets/images/superheroes.png',
+                      title: const Text('Superheroes'),
+                    ),
+                    MenuTile(
+                      selected:
+                          location == SuperheroeDashboardLocation.villains,
+                      onTap: () => navigate(
+                        context,
+                        SuperheroeDashboardLocation.villains,
+                      ),
+                      leading: 'assets/images/villains.png',
+                      title: const Text('Villains'),
+                    ),
+                    MenuTile(
+                      selected:
+                          location == SuperheroeDashboardLocation.masterMinds,
+                      onTap: () => navigate(
+                        context,
+                        SuperheroeDashboardLocation.masterMinds,
+                      ),
+                      leading: 'assets/images/intelligence.png',
+                      title: const Text('Master Minds'),
+                    ),
+                    MenuTile(
+                      selected: location ==
+                          SuperheroeDashboardLocation.battleHardened,
+                      onTap: () => navigate(
+                        context,
+                        SuperheroeDashboardLocation.battleHardened,
+                      ),
+                      leading: 'assets/images/combat.png',
+                      title: const Text('Battle Hardened'),
+                    ),
+                    const DarkModeSwitch(),
+                    const DynamicThemeSwitch(),
+                  ],
+                ),
               ),
             ),
           ],
@@ -160,26 +167,41 @@ class MenuTile extends StatelessWidget {
     this.trailing,
     this.onTap,
     this.selected = false,
+    this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
     super.key,
-  })  : assert(
+  }) : assert(
           leadingWidget == null || leading == null,
           'Both leading and leadingWidget cannot be set, one must be null',
-        ),
-        assert(
-          leadingWidget != null || leading != null,
-          'leading or leadingWidget must be be not null',
         );
+
   final Widget title;
   final String? leading;
   final Widget? leadingWidget;
   final Widget? trailing;
   final bool selected;
   final VoidCallback? onTap;
+  final EdgeInsets padding;
+
+  Widget? _leadingWidget(ThemeData theme) {
+    if (leadingWidget != null) {
+      return leadingWidget!;
+    } else if (leading != null) {
+      return ImageIcon(
+        AssetImage(leading!),
+        color: selected
+            ? theme.colorScheme.onPrimary
+            : theme.iconTheme.color!.withOpacity(0.5),
+      );
+    }
+
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: padding,
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         shape: !selected
@@ -196,13 +218,7 @@ class MenuTile extends StatelessWidget {
         textColor: theme.colorScheme.onSurface.withOpacity(0.5),
         selected: selected,
         onTap: onTap,
-        leading: leadingWidget ??
-            ImageIcon(
-              AssetImage(leading!),
-              color: selected
-                  ? theme.colorScheme.onPrimary
-                  : theme.iconTheme.color!.withOpacity(0.5),
-            ),
+        leading: _leadingWidget(theme),
         title: title,
         trailing: trailing,
       ),
@@ -210,67 +226,105 @@ class MenuTile extends StatelessWidget {
   }
 }
 
-class DarkModeSwitch extends StatelessWidget {
-  const DarkModeSwitch({super.key});
-
-  void updateTheme(bool isDark, AppThemeState state) {
-    state.updateThemeMode(
-      isDark ? ThemeMode.dark : ThemeMode.light,
-    );
-  }
+class MenuDrawer extends StatelessWidget {
+  const MenuDrawer({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final state = WithValueUpdate.of<AppThemeState>(context);
-    final isDark = state.isDark;
-    final theme = Theme.of(context);
-    return MenuTile(
-      onTap: () => updateTheme(!isDark, state),
-      leadingWidget: const Icon(Symbols.dark_mode_rounded),
-      title: Text(
-        'Dark Mode',
-        style: isDark
-            ? theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600)
-            : theme.textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.w400,
-                color: theme.colorScheme.onSurface.withOpacity(0.5),
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 300),
+        child: const DecoratedBox(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black38,
+                spreadRadius: 20,
+                blurRadius: 20,
               ),
-      ),
-      trailing: Switch(
-        value: state.isDark,
-        onChanged: (value) => updateTheme(value, state),
+            ],
+          ),
+          child: Material(child: Menu()),
+        ),
       ),
     );
   }
 }
 
-class DynamicThemeSwitch extends StatelessWidget {
-  const DynamicThemeSwitch({super.key});
+class MenuDrawerAnimation extends StatelessWidget {
+  const MenuDrawerAnimation({
+    required this.begin,
+    required this.end,
+    required this.primaryAnimation,
+    required this.child,
+    super.key, // ignore: unused_element
+  });
 
-  void updateTheme(AppThemeState state, bool isDynamic) {
-    state.updateDynamicTheme(isDynamic);
-  }
+  final Animation<double> primaryAnimation;
+  final Offset begin;
+  final Offset end;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    final state = WithValueUpdate.of<AppThemeState>(context);
-    final isDynamic = state.data.useDynamicTheme;
-    final theme = Theme.of(context);
-    return MenuTile(
-      onTap: () => updateTheme(state, !isDynamic),
-      leadingWidget: const Icon(Symbols.dark_mode_rounded),
-      title: Text(
-        'Dynamic Theme',
-        style: isDynamic
-            ? theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600)
-            : theme.textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.w400,
-                color: theme.colorScheme.onSurface.withOpacity(0.5),
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        GestureDetector(
+          onTap: () => GoRouter.of(context).pop(),
+          child: Opacity(
+            opacity: primaryAnimation.value,
+            child: const Align(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.black12,
+                ),
+                child: SizedBox.expand(),
               ),
-      ),
-      trailing: Switch(
-        value: isDynamic,
-        onChanged: (value) => updateTheme(state, value),
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () => GoRouter.of(context).pop(),
+          child: SlideTransition(
+            position: Tween<Offset>(
+              begin: begin,
+              end: end,
+            ).animate(
+              CurvedAnimation(
+                parent: primaryAnimation,
+                curve: Curves.fastOutSlowIn,
+              ),
+            ),
+            child: child,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class MenuDrawerButton extends StatelessWidget {
+  const MenuDrawerButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 1,
+      child: AppIconButton(
+        onPressed: () {
+          final state = GoRouterState.of(context);
+
+          GoRouter.maybeOf(context)!.go(
+            '${state.uri}/myDrawer',
+          );
+        },
+        icon: const Align(child: Icon(Symbols.menu_open_rounded)),
       ),
     );
   }

@@ -31,7 +31,7 @@ class ResponsiveFrameLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BreakpointDataWidget(
+    return BreakpointDataWidget<ScreenSize>(
       initialHandlers: {
         'frameconfig':
             BreakpointHandler<FrameConfig Function(BuildContext), ScreenSize>(
@@ -90,7 +90,7 @@ class _FrameState extends State<_Frame> {
       MediaQuery.sizeOf(context).width,
     );
 
-    final config = handler.call(context);
+    final config = handler.call(context).merge(widget.persistentFrameConfig);
 
     return Material(
       color: widget.backgroundColor,

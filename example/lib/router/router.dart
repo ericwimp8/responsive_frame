@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:example/barrel.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 // This matches up with HeroFilter in router.dart
@@ -33,6 +36,30 @@ final router = GoRouter(
       builder: (context, state) {
         return SuperheroDashboard(key: state.pageKey);
       },
+      routes: [
+        GoRoute(
+          path: 'myDrawer',
+          // path: 'myDrawer/:${RoutePaths.dashboardLocationID}',
+          name: 'myDrawer',
+          pageBuilder: (context, state) => CustomTransitionPage(
+            fullscreenDialog: true,
+            opaque: false,
+            transitionsBuilder:
+                (context, primaryAnimation, secondaryAnimation, child) {
+              const begin = Offset(-1, 0);
+              const end = Offset.zero;
+
+              return MenuDrawerAnimation(
+                begin: begin,
+                end: end,
+                primaryAnimation: primaryAnimation,
+                child: child,
+              );
+            },
+            child: const MenuDrawer(),
+          ),
+        ),
+      ],
     ),
   ],
 );
