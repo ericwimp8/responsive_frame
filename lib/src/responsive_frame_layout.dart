@@ -1,17 +1,14 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:responsive_frame/barrel.dart';
-
 import 'package:responsive_frame/responsive_frame.dart';
 
 class ResponsiveFrameLayout extends StatelessWidget {
   const ResponsiveFrameLayout({
-    required this.mobile,
-    this.desktopLarge,
-    this.desktop,
-    this.tablet,
-    this.watch,
+    required this.small,
+    this.extraLarge,
+    this.large,
+    this.medium,
+    this.extraSmall,
     this.breakpoints = Breakpoints.defaultBreakpoints,
     this.animations = true,
     this.persistentFrameConfig = FrameConfig.empty,
@@ -19,30 +16,27 @@ class ResponsiveFrameLayout extends StatelessWidget {
     super.key,
   });
 
-  final FrameConfig Function(BuildContext context) mobile;
-  final FrameConfig Function(BuildContext context)? tablet;
-  final FrameConfig Function(BuildContext context)? desktop;
-  final FrameConfig Function(BuildContext context)? desktopLarge;
-  final FrameConfig Function(BuildContext context)? watch;
-  final Breakpoints<ScreenSize> breakpoints;
+  final FrameConfig Function(BuildContext context)? extraLarge;
+  final FrameConfig Function(BuildContext context)? large;
+  final FrameConfig Function(BuildContext context)? medium;
+  final FrameConfig Function(BuildContext context) small;
+  final FrameConfig Function(BuildContext context)? extraSmall;
+  final Breakpoints breakpoints;
   final bool animations;
   final FrameConfig persistentFrameConfig;
   final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
-    return BreakpointDataWidget<ScreenSize>(
+    return BreakpointDataWidget<LayoutSize>(
       initialHandlers: {
-        'frameconfig':
-            BreakpointHandler<FrameConfig Function(BuildContext), ScreenSize>(
-          values: {
-            ScreenSize.desktopLarge: desktopLarge,
-            ScreenSize.desktop: desktop,
-            ScreenSize.tablet: tablet,
-            ScreenSize.mobile: mobile,
-            ScreenSize.watch: watch,
-          },
+        'frameconfig': BreakpointsHandler<FrameConfig Function(BuildContext)>(
           breakpoints: breakpoints,
+          extraLarge: extraLarge,
+          large: large,
+          medium: medium,
+          small: small,
+          extraSmall: extraSmall,
         ),
       },
       child: _Frame(
@@ -84,7 +78,7 @@ class _FrameState extends State<_Frame> {
   @override
   Widget build(BuildContext context) {
     final handler = ResponsiveData.handlerOf<FrameConfig Function(BuildContext),
-        ScreenSize>(
+        LayoutSize>(
       context,
       'frameconfig',
       MediaQuery.sizeOf(context).width,
@@ -174,19 +168,19 @@ class BreakpointDataWidget<K extends Enum> extends StatelessWidget {
     super.key,
   });
   final Widget child;
-  final Map<String, BreakpointHandler<Object?, ScreenSize>> initialHandlers;
+  final Map<String, BreakpointsHandler<Object?>> initialHandlers;
   // ignore: strict_raw_type
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveData<ScreenSize>(
-      notifier: ResponsiveDataChangeNotifier<ScreenSize>(
+    return ResponsiveData<LayoutSize>(
+      notifier: ResponsiveDataChangeNotifier<LayoutSize>(
         breakpoints: Breakpoints.defaultBreakpoints,
         initialHandlers: initialHandlers,
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
-          ResponsiveData.of<ScreenSize>(context);
+          ResponsiveData.of<LayoutSize>(context);
 
           return child;
         },

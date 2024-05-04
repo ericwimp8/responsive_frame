@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// Widget with builders to return widgets based on [ScreenSize]
 class ScreenSizeLayoutBuilder extends StatefulWidget {
   const ScreenSizeLayoutBuilder({
-    required this.mobile,
-    this.desktopLarge,
-    this.desktop,
-    this.tablet,
-    this.watch,
+    this.extraLarge,
+    this.large,
+    this.medium,
+    this.small,
+    this.extraSmall,
     this.breakpoints = Breakpoints.defaultBreakpoints,
     super.key,
   });
-  final Widget Function(BuildContext context)? desktopLarge;
-  final Widget Function(BuildContext context)? desktop;
-  final Widget Function(BuildContext context)? tablet;
-  final Widget Function(BuildContext context)? watch;
-  final Widget Function(BuildContext context) mobile;
-  final Breakpoints<ScreenSize> breakpoints;
+  final Widget Function(BuildContext context)? extraLarge;
+  final Widget Function(BuildContext context)? large;
+  final Widget Function(BuildContext context)? medium;
+  final Widget Function(BuildContext context)? small;
+  final Widget Function(BuildContext context)? extraSmall;
+  final Breakpoints breakpoints;
 
   @override
   State<ScreenSizeLayoutBuilder> createState() =>

@@ -3,20 +3,19 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:responsive_frame/barrel.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
 class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
   ResponsiveDataChangeNotifier({
     required this.breakpoints,
-    Map<String, BreakpointHandler<Object?, K>> initialHandlers = const {},
+    Map<String, BreakpointsHandler<Object?>> initialHandlers = const {},
   }) : _handlers = initialHandlers;
-  final Breakpoints<K> breakpoints;
-  final Map<String, BreakpointHandler<Object?, K>> _handlers;
+  final BaseBreakpoints<K> breakpoints;
+  final Map<String, BreakpointsHandler<Object?>> _handlers;
 
-  BreakpointHandler<T, K> getHandler<T extends Object>(String key) {
+  BreakpointsHandler<T> getHandler<T extends Object>(String key) {
     if (_handlers.containsKey(key)) {
-      return _handlers[key]! as BreakpointHandler<T, K>;
+      return _handlers[key]! as BreakpointsHandler<T>;
     }
     throw FlutterError(
       'BreakpointsController: No handler found for key: $key. '
@@ -25,7 +24,7 @@ class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
   }
 
   void addAllHandlers<T extends Object>({
-    required Map<String, BreakpointHandler<T, K>> handlers,
+    required Map<String, BreakpointsHandler<T>> handlers,
   }) {
     _handlers.addAll(handlers);
     notifyListeners();
@@ -33,7 +32,7 @@ class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
 
   void addHandler<T extends Object>({
     required String key,
-    required BreakpointHandler<T, K> handler,
+    required BreakpointsHandler<T> handler,
   }) {
     _handlers[key] = handler;
     notifyListeners();
@@ -99,7 +98,8 @@ class ResponsiveData<K extends Enum>
         'ResponsiveData was not found in the widget tree. Make sure to wrap your widget tree with a ResponsiveData.',
       );
     }
-    return result.notifier!.getHandler<T>(key).updateMetrics(size)!;
+
+    return result.notifier!.getHandler<T>(key).getLayoutSizeValue(size);
   }
 
   @override

@@ -5,37 +5,36 @@ import 'package:responsive_frame/responsive_frame.dart';
 /// device width
 class ScreenSizeLayoutGranular extends StatefulWidget {
   const ScreenSizeLayoutGranular({
-    required this.mobileNormal,
-    this.breakpoints = Breakpoints.defaultBreakpointsGranular,
     super.key,
-    this.mobileExtraLarge,
-    this.mobileLarge,
-    this.mobileSmall,
-    this.tabletExtraLarge,
-    this.tabletLarge,
-    this.tabletNormal,
-    this.tabletSmall,
-    this.desktopExtraLarge,
-    this.desktopLarge,
-    this.desktopNormal,
-    this.desktopSmall,
-    this.watch,
+    this.jumboExtraLarge,
+    this.jumboLarge,
+    this.jumboNormal,
+    this.jumboSmall,
+    this.standardExtraLarge,
+    this.standardLarge,
+    this.standardNormal,
+    this.standardSmall,
+    this.compactExtraLarge,
+    this.compactLarge,
+    this.compactNormal,
+    this.compactSmall,
+    this.tiny,
+    this.breakpoints = BreakpointsGranular.defaultBreakpoints,
   });
-  final Widget Function(BuildContext context)? desktopExtraLarge;
-  final Widget Function(BuildContext context)? desktopLarge;
-  final Widget Function(BuildContext context)? desktopNormal;
-  final Widget Function(BuildContext context)? desktopSmall;
-  final Widget Function(BuildContext context)? tabletExtraLarge;
-  final Widget Function(BuildContext context)? tabletLarge;
-  final Widget Function(BuildContext context)? tabletNormal;
-  final Widget Function(BuildContext context)? tabletSmall;
-  final Widget Function(BuildContext context)? mobileExtraLarge;
-  final Widget Function(BuildContext context)? mobileLarge;
-  final Widget Function(BuildContext context) mobileNormal;
-  final Widget Function(BuildContext context)? mobileSmall;
-  final Widget Function(BuildContext context)? watch;
-
-  final Breakpoints<ScreenSizeGranular> breakpoints;
+  final Widget Function(BuildContext context)? jumboExtraLarge;
+  final Widget Function(BuildContext context)? jumboLarge;
+  final Widget Function(BuildContext context)? jumboNormal;
+  final Widget Function(BuildContext context)? jumboSmall;
+  final Widget Function(BuildContext context)? standardExtraLarge;
+  final Widget Function(BuildContext context)? standardLarge;
+  final Widget Function(BuildContext context)? standardNormal;
+  final Widget Function(BuildContext context)? standardSmall;
+  final Widget Function(BuildContext context)? compactExtraLarge;
+  final Widget Function(BuildContext context)? compactLarge;
+  final Widget Function(BuildContext context)? compactNormal;
+  final Widget Function(BuildContext context)? compactSmall;
+  final Widget Function(BuildContext context)? tiny;
+  final BreakpointsGranular breakpoints;
 
   @override
   State<ScreenSizeLayoutGranular> createState() =>

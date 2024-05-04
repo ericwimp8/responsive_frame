@@ -1,80 +1,88 @@
 import 'package:flutter/foundation.dart';
 
+abstract class BaseBreakpoints<T extends Enum> {
+  const BaseBreakpoints();
+  Map<T, double> get values;
+}
+
 @immutable
-class Breakpoints<T extends Enum> {
-  factory Breakpoints.create({
-    required Map<T, double> values,
-  }) {
-    assert(isDescendingOrder<T>(values), 'Values must be in descending order.');
-    return Breakpoints._(
-      values: values,
-    );
-  }
-
-  const Breakpoints._({
-    required this.values,
+class Breakpoints implements BaseBreakpoints<LayoutSize> {
+  const Breakpoints({
+    this.extraLarge = 1200.0,
+    this.large = 950.0,
+    this.medium = 600.0,
+    this.small = 300.0,
+    this.extraSmall = 0.0,
   });
-
-  /// A map that associates screen size types (`T`) with their corresponding breakpoint values (`double`).
-  final Map<T, double> values;
+  final double extraLarge;
+  final double large;
+  final double medium;
+  final double small;
+  final double extraSmall;
 
   /// Default instance of [Breakpoints] for standard screen size breakpoints.
-  static const defaultBreakpoints = Breakpoints._(values: defaultValues);
+  static const defaultBreakpoints = Breakpoints();
 
   /// Default breakpoint values for standard screen sizes.
-  static const defaultValues = {
-    ScreenSize.desktopLarge: 1200.0,
-    ScreenSize.desktop: 950.0,
-    ScreenSize.tablet: 600.0,
-    ScreenSize.mobile: 300.0,
-    ScreenSize.watch: 0.0,
-  };
+  @override
+  Map<LayoutSize, double> get values => {
+        LayoutSize.extraLarge: extraLarge,
+        LayoutSize.large: large,
+        LayoutSize.medium: medium,
+        LayoutSize.small: small,
+        LayoutSize.extraSmall: extraSmall,
+      };
+}
 
-  /// Default instance of [Breakpoints] for more granular screen size breakpoints.
-  static const defaultBreakpointsGranular =
-      Breakpoints._(values: defaultValuesGranular);
+@immutable
+class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
+  const BreakpointsGranular({
+    this.jumboExtraLarge = 4096.0,
+    this.jumboLarge = 3840.0,
+    this.jumboNormal = 2560.0,
+    this.jumboSmall = 1920.0,
+    this.standarExtraLarge = 1280.0,
+    this.standarLarge = 1024.0,
+    this.standarNormal = 768.0,
+    this.standarSmall = 568.0,
+    this.compactExtraLarge = 480.0,
+    this.compactLarge = 420.0,
+    this.compactNormal = 360.0,
+    this.compactSmall = 320.0,
+    this.tiny = 0.0,
+  });
+  final double jumboExtraLarge;
+  final double jumboLarge;
+  final double jumboNormal;
+  final double jumboSmall;
+  final double standarExtraLarge;
+  final double standarLarge;
+  final double standarNormal;
+  final double standarSmall;
+  final double compactExtraLarge;
+  final double compactLarge;
+  final double compactNormal;
+  final double compactSmall;
+  final double tiny;
 
-  /// Default breakpoint values for granular screen sizes.
-  static const defaultValuesGranular = {
-    ScreenSizeGranular.desktopExtraLarge: 4096.0,
-    ScreenSizeGranular.desktopLarge: 3840.0,
-    ScreenSizeGranular.desktopNormal: 2560.0,
-    ScreenSizeGranular.desktopSmall: 1920.0,
-    ScreenSizeGranular.tabletExtraLarge: 1280.0,
-    ScreenSizeGranular.tabletLarge: 1024.0,
-    ScreenSizeGranular.tabletNormal: 768.0,
-    ScreenSizeGranular.tabletSmall: 568.0,
-    ScreenSizeGranular.mobileExtraLarge: 480.0,
-    ScreenSizeGranular.mobileLarge: 420.0,
-    ScreenSizeGranular.mobileNormal: 306.0,
-    ScreenSizeGranular.mobileSmall: 300.0,
-    ScreenSizeGranular.watch: 0.0,
-  };
-
-  /// Checks if the breakpoint values are in descending order.
-  static bool isDescendingOrder<T>(Map<T, double> values) {
-    double? previousValue;
-    for (final value in values.values) {
-      if (previousValue != null && value >= previousValue) {
-        return false;
-      }
-      previousValue = value;
-    }
-    return true;
-  }
+  static const defaultBreakpoints = BreakpointsGranular();
 
   @override
-  String toString() => 'Breakpoints(values: $values)';
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Breakpoints<T> && mapEquals(other.values, values);
-  }
-
-  @override
-  int get hashCode => values.hashCode;
+  Map<LayoutSizeGranular, double> get values => {
+        LayoutSizeGranular.jumboExtraLarge: jumboExtraLarge,
+        LayoutSizeGranular.jumboLarge: jumboLarge,
+        LayoutSizeGranular.jumboNormal: jumboNormal,
+        LayoutSizeGranular.jumboSmall: jumboSmall,
+        LayoutSizeGranular.standardExtraLarge: standarExtraLarge,
+        LayoutSizeGranular.standardLarge: standarLarge,
+        LayoutSizeGranular.standardNormal: standarNormal,
+        LayoutSizeGranular.standardSmall: standarSmall,
+        LayoutSizeGranular.compactExtraLarge: compactExtraLarge,
+        LayoutSizeGranular.compactLarge: compactLarge,
+        LayoutSizeGranular.compactNormal: compactNormal,
+        LayoutSizeGranular.compactSmall: compactSmall,
+        LayoutSizeGranular.tiny: tiny,
+      };
 }
 
 /// Enumerates granular screen size types for more detailed breakpoint handling.
@@ -95,10 +103,34 @@ enum ScreenSizeGranular {
 }
 
 /// Enumerates standard screen size types for basic breakpoint handling.
-enum ScreenSize {
-  desktopLarge,
-  desktop,
-  tablet,
-  mobile,
-  watch,
+// enum ScreenSize {
+//   desktopLarge,
+//   desktop,
+//   tablet,
+//   mobile,
+//   watch,
+// }
+
+enum LayoutSize {
+  extraLarge,
+  large,
+  medium,
+  small,
+  extraSmall,
+}
+
+enum LayoutSizeGranular {
+  jumboExtraLarge,
+  jumboLarge,
+  jumboNormal,
+  jumboSmall,
+  standardExtraLarge,
+  standardLarge,
+  standardNormal,
+  standardSmall,
+  compactExtraLarge,
+  compactLarge,
+  compactNormal,
+  compactSmall,
+  tiny,
 }
