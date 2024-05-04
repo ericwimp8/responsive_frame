@@ -8,8 +8,8 @@ class FrameVerticalEnd extends StatelessWidget {
   const FrameVerticalEnd({
     required this.child,
     super.key,
-    this.maxHeight = kDefaultVerticalEndHeight,
-    this.minHeight = kDefaultVerticalEndHeight,
+    this.maxHeight = kDefaultVerticalMaxHeight,
+    this.minHeight = kDefaultVerticalMinHeight,
   });
   final Widget child;
   final double? maxHeight;
@@ -19,8 +19,8 @@ class FrameVerticalEnd extends StatelessWidget {
     return AnimatedConstrainedBox(
       constraints: BoxConstraints(
         minWidth: double.infinity,
-        maxHeight: maxHeight ?? kDefaultVerticalEndHeight,
-        minHeight: minHeight ?? kDefaultVerticalEndHeight,
+        maxHeight: maxHeight ?? kDefaultVerticalMaxHeight,
+        minHeight: minHeight ?? kDefaultVerticalMinHeight,
       ),
       child: child,
     );

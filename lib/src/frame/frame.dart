@@ -39,7 +39,7 @@ class Frame extends StatelessWidget {
       children: [
         AnimatedShowHide(
           animate: animations,
-          child: top != null
+          child: (context) => top != null
               ? FrameVerticalEnd(
                   maxHeight: dimensions?.topMaxHeight,
                   minHeight: dimensions?.topMinHeight,
@@ -53,7 +53,7 @@ class Frame extends StatelessWidget {
               AnimatedShowHide(
                 axis: Axis.horizontal,
                 animate: animations,
-                child: leftEnd != null &&
+                child: (context) => leftEnd != null &&
                             (dimensions?.leftEndFillVertical ??
                                 kDefaultFillVertical) ||
                         leftEnd != null && leftEndTop != null
@@ -79,7 +79,7 @@ class Frame extends StatelessWidget {
                   children: [
                     AnimatedShowHide(
                       animate: animations,
-                      child: bodyTop != null
+                      child: (context) => bodyTop != null
                           ? FrameVerticalEnd(
                               maxHeight: dimensions?.bodyTopMaxHeight,
                               minHeight: dimensions?.bodyTopMinHeight,
@@ -93,7 +93,7 @@ class Frame extends StatelessWidget {
                           AnimatedShowHide(
                             animate: animations,
                             axis: Axis.horizontal,
-                            child: leftEnd != null &&
+                            child: (context) => leftEnd != null &&
                                     leftEndTop == null &&
                                     !(dimensions?.leftEndFillVertical ??
                                         kDefaultFillVertical)
@@ -101,6 +101,10 @@ class Frame extends StatelessWidget {
                                     top: leftEndTop,
                                     maxWidth: dimensions?.leftEndMaxWidth,
                                     minWidth: dimensions?.leftEndMinWidth,
+                                    topMaxHeight:
+                                        dimensions?.leftEndTopMaxHeight,
+                                    topMinHeight:
+                                        dimensions?.leftEndTopMinHeight,
                                     child: leftEnd!,
                                   )
                                 : null,
@@ -111,11 +115,12 @@ class Frame extends StatelessWidget {
                                 constraints: BoxConstraints(
                                   maxWidth: dimensions?.bodyMaxWidth ??
                                       double.infinity,
+                                  minWidth: dimensions?.bodyMinWidth ?? 0.0,
                                 ),
                                 child: AnimatedShowHide(
                                   axis: Axis.horizontal,
                                   animate: animations,
-                                  child: body,
+                                  child: (context) => body,
                                 ),
                               ),
                             ),
@@ -123,7 +128,7 @@ class Frame extends StatelessWidget {
                           AnimatedShowHide(
                             animate: animations,
                             axis: Axis.horizontal,
-                            child: rightEnd != null &&
+                            child: (context) => rightEnd != null &&
                                     rightEndTop == null &&
                                     !(dimensions?.rightEndFillVertical ??
                                         kDefaultFillVertical)
@@ -140,7 +145,7 @@ class Frame extends StatelessWidget {
                     ),
                     AnimatedShowHide(
                       animate: animations,
-                      child: bodyBottom != null
+                      child: (context) => bodyBottom != null
                           ? FrameVerticalEnd(
                               maxHeight: dimensions?.bodyBottomMaxHeight,
                               minHeight: dimensions?.bodyBottomMinHeight,
@@ -154,7 +159,7 @@ class Frame extends StatelessWidget {
               AnimatedShowHide(
                 animate: animations,
                 axis: Axis.horizontal,
-                child: rightEnd != null &&
+                child: (context) => rightEnd != null &&
                             (dimensions?.rightEndFillVertical ??
                                 kDefaultFillVertical) ||
                         rightEnd != null && rightEndTop != null
@@ -171,7 +176,7 @@ class Frame extends StatelessWidget {
         ),
         AnimatedShowHide(
           animate: animations,
-          child: bottom != null
+          child: (context) => bottom != null
               ? FrameVerticalEnd(
                   maxHeight: dimensions?.bottomMaxHeight,
                   minHeight: dimensions?.bottomMinHeight,

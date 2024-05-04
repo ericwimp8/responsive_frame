@@ -7,15 +7,16 @@ class FrameHorizontalEnd extends StatelessWidget {
     this.top,
     this.maxWidth = kDefaultHorizontalEndWidth,
     this.minWidth = kDefaultHorizontalEndWidth,
-    this.topHeight = kDefaultVerticalEndHeight,
+    this.topMaxHeight = kDefaultVerticalMaxHeight,
+    this.topMinHeight = kDefaultVerticalMinHeight,
     super.key,
   });
   final Widget? top;
   final Widget child;
-
   final double? maxWidth;
   final double? minWidth;
-  final double? topHeight;
+  final double? topMinHeight;
+  final double? topMaxHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +30,10 @@ class FrameHorizontalEnd extends StatelessWidget {
           if (top != null)
             ConstrainedBox(
               constraints: BoxConstraints(
-                maxHeight: topHeight ?? kDefaultVerticalEndHeight,
-                minHeight: topHeight ?? kDefaultVerticalEndHeight,
-                minWidth: double.infinity,
+                maxHeight: topMaxHeight ?? kDefaultVerticalMaxHeight,
+                minHeight: topMinHeight ?? kDefaultVerticalMinHeight,
               ),
-              child: top,
+              child: AnimatedShowHide(child: (context) => top),
             ),
           Expanded(child: child),
         ],
