@@ -1,31 +1,29 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import 'package:responsive_frame/responsive_frame.dart';
 
 class SearchInput extends StatefulWidget {
   const SearchInput({
+    required this.controller,
     super.key,
     this.onChanged,
-    this.controller,
+    this.onTap,
+    this.focusNode,
+    this.onClear,
   });
   final ValueChanged<String>? onChanged;
-  final TextEditingController? controller;
+  final VoidCallback? onClear;
+  final TextEditingController controller;
+  final VoidCallback? onTap;
+  final FocusNode? focusNode;
   @override
   State<SearchInput> createState() => _SearchInputState();
 }
 
 class _SearchInputState extends State<SearchInput> {
-  late final TextEditingController controller;
-
-  @override
-  void initState() {
-    controller = widget.controller ?? TextEditingController();
-    super.initState();
-  }
-
   void _clear() {
-    widget.onChanged?.call('');
-    controller.clear();
+    widget.onClear?.call();
   }
 
   void onChanged(String value) {
@@ -38,15 +36,17 @@ class _SearchInputState extends State<SearchInput> {
     return Material(
       type: MaterialType.transparency,
       child: TextField(
-        controller: controller,
-        onChanged: widget.onChanged,
+        focusNode: widget.focusNode,
+        onTap: widget.onTap,
+        controller: widget.controller,
+        onChanged: onChanged,
         decoration: InputDecoration(
           prefixIcon: Icon(Symbols.search, color: theme.colorScheme.primary),
           hintText: 'Search',
           hintStyle: theme.textTheme.titleMedium
               ?.copyWith(color: theme.colorScheme.onSurface.withOpacity(0.7)),
-          suffixIcon: AppAnimatedSwitcherScale(
-            child: controller.text.isEmpty
+          suffixIcon: AnimatedSwitcherScaleFade(
+            child: widget.controller.text.isEmpty
                 ? const SizedBox()
                 : Padding(
                     padding: const EdgeInsets.only(right: 8),

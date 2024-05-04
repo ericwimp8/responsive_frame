@@ -8,7 +8,7 @@ class SuperheroListWrapper extends StatefulWidget {
     super.key,
     this.isFiltered = false,
   });
-  final ValueWidgetBuilder<List<Superhero>> builder;
+  final Widget Function(List<Superhero> items) builder;
   final bool isFiltered;
 
   @override
@@ -19,7 +19,7 @@ class _SuperheroListWrapperState extends State<SuperheroListWrapper> {
   @override
   Widget build(BuildContext context) {
     return Selector<WithValueUpdate<SuperheroState>, List<Superhero>>(
-      builder: widget.builder,
+      builder: (__, value, _) => widget.builder(value),
       selector: (
         context,
         value,

@@ -1,8 +1,6 @@
 import 'package:example/barrel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:responsive_frame/barrel.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 import 'package:with_value/with_value.dart';
 
@@ -23,7 +21,6 @@ class _SuperheroDashboardState extends State<SuperheroDashboard> {
 class _Dashboard extends StatelessWidget {
   const _Dashboard();
   @override
-  final key = const ValueKey('testket');
   @override
   Widget build(BuildContext context) {
     return SuperheroDataWrapper(
@@ -44,53 +41,29 @@ class _Dashboard extends StatelessWidget {
           return ResponsiveFrameLayout(
             persistentFrameConfig: const FrameConfig(
               dimensions: DimensionsConfig(
-                bodyTopMaxHeight: double.infinity,
-                bodyTopMinHeight: 0,
-                bodyBottomMaxHeight: double.infinity,
-                bodyBottomMinHeight: 0,
                 bodyMaxWidth: double.infinity,
               ),
             ),
-            mobile: (context) {
-              return FrameConfig(
-                dimensions: const DimensionsConfig(
+            small: (context) {
+              return const FrameConfig(
+                dimensions: DimensionsConfig(
                   rightEndFillVertical: false,
                   rightEndMaxWidth: 230,
                   rightEndMinWidth: 230,
                   leftEndMaxWidth: 250,
                   bodyMaxWidth: double.infinity,
                 ),
-                bodyTop: Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-                  child: IntrinsicHeight(
-                    child: Row(
-                      children: [
-                        MenuDrawerButton(key: key),
-                        const Gap(8),
-                        const Flexible(child: HeroSearch()),
-                      ],
-                    ),
-                  ),
-                ),
-
-                // leftEnd: const Menu(),
-                body: const Padding(
+                bodyTop: SearchHeader(),
+                body: Padding(
                   padding: EdgeInsets.all(8),
                   child: Body(crossAxisCount: 2),
                 ),
-                // bodyBottom: Padding(
-                //   padding: EdgeInsets.fromLTRB(8, 0, 8, 8),
-                //   child: NavigationButtons(),
-                // ),
               );
             },
-            tablet: (context) {
+            medium: (context) {
               return FrameConfig(
                 bodyTop: location != SuperheroeDashboardLocation.overview
-                    ? const Padding(
-                        padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
-                        child: HeroSearch(),
-                      )
+                    ? const SearchHeader()
                     : null,
                 bodyBottom: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
@@ -99,7 +72,7 @@ class _Dashboard extends StatelessWidget {
                       children: [
                         MenuDrawerButton(key: key),
                         const Gap(8),
-                        const Flexible(
+                        const Expanded(
                           child: NavigationButtons(),
                         ),
                       ],
@@ -126,7 +99,7 @@ class _Dashboard extends StatelessWidget {
                 ),
               );
             },
-            desktop: (context) {
+            large: (context) {
               return FrameConfig(
                 bodyTop: location != SuperheroeDashboardLocation.overview
                     ? const Padding(
@@ -155,7 +128,7 @@ class _Dashboard extends StatelessWidget {
                 ),
               );
             },
-            desktopLarge: (context) {
+            extraLarge: (context) {
               return FrameConfig(
                 bodyTop: location != SuperheroeDashboardLocation.overview
                     ? const Padding(
@@ -202,23 +175,23 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   Widget _buildBody(SuperheroeDashboardLocation location) => switch (location) {
-        SuperheroeDashboardLocation.all => SuperheroList(
+        SuperheroeDashboardLocation.all => SuperheroGrid(
             crossAxisCount: widget.crossAxisCount,
             key: const ValueKey(SuperheroeDashboardLocation.all),
           ),
-        SuperheroeDashboardLocation.villains => SuperheroList(
+        SuperheroeDashboardLocation.villains => SuperheroGrid(
             crossAxisCount: widget.crossAxisCount,
             key: const ValueKey(SuperheroeDashboardLocation.villains),
           ),
-        SuperheroeDashboardLocation.superheroes => SuperheroList(
+        SuperheroeDashboardLocation.superheroes => SuperheroGrid(
             crossAxisCount: widget.crossAxisCount,
             key: const ValueKey(SuperheroeDashboardLocation.superheroes),
           ),
-        SuperheroeDashboardLocation.masterMinds => SuperheroList(
+        SuperheroeDashboardLocation.masterMinds => SuperheroGrid(
             crossAxisCount: widget.crossAxisCount,
             key: const ValueKey(SuperheroeDashboardLocation.masterMinds),
           ),
-        SuperheroeDashboardLocation.battleHardened => SuperheroList(
+        SuperheroeDashboardLocation.battleHardened => SuperheroGrid(
             crossAxisCount: widget.crossAxisCount,
             key: const ValueKey(SuperheroeDashboardLocation.battleHardened),
           ),
@@ -242,10 +215,10 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    return AppAnimatedSwitcherScale(
-      duration: kDefaultAnimationDurationLong,
-      reverseDuration: kDefaultAnimationDurationLong,
-      begin: 0.9,
+    return AnimatedSwitcherScaleFade(
+      duration: const Duration(milliseconds: 300),
+      reverseDuration: const Duration(milliseconds: 300),
+      scaleBegin: 0.9,
       child: _buildBody(currentLocation!),
     );
   }
@@ -260,19 +233,19 @@ class DesktopLargeBody extends StatefulWidget {
 
 class _DesktopLargeBodyState extends State<DesktopLargeBody> {
   Widget _buildBody(SuperheroeDashboardLocation location) => switch (location) {
-        SuperheroeDashboardLocation.all => const SuperheroList(
+        SuperheroeDashboardLocation.all => const SuperheroGrid(
             key: ValueKey(SuperheroeDashboardLocation.all),
           ),
-        SuperheroeDashboardLocation.villains => const SuperheroList(
+        SuperheroeDashboardLocation.villains => const SuperheroGrid(
             key: ValueKey(SuperheroeDashboardLocation.villains),
           ),
-        SuperheroeDashboardLocation.superheroes => const SuperheroList(
+        SuperheroeDashboardLocation.superheroes => const SuperheroGrid(
             key: ValueKey(SuperheroeDashboardLocation.superheroes),
           ),
-        SuperheroeDashboardLocation.masterMinds => const SuperheroList(
+        SuperheroeDashboardLocation.masterMinds => const SuperheroGrid(
             key: ValueKey(SuperheroeDashboardLocation.masterMinds),
           ),
-        SuperheroeDashboardLocation.battleHardened => const SuperheroList(
+        SuperheroeDashboardLocation.battleHardened => const SuperheroGrid(
             key: ValueKey(SuperheroeDashboardLocation.battleHardened),
           ),
         _ => const SuperheroDesktopLargeOverviewBody(),
@@ -293,11 +266,44 @@ class _DesktopLargeBodyState extends State<DesktopLargeBody> {
 
   @override
   Widget build(BuildContext context) {
-    return AppAnimatedSwitcherScale(
-      duration: kDefaultAnimationDurationLong,
-      reverseDuration: kDefaultAnimationDurationLong,
-      begin: 0.9,
+    return AnimatedSwitcherScaleFade(
+      duration: const Duration(milliseconds: 300),
+      reverseDuration: const Duration(milliseconds: 300),
+      scaleBegin: 0.9,
       child: _buildBody(currentLocation!),
+    );
+  }
+}
+
+class SearchHeader extends StatelessWidget {
+  const SearchHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final routerState = GoRouterState.of(context);
+    final location =
+        getRouteLocation(SuperheroeDashboardLocation.values, routerState);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+      child: IntrinsicHeight(
+        child: Row(
+          children: [
+            ResponsiveWidget(
+              small: true,
+              child: const Row(
+                children: [
+                  MenuDrawerButton(),
+                  Gap(8),
+                ],
+              ),
+            ),
+            if (location != SuperheroeDashboardLocation.overview)
+              const Flexible(child: HeroSearch())
+            else
+              const Flexible(child: MobileSearchOverlay()),
+          ],
+        ),
+      ),
     );
   }
 }

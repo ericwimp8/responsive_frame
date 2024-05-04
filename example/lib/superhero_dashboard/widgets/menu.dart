@@ -43,7 +43,7 @@ class _MenuState extends State<Menu> {
                       child:
                           Text('DASHBOARDS', style: theme.textTheme.titleSmall),
                     ),
-                    AppAnimatedSwitcherSizeFade(
+                    AnimatedSwitcherSizeFade(
                       child: location == SuperheroeDashboardLocation.overview
                           ? MenuTile(
                               selected: true,

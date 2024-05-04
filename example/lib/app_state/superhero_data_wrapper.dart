@@ -5,14 +5,15 @@ import 'package:with_value/with_value.dart';
 class SuperheroDataWrapper extends StatelessWidget {
   const SuperheroDataWrapper({
     required this.child,
+    this.state,
     super.key,
   });
   final WidgetBuilder child;
-
+  final SuperheroState? state;
   @override
   Widget build(BuildContext context) {
     return WithValueUpdate(
-      notifier: SuperheroState(),
+      notifier: state ?? SuperheroState(),
       child: Builder(builder: child),
     );
   }

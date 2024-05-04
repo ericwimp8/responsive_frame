@@ -1,156 +1,103 @@
-import 'dart:ui';
-
 import 'package:example/barrel.dart';
-import 'package:example/core/text_no_overflow.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:with_value/with_value.dart';
+import 'package:responsive_frame/responsive_frame.dart';
 
-class SuperheroList extends StatefulWidget {
-  const SuperheroList({super.key, this.crossAxisCount = 5});
-  final int crossAxisCount;
-  @override
-  State<SuperheroList> createState() => _SuperheroListState();
-}
+class SuperheroList extends StatelessWidget {
+  const SuperheroList({
+    required this.onChanged,
+    required this.onFocus,
+    required this.selectedHero,
+    required this.isFiltered,
+    super.key,
+  });
 
-class _SuperheroListState extends State<SuperheroList> {
-  void selectHero(int id) {
-    GoRouter.of(context).go(
-      '${RoutePaths.superHeroDashBoard}/${SuperheroeDashboardLocation.overview.name}/$id',
-    );
-  }
-
-  HeroFilter? heroFilter;
-
-  @override
-  void didChangeDependencies() {
-    if (heroFilter == null) {
-      final routerState = GoRouterState.of(context);
-      final state = WithValueUpdate.of<SuperheroState>(context);
-      final location =
-          getRouteLocation(SuperheroeDashboardLocation.values, routerState);
-      final heroFilter = state.getFilterFromLocation(location);
-
-      this.heroFilter = heroFilter;
-      Future(() {
-        state.searchAndFilter(heroFilter: heroFilter);
-      });
-    }
-    super.didChangeDependencies();
-  }
+  final Superhero selectedHero;
+  final ValueChanged<int> onChanged;
+  final ValueChanged<int> onFocus;
+  final bool isFiltered;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return SuperheroListWrapper(
-      isFiltered: true,
-      builder: (context, value, child) => Material(
-        child: GridView.builder(
-          itemCount: value.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: widget.crossAxisCount,
-            mainAxisSpacing: 16,
-            crossAxisSpacing: 16,
-          ),
-          itemBuilder: (context, index) {
-            final superhero = value[index];
-            return GestureDetector(
-              onTap: () => selectHero(superhero.id),
-              child: _ProfileImage(
-                theme: theme,
-                provider: AssetImage(superhero.images.sm),
-                superhero: superhero,
+      isFiltered: isFiltered,
+      builder: (items) {
+        return Align(
+          child: AnimatedSwitcherSlideFade(
+            slideBegin: const Offset(0, 0.03),
+            duration: const Duration(milliseconds: 300),
+            child: Material(
+              key: ValueKey(items.length),
+              child: ListView.builder(
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  final superhero = items[index];
+                  final selected = superhero == selectedHero;
+                  return SuperheroTile(
+                    superHero: superhero,
+                    selected: selected,
+                    index: index,
+                    theme: theme,
+                    onChanged: () => onChanged(superhero.id),
+                    onFocus: () => onFocus(superhero.id),
+                  );
+                },
               ),
-            );
-          },
-        ),
-      ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
 
-class _ProfileImage extends StatelessWidget {
-  const _ProfileImage({
+class SuperheroTile extends StatefulWidget {
+  const SuperheroTile({
+    required this.superHero,
+    required this.selected,
+    required this.index,
     required this.theme,
-    required this.provider,
-    required this.superhero,
-    // ignore: unused_element
+    required this.onChanged,
+    required this.onFocus,
     super.key,
   });
-
+  final Superhero superHero;
+  final bool selected;
+  final int index;
   final ThemeData theme;
-  final AssetImage? provider;
-  final Superhero superhero;
+  final VoidCallback onChanged;
+  final void Function() onFocus;
+
+  @override
+  State<SuperheroTile> createState() => _SuperheroTileState();
+}
+
+class _SuperheroTileState extends State<SuperheroTile> {
+  bool hasFocus = false;
+
+  void onFocus(bool value) {
+    setState(() {
+      hasFocus = value;
+    });
+    if (value) {
+      widget.onFocus();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
-        side: BorderSide(
-          width: 3,
-          color: theme.colorScheme.surface.withOpacity(0.5),
-        ),
-      ),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            alignment: Alignment.bottomCenter,
-            fit: BoxFit.cover,
-            image: provider!,
-          ),
-        ),
-        child: BackdropFilter(
-          blendMode: BlendMode.src,
-          filter: ImageFilter.blur(
-            sigmaX: 12,
-            sigmaY: 12,
-          ),
-          child: Align(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(12, 16, 12, 8),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Material(
-                      elevation: 20,
-                      shadowColor: Colors.black,
-                      clipBehavior: Clip.antiAlias,
-                      shape: BeveledRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                        side: BorderSide(
-                          color: theme.colorScheme.surface.withOpacity(0.5),
-                          width: 2,
-                        ),
-                      ),
-                      child: AspectRatio(
-                        aspectRatio: 0.8,
-                        child: Image(
-                          fit: BoxFit.cover,
-                          image: provider!,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const Padding(padding: EdgeInsets.all(6)),
-                  TextNoOverflow(
-                    superhero.name.toUpperCase(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      height: 0,
-                      fontSize: 15,
-                      fontFamily: 'JosefinSans',
-                      fontVariations: <FontVariation>[
-                        FontVariation('wght', 400),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+    return ListTile(
+      focusColor: widget.theme.colorScheme.secondary,
+      onFocusChange: onFocus,
+      selected: widget.selected,
+      textColor: hasFocus
+          ? widget.theme.colorScheme.onSecondary
+          : widget.theme.colorScheme.onSurface,
+      onTap: () => widget.onChanged(),
+      shape: const RoundedRectangleBorder(),
+      title: TextNoOverflow(
+        widget.superHero.name,
+        textAlign: TextAlign.left,
       ),
     );
   }

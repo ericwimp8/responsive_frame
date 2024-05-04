@@ -1,5 +1,6 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_frame/responsive_frame.dart';
 
 class SuperHeroOverview extends StatefulWidget {
   const SuperHeroOverview({super.key});
@@ -13,9 +14,9 @@ class _SuperHeroOverviewState extends State<SuperHeroOverview> {
   Widget build(BuildContext context) {
     return SelectedSuperheroWrapper(
       builder: (context, hero) {
-        return AppAnimatedSwitcherSlideFade(
+        return AnimatedSwitcherSlideFade(
           duration: const Duration(milliseconds: 200),
-          begin: const Offset(0, 0.1),
+          slideBegin: const Offset(0, 0.1),
           child: _Overview(
             key: ObjectKey(hero),
             selectedHero: hero,

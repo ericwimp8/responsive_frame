@@ -125,7 +125,7 @@ class SuperheroState with ChangeNotifier {
   }
 
   Iterable<Superhero> _search(String value, Iterable<Superhero> items) {
-    if (_data.search.isEmpty) return items;
+    if (value.isEmpty) return items;
     return items.where((element) => element.name.toLowerCase().contains(value));
   }
 
@@ -171,6 +171,7 @@ class SuperheroState with ChangeNotifier {
       heroFilter: heroFilter ?? _data.heroFilter,
       superheroListFiltered: searched.toList(),
     );
+
     notifyListeners();
   }
 }
