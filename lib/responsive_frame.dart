@@ -1,7 +1,14 @@
 export 'responsive_frame.dart';
 export 'src/animated_constrained_box.dart';
 export 'src/animations/animated_show_hide.dart';
+export 'src/animations/animated_switcher_scale_fade.dart';
+export 'src/animations/animated_switcher_size_fade.dart';
+export 'src/animations/animated_switcher_slide_fade.dart';
+export 'src/animations/animation_constants.dart';
+export 'src/animations/responsive_widget.dart';
+export 'src/animations/scale_fade_transition.dart';
 export 'src/animations/size_fade_transition.dart';
+export 'src/animations/slide_fade_transition.dart';
 export 'src/breakpoints/breakpoints.dart';
 export 'src/breakpoints/breakpoints_handler.dart';
 export 'src/frame/constants.dart';

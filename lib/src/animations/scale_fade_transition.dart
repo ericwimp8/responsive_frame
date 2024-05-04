@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/src/animations/animation_constants.dart';
 
-class SizeFadeTransition extends StatelessWidget {
-  const SizeFadeTransition({
+class ScaleFadeTransition extends StatelessWidget {
+  const ScaleFadeTransition({
     required this.animation,
     required this.child,
+    this.scaleAlignment = Alignment.center,
     this.fadeBegin = kDefaultAnimationBeign,
     this.fadeEnd = kDefaultAnimationEnd,
     this.fadeCurve = kDefaultAnimationCurve,
-    this.sizeBegin = kDefaultAnimationBeign,
-    this.sizeEnd = kDefaultAnimationEnd,
-    this.sizeCurve = kDefaultAnimationCurve,
-    this.sizeAxis = Axis.vertical,
-    this.sizeAxisAlignment = -1,
+    this.scaleBegin = kDefaultAnimationBeign,
+    this.scaleEnd = kDefaultAnimationEnd,
+    this.scaleCurve = kDefaultAnimationCurve,
     super.key,
   });
+
   final Animation<double> animation;
   final Widget child;
+  final Alignment scaleAlignment;
   final double fadeBegin;
   final double fadeEnd;
   final Curve fadeCurve;
-  final double sizeBegin;
-  final double sizeEnd;
-  final Curve sizeCurve;
-  final Axis sizeAxis;
-  final double sizeAxisAlignment;
+  final double scaleBegin;
+  final double scaleEnd;
+  final Curve scaleCurve;
 
   @override
   Widget build(BuildContext context) {
@@ -35,21 +34,20 @@ class SizeFadeTransition extends StatelessWidget {
       ).animate(
         CurvedAnimation(
           parent: animation,
-          curve: fadeCurve,
+          curve: scaleCurve,
         ),
       ),
-      child: SizeTransition(
-        axisAlignment: sizeAxisAlignment,
-        sizeFactor: Tween<double>(
-          begin: sizeBegin,
-          end: sizeEnd,
+      child: ScaleTransition(
+        alignment: scaleAlignment,
+        scale: Tween<double>(
+          begin: scaleBegin,
+          end: scaleEnd,
         ).animate(
           CurvedAnimation(
             parent: animation,
-            curve: sizeCurve,
+            curve: fadeCurve,
           ),
         ),
-        axis: sizeAxis,
         child: child,
       ),
     );

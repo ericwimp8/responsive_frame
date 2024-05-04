@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/src/animations/animation_constants.dart';
 
-class SizeFadeTransition extends StatelessWidget {
-  const SizeFadeTransition({
-    required this.animation,
+class SlideFadeTransition extends StatelessWidget {
+  const SlideFadeTransition({
     required this.child,
+    required this.animation,
     this.fadeBegin = kDefaultAnimationBeign,
     this.fadeEnd = kDefaultAnimationEnd,
     this.fadeCurve = kDefaultAnimationCurve,
-    this.sizeBegin = kDefaultAnimationBeign,
-    this.sizeEnd = kDefaultAnimationEnd,
-    this.sizeCurve = kDefaultAnimationCurve,
-    this.sizeAxis = Axis.vertical,
-    this.sizeAxisAlignment = -1,
+    this.slideBegin = const Offset(0, 0.3),
+    this.slideEnd = Offset.zero,
+    this.slideCurve = kDefaultAnimationCurve,
     super.key,
   });
-  final Animation<double> animation;
+
   final Widget child;
+  final Animation<double> animation;
+  final Offset slideBegin;
+  final Offset slideEnd;
   final double fadeBegin;
   final double fadeEnd;
   final Curve fadeCurve;
-  final double sizeBegin;
-  final double sizeEnd;
-  final Curve sizeCurve;
-  final Axis sizeAxis;
-  final double sizeAxisAlignment;
+  final Curve slideCurve;
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +35,16 @@ class SizeFadeTransition extends StatelessWidget {
           curve: fadeCurve,
         ),
       ),
-      child: SizeTransition(
-        axisAlignment: sizeAxisAlignment,
-        sizeFactor: Tween<double>(
-          begin: sizeBegin,
-          end: sizeEnd,
+      child: SlideTransition(
+        position: Tween<Offset>(
+          begin: slideBegin,
+          end: slideEnd,
         ).animate(
           CurvedAnimation(
             parent: animation,
-            curve: sizeCurve,
+            curve: slideCurve,
           ),
         ),
-        axis: sizeAxis,
         child: child,
       ),
     );

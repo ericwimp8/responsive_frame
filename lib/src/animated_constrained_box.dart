@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
+import 'package:responsive_frame/src/animations/animation_constants.dart';
 
 class AnimatedConstrainedBox extends ImplicitlyAnimatedWidget {
   /// Creates a container that animates its parameters implicitly.
