@@ -63,11 +63,11 @@ class ResponsiveWidget extends StatelessWidget {
     return AnimatedShowHide(
       animate: animate,
       duration: duration,
-      transiationBuilder: transiationBuilder,
+      transitionBuilder: transiationBuilder,
       axis: axis,
       curve: curve,
       axisAlignment: axisAlignment,
-      child: (context) => showChild ? child : null,
+      child: showChild ? child : null,
     );
   }
 }
@@ -169,11 +169,11 @@ class ResponsiveWidgetGranular extends StatelessWidget {
     return AnimatedShowHide(
       animate: animate,
       duration: duration,
-      transiationBuilder: transiationBuilder,
+      transitionBuilder: transiationBuilder,
       axis: axis,
       curve: curve,
       axisAlignment: axisAlignment,
-      child: (context) => showChild ? child : null,
+      child: showChild ? child : null,
     );
   }
 }

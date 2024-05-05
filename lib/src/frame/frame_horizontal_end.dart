@@ -33,7 +33,7 @@ class FrameHorizontalEnd extends StatelessWidget {
                 maxHeight: topMaxHeight ?? kDefaultVerticalMaxHeight,
                 minHeight: topMinHeight ?? kDefaultVerticalMinHeight,
               ),
-              child: AnimatedShowHide(child: (context) => top),
+              child: AnimatedShowHide(child: top),
             ),
           Expanded(child: child),
         ],

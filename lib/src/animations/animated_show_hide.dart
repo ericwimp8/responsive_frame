@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 class AnimatedShowHide extends StatelessWidget {
   const AnimatedShowHide({
-    required this.child,
+    this.child,
     this.animate = true,
     this.duration = const Duration(milliseconds: 180),
     this.curve = Curves.ease,
     this.axis = Axis.vertical,
     this.axisAlignment = -1,
-    this.transiationBuilder,
+    this.transitionBuilder,
     super.key,
   });
   final bool animate;
   final Duration duration;
-  final Widget? Function(BuildContext context) child;
+  final Widget? child;
   final Curve curve;
   final Axis axis;
   final double axisAlignment;
@@ -21,16 +21,16 @@ class AnimatedShowHide extends StatelessWidget {
     BuildContext context,
     Animation<double> animation,
     Widget? child,
-  )? transiationBuilder;
+  )? transitionBuilder;
 
   Widget buildAnimationWidget(BuildContext context) {
     return _AnimatedShowHide(
-      transiationBuilder: transiationBuilder,
+      transiationBuilder: transitionBuilder,
       duration: duration,
       curve: curve,
       axis: axis,
       axisAlignment: axisAlignment,
-      child: child(context),
+      child: child,
     );
   }
 
@@ -39,13 +39,13 @@ class AnimatedShowHide extends StatelessWidget {
     if (animate) {
       return buildAnimationWidget(context);
     }
-    return child(context) ?? const SizedBox();
+    return child ?? const SizedBox();
   }
 }
 
 class _AnimatedShowHide extends StatefulWidget {
   const _AnimatedShowHide({
-    required this.child,
+    this.child,
     this.duration = const Duration(milliseconds: 180),
     this.curve = Curves.ease,
     this.axis = Axis.vertical,
@@ -76,7 +76,9 @@ class _AnimatedShowHideState extends State<_AnimatedShowHide>
 
   void _listener() {
     if (_controller?.isDismissed ?? false) {
-      _outGoingChild = const SizedBox();
+      setState(() {
+        _outGoingChild = const SizedBox();
+      });
     }
   }
 
