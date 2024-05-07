@@ -1,9 +1,9 @@
+import 'package:animated_switcher_wrapper/animated_switcher_wrapper.dart';
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
-import 'package:responsive_frame/responsive_frame.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});

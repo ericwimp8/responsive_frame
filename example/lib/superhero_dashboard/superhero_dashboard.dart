@@ -1,3 +1,4 @@
+import 'package:animated_switcher_wrapper/animated_switcher_wrapper.dart';
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

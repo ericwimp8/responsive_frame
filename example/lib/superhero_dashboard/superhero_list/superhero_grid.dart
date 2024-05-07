@@ -1,9 +1,9 @@
 import 'dart:ui';
 
+import 'package:animated_switcher_wrapper/animated_switcher_wrapper.dart';
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:responsive_frame/responsive_frame.dart';
 import 'package:with_value/with_value.dart';
 
 class SuperheroGrid extends StatefulWidget {

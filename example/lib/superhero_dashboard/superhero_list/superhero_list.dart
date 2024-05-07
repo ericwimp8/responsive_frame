@@ -1,6 +1,6 @@
+import 'package:animated_switcher_wrapper/animated_switcher_wrapper.dart';
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_frame/responsive_frame.dart';
 
 class SuperheroList extends StatelessWidget {
   const SuperheroList({
