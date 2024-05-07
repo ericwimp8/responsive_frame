@@ -32,6 +32,32 @@ class Breakpoints implements BaseBreakpoints<LayoutSize> {
         LayoutSize.small: small,
         LayoutSize.extraSmall: extraSmall,
       };
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is Breakpoints &&
+        other.extraLarge == extraLarge &&
+        other.large == large &&
+        other.medium == medium &&
+        other.small == small &&
+        other.extraSmall == extraSmall;
+  }
+
+  @override
+  int get hashCode {
+    return extraLarge.hashCode ^
+        large.hashCode ^
+        medium.hashCode ^
+        small.hashCode ^
+        extraSmall.hashCode;
+  }
+
+  @override
+  String toString() {
+    return 'Breakpoints(extraLarge: $extraLarge, large: $large, medium: $medium, small: $small, extraSmall: $extraSmall)';
+  }
 }
 
 @immutable
