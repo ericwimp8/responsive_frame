@@ -59,7 +59,7 @@ class _AnimatedShowHide extends StatefulWidget {
   final Curve curve;
   final Axis axis;
   final double axisAlignment;
-  final Widget Function(
+  final Widget? Function(
     BuildContext context,
     Animation<double> animation,
     Widget? child,
@@ -105,14 +105,29 @@ class _AnimatedShowHideState extends State<_AnimatedShowHide>
 
   @override
   void didUpdateWidget(covariant _AnimatedShowHide oldWidget) {
-    if (oldWidget.child != null) {
-      _outGoingChild = oldWidget.child ?? const SizedBox();
-    }
-
-    if (widget.child == null) {
-      _controller?.reverse();
+    if (widget.transiationBuilder == null) {
+      if (oldWidget.child != null) {
+        _outGoingChild = oldWidget.child ?? const SizedBox();
+      }
+      if (widget.child == null) {
+        _controller?.reverse();
+      } else {
+        _controller?.forward();
+      }
     } else {
-      _controller?.forward();
+      if (oldWidget.transiationBuilder
+              ?.call(context, _animation, widget.child) !=
+          null) {
+        _outGoingChild = oldWidget.transiationBuilder
+                ?.call(context, _animation, widget.child) ??
+            const SizedBox();
+      }
+      if (widget.transiationBuilder?.call(context, _animation, widget.child) ==
+          null) {
+        _controller?.reverse();
+      } else {
+        _controller?.forward();
+      }
     }
 
     super.didUpdateWidget(oldWidget);
@@ -122,10 +137,11 @@ class _AnimatedShowHideState extends State<_AnimatedShowHide>
   Widget build(BuildContext context) {
     if (widget.transiationBuilder != null) {
       return widget.transiationBuilder!(
-        context,
-        _animation,
-        widget.child ?? _outGoingChild,
-      );
+            context,
+            _animation,
+            widget.child,
+          ) ??
+          _outGoingChild;
     }
     return SizeTransition(
       sizeFactor: _animation,

@@ -4,7 +4,7 @@ import 'package:responsive_frame/responsive_frame.dart';
 class ResponsiveWidget extends StatelessWidget {
   ResponsiveWidget({
     required this.child,
-    this.extralarge = false,
+    this.extraLarge = false,
     this.large = false,
     this.medium = false,
     this.small = false,
@@ -19,7 +19,7 @@ class ResponsiveWidget extends StatelessWidget {
     this.animate = true,
     super.key,
   }) : assert(
-            extralarge != null ||
+            extraLarge != null ||
                 large != null ||
                 medium != null ||
                 small != null ||
@@ -28,7 +28,7 @@ class ResponsiveWidget extends StatelessWidget {
             'has to be provided');
   final Widget child;
   final Breakpoints? breakpoints;
-  final bool? extralarge;
+  final bool? extraLarge;
   final bool? large;
   final bool? medium;
   final bool? small;
@@ -47,7 +47,7 @@ class ResponsiveWidget extends StatelessWidget {
 
   late final BreakpointsHandler<bool> handler = BreakpointsHandler<bool>(
     breakpoints: breakpoints ?? Breakpoints.defaultBreakpoints,
-    extraLarge: extralarge,
+    extraLarge: extraLarge,
     large: large,
     medium: medium,
     small: small,
