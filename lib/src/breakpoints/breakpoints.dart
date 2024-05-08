@@ -109,6 +109,48 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
         LayoutSizeGranular.compactSmall: compactSmall,
         LayoutSizeGranular.tiny: tiny,
       };
+
+  @override
+  String toString() {
+    return 'BreakpointsGranular(jumboExtraLarge: $jumboExtraLarge, jumboLarge: $jumboLarge, jumboNormal: $jumboNormal, jumboSmall: $jumboSmall, standarExtraLarge: $standarExtraLarge, standarLarge: $standarLarge, standarNormal: $standarNormal, standarSmall: $standarSmall, compactExtraLarge: $compactExtraLarge, compactLarge: $compactLarge, compactNormal: $compactNormal, compactSmall: $compactSmall, tiny: $tiny)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is BreakpointsGranular &&
+        other.jumboExtraLarge == jumboExtraLarge &&
+        other.jumboLarge == jumboLarge &&
+        other.jumboNormal == jumboNormal &&
+        other.jumboSmall == jumboSmall &&
+        other.standarExtraLarge == standarExtraLarge &&
+        other.standarLarge == standarLarge &&
+        other.standarNormal == standarNormal &&
+        other.standarSmall == standarSmall &&
+        other.compactExtraLarge == compactExtraLarge &&
+        other.compactLarge == compactLarge &&
+        other.compactNormal == compactNormal &&
+        other.compactSmall == compactSmall &&
+        other.tiny == tiny;
+  }
+
+  @override
+  int get hashCode {
+    return jumboExtraLarge.hashCode ^
+        jumboLarge.hashCode ^
+        jumboNormal.hashCode ^
+        jumboSmall.hashCode ^
+        standarExtraLarge.hashCode ^
+        standarLarge.hashCode ^
+        standarNormal.hashCode ^
+        standarSmall.hashCode ^
+        compactExtraLarge.hashCode ^
+        compactLarge.hashCode ^
+        compactNormal.hashCode ^
+        compactSmall.hashCode ^
+        tiny.hashCode;
+  }
 }
 
 /// Enumerates granular screen size types for more detailed breakpoint handling.
