@@ -19,6 +19,24 @@ typedef AnimatedShowHideTransitionBuilder = Widget Function(
 /// axis alignment, and a custom transition builder function.
 ///
 /// It can be used to smoothly animate the appearance and disappearance of a child widget within a parent widget.
+///
+/// ## Example
+///
+/// ```dart
+/// AnimatedShowHide(
+///   child: Text('Hello, World!'),
+///   duration: Duration(seconds: 1),
+///   curve: Curves.easeInOut,
+///   axis: Axis.vertical,
+///   axisAlignment: 0.5,
+///   transitionBuilder: (context, animation, child) {
+///     return FadeTransition(
+///       opacity: animation,
+///       child: child,
+///     );
+///   },
+/// )
+/// ```
 class AnimatedShowHide extends StatelessWidget {
   const AnimatedShowHide({
     this.child,
