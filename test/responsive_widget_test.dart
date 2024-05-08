@@ -715,14 +715,3 @@ void main() {
     });
   });
 }
-//X// Test that the widget renders correctly with each of the extralarge, large, medium, small, and extraSmall properties set to true.
-//X// Test that the widget renders correctly with all of the extralarge, large, medium, small, and extraSmall properties set to false.
-//X// Test that the widget renders correctly with a custom breakpoints object.
-//X// Test that the widget renders correctly with useShortestSide set to true.
-//X// Test that the widget renders correctly with useShortestSide set to false.
-//X// Test that the widget renders correctly with a custom transiationBuilder function.
-//X// Test that the widget renders correctly with a custom axis value.
-//X// Test that the widget renders correctly with a custom axisAlignment value.
-//X// Test that the widget renders correctly with a custom curve value.
-//X// Test that the widget renders correctly with a custom duration value.
-//X// Test that the widget renders correctly with animate set to false.
