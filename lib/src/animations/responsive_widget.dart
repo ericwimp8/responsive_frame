@@ -1,6 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
+/// A widget that shows its child based on the current screen size.
+///
+/// The `ResponsiveWidget` takes a [child] widget and a set of boolean values
+/// that represent whether the child should be shown at different screen sizes.
+/// The [breakpoints] parameter allows you to specify custom breakpoints.
+///
+/// Example:
+///
+/// ```dart
+/// ResponsiveWidget(
+///   child: Text('Hello, world!'),
+///   extraLarge: true,
+///   large: true,
+///   medium: false,
+///   small: false,
+///   extraSmall: false,
+/// )
+/// ```
+///
+/// In this example, the `Text` widget will be shown on extra large and large
+/// screens, but not on medium, small, or extra small screens.
 class ResponsiveWidget extends StatelessWidget {
   ResponsiveWidget({
     required this.child,

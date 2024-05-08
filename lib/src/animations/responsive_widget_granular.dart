@@ -1,6 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
+/// A widget that shows its child based on the current screen size.
+///
+/// The `ResponsiveWidgetGranular` takes a [child] widget and a set of boolean values
+/// that represent whether the child should be shown at different screen sizes.
+/// The [breakpoints] parameter allows you to specify custom [BreakpointsGranular].
+///
+/// Example:
+///
+/// ```dart
+/// ResponsiveWidgetGranular(
+///   child: Text('Hello, world!'),
+///   jumboExtraLarge: true,
+///   jumboLarge: true,
+///   jumboNormal: true,
+///   jumboSmall: true,
+/// )
+/// ```
+///
+/// In this example, the `Text` widget will be shown on jumbo extra large, jumbo large,
+/// jumbo normal and jumbo small screens sizes only.
 class ResponsiveWidgetGranular extends StatelessWidget {
   ResponsiveWidgetGranular({
     required this.child,
