@@ -39,21 +39,14 @@ class ResponsiveWidget extends StatelessWidget {
     this.duration = const Duration(milliseconds: 180),
     this.animate = true,
     super.key,
-  }) : assert(
-            extraLarge != null ||
-                large != null ||
-                medium != null ||
-                small != null ||
-                extraSmall != null,
-            'At least one of extralarge, large, medium, small or extraSmall '
-            'has to be provided');
+  });
   final Widget child;
   final Breakpoints? breakpoints;
-  final bool? extraLarge;
-  final bool? large;
-  final bool? medium;
-  final bool? small;
-  final bool? extraSmall;
+  final bool extraLarge;
+  final bool large;
+  final bool medium;
+  final bool small;
+  final bool extraSmall;
   final bool useShortestSide;
   final Axis axis;
   final double axisAlignment;
