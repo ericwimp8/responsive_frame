@@ -3,6 +3,7 @@ export 'src/animations/animated_constrained_box.dart';
 export 'src/animations/animated_show_hide.dart';
 export 'src/animations/animation_constants.dart';
 export 'src/animations/responsive_widget.dart';
+export 'src/animations/responsive_widget_granular.dart';
 export 'src/breakpoints/breakpoints.dart';
 export 'src/breakpoints/breakpoints_handler.dart';
 export 'src/frame/constants.dart';
