@@ -137,7 +137,21 @@ class BreakpointsHandlerGranular<T>
   LayoutSizeGranular? layoutSizeCache;
 
   @override
-  Map<LayoutSizeGranular, T?> get values => {};
+  Map<LayoutSizeGranular, T?> get values => {
+        LayoutSizeGranular.jumboExtraLarge: jumboExtraLarge,
+        LayoutSizeGranular.jumboLarge: jumboLarge,
+        LayoutSizeGranular.jumboNormal: jumboNormal,
+        LayoutSizeGranular.jumboSmall: jumboSmall,
+        LayoutSizeGranular.standardExtraLarge: standardExtraLarge,
+        LayoutSizeGranular.standardLarge: standardLarge,
+        LayoutSizeGranular.standardNormal: standardNormal,
+        LayoutSizeGranular.standardSmall: standardSmall,
+        LayoutSizeGranular.compactExtraLarge: compactExtraLarge,
+        LayoutSizeGranular.compactLarge: compactLarge,
+        LayoutSizeGranular.compactNormal: compactNormal,
+        LayoutSizeGranular.compactSmall: compactSmall,
+        LayoutSizeGranular.tiny: tiny,
+      };
 
   LayoutSizeGranular getScreenSize(double size) {
     for (final entry in breakpoints.values.entries) {
