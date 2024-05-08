@@ -63,7 +63,7 @@ class BreakpointsHandler<T> implements BaseBreakpointsHandler<T, LayoutSize> {
       return currentValue!;
     }
     layoutSizeCache = currentScreenSize;
-    final callback = values[layoutSizeCache];
+    var callback = values[layoutSizeCache];
     if (callback != null) {
       currentValue = callback;
       return callback;
@@ -72,14 +72,14 @@ class BreakpointsHandler<T> implements BaseBreakpointsHandler<T, LayoutSize> {
     final index = screenSizeEnum.indexOf(layoutSizeCache!);
     final validBuilders = LayoutSize.values.sublist(index);
     for (final e in validBuilders) {
-      final callback = values[e];
-      if (callback != null) {
+      final _callback = values[e];
+      if (_callback != null) {
         currentValue = callback;
-        return callback;
+        callback = _callback;
       }
     }
 
-    return values[LayoutSize.small]!;
+    return callback!;
   }
 }
 
@@ -174,7 +174,7 @@ class BreakpointsHandlerGranular<T>
       return currentValue!;
     }
     layoutSizeCache = currentScreenSize;
-    final callback = values[layoutSizeCache];
+    var callback = values[layoutSizeCache];
     if (callback != null) {
       currentValue = callback;
       return callback;
@@ -183,13 +183,13 @@ class BreakpointsHandlerGranular<T>
     final index = screenSizeEnum.indexOf(layoutSizeCache!);
     final validBuilders = LayoutSizeGranular.values.sublist(index);
     for (final e in validBuilders) {
-      final callback = values[e];
-      if (callback != null) {
+      final _callback = values[e];
+      if (_callback != null) {
         currentValue = callback;
-        return callback;
+        callback = _callback;
       }
     }
 
-    return values[LayoutSizeGranular.compactNormal]!;
+    return callback!;
   }
 }
