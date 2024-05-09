@@ -28,9 +28,9 @@ class ResponsiveWidgetGranular extends StatelessWidget {
     this.useShortestSide = false,
     super.key,
     this.jumboExtraLarge = false,
-    this.jumpoLarge = false,
-    this.jumpboNormal = false,
-    this.jumpboSmall = false,
+    this.jumboLarge = false,
+    this.jumboNormal = false,
+    this.jumboSmall = false,
     this.standardExtraLarge = false,
     this.standardLarge = false,
     this.standardNormal = false,
@@ -46,13 +46,28 @@ class ResponsiveWidgetGranular extends StatelessWidget {
     this.curve = Curves.ease,
     this.duration = const Duration(milliseconds: 180),
     this.animate = true,
-  });
+  }) : assert(
+          jumboExtraLarge ||
+              jumboLarge ||
+              jumboNormal ||
+              jumboSmall ||
+              standardExtraLarge ||
+              standardLarge ||
+              standardNormal ||
+              standardSmall ||
+              compactExtraLarge ||
+              compactLarge ||
+              compactNormal ||
+              compactSmall ||
+              tiny,
+          'At least one of the size params must be true',
+        );
   final Widget child;
   final BreakpointsGranular? breakpoints;
   final bool jumboExtraLarge;
-  final bool jumpoLarge;
-  final bool jumpboNormal;
-  final bool jumpboSmall;
+  final bool jumboLarge;
+  final bool jumboNormal;
+  final bool jumboSmall;
   final bool standardExtraLarge;
   final bool standardLarge;
   final bool standardNormal;
@@ -78,9 +93,9 @@ class ResponsiveWidgetGranular extends StatelessWidget {
       BreakpointsHandlerGranular<bool>(
     breakpoints: breakpoints ?? BreakpointsGranular.defaultBreakpoints,
     jumboExtraLarge: jumboExtraLarge,
-    jumboLarge: jumpoLarge,
-    jumboNormal: jumpboNormal,
-    jumboSmall: jumpboSmall,
+    jumboLarge: jumboLarge,
+    jumboNormal: jumboNormal,
+    jumboSmall: jumboSmall,
     standardExtraLarge: standardExtraLarge,
     standardLarge: standardLarge,
     standardNormal: standardNormal,
