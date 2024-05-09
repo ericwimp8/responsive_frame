@@ -67,24 +67,24 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
     this.jumboLarge = 3840.0,
     this.jumboNormal = 2560.0,
     this.jumboSmall = 1920.0,
-    this.standarExtraLarge = 1280.0,
-    this.standarLarge = 1024.0,
-    this.standarNormal = 768.0,
-    this.standarSmall = 568.0,
+    this.standardExtraLarge = 1280.0,
+    this.standardLarge = 1024.0,
+    this.standardNormal = 768.0,
+    this.standardSmall = 568.0,
     this.compactExtraLarge = 480.0,
-    this.compactLarge = 420.0,
+    this.compactLarge = 430.0,
     this.compactNormal = 360.0,
-    this.compactSmall = 320.0,
+    this.compactSmall = 300.0,
     this.tiny = 0.0,
   });
   final double jumboExtraLarge;
   final double jumboLarge;
   final double jumboNormal;
   final double jumboSmall;
-  final double standarExtraLarge;
-  final double standarLarge;
-  final double standarNormal;
-  final double standarSmall;
+  final double standardExtraLarge;
+  final double standardLarge;
+  final double standardNormal;
+  final double standardSmall;
   final double compactExtraLarge;
   final double compactLarge;
   final double compactNormal;
@@ -99,10 +99,10 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
         LayoutSizeGranular.jumboLarge: jumboLarge,
         LayoutSizeGranular.jumboNormal: jumboNormal,
         LayoutSizeGranular.jumboSmall: jumboSmall,
-        LayoutSizeGranular.standardExtraLarge: standarExtraLarge,
-        LayoutSizeGranular.standardLarge: standarLarge,
-        LayoutSizeGranular.standardNormal: standarNormal,
-        LayoutSizeGranular.standardSmall: standarSmall,
+        LayoutSizeGranular.standardExtraLarge: standardExtraLarge,
+        LayoutSizeGranular.standardLarge: standardLarge,
+        LayoutSizeGranular.standardNormal: standardNormal,
+        LayoutSizeGranular.standardSmall: standardSmall,
         LayoutSizeGranular.compactExtraLarge: compactExtraLarge,
         LayoutSizeGranular.compactLarge: compactLarge,
         LayoutSizeGranular.compactNormal: compactNormal,
@@ -112,7 +112,7 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
 
   @override
   String toString() {
-    return 'BreakpointsGranular(jumboExtraLarge: $jumboExtraLarge, jumboLarge: $jumboLarge, jumboNormal: $jumboNormal, jumboSmall: $jumboSmall, standarExtraLarge: $standarExtraLarge, standarLarge: $standarLarge, standarNormal: $standarNormal, standarSmall: $standarSmall, compactExtraLarge: $compactExtraLarge, compactLarge: $compactLarge, compactNormal: $compactNormal, compactSmall: $compactSmall, tiny: $tiny)';
+    return 'BreakpointsGranular(jumboExtraLarge: $jumboExtraLarge, jumboLarge: $jumboLarge, jumboNormal: $jumboNormal, jumboSmall: $jumboSmall, standarExtraLarge: $standardExtraLarge, standarLarge: $standardLarge, standarNormal: $standardNormal, standarSmall: $standardSmall, compactExtraLarge: $compactExtraLarge, compactLarge: $compactLarge, compactNormal: $compactNormal, compactSmall: $compactSmall, tiny: $tiny)';
   }
 
   @override
@@ -124,10 +124,10 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
         other.jumboLarge == jumboLarge &&
         other.jumboNormal == jumboNormal &&
         other.jumboSmall == jumboSmall &&
-        other.standarExtraLarge == standarExtraLarge &&
-        other.standarLarge == standarLarge &&
-        other.standarNormal == standarNormal &&
-        other.standarSmall == standarSmall &&
+        other.standardExtraLarge == standardExtraLarge &&
+        other.standardLarge == standardLarge &&
+        other.standardNormal == standardNormal &&
+        other.standardSmall == standardSmall &&
         other.compactExtraLarge == compactExtraLarge &&
         other.compactLarge == compactLarge &&
         other.compactNormal == compactNormal &&
@@ -141,10 +141,10 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
         jumboLarge.hashCode ^
         jumboNormal.hashCode ^
         jumboSmall.hashCode ^
-        standarExtraLarge.hashCode ^
-        standarLarge.hashCode ^
-        standarNormal.hashCode ^
-        standarSmall.hashCode ^
+        standardExtraLarge.hashCode ^
+        standardLarge.hashCode ^
+        standardNormal.hashCode ^
+        standardSmall.hashCode ^
         compactExtraLarge.hashCode ^
         compactLarge.hashCode ^
         compactNormal.hashCode ^
