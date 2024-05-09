@@ -39,7 +39,10 @@ class ResponsiveWidget extends StatelessWidget {
     this.duration = const Duration(milliseconds: 180),
     this.animate = true,
     super.key,
-  });
+  }) : assert(
+          extraLarge || large || medium || small || extraSmall,
+          'At least one of the size parameters must be true',
+        );
   final Widget child;
   final Breakpoints? breakpoints;
   final bool extraLarge;
