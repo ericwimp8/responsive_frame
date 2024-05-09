@@ -229,7 +229,7 @@ void main() {
     });
 
     testWidgets(
-        'ResponsiveWidget should not render with extraLarge:false, all other properties set to true, and width =< 1200.',
+        'ResponsiveWidget should not render with extraLarge:false, all other properties set to true, and width >= 1200.',
         (tester) async {
       await tester.pumpWidget(
         _createAppWrapper(
@@ -247,7 +247,7 @@ void main() {
       expect(find.text('Hello World'), findsNothing);
     });
     testWidgets(
-        'ResponsiveWidget should render with extraLarge:false, all other properties set to true, and width => 1200.',
+        'ResponsiveWidget should render with extraLarge:false, all other properties set to true, and width >= 1200.',
         (tester) async {
       await tester.pumpWidget(
         _createAppWrapper(
@@ -513,6 +513,7 @@ void main() {
 
       final responsiveWidget = ResponsiveWidget(
         breakpoints: customBreakpoints,
+        large: true,
         child: const Text('Hello World'),
       );
       await tester.pumpWidget(
