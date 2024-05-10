@@ -12,13 +12,14 @@ class Breakpoints implements BaseBreakpoints<LayoutSize> {
     this.large = 950.0,
     this.medium = 600.0,
     this.small = 300.0,
-    this.extraSmall = 0.0,
-  });
+  }) : assert(
+          extraLarge > large && large > medium && medium > small && small >= 0,
+          'Breakpoints must be in decending order and larger than or equal to 0.',
+        );
   final double extraLarge;
   final double large;
   final double medium;
   final double small;
-  final double extraSmall;
 
   /// Default instance of [Breakpoints] for standard screen size breakpoints.
   static const defaultBreakpoints = Breakpoints();
@@ -30,8 +31,13 @@ class Breakpoints implements BaseBreakpoints<LayoutSize> {
         LayoutSize.large: large,
         LayoutSize.medium: medium,
         LayoutSize.small: small,
-        LayoutSize.extraSmall: extraSmall,
+        LayoutSize.extraSmall: -1,
       };
+
+  @override
+  String toString() {
+    return 'Breakpoints(extraLarge: $extraLarge, large: $large, medium: $medium, small: $small)';
+  }
 
   @override
   bool operator ==(Object other) {
@@ -41,8 +47,7 @@ class Breakpoints implements BaseBreakpoints<LayoutSize> {
         other.extraLarge == extraLarge &&
         other.large == large &&
         other.medium == medium &&
-        other.small == small &&
-        other.extraSmall == extraSmall;
+        other.small == small;
   }
 
   @override
@@ -50,13 +55,21 @@ class Breakpoints implements BaseBreakpoints<LayoutSize> {
     return extraLarge.hashCode ^
         large.hashCode ^
         medium.hashCode ^
-        small.hashCode ^
-        extraSmall.hashCode;
+        small.hashCode;
   }
 
-  @override
-  String toString() {
-    return 'Breakpoints(extraLarge: $extraLarge, large: $large, medium: $medium, small: $small, extraSmall: $extraSmall)';
+  Breakpoints copyWith({
+    double? extraLarge,
+    double? large,
+    double? medium,
+    double? small,
+  }) {
+    return Breakpoints(
+      extraLarge: extraLarge ?? this.extraLarge,
+      large: large ?? this.large,
+      medium: medium ?? this.medium,
+      small: small ?? this.small,
+    );
   }
 }
 
@@ -75,8 +88,21 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
     this.compactLarge = 430.0,
     this.compactNormal = 360.0,
     this.compactSmall = 300.0,
-    this.tiny = 0.0,
-  });
+  }) : assert(
+          jumboExtraLarge > jumboLarge &&
+              jumboLarge > jumboNormal &&
+              jumboNormal > jumboSmall &&
+              jumboSmall > standardExtraLarge &&
+              standardExtraLarge > standardLarge &&
+              standardLarge > standardNormal &&
+              standardNormal > standardSmall &&
+              standardSmall > compactExtraLarge &&
+              compactExtraLarge > compactLarge &&
+              compactLarge > compactNormal &&
+              compactNormal > compactSmall &&
+              compactSmall >= 0,
+          'Breakpoints must be in decending order and larger than or equal to 0',
+        );
   final double jumboExtraLarge;
   final double jumboLarge;
   final double jumboNormal;
@@ -89,7 +115,6 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
   final double compactLarge;
   final double compactNormal;
   final double compactSmall;
-  final double tiny;
 
   static const defaultBreakpoints = BreakpointsGranular();
 
@@ -107,77 +132,8 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
         LayoutSizeGranular.compactLarge: compactLarge,
         LayoutSizeGranular.compactNormal: compactNormal,
         LayoutSizeGranular.compactSmall: compactSmall,
-        LayoutSizeGranular.tiny: tiny,
       };
-
-  @override
-  String toString() {
-    return 'BreakpointsGranular(jumboExtraLarge: $jumboExtraLarge, jumboLarge: $jumboLarge, jumboNormal: $jumboNormal, jumboSmall: $jumboSmall, standarExtraLarge: $standardExtraLarge, standarLarge: $standardLarge, standarNormal: $standardNormal, standarSmall: $standardSmall, compactExtraLarge: $compactExtraLarge, compactLarge: $compactLarge, compactNormal: $compactNormal, compactSmall: $compactSmall, tiny: $tiny)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is BreakpointsGranular &&
-        other.jumboExtraLarge == jumboExtraLarge &&
-        other.jumboLarge == jumboLarge &&
-        other.jumboNormal == jumboNormal &&
-        other.jumboSmall == jumboSmall &&
-        other.standardExtraLarge == standardExtraLarge &&
-        other.standardLarge == standardLarge &&
-        other.standardNormal == standardNormal &&
-        other.standardSmall == standardSmall &&
-        other.compactExtraLarge == compactExtraLarge &&
-        other.compactLarge == compactLarge &&
-        other.compactNormal == compactNormal &&
-        other.compactSmall == compactSmall &&
-        other.tiny == tiny;
-  }
-
-  @override
-  int get hashCode {
-    return jumboExtraLarge.hashCode ^
-        jumboLarge.hashCode ^
-        jumboNormal.hashCode ^
-        jumboSmall.hashCode ^
-        standardExtraLarge.hashCode ^
-        standardLarge.hashCode ^
-        standardNormal.hashCode ^
-        standardSmall.hashCode ^
-        compactExtraLarge.hashCode ^
-        compactLarge.hashCode ^
-        compactNormal.hashCode ^
-        compactSmall.hashCode ^
-        tiny.hashCode;
-  }
 }
-
-/// Enumerates granular screen size types for more detailed breakpoint handling.
-enum ScreenSizeGranular {
-  desktopExtraLarge,
-  desktopLarge,
-  desktopNormal,
-  desktopSmall,
-  tabletExtraLarge,
-  tabletLarge,
-  tabletNormal,
-  tabletSmall,
-  mobileExtraLarge,
-  mobileLarge,
-  mobileNormal,
-  mobileSmall,
-  watch,
-}
-
-/// Enumerates standard screen size types for basic breakpoint handling.
-// enum ScreenSize {
-//   desktopLarge,
-//   desktop,
-//   tablet,
-//   mobile,
-//   watch,
-// }
 
 enum LayoutSize {
   extraLarge,
