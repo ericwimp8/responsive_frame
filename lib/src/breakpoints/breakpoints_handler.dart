@@ -1,15 +1,58 @@
-import 'package:flutter/foundation.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
 abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
-  const BaseBreakpointsHandler();
+  BaseBreakpointsHandler({required this.breakpoints, this.onChanged});
+  final void Function(K)? onChanged;
+  final BaseBreakpoints<K> breakpoints;
+  T? currentValue;
+  K? layoutSizeCache;
   Map<K, T?> get values;
+  T getLayoutSizeValue(double size) {
+    final currentLayoutSize = getScreenSize(size);
+    onChanged?.call(currentLayoutSize);
+
+    if (layoutSizeCache == currentLayoutSize && currentValue != null) {
+      return currentValue!;
+    }
+    layoutSizeCache = currentLayoutSize;
+
+    var callback = values[layoutSizeCache];
+    if (callback != null) {
+      currentValue = callback;
+      return callback;
+    }
+
+    final index = breakpoints.values.keys.toList().indexOf(layoutSizeCache!);
+    final validCallbacks = values.values.toList().sublist(index);
+    callback = validCallbacks.firstWhere(
+      (element) => element != null,
+      orElse: () => null,
+    );
+    if (callback != null) {
+      currentValue = callback;
+      return callback;
+    }
+    callback = values.values.lastWhere((element) => element != null);
+    currentValue = callback;
+    return callback!;
+  }
+
+  K getScreenSize(double size) {
+    final entries = breakpoints.values.entries;
+    for (final entry in entries) {
+      if (size >= entry.value) {
+        return entry.key;
+      }
+    }
+
+    return entries.last.key;
+  }
 }
 
-class BreakpointsHandler<T> implements BaseBreakpointsHandler<T, LayoutSize> {
+class BreakpointsHandler<T> extends BaseBreakpointsHandler<T, LayoutSize> {
   BreakpointsHandler({
-    required this.breakpoints,
-    this.onChanged,
+    required super.breakpoints,
+    super.onChanged,
     this.extraLarge,
     this.large,
     this.medium,
@@ -21,17 +64,14 @@ class BreakpointsHandler<T> implements BaseBreakpointsHandler<T, LayoutSize> {
               medium != null ||
               small != null ||
               extraSmall != null,
-          'At least one argument must be supplied',
+          'BreakpointsHandler requires at least one of the size arguments to be filled out',
         );
 
-  final ValueChanged<LayoutSize>? onChanged;
-  final Breakpoints breakpoints;
   final T? extraLarge;
   final T? large;
   final T? medium;
   final T? small;
   final T? extraSmall;
-  LayoutSize? layoutSizeCache;
 
   @override
   Map<LayoutSize, T?> get values => {
@@ -41,53 +81,13 @@ class BreakpointsHandler<T> implements BaseBreakpointsHandler<T, LayoutSize> {
         LayoutSize.small: small,
         LayoutSize.extraSmall: extraSmall,
       };
-
-  LayoutSize getScreenSize(double size) {
-    for (final entry in breakpoints.values.entries) {
-      if (size >= entry.value) {
-        return entry.key;
-      }
-    }
-
-    throw FlutterError(
-      'screenSize $layoutSizeCache not found in ${values.keys}',
-    );
-  }
-
-  T? currentValue;
-  T getLayoutSizeValue(double size) {
-    final currentScreenSize = getScreenSize(size);
-    onChanged?.call(currentScreenSize);
-
-    if (layoutSizeCache == currentScreenSize && currentValue != null) {
-      return currentValue!;
-    }
-    layoutSizeCache = currentScreenSize;
-    var callback = values[layoutSizeCache];
-    if (callback != null) {
-      currentValue = callback;
-      return callback;
-    }
-    final screenSizeEnum = breakpoints.values.keys.toList();
-    final index = screenSizeEnum.indexOf(layoutSizeCache!);
-    final validBuilders = LayoutSize.values.sublist(index);
-    for (final e in validBuilders) {
-      final _callback = values[e];
-      if (_callback != null) {
-        currentValue = callback;
-        callback = _callback;
-      }
-    }
-
-    return callback!;
-  }
 }
 
 class BreakpointsHandlerGranular<T>
-    implements BaseBreakpointsHandler<T, LayoutSizeGranular> {
+    extends BaseBreakpointsHandler<T, LayoutSizeGranular> {
   BreakpointsHandlerGranular({
-    required this.breakpoints,
-    this.onChanged,
+    required super.breakpoints,
+    super.onChanged,
     this.jumboExtraLarge,
     this.jumboLarge,
     this.jumboNormal,
@@ -115,11 +115,9 @@ class BreakpointsHandlerGranular<T>
               compactNormal != null ||
               compactSmall != null ||
               tiny != null,
-          'BreakpointsHandlergranular requires at least one of the size arguments to be filled out',
+          'BreakpointsHandlerGranular requires at least one of the size arguments to be filled out',
         );
 
-  final ValueChanged<LayoutSizeGranular>? onChanged;
-  final BreakpointsGranular breakpoints;
   final T? jumboExtraLarge;
   final T? jumboLarge;
   final T? jumboNormal;
@@ -133,8 +131,6 @@ class BreakpointsHandlerGranular<T>
   final T? compactNormal;
   final T? compactSmall;
   final T? tiny;
-
-  LayoutSizeGranular? layoutSizeCache;
 
   @override
   Map<LayoutSizeGranular, T?> get values => {
@@ -152,44 +148,4 @@ class BreakpointsHandlerGranular<T>
         LayoutSizeGranular.compactSmall: compactSmall,
         LayoutSizeGranular.tiny: tiny,
       };
-
-  LayoutSizeGranular getScreenSize(double size) {
-    for (final entry in breakpoints.values.entries) {
-      if (size >= entry.value) {
-        return entry.key;
-      }
-    }
-
-    throw FlutterError(
-      'screenSize $layoutSizeCache not found in ${values.keys}',
-    );
-  }
-
-  T? currentValue;
-  T getLayoutSizeValue(double size) {
-    final currentScreenSize = getScreenSize(size);
-    onChanged?.call(currentScreenSize);
-
-    if (layoutSizeCache == currentScreenSize && currentValue != null) {
-      return currentValue!;
-    }
-    layoutSizeCache = currentScreenSize;
-    var callback = values[layoutSizeCache];
-    if (callback != null) {
-      currentValue = callback;
-      return callback;
-    }
-    final screenSizeEnum = breakpoints.values.keys.toList();
-    final index = screenSizeEnum.indexOf(layoutSizeCache!);
-    final validBuilders = LayoutSizeGranular.values.sublist(index);
-    for (final e in validBuilders) {
-      final _callback = values[e];
-      if (_callback != null) {
-        currentValue = callback;
-        callback = _callback;
-      }
-    }
-
-    return callback!;
-  }
 }
