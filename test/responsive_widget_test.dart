@@ -508,7 +508,6 @@ void main() {
         large: 1000,
         medium: 700,
         small: 400,
-        extraSmall: 100,
       );
 
       final responsiveWidget = ResponsiveWidget(

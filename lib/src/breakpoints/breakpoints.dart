@@ -132,6 +132,7 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
         LayoutSizeGranular.compactLarge: compactLarge,
         LayoutSizeGranular.compactNormal: compactNormal,
         LayoutSizeGranular.compactSmall: compactSmall,
+        LayoutSizeGranular.tiny: -1,
       };
 }
 
