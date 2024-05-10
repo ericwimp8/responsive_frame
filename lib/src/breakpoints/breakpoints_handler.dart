@@ -27,6 +27,8 @@ abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
   /// Finds the callback associated with the current layout size. If there is no callback it finds the next smallest callback that is not null.
   /// If all small callbacks are null finds the nearest larger callback that is not null.
   T getLayoutSizeValue(double size) {
+    assert(size >= 0, 'Size must be greater than or equal to 0.');
+
     // get the current layout size based on the provided size.
     final currentLayoutSize = getScreenSize(size);
     // call an optional callback function with the current layout size.
@@ -67,6 +69,7 @@ abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
   }
 
   /// Retrieves the screen size key corresponding to the given [size] parameter.
+  /// if the size is -1 it will return the smallest screen size.
   K getScreenSize(double size) {
     final entries = breakpoints.values.entries;
     for (final entry in entries) {
