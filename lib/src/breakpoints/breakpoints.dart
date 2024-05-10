@@ -134,6 +134,76 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
         LayoutSizeGranular.compactSmall: compactSmall,
         LayoutSizeGranular.tiny: -1,
       };
+
+  BreakpointsGranular copyWith({
+    double? jumboExtraLarge,
+    double? jumboLarge,
+    double? jumboNormal,
+    double? jumboSmall,
+    double? standardExtraLarge,
+    double? standardLarge,
+    double? standardNormal,
+    double? standardSmall,
+    double? compactExtraLarge,
+    double? compactLarge,
+    double? compactNormal,
+    double? compactSmall,
+  }) {
+    return BreakpointsGranular(
+      jumboExtraLarge: jumboExtraLarge ?? this.jumboExtraLarge,
+      jumboLarge: jumboLarge ?? this.jumboLarge,
+      jumboNormal: jumboNormal ?? this.jumboNormal,
+      jumboSmall: jumboSmall ?? this.jumboSmall,
+      standardExtraLarge: standardExtraLarge ?? this.standardExtraLarge,
+      standardLarge: standardLarge ?? this.standardLarge,
+      standardNormal: standardNormal ?? this.standardNormal,
+      standardSmall: standardSmall ?? this.standardSmall,
+      compactExtraLarge: compactExtraLarge ?? this.compactExtraLarge,
+      compactLarge: compactLarge ?? this.compactLarge,
+      compactNormal: compactNormal ?? this.compactNormal,
+      compactSmall: compactSmall ?? this.compactSmall,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'BreakpointsGranular(jumboExtraLarge: $jumboExtraLarge, jumboLarge: $jumboLarge, jumboNormal: $jumboNormal, jumboSmall: $jumboSmall, standardExtraLarge: $standardExtraLarge, standardLarge: $standardLarge, standardNormal: $standardNormal, standardSmall: $standardSmall, compactExtraLarge: $compactExtraLarge, compactLarge: $compactLarge, compactNormal: $compactNormal, compactSmall: $compactSmall)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is BreakpointsGranular &&
+        other.jumboExtraLarge == jumboExtraLarge &&
+        other.jumboLarge == jumboLarge &&
+        other.jumboNormal == jumboNormal &&
+        other.jumboSmall == jumboSmall &&
+        other.standardExtraLarge == standardExtraLarge &&
+        other.standardLarge == standardLarge &&
+        other.standardNormal == standardNormal &&
+        other.standardSmall == standardSmall &&
+        other.compactExtraLarge == compactExtraLarge &&
+        other.compactLarge == compactLarge &&
+        other.compactNormal == compactNormal &&
+        other.compactSmall == compactSmall;
+  }
+
+  @override
+  int get hashCode {
+    return jumboExtraLarge.hashCode ^
+        jumboLarge.hashCode ^
+        jumboNormal.hashCode ^
+        jumboSmall.hashCode ^
+        standardExtraLarge.hashCode ^
+        standardLarge.hashCode ^
+        standardNormal.hashCode ^
+        standardSmall.hashCode ^
+        compactExtraLarge.hashCode ^
+        compactLarge.hashCode ^
+        compactNormal.hashCode ^
+        compactSmall.hashCode;
+  }
 }
 
 enum LayoutSize {
