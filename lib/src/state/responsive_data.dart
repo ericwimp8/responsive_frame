@@ -1,5 +1,3 @@
-// ignore_for_file: strict_raw_type
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -8,14 +6,14 @@ import 'package:responsive_frame/responsive_frame.dart';
 class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
   ResponsiveDataChangeNotifier({
     required this.breakpoints,
-    Map<String, BreakpointsHandler<Object?>> initialHandlers = const {},
+    Map<String, BaseBreakpointsHandler<Object?, K>> initialHandlers = const {},
   }) : _handlers = initialHandlers;
   final BaseBreakpoints<K> breakpoints;
-  final Map<String, BreakpointsHandler<Object?>> _handlers;
+  final Map<String, BaseBreakpointsHandler<Object?, K>> _handlers;
 
-  BreakpointsHandler<T> getHandler<T extends Object>(String key) {
+  BaseBreakpointsHandler<T, K> getHandler<T extends Object>(String key) {
     if (_handlers.containsKey(key)) {
-      return _handlers[key]! as BreakpointsHandler<T>;
+      return _handlers[key]! as BaseBreakpointsHandler<T, K>;
     }
     throw FlutterError(
       'BreakpointsController: No handler found for key: $key. '
@@ -24,7 +22,7 @@ class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
   }
 
   void addAllHandlers<T extends Object>({
-    required Map<String, BreakpointsHandler<T>> handlers,
+    required Map<String, BaseBreakpointsHandler<T, K>> handlers,
   }) {
     _handlers.addAll(handlers);
     notifyListeners();
@@ -32,7 +30,7 @@ class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
 
   void addHandler<T extends Object>({
     required String key,
-    required BreakpointsHandler<T> handler,
+    required BaseBreakpointsHandler<T, K> handler,
   }) {
     _handlers[key] = handler;
     notifyListeners();
@@ -54,14 +52,14 @@ class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
   }
 
   K getScreenSize(double size) {
-    for (final entry in breakpoints.values.entries) {
+    final entries = breakpoints.values.entries;
+    for (final entry in entries) {
       if (size >= entry.value) {
         return entry.key;
       }
     }
-    throw Exception(
-      'No screen size found in ${breakpoints.values}. ',
-    );
+
+    return entries.last.key;
   }
 }
 
