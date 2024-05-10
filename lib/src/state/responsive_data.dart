@@ -16,7 +16,7 @@ class ResponsiveDataChangeNotifier<K extends Enum> with ChangeNotifier {
       return _handlers[key]! as BaseBreakpointsHandler<T, K>;
     }
     throw FlutterError(
-      'BreakpointsController: No handler found for key: $key. '
+      'No handler found for key: $key. '
       'Check that the key is correct or that the handler is added to the controller.',
     );
   }
