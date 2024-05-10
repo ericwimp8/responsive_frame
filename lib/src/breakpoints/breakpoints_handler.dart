@@ -1,5 +1,21 @@
 import 'package:responsive_frame/responsive_frame.dart';
 
+/// A base class for handling breakpoints.
+///
+/// Provides a way to manage and listen to breakpoint changes and return a function of a given
+/// type T.
+///
+/// It takes a [breakpoints] object of type [BaseBreakpoints] which defines
+/// the breakpoints to be handled. Optionally, you can provide an [onChanged]
+/// callback function that will be called whenever the breakpoints change.
+///
+/// See and prefer using subclasses [BreakpointsHandler] and [BreakpointsHandlerGranular].
+///
+/// A [BaseBreakpointsHandler] can be created and used in the ephemeral widget tree see [BreakpointsHandler] and [BreakpointsHandlerGranular]
+/// for examples.
+/// Or it can be passed to [ResponsiveData] via the [ResponsiveDataChangeNotifier] which will make it
+/// avaiable to the widget tree using [ResponsiveData.handlerOf].
+/// See and prefer [BreakpointData] and [ResponsiveFrameLayout] or [BreakpointDataGranular] and [ResponsiveFrameLayoutGranular].
 abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
   BaseBreakpointsHandler({required this.breakpoints, this.onChanged});
   final void Function(K)? onChanged;
@@ -7,36 +23,50 @@ abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
   T? currentValue;
   K? layoutSizeCache;
   Map<K, T?> get values;
-  T getLayoutSizeValue(double size) {
-    final currentLayoutSize = getScreenSize(size);
-    onChanged?.call(currentLayoutSize);
 
+  /// Finds the callback associated with the current layout size. If there is no callback it finds the next smallest callback that is not null.
+  /// If all small callbacks are null finds the nearest larger callback that is not null.
+  T getLayoutSizeValue(double size) {
+    // get the current layout size based on the provided size.
+    final currentLayoutSize = getScreenSize(size);
+    // call an optional callback function with the current layout size.
+    onChanged?.call(currentLayoutSize);
+    // return currentValue if there is no need to update the layout size cache
     if (layoutSizeCache == currentLayoutSize && currentValue != null) {
       return currentValue!;
     }
+    // update the layout size cache
     layoutSizeCache = currentLayoutSize;
 
+    // get the callback associated with the current layout size
     var callback = values[layoutSizeCache];
+    // return the callback if it is not null and update the currentValue
     if (callback != null) {
       currentValue = callback;
       return callback;
     }
 
+    // determine the index of the current layout size in the breakpoints values
     final index = breakpoints.values.keys.toList().indexOf(layoutSizeCache!);
     final validCallbacks = values.values.toList().sublist(index);
+    // get the nest smallest callback that is not null and return it
     callback = validCallbacks.firstWhere(
       (element) => element != null,
       orElse: () => null,
     );
+
     if (callback != null) {
       currentValue = callback;
       return callback;
     }
+
+    // get the nearest larger callback that is not null and return it
     callback = values.values.lastWhere((element) => element != null);
     currentValue = callback;
     return callback!;
   }
 
+  /// Retrieves the screen size key corresponding to the given [size] parameter.
   K getScreenSize(double size) {
     final entries = breakpoints.values.entries;
     for (final entry in entries) {
