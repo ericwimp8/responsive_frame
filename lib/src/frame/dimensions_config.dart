@@ -82,75 +82,50 @@ class DimensionsConfig {
   }
 
   DimensionsConfig copyWith({
-    ValueGetter<double?>? topMaxHeight,
-    ValueGetter<double?>? topMinHeight,
-    ValueGetter<double?>? bodyTopMaxHeight,
-    ValueGetter<double?>? bodyTopMinHeight,
-    ValueGetter<double?>? bodyMaxWidth,
-    ValueGetter<double?>? bodyMinWidth,
-    ValueGetter<double?>? leftEndMaxWidth,
-    ValueGetter<double?>? leftEndMinWidth,
-    ValueGetter<bool?>? leftEndFillVertical,
-    ValueGetter<double?>? leftEndTopMaxHeight,
-    ValueGetter<double?>? leftEndTopMinHeight,
-    ValueGetter<double?>? rightEndMaxWidth,
-    ValueGetter<double?>? rightEndMinWidth,
-    ValueGetter<bool?>? rightEndFillVertical,
-    ValueGetter<double?>? rightEndTopMaxHeight,
-    ValueGetter<double?>? rightEndTopMinHeight,
-    ValueGetter<double?>? bodyBottomMaxHeight,
-    ValueGetter<double?>? bodyBottomMinHeight,
-    ValueGetter<double?>? bottomMaxHeight,
-    ValueGetter<double?>? bottomMinHeight,
-    ValueGetter<Alignment?>? bodyAlignment,
+    double? topMaxHeight,
+    double? topMinHeight,
+    double? bodyTopMaxHeight,
+    double? bodyTopMinHeight,
+    double? bodyMaxWidth,
+    double? bodyMinWidth,
+    double? leftEndMaxWidth,
+    double? leftEndMinWidth,
+    bool? leftEndFillVertical,
+    double? leftEndTopMaxHeight,
+    double? leftEndTopMinHeight,
+    double? rightEndMaxWidth,
+    double? rightEndMinWidth,
+    bool? rightEndFillVertical,
+    double? rightEndTopMaxHeight,
+    double? rightEndTopMinHeight,
+    double? bodyBottomMaxHeight,
+    double? bodyBottomMinHeight,
+    double? bottomMaxHeight,
+    double? bottomMinHeight,
+    Alignment? bodyAlignment,
   }) {
     return DimensionsConfig(
-      topMaxHeight: topMaxHeight != null ? topMaxHeight() : this.topMaxHeight,
-      topMinHeight: topMinHeight != null ? topMinHeight() : this.topMinHeight,
-      bodyTopMaxHeight:
-          bodyTopMaxHeight != null ? bodyTopMaxHeight() : this.bodyTopMaxHeight,
-      bodyTopMinHeight:
-          bodyTopMinHeight != null ? bodyTopMinHeight() : this.bodyTopMinHeight,
-      bodyMaxWidth: bodyMaxWidth != null ? bodyMaxWidth() : this.bodyMaxWidth,
-      bodyMinWidth: bodyMinWidth != null ? bodyMinWidth() : this.bodyMinWidth,
-      leftEndMaxWidth:
-          leftEndMaxWidth != null ? leftEndMaxWidth() : this.leftEndMaxWidth,
-      leftEndMinWidth:
-          leftEndMinWidth != null ? leftEndMinWidth() : this.leftEndMinWidth,
-      leftEndFillVertical: leftEndFillVertical != null
-          ? leftEndFillVertical()
-          : this.leftEndFillVertical,
-      leftEndTopMaxHeight: leftEndTopMaxHeight != null
-          ? leftEndTopMaxHeight()
-          : this.leftEndTopMaxHeight,
-      leftEndTopMinHeight: leftEndTopMinHeight != null
-          ? leftEndTopMinHeight()
-          : this.leftEndTopMinHeight,
-      rightEndMaxWidth:
-          rightEndMaxWidth != null ? rightEndMaxWidth() : this.rightEndMaxWidth,
-      rightEndMinWidth:
-          rightEndMinWidth != null ? rightEndMinWidth() : this.rightEndMinWidth,
-      rightEndFillVertical: rightEndFillVertical != null
-          ? rightEndFillVertical()
-          : this.rightEndFillVertical,
-      rightEndTopMaxHeight: rightEndTopMaxHeight != null
-          ? rightEndTopMaxHeight()
-          : this.rightEndTopMaxHeight,
-      rightEndTopMinHeight: rightEndTopMinHeight != null
-          ? rightEndTopMinHeight()
-          : this.rightEndTopMinHeight,
-      bodyBottomMaxHeight: bodyBottomMaxHeight != null
-          ? bodyBottomMaxHeight()
-          : this.bodyBottomMaxHeight,
-      bodyBottomMinHeight: bodyBottomMinHeight != null
-          ? bodyBottomMinHeight()
-          : this.bodyBottomMinHeight,
-      bottomMaxHeight:
-          bottomMaxHeight != null ? bottomMaxHeight() : this.bottomMaxHeight,
-      bottomMinHeight:
-          bottomMinHeight != null ? bottomMinHeight() : this.bottomMinHeight,
-      bodyAlignment:
-          bodyAlignment != null ? bodyAlignment() : this.bodyAlignment,
+      topMaxHeight: topMaxHeight ?? this.topMaxHeight,
+      topMinHeight: topMinHeight ?? this.topMinHeight,
+      bodyTopMaxHeight: bodyTopMaxHeight ?? this.bodyTopMaxHeight,
+      bodyTopMinHeight: bodyTopMinHeight ?? this.bodyTopMinHeight,
+      bodyMaxWidth: bodyMaxWidth ?? this.bodyMaxWidth,
+      bodyMinWidth: bodyMinWidth ?? this.bodyMinWidth,
+      leftEndMaxWidth: leftEndMaxWidth ?? this.leftEndMaxWidth,
+      leftEndMinWidth: leftEndMinWidth ?? this.leftEndMinWidth,
+      leftEndFillVertical: leftEndFillVertical ?? this.leftEndFillVertical,
+      leftEndTopMaxHeight: leftEndTopMaxHeight ?? this.leftEndTopMaxHeight,
+      leftEndTopMinHeight: leftEndTopMinHeight ?? this.leftEndTopMinHeight,
+      rightEndMaxWidth: rightEndMaxWidth ?? this.rightEndMaxWidth,
+      rightEndMinWidth: rightEndMinWidth ?? this.rightEndMinWidth,
+      rightEndFillVertical: rightEndFillVertical ?? this.rightEndFillVertical,
+      rightEndTopMaxHeight: rightEndTopMaxHeight ?? this.rightEndTopMaxHeight,
+      rightEndTopMinHeight: rightEndTopMinHeight ?? this.rightEndTopMinHeight,
+      bodyBottomMaxHeight: bodyBottomMaxHeight ?? this.bodyBottomMaxHeight,
+      bodyBottomMinHeight: bodyBottomMinHeight ?? this.bodyBottomMinHeight,
+      bottomMaxHeight: bottomMaxHeight ?? this.bottomMaxHeight,
+      bottomMinHeight: bottomMinHeight ?? this.bottomMinHeight,
+      bodyAlignment: bodyAlignment ?? this.bodyAlignment,
     );
   }
 
