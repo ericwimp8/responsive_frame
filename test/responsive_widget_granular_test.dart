@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
 void main() {
-  group('ResponsiveWidget', () {
+  group('ResponsiveWidgetGranular', () {
     MaterialApp _createAppWrapper({
       required Widget child,
       double width = 360,
