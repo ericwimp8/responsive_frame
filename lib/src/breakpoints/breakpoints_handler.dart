@@ -14,7 +14,7 @@ import 'package:responsive_frame/responsive_frame.dart';
 /// A [BaseBreakpointsHandler] can be created and used in the ephemeral widget tree see [BreakpointsHandler] and [BreakpointsHandlerGranular]
 /// for examples.
 /// Or it can be passed to [ResponsiveData] via the [ResponsiveDataChangeNotifier] which will make it
-/// avaiable to the widget tree using [ResponsiveData.handlerOf].
+/// avaiable via the widget tree using [ResponsiveData.handlerOf] or `ResponsiveData.of(context).handlers` function .
 /// See and prefer [BreakpointData] and [ResponsiveFrameLayout] or [BreakpointDataGranular] and [ResponsiveFrameLayoutGranular].
 abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
   BaseBreakpointsHandler({required this.breakpoints, this.onChanged});
