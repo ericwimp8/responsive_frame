@@ -35,7 +35,7 @@ class ResponsiveFrameLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BreakpointsData(
-      initialHandlers: {
+      handlers: {
         'frameconfig': BreakpointsHandler<FrameConfig Function(BuildContext)>(
           breakpoints: breakpoints,
           extraLarge: extraLarge,

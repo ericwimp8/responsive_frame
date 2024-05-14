@@ -4,18 +4,18 @@ import 'package:responsive_frame/responsive_frame.dart';
 class BreakpointsData extends StatelessWidget {
   const BreakpointsData({
     required this.child,
-    this.initialHandlers = const {},
+    this.handlers = const {},
     super.key,
   });
   final Widget child;
-  final Map<String, BreakpointsHandler<Object?>> initialHandlers;
+  final Map<String, BreakpointsHandler<Object?>> handlers;
 
   @override
   Widget build(BuildContext context) {
     return ResponsiveData(
       notifier: ResponsiveDataChangeNotifier(
         breakpoints: Breakpoints.defaultBreakpoints,
-        handlers: initialHandlers,
+        handlers: handlers,
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
