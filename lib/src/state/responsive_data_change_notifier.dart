@@ -62,9 +62,7 @@ class ResponsiveDataChangeNotifier<K extends Enum> extends ChangeNotifier
           ? width = screenWidth
           : width = screenHeight;
     } else {
-      width = screenWidth > screenHeight
-          ? width = screenWidth
-          : width = screenHeight;
+      width = screenWidth;
     }
 
     final screensize = _getScreenSize(width);
