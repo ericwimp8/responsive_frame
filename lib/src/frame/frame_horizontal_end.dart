@@ -28,12 +28,12 @@ class FrameHorizontalEnd extends StatelessWidget {
       child: Column(
         children: [
           if (top != null)
-            ConstrainedBox(
+            AnimatedConstrainedBox(
               constraints: BoxConstraints(
                 maxHeight: topMaxHeight ?? kDefaultVerticalMaxHeight,
                 minHeight: topMinHeight ?? kDefaultVerticalMinHeight,
               ),
-              child: AnimatedShowHide(child: top),
+              child: top,
             ),
           Expanded(child: child),
         ],
