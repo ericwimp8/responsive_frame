@@ -1,4 +1,5 @@
 import 'animated_show_hide_test.dart' as animated_show_hide_test;
+import 'breakpoints_data_test.dart' as breakpoints_data_test;
 import 'breakpoints_granular_test.dart' as breakpoints_granular_test;
 import 'breakpoints_handler_granular_test.dart'
     as breakpoints_handler_granular_test;
@@ -31,4 +32,5 @@ void main() {
   responsive_data_test.main();
   responsive_widget_granular_test.main();
   responsive_widget_test.main();
+  breakpoints_data_test.main();
 }
