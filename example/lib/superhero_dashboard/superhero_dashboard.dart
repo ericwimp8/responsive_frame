@@ -21,7 +21,7 @@ class _SuperheroDashboardState extends State<SuperheroDashboard> {
 
 class _Dashboard extends StatelessWidget {
   const _Dashboard();
-  @override
+
   @override
   Widget build(BuildContext context) {
     return SuperheroDataWrapper(
