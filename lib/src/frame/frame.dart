@@ -54,21 +54,17 @@ class Frame extends StatelessWidget {
                 axis: Axis.horizontal,
                 animate: animations,
                 child: leftEnd != null &&
-                            (dimensions?.leftEndFillVertical ??
-                                kDefaultFillVertical) ||
-                        leftEnd != null && leftEndTop != null
+                        (dimensions?.leftEndFillVertical ??
+                            kDefaultFillVertical)
                     ? FrameHorizontalEnd(
                         maxWidth: dimensions?.leftEndMaxWidth,
                         minWidth: dimensions?.leftEndMinWidth,
+                        topMaxHeight: dimensions?.leftEndTopMaxHeight,
+                        topMinHeight: dimensions?.leftEndTopMinHeight,
                         top: leftEndTop != null &&
-                                    (dimensions?.leftEndFillVertical ??
-                                        kDefaultFillVertical) ||
-                                leftEndTop != null && leftEndTop != null
-                            ? FrameVerticalEnd(
-                                maxHeight: dimensions?.leftEndTopMaxHeight,
-                                minHeight: dimensions?.leftEndTopMinHeight,
-                                child: leftEndTop!,
-                              )
+                                (dimensions?.leftEndFillVertical ??
+                                    kDefaultFillVertical)
+                            ? leftEndTop!
                             : null,
                         child: leftEnd!,
                       )
@@ -94,11 +90,14 @@ class Frame extends StatelessWidget {
                             animate: animations,
                             axis: Axis.horizontal,
                             child: leftEnd != null &&
-                                    leftEndTop == null &&
                                     !(dimensions?.leftEndFillVertical ??
                                         kDefaultFillVertical)
                                 ? FrameHorizontalEnd(
-                                    top: leftEndTop,
+                                    top: leftEndTop != null &&
+                                            !(dimensions?.leftEndFillVertical ??
+                                                kDefaultFillVertical)
+                                        ? leftEndTop
+                                        : null,
                                     maxWidth: dimensions?.leftEndMaxWidth,
                                     minWidth: dimensions?.leftEndMinWidth,
                                     topMaxHeight:
@@ -129,11 +128,19 @@ class Frame extends StatelessWidget {
                             animate: animations,
                             axis: Axis.horizontal,
                             child: rightEnd != null &&
-                                    rightEndTop == null &&
                                     !(dimensions?.rightEndFillVertical ??
                                         kDefaultFillVertical)
                                 ? FrameHorizontalEnd(
-                                    top: rightEndTop,
+                                    top: rightEndTop != null &&
+                                            !(dimensions
+                                                    ?.rightEndFillVertical ??
+                                                kDefaultFillVertical)
+                                        ? rightEndTop
+                                        : null,
+                                    topMaxHeight:
+                                        dimensions?.rightEndTopMaxHeight,
+                                    topMinHeight:
+                                        dimensions?.rightEndTopMinHeight,
                                     maxWidth: dimensions?.rightEndMaxWidth,
                                     minWidth: dimensions?.rightEndMinWidth,
                                     child: rightEnd!,
@@ -159,14 +166,19 @@ class Frame extends StatelessWidget {
               AnimatedShowHide(
                 animate: animations,
                 axis: Axis.horizontal,
-                child: rightEnd != null &&
-                            (dimensions?.rightEndFillVertical ??
-                                kDefaultFillVertical) ||
-                        rightEnd != null && rightEndTop != null
+                child: (dimensions?.rightEndFillVertical ??
+                            kDefaultFillVertical) &&
+                        rightEnd != null
                     ? FrameHorizontalEnd(
-                        top: rightEndTop,
+                        top: (dimensions?.rightEndFillVertical ??
+                                    kDefaultFillVertical) &&
+                                rightEndTop != null
+                            ? rightEndTop
+                            : null,
                         maxWidth: dimensions?.rightEndMaxWidth,
                         minWidth: dimensions?.rightEndMinWidth,
+                        topMaxHeight: dimensions?.rightEndTopMaxHeight,
+                        topMinHeight: dimensions?.rightEndTopMinHeight,
                         child: rightEnd!,
                       )
                     : null,
