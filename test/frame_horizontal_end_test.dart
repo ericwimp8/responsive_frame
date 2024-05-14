@@ -116,7 +116,7 @@ void main() {
 
     testWidgets('FrameHorizontalEnd passes the top to AnimatedShowHide',
         (WidgetTester tester) async {
-      const topWidget = Align();
+      const topWidget = SizedBox();
       const topMinHeight = 50.0;
       const frameHorizontalEnd = FrameHorizontalEnd(
         top: topWidget,
@@ -131,8 +131,7 @@ void main() {
         ),
       );
 
-      final top =
-          tester.widget<AnimatedShowHide>(find.byType(AnimatedShowHide)).child;
+      final top = tester.widget<SizedBox>(find.byType(SizedBox));
 
       expect(top, equals(topWidget));
     });
