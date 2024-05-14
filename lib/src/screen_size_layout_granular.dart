@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// Widget with builders to return layout widgets based on
-/// device width
 class ScreenSizeLayoutGranular extends StatefulWidget {
   const ScreenSizeLayoutGranular({
     super.key,
@@ -20,6 +18,8 @@ class ScreenSizeLayoutGranular extends StatefulWidget {
     this.compactSmall,
     this.tiny,
     this.breakpoints = BreakpointsGranular.defaultBreakpoints,
+    this.useShortestSide = false,
+    this.useLocalSizeConstraints = false,
   });
   final Widget Function(BuildContext context)? jumboExtraLarge;
   final Widget Function(BuildContext context)? jumboLarge;
@@ -35,6 +35,8 @@ class ScreenSizeLayoutGranular extends StatefulWidget {
   final Widget Function(BuildContext context)? compactSmall;
   final Widget Function(BuildContext context)? tiny;
   final BreakpointsGranular breakpoints;
+  final bool useShortestSide;
+  final bool useLocalSizeConstraints;
 
   @override
   State<ScreenSizeLayoutGranular> createState() =>
@@ -42,13 +44,45 @@ class ScreenSizeLayoutGranular extends StatefulWidget {
 }
 
 class _ScreenSizeLayoutGranularState extends State<ScreenSizeLayoutGranular> {
+  late final handler = BreakpointsHandlerGranular(
+    breakpoints: widget.breakpoints,
+    jumboExtraLarge: widget.jumboExtraLarge,
+    jumboLarge: widget.jumboLarge,
+    jumboNormal: widget.jumboNormal,
+    jumboSmall: widget.jumboSmall,
+    standardExtraLarge: widget.standardExtraLarge,
+    standardLarge: widget.standardLarge,
+    standardNormal: widget.standardNormal,
+    standardSmall: widget.standardSmall,
+    compactExtraLarge: widget.compactExtraLarge,
+    compactLarge: widget.compactLarge,
+    compactNormal: widget.compactNormal,
+    compactSmall: widget.compactSmall,
+    tiny: widget.tiny,
+  );
+
+  double _width(Size size) {
+    if (widget.useShortestSide) {
+      return size.height < size.width ? size.height : size.width;
+    }
+    return size.width;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
-    // return LayoutBuilder(
-    //   builder: (BuildContext context, BoxConstraints constraints) {
-    //     return controller.breakpointCallback(context);
-    //   },
-    // );
+    if (widget.useLocalSizeConstraints) {
+      return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return handler.getLayoutSizeValue(
+            _width(Size(constraints.maxWidth, constraints.maxHeight)),
+          )(
+            context,
+          );
+        },
+      );
+    }
+    return handler.getLayoutSizeValue(
+      _width(MediaQuery.sizeOf(context)),
+    )(context);
   }
 }

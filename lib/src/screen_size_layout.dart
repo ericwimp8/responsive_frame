@@ -9,6 +9,8 @@ class ScreenSizeLayoutBuilder extends StatefulWidget {
     this.small,
     this.extraSmall,
     this.breakpoints = Breakpoints.defaultBreakpoints,
+    this.useLocalSizeConstraints = false,
+    this.useShortestSide = false,
     super.key,
   });
   final Widget Function(BuildContext context)? extraLarge;
@@ -16,6 +18,8 @@ class ScreenSizeLayoutBuilder extends StatefulWidget {
   final Widget Function(BuildContext context)? medium;
   final Widget Function(BuildContext context)? small;
   final Widget Function(BuildContext context)? extraSmall;
+  final bool useLocalSizeConstraints;
+  final bool useShortestSide;
   final Breakpoints breakpoints;
 
   @override
@@ -24,25 +28,37 @@ class ScreenSizeLayoutBuilder extends StatefulWidget {
 }
 
 class _ScreenSizeLayoutBuilderState extends State<ScreenSizeLayoutBuilder> {
-  // late final contoller = BreakpointsController<Widget, ScreenSize>(
-  //   callbacks: {
-  //     ScreenSize.desktopLarge: widget.desktopLarge,
-  //     ScreenSize.desktop: widget.desktop,
-  //     ScreenSize.tablet: widget.tablet,
-  //     ScreenSize.mobile: widget.mobile,
-  //     ScreenSize.watch: widget.watch,
-  //   },
-  //   defaultValue: ScreenSize.mobile,
-  //   breakpoints: Breakpoints.defaultBreakpoints,
-  // );
+  late final handler = BreakpointsHandler(
+    breakpoints: widget.breakpoints,
+    extraLarge: widget.extraLarge,
+    large: widget.large,
+    medium: widget.medium,
+    small: widget.small,
+    extraSmall: widget.extraSmall,
+  );
+
+  double _width(Size size) {
+    if (widget.useShortestSide) {
+      return size.height < size.width ? size.height : size.width;
+    }
+    return size.width;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container();
-    // return LayoutBuilder(
-    //   builder: (BuildContext context, BoxConstraints constraints) {
-    //     return contoller.breakpointCallback(context);
-    //   },
-    // );
+    if (widget.useLocalSizeConstraints) {
+      return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return handler.getLayoutSizeValue(
+            _width(Size(constraints.maxWidth, constraints.maxHeight)),
+          )(
+            context,
+          );
+        },
+      );
+    }
+    return handler.getLayoutSizeValue(
+      _width(MediaQuery.sizeOf(context)),
+    )(context);
   }
 }
