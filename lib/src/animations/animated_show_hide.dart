@@ -81,7 +81,7 @@ class AnimatedShowHide extends StatelessWidget {
   final AnimatedShowHideTransitionBuilder? transitionBuilder;
 
   Widget buildAnimationWidget(BuildContext context) {
-    return _AnimatedShowHide(
+    return AnimatedShowHideChild(
       transitionBuilder: transitionBuilder,
       duration: duration,
       curve: curve,
@@ -100,8 +100,8 @@ class AnimatedShowHide extends StatelessWidget {
   }
 }
 
-class _AnimatedShowHide extends StatefulWidget {
-  const _AnimatedShowHide({
+class AnimatedShowHideChild extends StatefulWidget {
+  const AnimatedShowHideChild({
     this.child,
     this.duration = const Duration(milliseconds: 180),
     this.curve = Curves.ease,
@@ -119,45 +119,45 @@ class _AnimatedShowHide extends StatefulWidget {
   final AnimatedShowHideTransitionBuilder? transitionBuilder;
 
   @override
-  State<_AnimatedShowHide> createState() => _AnimatedShowHideState();
+  State<AnimatedShowHideChild> createState() => _AnimatedShowHideChildState();
 }
 
-class _AnimatedShowHideState extends State<_AnimatedShowHide>
+class _AnimatedShowHideChildState extends State<AnimatedShowHideChild>
     with SingleTickerProviderStateMixin {
-  AnimationController? _controller;
-  late Animation<double> _animation;
+  AnimationController? controller;
+  late Animation<double> animation;
 
   void _listener() {
-    if (_controller?.isDismissed ?? false) {
+    if (controller?.isDismissed ?? false) {
       setState(() {
-        _outGoingChild = const SizedBox();
+        outGoingChild = const SizedBox();
       });
     }
   }
 
-  Widget _outGoingChild = const SizedBox();
+  Widget outGoingChild = const SizedBox();
 
   @override
   void initState() {
-    _controller ??= AnimationController(vsync: this, duration: widget.duration);
-    _controller!.addListener(_listener);
-    _animation = CurvedAnimation(
-      parent: _controller!.drive(Tween<double>(begin: 0, end: 1)),
+    controller ??= AnimationController(vsync: this, duration: widget.duration);
+    controller!.addListener(_listener);
+    animation = CurvedAnimation(
+      parent: controller!.drive(Tween<double>(begin: 0, end: 1)),
       curve: widget.curve,
     );
-    _controller!.forward();
+    controller!.forward();
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller?.removeListener(_listener);
-    _controller?.dispose();
+    controller?.removeListener(_listener);
+    controller?.dispose();
     super.dispose();
   }
 
   @override
-  void didUpdateWidget(covariant _AnimatedShowHide oldWidget) {
+  void didUpdateWidget(covariant AnimatedShowHideChild oldWidget) {
     super.didUpdateWidget(oldWidget);
     animatedOnChanges(oldWidget);
   }
@@ -169,29 +169,28 @@ class _AnimatedShowHideState extends State<_AnimatedShowHide>
   // If the `child` property of the current widget is null, it calls `reverse()` on `_controller`; otherwise, it calls `forward()`.
   //
   // If the `transitionBuilder` property is not null, it checks and sets `_outGoingChild` based on the transition builder's call with the context, animation, and child properties. It then decides whether to call `reverse()` or `forward()` on `_controller` based on the transition builder's call result.
-  void animatedOnChanges(covariant _AnimatedShowHide oldWidget) {
+  void animatedOnChanges(covariant AnimatedShowHideChild oldWidget) {
     if (widget.transitionBuilder == null) {
       if (oldWidget.child != null) {
-        _outGoingChild = oldWidget.child ?? const SizedBox();
+        outGoingChild = oldWidget.child ?? const SizedBox();
       }
       if (widget.child == null) {
-        _controller?.reverse();
+        controller?.reverse();
       } else {
-        _controller?.forward();
+        controller?.forward();
       }
     } else {
-      if (oldWidget.transitionBuilder
-              ?.call(context, _animation, widget.child) !=
+      if (oldWidget.transitionBuilder?.call(context, animation, widget.child) !=
           null) {
-        _outGoingChild = oldWidget.transitionBuilder
-                ?.call(context, _animation, widget.child) ??
+        outGoingChild = oldWidget.transitionBuilder
+                ?.call(context, animation, widget.child) ??
             const SizedBox();
       }
-      if (widget.transitionBuilder?.call(context, _animation, widget.child) ==
+      if (widget.transitionBuilder?.call(context, animation, widget.child) ==
           null) {
-        _controller?.reverse();
+        controller?.reverse();
       } else {
-        _controller?.forward();
+        controller?.forward();
       }
     }
   }
@@ -201,15 +200,15 @@ class _AnimatedShowHideState extends State<_AnimatedShowHide>
     if (widget.transitionBuilder != null) {
       return widget.transitionBuilder!(
         context,
-        _animation,
+        animation,
         widget.child,
       );
     }
     return SizeTransition(
-      sizeFactor: _animation,
+      sizeFactor: animation,
       axisAlignment: widget.axisAlignment,
       axis: widget.axis,
-      child: widget.child ?? _outGoingChild,
+      child: widget.child ?? outGoingChild,
     );
   }
 }
