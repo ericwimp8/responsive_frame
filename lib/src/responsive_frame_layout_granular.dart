@@ -58,7 +58,7 @@ class ResponsiveFrameLayoutGranular extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BreakpointDataGranular(
+    return BreakpointsDataGranular(
       initialHandlers: {
         'frameconfig':
             BreakpointsHandlerGranular<FrameConfig Function(BuildContext)>(

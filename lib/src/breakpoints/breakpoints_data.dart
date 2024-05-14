@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-class BreakpointDataGranular extends StatelessWidget {
-  const BreakpointDataGranular({
+class BreakpointsData extends StatelessWidget {
+  const BreakpointsData({
     required this.child,
     this.initialHandlers = const {},
     super.key,
   });
   final Widget child;
-  final Map<String, BreakpointsHandlerGranular<Object?>> initialHandlers;
+  final Map<String, BreakpointsHandler<Object?>> initialHandlers;
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveData<LayoutSizeGranular>(
-      notifier: ResponsiveDataChangeNotifier<LayoutSizeGranular>(
-        breakpoints: BreakpointsGranular.defaultBreakpoints,
+    return ResponsiveData(
+      notifier: ResponsiveDataChangeNotifier(
+        breakpoints: Breakpoints.defaultBreakpoints,
         handlers: initialHandlers,
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
-          ResponsiveData.of<LayoutSizeGranular>(context);
+          ResponsiveData.of<LayoutSize>(context);
           return child;
         },
       ),

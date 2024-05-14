@@ -15,7 +15,7 @@ import 'package:responsive_frame/responsive_frame.dart';
 /// for examples.
 /// Or it can be passed to [ResponsiveData] via the [ResponsiveDataChangeNotifier] which will make it
 /// avaiable via the widget tree using [ResponsiveData.handlerOf] or `ResponsiveData.of(context).handlers` function .
-/// See and prefer [BreakpointData] and [ResponsiveFrameLayout] or [BreakpointDataGranular] and [ResponsiveFrameLayoutGranular].
+/// See and prefer [BreakpointsData] and [ResponsiveFrameLayout] or [BreakpointsDataGranular] and [ResponsiveFrameLayoutGranular].
 abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
   BaseBreakpointsHandler({required this.breakpoints, this.onChanged});
   final void Function(K)? onChanged;
