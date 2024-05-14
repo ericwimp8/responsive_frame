@@ -15,7 +15,7 @@ class BreakpointDataGranular extends StatelessWidget {
     return ResponsiveData<LayoutSizeGranular>(
       notifier: ResponsiveDataChangeNotifier<LayoutSizeGranular>(
         breakpoints: BreakpointsGranular.defaultBreakpoints,
-        initialHandlers: initialHandlers,
+        handlers: initialHandlers,
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {

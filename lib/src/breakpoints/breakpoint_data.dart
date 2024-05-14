@@ -15,7 +15,7 @@ class BreakpointData extends StatelessWidget {
     return ResponsiveData(
       notifier: ResponsiveDataChangeNotifier(
         breakpoints: Breakpoints.defaultBreakpoints,
-        initialHandlers: initialHandlers,
+        handlers: initialHandlers,
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
