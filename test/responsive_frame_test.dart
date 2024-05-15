@@ -17,6 +17,9 @@ import 'responsive_data_test.dart' as responsive_data_test;
 import 'responsive_widget_granular_test.dart'
     as responsive_widget_granular_test;
 import 'responsive_widget_test.dart' as responsive_widget_test;
+import 'screen_size_layout_granular_test.dart'
+    as screen_size_layout_granular_test;
+import 'screen_size_layout_test.dart' as screen_size_layout_test;
 
 void main() {
   animated_show_hide_test.main();
@@ -35,4 +38,6 @@ void main() {
   responsive_data_test.main();
   responsive_widget_granular_test.main();
   responsive_widget_test.main();
+  screen_size_layout_granular_test.main();
+  screen_size_layout_test.main();
 }
