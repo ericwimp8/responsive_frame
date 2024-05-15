@@ -78,7 +78,7 @@ class ResponsiveFrameLayoutGranular extends StatelessWidget {
           tiny: tiny,
         ),
       },
-      child: _Frame(
+      child: _FrameWrapper(
         persistentFrameConfig: persistentFrameConfig,
         backgroundColor: backgroundColor,
         animations: animations,
@@ -87,8 +87,8 @@ class ResponsiveFrameLayoutGranular extends StatelessWidget {
   }
 }
 
-class _Frame extends StatefulWidget {
-  const _Frame({
+class _FrameWrapper extends StatefulWidget {
+  const _FrameWrapper({
     required this.persistentFrameConfig,
     required this.animations,
     this.backgroundColor,
@@ -97,10 +97,10 @@ class _Frame extends StatefulWidget {
   final FrameConfig persistentFrameConfig;
   final bool animations;
   @override
-  State<_Frame> createState() => _FrameState();
+  State<_FrameWrapper> createState() => _FrameWrapperState();
 }
 
-class _FrameState extends State<_Frame> {
+class _FrameWrapperState extends State<_FrameWrapper> {
   bool _isInit = true;
   @override
   void initState() {

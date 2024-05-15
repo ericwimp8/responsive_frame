@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-class ScreenSizeLayoutBuilder extends StatefulWidget {
-  const ScreenSizeLayoutBuilder({
+class ScreenSizeLayout extends StatefulWidget {
+  const ScreenSizeLayout({
     this.extraLarge,
     this.large,
     this.medium,
@@ -23,11 +23,10 @@ class ScreenSizeLayoutBuilder extends StatefulWidget {
   final Breakpoints breakpoints;
 
   @override
-  State<ScreenSizeLayoutBuilder> createState() =>
-      _ScreenSizeLayoutBuilderState();
+  State<ScreenSizeLayout> createState() => _ScreenSizeLayoutState();
 }
 
-class _ScreenSizeLayoutBuilderState extends State<ScreenSizeLayoutBuilder> {
+class _ScreenSizeLayoutState extends State<ScreenSizeLayout> {
   late final handler = BreakpointsHandler(
     breakpoints: widget.breakpoints,
     extraLarge: widget.extraLarge,
