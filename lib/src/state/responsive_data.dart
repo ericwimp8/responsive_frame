@@ -1,36 +1,82 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// A class that provides access to responsive data and handlers based on screen size.
-/// ## Example:
+/// {@template responsive_data}
+/// {@tool snippet}
+/// This example shows how to use the [ResponsiveData] with [ResponsiveDataChangeNotifier] widget to access responsive
+/// data.
 ///
 /// ```dart
+///
 /// ResponsiveData(
-///   notifier: ResponsiveDataChangeNotifier(
-///     breakpoints: Breakpoints.defaultBreakpoints,
-///     handlers: handlers,
-///   ),
-///   child: LayoutBuilder(
-///     builder: (context, constraints) {
-///       ResponsiveData.of<LayoutSize>(context);
-///       return child;
-///     },
-///   ),
+///    notifier: ResponsiveDataChangeNotifier(
+///      breakpoints: Breakpoints.defaultBreakpoints,
+///      handlers: {
+///        'myHandler': BreakpointsHandler<String>(
+///          breakpoints: Breakpoints.defaultBreakpoints,
+///          extraLarge: 'Extra large',
+///          large: 'Large',
+///          medium: 'Medium',
+///          small: 'Small',
+///        ),
+///      },
+///    ),
+///    child: MyNestedWidget(),
 /// );
 /// ```
+/// {@end-tool}
+///
+/// {@tool snippet}
+/// ```dart
+/// class MyNestedWidget extends StatelessWidget {
+///   const MyNestedWidget({super.key});
+///   @override
+///   Widget build(BuildContext context) {
+///     final data = ResponsiveData.of<LayoutSize>(context);
+///     print(data);
+///     return Container();
+///   }
+/// }
+/// ```
+///
+/// {@end-tool}
+/// {@endtemplate}
+
+/// A widget that provides access to responsive data.
+///
+/// The [ResponsiveData] widget provides access to responsive data, such as the
+/// screen size and the current breakpoint. The data is provided through a
+/// [ResponsiveDataChangeNotifier] object, which can be accessed using the
+/// [of] static method.
+///
+/// The [ResponsiveData] widget should be placed at the top of your widget tree
+/// to ensure that all child widgets have access to the responsive data.
+///
+/// {@macro responsive_data}
+///
+/// See also:
+///
+///  * [ResponsiveDataChangeNotifier]
+///  * [Breakpoints]
+///  * [BreakpointsHandler]
 class ResponsiveData<K extends Enum>
     extends InheritedNotifier<ResponsiveDataChangeNotifier<K>> {
-  /// Constructs a [ResponsiveData] widget.
+  /// Creates a new [ResponsiveData] widget.
+  ///
+  /// The [notifier] property is the [ResponsiveDataChangeNotifier] object that
+  /// provides the responsive data. The [child] property is the widget to be
+  /// wrapped by the [ResponsiveData] widget.
   const ResponsiveData({
     required ResponsiveDataChangeNotifier<K> super.notifier,
     required super.child,
     super.key,
   });
 
-  /// Retrieves the [ResponsiveDataChangeNotifier] of type [K] from the nearest ancestor [ResponsiveData] widget.
+  /// Returns the [ResponsiveDataChangeNotifier] object associated with the
+  /// nearest [ResponsiveData] widget in the widget tree.
   ///
-  /// Throws an assertion error if [ResponsiveData] is not found in the widget tree.
+  /// If there is no [ResponsiveData] widget in the widget tree, this method will
+  /// throw an assertion error.
   static ResponsiveDataChangeNotifier<K> of<K extends Enum>(
     BuildContext context,
   ) {
@@ -45,14 +91,36 @@ class ResponsiveData<K extends Enum>
     return result!.notifier!;
   }
 
-  /// Retrieves a handler of type [T] with the specified [key] and [size] from the nearest ancestor [ResponsiveData] widget.
+  /// Returns the handler associated with the given key and layout size.
   ///
-  /// Throws an assertion error if [ResponsiveData] is not found in the widget tree or if no handler is found for the specified key.
+  /// The handler is retrieved from the [ResponsiveDataChangeNotifier] object
+  /// associated with the nearest [ResponsiveData] widget in the widget tree.
+  ///
+  /// If there is no [ResponsiveData] widget in the widget tree, this method will
+  /// throw an assertion error.
+  ///
+  /// The `size` parameter is the layout size to be used to retrieve the handler.
   static T handlerOf<T extends Object, K extends Enum>(
     BuildContext context,
     String key,
     double size,
   ) {
+    ResponsiveData(
+      notifier: ResponsiveDataChangeNotifier(
+        breakpoints: Breakpoints.defaultBreakpoints,
+        handlers: {
+          'myHandler': BreakpointsHandler<String>(
+            breakpoints: Breakpoints.defaultBreakpoints,
+            extraLarge: 'Extra large',
+            large: 'Large',
+            medium: 'Medium',
+            small: 'Small',
+          ),
+        },
+      ),
+      child: const MyNestedWidget(),
+    );
+
     final result =
         context.dependOnInheritedWidgetOfExactType<ResponsiveData<K>>();
 
@@ -69,5 +137,16 @@ class ResponsiveData<K extends Enum>
     covariant InheritedNotifier<ResponsiveDataChangeNotifier> oldWidget,
   ) {
     return true;
+  }
+}
+
+class MyNestedWidget extends StatelessWidget {
+  const MyNestedWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final data = ResponsiveData.of<LayoutSize>(context);
+    print(data);
+    return Container();
   }
 }

@@ -1,22 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// Represents the configuration for a [Frame].
+/// A configuration for a [Frame] widget.
 ///
-///```dart
-/// // Create a new FrameConfig instance with some values
-/// FrameConfig config = FrameConfig(
-///   body: Container(color: Colors.blue),
-///   top: Text('Top Widget'),
-///   leftEnd: MyMenu(),
-///   dimensions: MyDimensions,
-/// );
-/// ```
-/// see [Frame], [ResponsiveFrameLayout], [ResponsiveFrameLayoutGranular]
+/// The [FrameConfig] class defines the widgets to render in each of the
+/// [Frame]'s slots, as well as the dimensions of each slot.
+///
+/// You can use the [FrameConfig] class to create different layouts for different
+/// screen sizes. For example, you could create a [FrameConfig] for a small
+/// screen size that only renders the body widget, and a [FrameConfig] for a
+/// large screen size that renders the body widget, as well as the top, left end,
+/// and right end widgets.
+///
+/// {@macro responsive_frame_layout}
+///
+/// See also:
+///
+///  * [Frame]
+///  * [ResponsiveFrameLayout]
 @immutable
 class FrameConfig {
-  /// Creates a new [FrameConfig] instance. to be used in [Frame]
+  /// Creates a new [FrameConfig] object.
+  ///
+  /// The [body], [top], [bodyTop], [leftEnd], [leftEndTop], [rightEnd],
+  /// [rightEndTop], [bodyBottom], and [bottom] properties define the widgets to
+  /// render in each of the [Frame]'s slots. The [dimensions] property defines
+  /// the dimensions of each slot.
   const FrameConfig({
     this.body,
     this.top,
@@ -30,40 +39,44 @@ class FrameConfig {
     this.dimensions = DimensionsConfig.empty,
   });
 
-  /// The main content of the frame.
+  /// The widget to render in the body slot.
   final Widget? body;
 
-  /// The widget to be displayed at the top of the frame.
+  /// The widget to render in the top slot.
   final Widget? top;
 
-  /// The widget to be displayed at the top of the body.
+  /// The widget to render in the body top slot.
   final Widget? bodyTop;
 
-  /// The widget to be displayed at the left end of the frame.
+  /// The widget to render in the left end slot.
   final Widget? leftEnd;
 
-  /// The widget to be displayed at the top of the left end of the frame.
+  /// The widget to render in the left end top slot.
   final Widget? leftEndTop;
 
-  /// The widget to be displayed at the right end of the frame.
+  /// The widget to render in the right end slot.
   final Widget? rightEnd;
 
-  /// The widget to be displayed at the top of the right end of the frame.
+  /// The widget to render in the right end top slot.
   final Widget? rightEndTop;
 
-  /// The widget to be displayed at the bottom of the body.
+  /// The widget to render in the body bottom slot.
   final Widget? bodyBottom;
 
-  /// The widget to be displayed at the bottom of the frame.
+  /// The widget to render in the bottom slot.
   final Widget? bottom;
 
-  /// The dimensions configuration of the frame.
+  /// The dimensions of each slot.
   final DimensionsConfig? dimensions;
 
+  /// An empty [FrameConfig] object.
   static const empty = FrameConfig();
 
-  /// Merges the current FrameConfig with another one.
-  /// Uses local values if not null, otherwise uses values from the provided config.
+  /// Merges this [FrameConfig] object with another [FrameConfig] object.
+  ///
+  /// The [other] parameter is the [FrameConfig] object to merge with. The
+  /// merged object will contain the values of this object, with any null values
+  /// replaced with the corresponding values from the [other] object.
   FrameConfig merge(FrameConfig other) {
     return FrameConfig(
       body: body ?? other.body,
@@ -79,7 +92,12 @@ class FrameConfig {
     );
   }
 
-  /// Creates a copy of the current FrameConfig with optional new values provided.
+  /// Creates a copy of this [FrameConfig] object with the given properties
+  /// replaced.
+  ///
+  /// The [body], [top], [bodyTop], [leftEnd], [leftEndTop], [rightEnd],
+  /// [rightEndTop], [bodyBottom], [bottom], and [dimensions] parameters can be
+  /// used to replace the corresponding properties of this object.
   FrameConfig copyWith({
     Widget? body,
     Widget? top,

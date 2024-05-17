@@ -1,42 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// Provides the configuration for a [Frame].
+/// A configuration for the dimensions of a [Frame] widget.
 ///
-/// Dimensions configuration for a [Frame].
-/// see [FrameConfig.dimensions]
+/// The [DimensionsConfig] class defines the dimensions of each slot in a
+/// [Frame] widget. You can use this class to control the maximum height and
+/// width of each slot, as well as whether the left end and right end slots
+/// should fill the vertical space of the frame.
 ///
-/// ##Example
+/// The [DimensionsConfig] class can be used to create different layouts for
+/// different screen sizes. For example, you could create a [DimensionsConfig]
+/// for a small screen size that sets the maximum width of the body slot to
+/// 600 pixels, and a [DimensionsConfig] for a large screen size that sets the
+/// maximum width of the body slot to 950 pixels.
+///
+/// {@tool snippet}
+/// This example shows how to use the [DimensionsConfig] class to create
+/// different layouts for different screen sizes.
+///
 /// ```dart
-///   DimensionsConfig frameDimensions = DimensionsConfig(
-///     topMaxHeight: 100.0,
-///     topMinHeight: 50.0,
-///     bodyTopMaxHeight: 200.0,
-///     bodyTopMinHeight: 100.0,
-///     bodyMaxWidth: 500.0,
-///     bodyMinWidth: 300.0,
-///     leftEndMaxWidth: 150.0,
-///     leftEndMinWidth: 100.0,
-///     leftEndFillVertical: true,
-///     leftEndTopMaxHeight: 150.0,
-///     leftEndTopMinHeight: 100.0,
-///     rightEndMaxWidth: 150.0,
-///     rightEndMinWidth: 100.0,
-///     rightEndFillVertical: true,
-///     rightEndTopMaxHeight: 150.0,
-///     rightEndTopMinHeight: 100.0,
-///     bodyBottomMaxHeight: 200.0,
-///     bodyBottomMinHeight: 100.0,
-///     bottomMaxHeight: 100.0,
-///     bottomMinHeight: 50.0,
-///     bodyAlignment: Alignment.center,
-///  );
+/// ResponsiveFrameLayout(
+///   small: (context) => FrameConfig(
+///     body: const Text('Small layout'),
+///     dimensions: DimensionsConfig(
+///       bodyMaxWidth: 600,
+///     ),
+///   ),
+///   large: (context) => FrameConfig(
+///     body: const Text('Large layout'),
+///     dimensions: DimensionsConfig(
+///       bodyMaxWidth: 950,
+///     ),
+///   ),
+/// )
 /// ```
-
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [Frame]
+///  * [FrameConfig]
+///  * [ResponsiveFrameLayout]
 @immutable
 class DimensionsConfig {
-  /// Constructs a DimensionsConfig with the provided dimensions.
+  /// Creates a new [DimensionsConfig] object.
+  ///
+  /// The [topMaxHeight], [topMinHeight], [bodyTopMaxHeight],
+  /// [bodyTopMinHeight], [bodyMaxWidth], [bodyMinWidth], [leftEndMaxWidth],
+  /// [leftEndMinWidth], [leftEndFillVertical], [leftEndTopMaxHeight],
+  /// [leftEndTopMinHeight], [rightEndMaxWidth], [rightEndMinWidth],
+  /// [rightEndFillVertical], [rightEndTopMaxHeight], [rightEndTopMinHeight],
+  /// [bodyBottomMaxHeight], [bodyBottomMinHeight], [bottomMaxHeight],
+  /// [bottomMinHeight], and [bodyAlignment] properties define the dimensions
+  /// of each slot in a [Frame] widget.
   const DimensionsConfig({
     this.topMaxHeight,
     this.topMinHeight,
@@ -61,73 +77,78 @@ class DimensionsConfig {
     this.bodyAlignment,
   });
 
-  /// The maximum height of the widget at the top of the frame.
+  /// The maximum height of the top slot.
   final double? topMaxHeight;
 
-  /// The minimum height of the widget at the top of the frame.
+  /// The minimum height of the top slot.
   final double? topMinHeight;
 
-  /// The maximum height of the widget at the top of the body.
+  /// The maximum height of the body top slot.
   final double? bodyTopMaxHeight;
 
-  /// The minimum height of the widget at the top of the body.
+  /// The minimum height of the body top slot.
   final double? bodyTopMinHeight;
 
-  /// The maximum width of the body widget.
+  /// The maximum width of the body slot.
   final double? bodyMaxWidth;
 
-  /// The minimum width of the body widget.
+  /// The minimum width of the body slot.
   final double? bodyMinWidth;
 
-  /// The maximum width of the left end widget.
+  /// The maximum width of the left end slot.
   final double? leftEndMaxWidth;
 
-  /// The minimum width of the left end widget.
+  /// The minimum width of the left end slot.
   final double? leftEndMinWidth;
 
-  /// Whether the left end widget should fill the vertical space.
+  /// Whether the left end slot should fill the vertical space of the frame.
   final bool? leftEndFillVertical;
 
-  /// The maximum height of the widget at the top of the left end.
+  /// The maximum height of the left end top slot.
   final double? leftEndTopMaxHeight;
 
-  /// The minimum height of the widget at the top of the left end.
+  /// The minimum height of the left end top slot.
   final double? leftEndTopMinHeight;
 
-  /// The maximum width of the right end widget.
+  /// The maximum width of the right end slot.
   final double? rightEndMaxWidth;
 
-  /// The minimum width of the right end widget.
+  /// The minimum width of the right end slot.
   final double? rightEndMinWidth;
 
-  /// Whether the right end widget should fill the vertical space.
+  /// Whether the right end slot should fill the vertical space of the frame.
   final bool? rightEndFillVertical;
 
-  /// The maximum height of the widget at the top of the right end.
+  /// The maximum height of the right end top slot.
   final double? rightEndTopMaxHeight;
 
-  /// The minimum height of the widget at the top of the right end.
+  /// The minimum height of the right end top slot.
   final double? rightEndTopMinHeight;
 
-  /// The maximum height of the widget at the bottom of the body.
+  /// The maximum height of the body bottom slot.
   final double? bodyBottomMaxHeight;
 
-  /// The minimum height of the widget at the bottom of the body.
+  /// The minimum height of the body bottom slot.
   final double? bodyBottomMinHeight;
 
-  /// The maximum height of the widget at the bottom of the frame.
+  /// The maximum height of the bottom slot.
   final double? bottomMaxHeight;
 
-  /// The minimum height of the widget at the bottom of the frame.
+  /// The minimum height of the bottom slot.
   final double? bottomMinHeight;
 
-  /// The alignment of the body widget within the frame.
+  /// The alignment of the body slot.
   final Alignment? bodyAlignment;
 
+  /// An empty [DimensionsConfig] object.
   static const empty = DimensionsConfig();
 
-  /// Merges the current DimensionsConfig with another one.
-  /// Uses local values if not null, otherwise uses values from the provided config.
+  /// Merges this [DimensionsConfig] object with another [DimensionsConfig]
+  /// object.
+  ///
+  /// The [config] parameter is the [DimensionsConfig] object to merge with.
+  /// The merged object will contain the values of this object, with any null
+  /// values replaced with the corresponding values from the [config] object.
   DimensionsConfig merge(DimensionsConfig? config) {
     return DimensionsConfig(
       topMaxHeight: topMaxHeight ?? config?.topMaxHeight,
@@ -157,7 +178,17 @@ class DimensionsConfig {
     );
   }
 
-  /// Creates a copy of the DimensionsConfig with provided dimensions overridden.
+  /// Creates a copy of this [DimensionsConfig] object with the given properties
+  /// replaced.
+  ///
+  /// The [topMaxHeight], [topMinHeight], [bodyTopMaxHeight],
+  /// [bodyTopMinHeight], [bodyMaxWidth], [bodyMinWidth], [leftEndMaxWidth],
+  /// [leftEndMinWidth], [leftEndFillVertical], [leftEndTopMaxHeight],
+  /// [leftEndTopMinHeight], [rightEndMaxWidth], [rightEndMinWidth],
+  /// [rightEndFillVertical], [rightEndTopMaxHeight], [rightEndTopMinHeight],
+  /// [bodyBottomMaxHeight], [bodyBottomMinHeight], [bottomMaxHeight],
+  /// [bottomMinHeight], and [bodyAlignment] parameters can be used to replace
+  /// the corresponding properties of this object.
   DimensionsConfig copyWith({
     double? topMaxHeight,
     double? topMinHeight,

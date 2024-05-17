@@ -1,52 +1,101 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// A widget that provides a responsive layout based on the screen size and
-/// provides granular control over the layout for different screen sizes.
+/// A widget that makes it easy to create responsive layouts with a consistent frame structure.
 ///
-/// This widget allows you to define different frame configurations for different
-/// screen sizes. The `BreakpointsGranular` class provides a way to define
-/// different breakpoints for different screen sizes. You can use this widget
-/// to create a layout that is optimized for different screen sizes.
+/// {@tool snippet}
+/// This example shows how to use the [ResponsiveFrameLayoutGranular] widget to create a responsive layout with a consistent frame structure.
 ///
-/// ## Example
 /// ```dart
 /// ResponsiveFrameLayoutGranular(
-///   breakpoints: BreakpointsGranular.defaultBreakpoints,
+///   breakpoints: const BreakpointsGranular(
+///     jumboExtraLarge: 4096,
+///     jumboLarge: 3840,
+///     jumboNormal: 2560,
+///     jumboSmall: 1920,
+///     standardExtraLarge: 1280,
+///     standardLarge: 1024,
+///     standardNormal: 768,
+///     standardSmall: 568,
+///     compactExtraLarge: 480,
+///     compactLarge: 430,
+///     compactNormal: 360,
+///     compactSmall: 300,
+///   ),
 ///   jumboExtraLarge: (context) => FrameConfig(
-///     body: Container(color: Colors.red),
-///     top: Text('Top Widget'),
+///     body: const Text('Jumbo extra large layout'),
 ///   ),
 ///   jumboLarge: (context) => FrameConfig(
-///     body: Container(color: Colors.blue),
-///     bottom: Text('Bottom Widget'),
+///     body: const Text('Jumbo large layout'),
 ///   ),
-///   // Add configurations for other screen sizes as needed
-///   persistentFrameConfig: FrameConfig(
-///     bottom: Container(color: Colors.green),
-///     rightEnd: Text('Right End Widget'),
+///   jumboNormal: (context) => FrameConfig(
+///     body: const Text('Jumbo normal layout'),
 ///   ),
-///   backgroundColor: Colors.white,
+///   jumboSmall: (context) => FrameConfig(
+///     body: const Text('Jumbo small layout'),
+///   ),
+///   standardExtraLarge: (context) => FrameConfig(
+///     body: const Text('Standard extra large layout'),
+///   ),
+///   standardLarge: (context) => FrameConfig(
+///     leftEnd: const Text('Standard large layout left end'),
+///     body: const Text('Standard large layout body'),
+///   ),
+///   standardNormal: (context) => FrameConfig(
+///     top: const Text('Standard normal layout top'),
+///     leftEnd: const Text('Standard normal layout left end'),
+///     body: const Text('Standard normal layout body'),
+///   ),
+///   standardSmall: (context) => FrameConfig(
+///     top: const Text('Standard small layout top'),
+///     leftEnd: const Text('Standard small layout left end'),
+///     rightEnd: const Text('Standard small layout right end'),
+///     body: const Text('Standard small layout body'),
+///   ),
+///   compactExtraLarge: (context) => FrameConfig(
+///     body: const Text('Compact extra large layout'),
+///   ),
+///   compactLarge: (context) => FrameConfig(
+///     body: const Text('Compact large layout'),
+///   ),
+///   compactNormal: (context) => FrameConfig(
+///     body: const Text('Compact normal layout'),
+///   ),
+///   compactSmall: (context) => FrameConfig(
+///     body: const Text('Compact small layout'),
+///   ),
+///   tiny: (context) => FrameConfig(
+///     body: const Text('Tiny layout'),
+///   ),
 /// )
 /// ```
+/// {@end-tool}
+///
+/// The [jumboExtraLarge], [jumboLarge], [jumboNormal], [jumboSmall],
+/// [standardExtraLarge], [standardLarge], [standardNormal], [standardSmall],
+/// [compactExtraLarge], [compactLarge], [compactNormal], [compactSmall], and
+/// [tiny] properties define the [FrameConfig] to use for each layout size.
+/// The [FrameConfig] object defines the widgets to render in each of the
+/// frame's slots.
+///
+/// The [animations] property can be used to disable animations when the layout changes.
+/// The [persistentFrameConfig] property can be used to define a [FrameConfig] that
+/// will be merged with the [FrameConfig] for the current layout size. This is useful
+/// for defining widgets that should be rendered in the same slot for all layout sizes.
 class ResponsiveFrameLayoutGranular extends StatelessWidget {
-  /// Creates a new `ResponsiveFrameLayoutGranular` widget.
+  /// Creates a new [ResponsiveFrameLayoutGranular] widget.
   ///
-  /// The `breakpoints` parameter specifies the breakpoints for different
-  /// screen sizes. The `animations` parameter specifies whether to animate
-  /// the layout transitions.
+  /// The [jumboExtraLarge], [jumboLarge], [jumboNormal], [jumboSmall],
+  /// [standardExtraLarge], [standardLarge], [standardNormal], [standardSmall],
+  /// [compactExtraLarge], [compactLarge], [compactNormal], [compactSmall], and
+  /// [tiny] properties define the [FrameConfig] to use for each layout size.
+  /// The [FrameConfig] object defines the widgets to render in each of the
+  /// frame's slots.
   ///
-  /// The `jumboExtraLarge`, `jumboLarge`, `jumboNormal`, `jumboSmall`,
-  /// `standardExtraLarge`, `standardLarge`, `standardNormal`,
-  /// `standardSmall`, `compactExtraLarge`, `compactLarge`,
-  /// `compactNormal`, `compactSmall` and `tiny` parameters specify the
-  /// frame configuration for different screen sizes.
-  ///
-  /// The `persistentFrameConfig` parameter specifies a frame configuration
-  /// that is applied to all screen sizes.
-  ///
-  /// The `backgroundColor` parameter specifies the background color of the
-  /// frame.
+  /// The [animations] property can be used to disable animations when the layout changes.
+  /// The [persistentFrameConfig] property can be used to define a [FrameConfig] that
+  /// will be merged with the [FrameConfig] for the current layout size. This is useful
+  /// for defining widgets that should be rendered in the same slot for all layout sizes.
   const ResponsiveFrameLayoutGranular({
     super.key,
     this.breakpoints = BreakpointsGranular.defaultBreakpoints,
@@ -83,52 +132,52 @@ class ResponsiveFrameLayoutGranular extends StatelessWidget {
           'At least one size parameter must be provided.',
         );
 
-  /// The breakpoints for different screen sizes.
+  /// The breakpoints to use for each layout size.
   final BreakpointsGranular breakpoints;
 
-  /// Whether to animate the layout transitions.
+  /// Whether to animate changes to the layout.
   final bool animations;
 
-  /// The frame configuration for jumbo extra large screens.
+  /// The [FrameConfig] to use when the screen size is jumbo extra large.
   final FrameConfig Function(BuildContext context)? jumboExtraLarge;
 
-  /// The frame configuration for jumbo large screens.
+  /// The [FrameConfig] to use when the screen size is jumbo large.
   final FrameConfig Function(BuildContext context)? jumboLarge;
 
-  /// The frame configuration for jumbo normal screens.
+  /// The [FrameConfig] to use when the screen size is jumbo normal.
   final FrameConfig Function(BuildContext context)? jumboNormal;
 
-  /// The frame configuration for jumbo small screens.
+  /// The [FrameConfig] to use when the screen size is jumbo small.
   final FrameConfig Function(BuildContext context)? jumboSmall;
 
-  /// The frame configuration for standard extra large screens.
+  /// The [FrameConfig] to use when the screen size is standard extra large.
   final FrameConfig Function(BuildContext context)? standardExtraLarge;
 
-  /// The frame configuration for standard large screens.
+  /// The [FrameConfig] to use when the screen size is standard large.
   final FrameConfig Function(BuildContext context)? standardLarge;
 
-  /// The frame configuration for standard normal screens.
+  /// The [FrameConfig] to use when the screen size is standard normal.
   final FrameConfig Function(BuildContext context)? standardNormal;
 
-  /// The frame configuration for standard small screens.
+  /// The [FrameConfig] to use when the screen size is standard small.
   final FrameConfig Function(BuildContext context)? standardSmall;
 
-  /// The frame configuration for compact extra large screens.
+  /// The [FrameConfig] to use when the screen size is compact extra large.
   final FrameConfig Function(BuildContext context)? compactExtraLarge;
 
-  /// The frame configuration for compact large screens.
+  /// The [FrameConfig] to use when the screen size is compact large.
   final FrameConfig Function(BuildContext context)? compactLarge;
 
-  /// The frame configuration for compact normal screens.
+  /// The [FrameConfig] to use when the screen size is compact normal.
   final FrameConfig Function(BuildContext context)? compactNormal;
 
-  /// The frame configuration for compact small screens.
+  /// The [FrameConfig] to use when the screen size is compact small.
   final FrameConfig Function(BuildContext context)? compactSmall;
 
-  /// The frame configuration for tiny screens.
+  /// The [FrameConfig] to use when the screen size is tiny.
   final FrameConfig Function(BuildContext context)? tiny;
 
-  /// The frame configuration that is applied to all screen sizes.
+  /// A [FrameConfig] that will be merged with the [FrameConfig] for the current layout size.
   final FrameConfig persistentFrameConfig;
 
   /// The background color of the frame.

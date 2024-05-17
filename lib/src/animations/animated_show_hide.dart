@@ -1,34 +1,25 @@
 import 'package:flutter/material.dart';
 
-/// A function that is used to build a custom transition widget for an [AnimatedShowHide] widget.
+/// A typedef for a custom animation transition builder used by
+/// [AnimatedShowHide] and [AnimatedShowHideChild].
 ///
-/// This function is called with the current animation and the child widget and is responsible
-/// for building a widget that will be used to animate the child widget.
+/// The [AnimatedShowHideTransitionBuilder] typedef represents a function that
+/// takes the current build context, an animation object, and the child widget as
+/// arguments and returns a widget. This function allows for custom animation
+/// transitions when showing or hiding a child widget.
 ///
-/// The [context] parameter is the build context for the widget. The [animation] parameter is the animation
-/// that will be used to animate the child widget. The [child] parameter is the widget being animated.
-typedef AnimatedShowHideTransitionBuilder = Widget Function(
-  BuildContext context,
-  Animation<double> animation,
-  Widget? child,
-);
-
-/// A widget that animates the showing and hiding of its child with configurable animation parameters.
+/// The animation object provides information about the current state of the
+/// animation, including the value, which ranges from 0.0 to 1.0. You can use
+/// this information to control the appearance and behavior of the child widget
+/// during the transition.
 ///
-/// The [AnimatedShowHide] widget provides options for animation duration, curve, axis of animation,
-/// axis alignment, and a custom transition builder function.
-///
-/// It can be used to smoothly animate the appearance and disappearance of a child widget within a parent widget.
-///
-/// ## Example
+/// {@tool snippet}
+/// This example shows how to use a custom animation transition builder to
+/// create a fade-in/fade-out animation.
 ///
 /// ```dart
 /// AnimatedShowHide(
-///   child: Text('Hello, World!'),
-///   duration: Duration(seconds: 1),
-///   curve: Curves.easeInOut,
-///   axis: Axis.vertical,
-///   axisAlignment: 0.5,
+///   child: const Text('Hello World!'),
 ///   transitionBuilder: (context, animation, child) {
 ///     return FadeTransition(
 ///       opacity: animation,
@@ -37,8 +28,61 @@ typedef AnimatedShowHideTransitionBuilder = Widget Function(
 ///   },
 /// )
 /// ```
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [AnimatedShowHide]
+///  * [AnimatedShowHideChild]
+///  * [FadeTransition]
+typedef AnimatedShowHideTransitionBuilder = Widget Function(
+  BuildContext context,
+  Animation<double> animation,
+  Widget? child,
+);
+
+/// A widget that manages the showing and hiding of a child widget based on
+/// animation.
+///
+/// The [AnimatedShowHide] widget uses an [AnimationController] to animate the
+/// showing and hiding of its child widget. The animation is controlled by the
+/// [animate] property, which determines whether the child widget should be shown
+/// or hidden.
+///
+/// The animation can be customized using the [duration], [curve], [axis], and
+/// [axisAlignment] properties. The [transitionBuilder] property can be used to
+/// provide a custom animation transition.
+///
+/// {@tool snippet}
+/// This example shows how to use the [AnimatedShowHide] widget to animate the
+/// showing and hiding of a child widget.
+///
+/// ```dart
+/// AnimatedShowHide(
+///   child: const Text('Hello World!'),
+///   animate: true,
+///   duration: const Duration(seconds: 1),
+///   curve: Curves.bounceInOut,
+///   axis: Axis.horizontal,
+///   axisAlignment: 0.5,
+/// )
+/// ```
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [AnimatedShowHideChild]
+///  * [AnimatedShowHideTransitionBuilder]
+///  * [SizeTransition]
+///  * [FadeTransition]
 class AnimatedShowHide extends StatelessWidget {
-  /// A widget that animates the showing and hiding of its child with configurable animation parameters.
+  /// Creates a new [AnimatedShowHide] widget.
+  ///
+  /// The [child] property is the widget to be shown or hidden. The [animate]
+  /// property determines whether the child widget should be shown or hidden. The
+  /// [duration], [curve], [axis], and [axisAlignment] properties can be used to
+  /// customize the animation. The [transitionBuilder] property can be used to
+  /// provide a custom animation transition.
   const AnimatedShowHide({
     this.child,
     this.animate = true,
@@ -50,35 +94,25 @@ class AnimatedShowHide extends StatelessWidget {
     super.key,
   });
 
-  /// The child widget to animate.
+  /// The widget to be shown or hidden.
   final Widget? child;
 
-  /// Whether to animate the showing and hiding of the child.
-  ///
-  /// Defaults to `true`.
+  /// Whether to animate the showing and hiding of the child widget.
   final bool animate;
 
   /// The duration of the animation.
-  ///
-  /// Defaults to `180` milliseconds.
   final Duration duration;
 
-  /// The curve to use for the animation.
-  ///
-  /// Defaults to [Curves.ease].
+  /// The curve of the animation.
   final Curve curve;
 
-  /// The axis along which the child widget will animate.
-  ///
-  /// Defaults to [Axis.vertical].
+  /// The axis of the animation.
   final Axis axis;
 
-  /// The alignment of the child widget along the animation axis.
-  ///
-  /// Default value is -1, which means center alignment.
+  /// The axis alignment of the animation.
   final double axisAlignment;
 
-  /// The custom transition builder function for more advanced animations.
+  /// A custom animation transition builder.
   final AnimatedShowHideTransitionBuilder? transitionBuilder;
 
   Widget buildAnimationWidget(BuildContext context) {
@@ -101,7 +135,45 @@ class AnimatedShowHide extends StatelessWidget {
   }
 }
 
+/// A widget that manages the showing and hiding of a child widget based on animation.
+///
+/// The [AnimatedShowHideChild] widget uses an [AnimationController] to animate the
+/// showing and hiding of its child widget.
+///
+/// The animation can be customized using the [duration], [curve], [axis], and
+/// [axisAlignment] properties. The [transitionBuilder] property can be used to
+/// provide a custom animation transition.
+///
+/// {@tool snippet}
+/// This example shows how to use the [AnimatedShowHideChild] widget to animate the
+/// showing and hiding of a child widget.
+///
+/// ```dart
+/// AnimatedShowHideChild(
+///   child: show ? const Text('Hello World!') : null,
+///   animate: true,
+///   duration: const Duration(seconds: 1),
+///   curve: Curves.bounceInOut,
+///   axis: Axis.horizontal,
+///   axisAlignment: 0.5,
+/// )
+/// ```
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [AnimatedShowHide]
+///  * [AnimatedShowHideTransitionBuilder]
+///  * [SizeTransition]
+///  * [FadeTransition]
 class AnimatedShowHideChild extends StatefulWidget {
+  /// Creates a new [AnimatedShowHideChild] widget.
+  ///
+  /// The [child] property is the widget to be shown or hidden. The [animate]
+  /// property determines whether the child widget should be shown or hidden. The
+  /// [duration], [curve], [axis], and [axisAlignment] properties can be used to
+  /// customize the animation. The [transitionBuilder] property can be used to
+  /// provide a custom animation transition.
   const AnimatedShowHideChild({
     this.child,
     this.duration = const Duration(milliseconds: 180),
@@ -112,11 +184,22 @@ class AnimatedShowHideChild extends StatefulWidget {
     super.key,
   });
 
+  /// The widget to be shown or hidden.
   final Widget? child;
+
+  /// The duration of the animation.
   final Duration duration;
+
+  /// The curve of the animation.
   final Curve curve;
+
+  /// The axis of the animation.
   final Axis axis;
+
+  /// The axis alignment of the animation.
   final double axisAlignment;
+
+  /// A custom animation transition builder.
   final AnimatedShowHideTransitionBuilder? transitionBuilder;
 
   @override

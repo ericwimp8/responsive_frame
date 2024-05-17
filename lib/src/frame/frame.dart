@@ -1,67 +1,55 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// A widget that provides a flexible layout structure for organizing content
-/// within a frame.
+/// A widget that provides a consistent frame structure for responsive layouts.
 ///
-/// The frame is divided into nine sections:
-/// - **Top:** The area at the top of the frame.
-/// - **Body Top:** The area at the top of the body section.
-/// - **Left End:** The area on the left side of the frame.
-/// - **Left End Top:** The area at the top of the left end section.
-/// - **Body:** The central area of the frame, where the main content is displayed.
-/// - **Right End:** The area on the right side of the frame.
-/// - **Right End Top:** The area at the top of the right end section.
-/// - **Body Bottom:** The area at the bottom of the body section.
-/// - **Bottom:** The area at the bottom of the frame.
+/// The [Frame] widget provides a consistent frame structure for responsive
+/// layouts. It allows you to define different widgets to render in each of the
+/// frame's slots, such as the top, left end, body, right end, and bottom slots.
 ///
-/// Each section can hold a widget, allowing you to arrange content in various
-/// configurations. The [Frame] widget provides options for customizing the
-/// dimensions and visibility of each section.
+/// The [Frame] widget also supports animations for changes to the layout. You can
+/// customize the animation using the [animations] property.
 ///
-/// You can control the visibility of each section using the `animations` property.
-/// When `animations` is set to `true`, sections can be animated in and out.
+/// The [dimensions] property can be used to define the dimensions of each slot.
+/// You can use this property to control the maximum height and width of each slot,
+/// as well as whether the left end and right end slots should fill the vertical
+/// space of the frame.
 ///
-/// The dimensions of each section can be adjusted using the `dimensions` property,
-/// which accepts a [DimensionsConfig] object. This allows you to define minimum and
-/// maximum heights and widths for each section.
-///
-/// The `backgroundColor` property sets the background color of the frame.
-///
-/// ## Example Usage
+/// {@tool snippet}
+/// This example shows how to use the [Frame] widget to create a frame structure
+/// with different widgets in each slot.
 ///
 /// ```dart
 /// Frame(
-///   animations: true,
+///   body: const Text('Body'),
+///   top: const Text('Top'),
+///   leftEnd: const Text('Left End'),
+///   rightEnd: const Text('Right End'),
+///   bottom: const Text('Bottom'),
 ///   dimensions: DimensionsConfig(
-///     topMinHeight: 50,
-///     topMaxHeight: 100,
-///     bodyMaxWidth: 800,
+///     leftEndMaxWidth: 200,
+///     rightEndMaxWidth: 200,
+///     bodyMaxWidth: 600,
 ///   ),
-///   top: Text('Top Section'),
-///   body: Container(
-///     color: Colors.blue,
-///     child: Center(child: Text('Body Section')),
-///   ),
-///   bottom: Text('Bottom Section'),
 /// )
 /// ```
+/// {@end-tool}
 ///
-/// In this example, the `Frame` widget displays a top section with a minimum
-/// height of 50 and a maximum height of 100. The body section has a maximum
-/// width of 800. The top and bottom sections contain text widgets.
+/// See also:
+///
+///  * [FrameConfig]
+///  * [DimensionsConfig]
+///  * [FrameVerticalEnd]
+///  * [FrameHorizontalEnd]
+///  * [ResponsiveFrameLayout]
 class Frame extends StatelessWidget {
-  /// Creates a [Frame] widget.
+  /// Creates a new [Frame] widget.
   ///
-  /// The [body] parameter is required and represents the main content of the
-  /// frame.
-  ///
-  /// The other parameters are optional and allow you to customize the layout
-  /// and appearance of the frame.
+  /// The [body] property is the widget to render in the body slot. The
+  /// [top], [leftEnd], [rightEnd], and [bottom] properties are the widgets to
+  /// render in the corresponding slots. The [dimensions] property can be used to
+  /// define the dimensions of each slot. The [animations] property can be used
+  /// to disable animations for changes to the layout.
   const Frame({
     required this.body,
     this.dimensions = DimensionsConfig.empty,
@@ -78,37 +66,37 @@ class Frame extends StatelessWidget {
     super.key,
   });
 
-  /// Whether to animate the visibility of sections.
+  /// Whether to animate changes to the layout.
   final bool animations;
 
-  /// The main content of the frame.
+  /// The widget to render in the body slot.
   final Widget body;
 
-  /// The widget to be displayed at the top of the frame.
+  /// The widget to render in the top slot.
   final Widget? top;
 
-  /// The widget to be displayed at the top of the body section.
+  /// The widget to render in the body top slot.
   final Widget? bodyTop;
 
-  /// The widget to be displayed at the left end of the frame.
+  /// The widget to render in the left end slot.
   final Widget? leftEnd;
 
-  /// The widget to be displayed at the top of the left end section.
+  /// The widget to render in the left end top slot.
   final Widget? leftEndTop;
 
-  /// The widget to be displayed at the right end of the frame.
+  /// The widget to render in the right end slot.
   final Widget? rightEnd;
 
-  /// The widget to be displayed at the top of the right end section.
+  /// The widget to render in the right end top slot.
   final Widget? rightEndTop;
 
-  /// The widget to be displayed at the bottom of the body section.
+  /// The widget to render in the body bottom slot.
   final Widget? bodyBottom;
 
-  /// The widget to be displayed at the bottom of the frame.
+  /// The widget to render in the bottom slot.
   final Widget? bottom;
 
-  /// The dimensions configuration of the frame.
+  /// The dimensions of each slot.
   final DimensionsConfig? dimensions;
 
   /// The background color of the frame.

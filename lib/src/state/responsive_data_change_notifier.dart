@@ -1,37 +1,38 @@
 import 'dart:ui';
 
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// Handles responsive data changes based on screen size.
+/// A change notifier that provides access to responsive data.
 ///
-/// The [ResponsiveDataChangeNotifier] class extends [ChangeNotifier] and includes [WidgetsBindingObserver].
-/// It is used as a notifier for [ResponsiveData] that provides [BreakpointsHandler]s and current screen
-/// size data to the widget tree below it.
+/// The [ResponsiveDataChangeNotifier] class provides access to responsive data,
+/// such as the screen size and the current breakpoint. The data is provided
+/// through a [Breakpoints] object and a map of [BreakpointsHandler] objects.
 ///
-/// ## Example:
+/// The [ResponsiveDataChangeNotifier] class can be used with the
+/// [ResponsiveData] widget to provide responsive data to child widgets.
 ///
-/// ```dart
-/// ResponsiveData(
-///   notifier: ResponsiveDataChangeNotifier(
-///     breakpoints: Breakpoints.defaultBreakpoints,
-///     handlers: handlers,
-///   ),
-///   child: LayoutBuilder(
-///     builder: (context, constraints) {
-///       ResponsiveData.of<LayoutSize>(context);
-///       return child;
-///     },
-///   ),
-/// );
-/// ```
+/// This example shows how to use the [ResponsiveDataChangeNotifier] class to
+/// provide responsive data.
+/// {@macro responsive_data}
+///
 /// See also:
-/// - [ChangeNotifier], a class in the Flutter framework for managing listeners.
-/// - [WidgetsBindingObserver], an interface for handling widget binding events.
-
+///
+///  * [ResponsiveData]
+///  * [Breakpoints]
+///  * [BreakpointsHandler]
 class ResponsiveDataChangeNotifier<K extends Enum> extends ChangeNotifier
     with WidgetsBindingObserver {
-  /// Handles responsive data changes based on screen size.
+  /// Creates a new [ResponsiveDataChangeNotifier] object.
+  ///
+  /// The [breakpoints] property is the [Breakpoints] object that defines the
+  /// breakpoints for each layout size. The [handlers] property is a map of
+  /// [BreakpointsHandler] objects that provide access to the handlers for each
+  /// layout size. The [useShortestSide] property determines whether to use the
+  /// shortest side of the screen to determine the layout size.
+  ///
+  /// The [testView] parameter is used for testing purposes only. It allows
+  /// you to provide a custom [FlutterView] object to the change notifier.
   ResponsiveDataChangeNotifier({
     required this.breakpoints,
     bool useShortestSide = false,
@@ -42,18 +43,36 @@ class ResponsiveDataChangeNotifier<K extends Enum> extends ChangeNotifier
         _useShortestSide = useShortestSide {
     updateMetrics();
   }
+
+  /// The [FlutterView] object to use for testing purposes only.
   final FlutterView? testView;
+
+  /// The [Breakpoints] object that defines the breakpoints for each layout size.
   final BaseBreakpoints<K> breakpoints;
+
+  /// The current screen size.
   K? screenSize;
+
+  /// The current breakpoint.
   double? currentBreakpoint;
+
+  /// The map of [BreakpointsHandler] objects that provide access to the handlers
+  /// for each layout size.
   final Map<String, BaseBreakpointsHandler<Object?, K>> _handlers;
+
+  /// Whether to use the shortest side of the screen to determine the layout size.
   bool _useShortestSide;
+
+  /// The map of [BreakpointsHandler] objects that provide access to the handlers
+  /// for each layout size.
   Map<String, BaseBreakpointsHandler<Object?, K>> get handlers => _handlers;
+
+  /// Whether to use the shortest side of the screen to determine the layout size.
   bool get useShortestSide => _useShortestSide;
 
-  /// Sets the [_useShortestSide] property with the provided [value].
+  /// Sets whether to use the shortest side of the screen to determine the layout size.
   ///
-  /// This method updates the metrics and notifies the listeners.
+  /// The [value] parameter determines whether to use the shortest side of the screen.
   void setUseShortestSide({required bool value}) {
     _useShortestSide = value;
     updateMetrics();
@@ -65,9 +84,9 @@ class ResponsiveDataChangeNotifier<K extends Enum> extends ChangeNotifier
     updateMetrics();
   }
 
-  /// Gets the handler with the specified [key].
+  /// Returns the [BreakpointsHandler] object associated with the given key.
   ///
-  /// If no handler is found for the given key, an assertion error is thrown.
+  /// The [key] parameter is the key of the handler to be retrieved.
   BaseBreakpointsHandler<T, K> getHandler<T extends Object>(String key) {
     final hasHandler = _handlers.containsKey(key);
     if (!hasHandler) {
@@ -80,7 +99,11 @@ class ResponsiveDataChangeNotifier<K extends Enum> extends ChangeNotifier
     return _handlers[key]! as BaseBreakpointsHandler<T, K>;
   }
 
-  /// Updates [currentBreakpoint] and [screenSize] based on the current metrics.
+  /// Updates the screen size and breakpoint.
+  ///
+  /// This method is called when the screen size changes. It updates the
+  /// [screenSize] and [currentBreakpoint] properties based on the new screen
+  /// size.
   void updateMetrics() {
     // Get the current view or the first platform view if testView is null
     final view =
@@ -116,6 +139,7 @@ class ResponsiveDataChangeNotifier<K extends Enum> extends ChangeNotifier
     }
   }
 
+  /// Returns the screen size based on the given size.
   K _getScreenSize(double size) {
     final entries = breakpoints.values.entries;
     for (final entry in entries) {

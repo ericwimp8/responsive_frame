@@ -1,32 +1,83 @@
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// A base class for handling breakpoints.
+/// A base class for handling breakpoints and providing layout values.
 ///
-/// Provides a way to manage and listen to breakpoint changes and return a function of a given
-/// type T.
+/// The [BaseBreakpointsHandler] class serves as a base for handling breakpoints
+/// and retrieving layout values associated with different screen sizes. It
+/// provides a mechanism to map screen sizes to specific layout values, allowing
+/// for responsive adjustments based on the device's screen width.
 ///
-/// It takes a [breakpoints] object of type [BaseBreakpoints] which defines
-/// the breakpoints to be handled. Optionally, you can provide an [onChanged]
-/// callback function that will be called whenever the breakpoints change.
+/// This class implements a strategy for determining the appropriate layout
+/// value based on the provided screen size, considering breakpoints defined by
+/// the [breakpoints] property. It also offers an optional callback function,
+/// [onChanged], to notify about changes in the active layout size.
 ///
-/// See and prefer using subclasses [BreakpointsHandler] and [BreakpointsHandlerGranular].
+/// Subclasses should override the [values] property to define the mapping
+/// between layout sizes and their corresponding layout values.
 ///
-/// A [BaseBreakpointsHandler] can be created and used in the ephemeral widget tree see [BreakpointsHandler] and [BreakpointsHandlerGranular]
-/// for examples.
-/// Or it can be passed to [ResponsiveData] via the [ResponsiveDataChangeNotifier] which will make it
-/// avaiable via the widget tree using [ResponsiveData.handlerOf] or `ResponsiveData.of(context).handlers` function .
-/// See and prefer [BreakpointsData] and [ResponsiveFrameLayout] or [BreakpointsDataGranular] and [ResponsiveFrameLayoutGranular].
+/// {@tool snippet}
+/// This example shows how to use the [BaseBreakpointsHandler] class to define
+/// layout values for different screen sizes.
+///
+/// ```dart
+/// class MyBreakpointsHandler extends BaseBreakpointsHandler<String, LayoutSize> {
+///   MyBreakpointsHandler({
+///     required super.breakpoints,
+///     super.onChanged,
+///   });
+///
+///   @override
+///   Map<LayoutSize, String?> get values => {
+///         LayoutSize.extraLarge: 'Extra Large',
+///         LayoutSize.large: 'Large',
+///         LayoutSize.medium: 'Medium',
+///         LayoutSize.small: 'Small',
+///         LayoutSize.extraSmall: 'Extra Small',
+///       };
+/// }
+/// ```
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [BreakpointsHandler]
+///  * [BreakpointsHandlerGranular]
 abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
-  /// A base class for handling breakpoints.
+  /// Creates a new [BaseBreakpointsHandler] object.
+  ///
+  /// The [breakpoints] property defines the breakpoints for different screen
+  /// sizes. The optional [onChanged] callback is invoked when the active layout
+  /// size changes.
   BaseBreakpointsHandler({required this.breakpoints, this.onChanged});
+
+  /// The optional callback function invoked when the active layout size
+  /// changes.
   final void Function(K)? onChanged;
+
+  /// The [Breakpoints] object that defines the breakpoints for different
+  /// screen sizes.
   final BaseBreakpoints<K> breakpoints;
+
+  /// The current layout value.
   T? currentValue;
+
+  /// The cached layout size.
   K? layoutSizeCache;
+
+  /// A map defining the mapping between layout sizes and their corresponding
+  /// layout values.
+  ///
+  /// Subclasses should override this property to provide the mapping between
+  /// layout sizes and their associated values.
   Map<K, T?> get values;
 
-  /// Finds the callback associated with the current layout size. If there is no callback it finds the next smallest callback that is not null.
-  /// If all small callbacks are null finds the nearest larger callback that is not null.
+  /// Returns the layout value associated with the provided screen size.
+  ///
+  /// This method uses the defined breakpoints to determine the appropriate
+  /// layout size based on the given screen size and retrieves the corresponding
+  /// layout value from the [values] map. It also manages caching of the layout
+  /// size and invokes the optional [onChanged] callback when the active layout
+  /// size changes.
   T getLayoutSizeValue(double size) {
     assert(size >= 0, 'Size must be greater than or equal to 0.');
 
@@ -69,8 +120,10 @@ abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
     return callback!;
   }
 
-  /// Retrieves the screen size key corresponding to the given [size] parameter.
-  /// if the size is -1 it will return the smallest screen size.
+  /// Returns the layout size based on the given screen size.
+  ///
+  /// This method uses the defined breakpoints to determine the layout size
+  /// based on the provided screen size.
   K getScreenSize(double size) {
     final entries = breakpoints.values.entries;
     for (final entry in entries) {
@@ -83,7 +136,49 @@ abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
   }
 }
 
+/// A class for handling breakpoints and providing layout values for different
+/// screen sizes.
+///
+/// The [BreakpointsHandler] class is used to manage breakpoints and retrieve
+/// layout values associated with different screen sizes. It simplifies the process
+/// of creating responsive layouts by providing a straightforward way to map screen
+/// widths to specific layout values.
+///
+/// This class extends the [BaseBreakpointsHandler] class and defines the
+/// mapping between layout sizes and their corresponding layout values through
+/// the [values] property. It offers an optional callback function, [onChanged],
+/// to notify about changes in the active layout size.
+///
+/// {@tool snippet}
+/// This example shows how to use the [BreakpointsHandler] class to define
+/// layout values for different screen sizes.
+///
+/// ```dart
+/// final handler = BreakpointsHandler<String>(
+///   breakpoints: Breakpoints.defaultBreakpoints,
+///   extraLarge: 'Extra Large',
+///   large: 'Large',
+///   medium: 'Medium',
+///   small: 'Small',
+/// );
+///
+/// final layoutValue = handler.getLayoutSizeValue(MediaQuery.of(context).size.width);
+///
+/// print(layoutValue); // Output: 'Extra Large', 'Large', 'Medium', 'Small' based on screen size
+/// ```
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [BaseBreakpointsHandler]
+///  * [BreakpointsHandlerGranular]
 class BreakpointsHandler<T> extends BaseBreakpointsHandler<T, LayoutSize> {
+  /// Creates a new [BreakpointsHandler] object.
+  ///
+  /// The [breakpoints] property defines the breakpoints for different screen
+  /// sizes. The optional [onChanged] callback is invoked when the active layout
+  /// size changes. The [extraLarge], [large], [medium], [small], and [extraSmall]
+  /// parameters define the layout values for each layout size.
   BreakpointsHandler({
     required super.breakpoints,
     super.onChanged,
@@ -101,10 +196,19 @@ class BreakpointsHandler<T> extends BaseBreakpointsHandler<T, LayoutSize> {
           'BreakpointsHandler requires at least one of the size arguments to be filled out',
         );
 
+  /// The layout value for extra large screens.
   final T? extraLarge;
+
+  /// The layout value for large screens.
   final T? large;
+
+  /// The layout value for medium screens.
   final T? medium;
+
+  /// The layout value for small screens.
   final T? small;
+
+  /// The layout value for extra small screens.
   final T? extraSmall;
 
   @override
@@ -117,8 +221,56 @@ class BreakpointsHandler<T> extends BaseBreakpointsHandler<T, LayoutSize> {
       };
 }
 
+/// A class for handling breakpoints and providing layout values for different
+/// screen sizes with granular size categories.
+///
+/// The [BreakpointsHandlerGranular] class is used to manage breakpoints and
+/// retrieve layout values associated with different screen sizes, taking into
+/// account granular size categories for more precise layout adjustments. It
+/// extends the [BaseBreakpointsHandler] class and defines the mapping between
+/// layout sizes and their corresponding layout values through the [values]
+/// property. It offers an optional callback function, [onChanged], to notify
+/// about changes in the active layout size.
+///
+/// {@tool snippet}
+/// This example shows how to use the [BreakpointsHandlerGranular] class to
+/// define layout values for different screen sizes with granular size
+/// categories.
+///
+/// ```dart
+/// final handler = BreakpointsHandlerGranular<String>(
+///   jumboExtraLarge: 'Jumbo Extra Large',
+///   jumboLarge: 'Jumbo Large',
+///   jumboNormal: 'Jumbo Normal',
+///   jumboSmall: 'Jumbo Small',
+///   standardExtraLarge: 'Standard Extra Large',
+///   standardLarge: 'Standard Large',
+///   standardNormal: 'Standard Normal',
+///   standardSmall: 'Standard Small',
+///   compactExtraLarge: 'Compact Extra Large',
+///   compactLarge: 'Compact Large',
+///   compactNormal: 'Compact Normal',
+///   compactSmall: 'Compact Small',
+///   tiny: 'Tiny',
+/// );
+///
+/// final layoutValue = handler.getLayoutSizeValue(MediaQuery.of(context).size.width);
+///
+/// print(layoutValue); // Output: layout value based on screen size and granular category
+/// ```
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [BaseBreakpointsHandler]
+///  * [BreakpointsHandler]
 class BreakpointsHandlerGranular<T>
     extends BaseBreakpointsHandler<T, LayoutSizeGranular> {
+  /// Creates a new [BreakpointsHandlerGranular] object.
+  ///
+  /// The optional [onChanged] callback is invoked when the active layout size
+  /// changes. The parameters define the layout values for each layout size
+  /// category.
   BreakpointsHandlerGranular({
     super.breakpoints = BreakpointsGranular.defaultBreakpoints,
     super.onChanged,
@@ -152,18 +304,43 @@ class BreakpointsHandlerGranular<T>
           'BreakpointsHandlerGranular requires at least one of the size arguments to be filled out',
         );
 
+  /// The layout value for jumbo extra large screens.
   final T? jumboExtraLarge;
+
+  /// The layout value for jumbo large screens.
   final T? jumboLarge;
+
+  /// The layout value for jumbo normal screens.
   final T? jumboNormal;
+
+  /// The layout value for jumbo small screens.
   final T? jumboSmall;
+
+  /// The layout value for standard extra large screens.
   final T? standardExtraLarge;
+
+  /// The layout value for standard large screens.
   final T? standardLarge;
+
+  /// The layout value for standard normal screens.
   final T? standardNormal;
+
+  /// The layout value for standard small screens.
   final T? standardSmall;
+
+  /// The layout value for compact extra large screens.
   final T? compactExtraLarge;
+
+  /// The layout value for compact large screens.
   final T? compactLarge;
+
+  /// The layout value for compact normal screens.
   final T? compactNormal;
+
+  /// The layout value for compact small screens.
   final T? compactSmall;
+
+  /// The layout value for tiny screens.
   final T? tiny;
 
   @override

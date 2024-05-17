@@ -1,56 +1,124 @@
 import 'package:flutter/foundation.dart';
 
-/// A base class representing breakpoints for different screen sizes.
+/// A base class for breakpoints.
 ///
-/// This abstract class `BaseBreakpoints` defines the structure for breakpoints
-/// with `T` representing an `Enum` type. It provides a method `values`
-/// that returns a map of type `T` to `double`, where the key represents a
-/// screen size and the value represents the breakpoint value for that size.
+/// The [BaseBreakpoints] class defines the interface for breakpoints. Breakpoints
+/// are used to determine the layout of a widget based on the screen size.
+///
+/// The [values] property is a map that defines the breakpoints for each layout
+/// size. The keys of the map are the layout sizes, and the values are the
+/// corresponding breakpoints.
+///
+/// {@tool snippet}
+/// This example shows how to use the [BaseBreakpoints] class to define
+/// breakpoints for a widget.
+///
+/// ```dart
+/// class MyBreakpoints extends BaseBreakpoints<LayoutSize> {
+///   const MyBreakpoints({
+///     this.extraLarge = 1200.0,
+///     this.large = 950.0,
+///     this.medium = 600.0,
+///     this.small = 300.0,
+///   }) : assert(
+///           extraLarge > large && large > medium && medium > small && small >= 0,
+///           'Breakpoints must be in decending order and larger than or equal to 0.',
+///         );
+///   final double extraLarge;
+///   final double large;
+///   final double medium;
+///   final double small;
+///
+///   @override
+///   Map<LayoutSize, double> get values => {
+///         LayoutSize.extraLarge: extraLarge,
+///         LayoutSize.large: large,
+///         LayoutSize.medium: medium,
+///         LayoutSize.small: small,
+///         LayoutSize.extraSmall: -1,
+///       };
+/// }
+/// ```
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [Breakpoints]
+///  * [BreakpointsGranular]
+///  * [LayoutSize]
 abstract class BaseBreakpoints<T extends Enum> {
+  /// Creates a new [BaseBreakpoints] object.
   const BaseBreakpoints();
 
-  /// Returns a map of type `T` to `double` representing the breakpoints for different screen sizes.
+  /// A map that defines the breakpoints for each layout size.
   Map<T, double> get values;
 }
 
-/// Represents the breakpoints for different screen sizes based on layout sizes.
+/// A class that defines breakpoints for responsive layouts.
 ///
-/// The `Breakpoints` class implements [BaseBreakpoints] with [LayoutSize] as the generic type.
+/// The [Breakpoints] class defines breakpoints for responsive layouts.
+/// Breakpoints are used to determine the layout of a widget based on the screen
+/// size. The [Breakpoints] class defines four breakpoints:
+///
+///  * **extraLarge:** For screens larger than 1200 pixels wide.
+///  * **large:** For screens larger than 950 pixels wide but smaller than or
+///    equal to 1200 pixels wide.
+///  * **medium:** For screens larger than 600 pixels wide but smaller than or
+///    equal to 950 pixels wide.
+///  * **small:** For screens smaller than or equal to 600 pixels wide.
+///
+/// You can create a custom [Breakpoints] object with different breakpoints using
+/// the constructor.
+///
+/// {@tool snippet}
+/// This example shows how to create a custom [Breakpoints] object with
+/// different breakpoints.
+///
+/// ```dart
+/// final breakpoints = Breakpoints(
+///   extraLarge: 1400,
+///   large: 1000,
+///   medium: 700,
+///   small: 400,
+/// );
+/// ```
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [BaseBreakpoints]
+///  * [BreakpointsGranular]
 @immutable
 class Breakpoints implements BaseBreakpoints<LayoutSize> {
+  /// Creates a new [Breakpoints] object.
+  ///
+  /// The [extraLarge], [large], [medium], and [small] parameters define the
+  /// breakpoints for each layout size.
   const Breakpoints({
-    /// The breakpoint value for extra large screens.
-    ///
-    /// Defaults to `1200.0`.
     this.extraLarge = 1200.0,
-
-    /// The breakpoint value for large screens.
-    ///
-    /// Defaults to `950.0`.
     this.large = 950.0,
-
-    /// The breakpoint value for medium screens.
-    ///
-    /// Defaults to `600.0`.
     this.medium = 600.0,
-
-    /// The breakpoint value for small screens.
-    ///
-    /// Defaults to `300.0`.
     this.small = 300.0,
   }) : assert(
           extraLarge > large && large > medium && medium > small && small >= 0,
           'Breakpoints must be in decending order and larger than or equal to 0.',
         );
+
+  /// The breakpoint for extra large screens.
   final double extraLarge;
+
+  /// The breakpoint for large screens.
   final double large;
+
+  /// The breakpoint for medium screens.
   final double medium;
+
+  /// The breakpoint for small screens.
   final double small;
 
-  /// Default instance of [Breakpoints] for standard screen size breakpoints.
+  /// The default breakpoints for responsive layouts.
   static const defaultBreakpoints = Breakpoints();
 
-  /// Default breakpoint values mapped to correspoding [LayoutSize] value for reference.
   @override
   Map<LayoutSize, double> get values => {
         LayoutSize.extraLarge: extraLarge,
@@ -84,6 +152,11 @@ class Breakpoints implements BaseBreakpoints<LayoutSize> {
         small.hashCode;
   }
 
+  /// Creates a copy of this [Breakpoints] object with the given properties
+  /// replaced.
+  ///
+  /// The [extraLarge], [large], [medium], and [small] parameters can be used
+  /// to replace the corresponding properties of this object.
   Breakpoints copyWith({
     double? extraLarge,
     double? large,
@@ -99,70 +172,88 @@ class Breakpoints implements BaseBreakpoints<LayoutSize> {
   }
 }
 
-/// Represents the breakpoints for different screen sizes based on granular layout sizes.
+/// A class that defines breakpoints for responsive layouts with granular
+/// size categories.
 ///
-/// The `BreakpointsGranular` class implements [BaseBreakpoints] with [LayoutSizeGranular] as the generic type.
+/// The [BreakpointsGranular] class defines breakpoints for responsive layouts
+/// with granular size categories, providing more precise control over layout
+/// adjustments at different screen sizes. It offers 11 breakpoints, categorized
+/// into "jumbo," "standard," and "compact" size groups, along with a "tiny"
+/// category for extremely small screens.
+///
+/// The breakpoints are:
+///
+///  * **jumboExtraLarge:** For screens larger than 4096 pixels wide.
+///  * **jumboLarge:** For screens larger than 3840 pixels wide but smaller than
+///    or equal to 4096 pixels wide.
+///  * **jumboNormal:** For screens larger than 2560 pixels wide but smaller
+///    than or equal to 3840 pixels wide.
+///  * **jumboSmall:** For screens larger than 1920 pixels wide but smaller
+///    than or equal to 2560 pixels wide.
+///  * **standardExtraLarge:** For screens larger than 1280 pixels wide but
+///    smaller than or equal to 1920 pixels wide.
+///  * **standardLarge:** For screens larger than 1024 pixels wide but smaller
+///    than or equal to 1280 pixels wide.
+///  * **standardNormal:** For screens larger than 768 pixels wide but smaller
+///    than or equal to 1024 pixels wide.
+///  * **standardSmall:** For screens larger than 568 pixels wide but smaller
+///    than or equal to 768 pixels wide.
+///  * **compactExtraLarge:** For screens larger than 480 pixels wide but smaller
+///    than or equal to 568 pixels wide.
+///  * **compactLarge:** For screens larger than 430 pixels wide but smaller than
+///    or equal to 480 pixels wide.
+///  * **compactNormal:** For screens larger than 360 pixels wide but smaller
+///    than or equal to 430 pixels wide.
+///  * **compactSmall:** For screens larger than 300 pixels wide but smaller than
+///    or equal to 360 pixels wide.
+///  * **tiny:** For screens smaller than or equal to 300 pixels wide.
+///
+/// You can create a custom [BreakpointsGranular] object with different breakpoints
+/// using the constructor.
+///
+/// {@tool snippet}
+/// This example shows how to create a custom [BreakpointsGranular] object with
+/// different breakpoints.
+///
+/// ```dart
+/// final breakpoints = BreakpointsGranular(
+///   jumboExtraLarge: 4500,
+///   jumboLarge: 4000,
+///   jumboNormal: 3000,
+///   jumboSmall: 2500,
+///   standardExtraLarge: 1500,
+///   standardLarge: 1200,
+///   standardNormal: 900,
+///   standardSmall: 700,
+///   compactExtraLarge: 500,
+///   compactLarge: 450,
+///   compactNormal: 400,
+///   compactSmall: 350,
+/// );
+/// ```
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [BaseBreakpoints]
+///  * [Breakpoints]
 @immutable
 class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
+  /// Creates a new [BreakpointsGranular] object.
+  ///
+  /// The parameters define the breakpoints for each layout size category.
   const BreakpointsGranular({
-    /// The breakpoint value for jumbo extra large screens.
-    ///
-    /// Defaults to `4096.0`.
     this.jumboExtraLarge = 4096.0,
-
-    /// The breakpoint value for jumbo large screens.
-    ///
-    /// Defaults to `3840.0`.
     this.jumboLarge = 3840.0,
-
-    /// The breakpoint value for jumbo normal screens.
-    ///
-    /// Defaults to `2560.0`.
     this.jumboNormal = 2560.0,
-
-    /// The breakpoint value for jumbo small screens.
-    ///
-    /// Defaults to `1920.0`.
     this.jumboSmall = 1920.0,
-
-    /// The breakpoint value for standard extra large screens.
-    ///
-    /// Defaults to `1280.0`.
     this.standardExtraLarge = 1280.0,
-
-    /// The breakpoint value for standard large screens.
-    ///
-    /// Defaults to `1024.0`.
     this.standardLarge = 1024.0,
-
-    /// The breakpoint value for standard normal screens.
-    ///
-    /// Defaults to `768.0`.
     this.standardNormal = 768.0,
-
-    /// The breakpoint value for standard small screens.
-    ///
-    /// Defaults to `568.0`.
     this.standardSmall = 568.0,
-
-    /// The breakpoint value for compact extra large screens.
-    ///
-    /// Defaults to `480.0`.
     this.compactExtraLarge = 480.0,
-
-    /// The breakpoint value for compact large screens.
-    ///
-    /// Defaults to `430.0`.
     this.compactLarge = 430.0,
-
-    /// The breakpoint value for compact normal screens.
-    ///
-    /// Defaults to `360.0`.
     this.compactNormal = 360.0,
-
-    /// The breakpoint value for compact small screens.
-    ///
-    /// Defaults to `300.0`.
     this.compactSmall = 300.0,
   }) : assert(
           jumboExtraLarge > jumboLarge &&
@@ -179,23 +270,47 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
               compactSmall >= 0,
           'Breakpoints must be in decending order and larger than or equal to 0',
         );
+
+  /// The breakpoint for jumbo extra large screens.
   final double jumboExtraLarge;
+
+  /// The breakpoint for jumbo large screens.
   final double jumboLarge;
+
+  /// The breakpoint for jumbo normal screens.
   final double jumboNormal;
+
+  /// The breakpoint for jumbo small screens.
   final double jumboSmall;
+
+  /// The breakpoint for standard extra large screens.
   final double standardExtraLarge;
+
+  /// The breakpoint for standard large screens.
   final double standardLarge;
+
+  /// The breakpoint for standard normal screens.
   final double standardNormal;
+
+  /// The breakpoint for standard small screens.
   final double standardSmall;
+
+  /// The breakpoint for compact extra large screens.
   final double compactExtraLarge;
+
+  /// The breakpoint for compact large screens.
   final double compactLarge;
+
+  /// The breakpoint for compact normal screens.
   final double compactNormal;
+
+  /// The breakpoint for compact small screens.
   final double compactSmall;
 
-  /// Default instance of [BreakpointsGranular] for standard screen size breakpoints.
+  /// The default breakpoints for responsive layouts with granular size
+  /// categories.
   static const defaultBreakpoints = BreakpointsGranular();
 
-  /// Default breakpoint values mapped to correspoding [LayoutSizeGranular] value for reference.
   @override
   Map<LayoutSizeGranular, double> get values => {
         LayoutSizeGranular.jumboExtraLarge: jumboExtraLarge,
@@ -213,6 +328,11 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
         LayoutSizeGranular.tiny: -1,
       };
 
+  /// Creates a copy of this [BreakpointsGranular] object with the given
+  /// properties replaced.
+  ///
+  /// The parameters can be used to replace the corresponding properties of this
+  /// object.
   BreakpointsGranular copyWith({
     double? jumboExtraLarge,
     double? jumboLarge,
@@ -284,28 +404,117 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
   }
 }
 
-/// Enum representing different layout sizes.
+/// An enum representing different layout sizes.
+///
+/// The [LayoutSize] enum defines five layout sizes:
+///
+///  * **extraLarge:** For screens larger than 1200 pixels wide.
+///  * **large:** For screens larger than 950 pixels wide but smaller than or
+///    equal to 1200 pixels wide.
+///  * **medium:** For screens larger than 600 pixels wide but smaller than or
+///    equal to 950 pixels wide.
+///  * **small:** For screens smaller than or equal to 600 pixels wide.
+///  * **extraSmall:** For screens smaller than or equal to 300 pixels wide.
+///
+/// These layout sizes are used by the [Breakpoints] class to determine the
+/// layout of a widget based on the screen size.
+///
+/// See also:
+///
+///  * [Breakpoints]
+///  * [BreakpointsGranular]
 enum LayoutSize {
+  /// For screens larger than 1200 pixels wide.
   extraLarge,
+
+  /// For screens larger than 950 pixels wide but smaller than or equal to
+  /// 1200 pixels wide.
   large,
+
+  /// For screens larger than 600 pixels wide but smaller than or equal to
+  /// 950 pixels wide.
   medium,
+
+  /// For screens smaller than or equal to 600 pixels wide.
   small,
+
+  /// For screens smaller than or equal to 300 pixels wide.
   extraSmall,
 }
 
-/// Enum representing different layout sizes with granular control.
+/// An enum representing different layout sizes with granular size categories.
+///
+/// The [LayoutSizeGranular] enum defines 12 layout sizes with granular size
+/// categories, providing more precise control over layout adjustments at
+/// different screen sizes. The categories are:
+///
+///  * **jumbo:** For screens with a large display area, often used for
+///    desktops or large tablets.
+///  * **standard:** For screens with a standard display area, commonly found
+///    on laptops or smaller tablets.
+///  * **compact:** For screens with a smaller display area, typical of mobile
+///    devices.
+///  * **tiny:** For screens with an extremely small display area, often found
+///    on very old or specialized devices.
+///
+/// Within each category, there are multiple sizes, allowing for even finer
+/// granularity in layout adjustments.
+///
+/// This enum is used by the [BreakpointsGranular] class to define breakpoints
+/// for responsive layouts with granular size categories.
+///
+/// See also:
+///
+///  * [BreakpointsGranular]
+///  * [Breakpoints]
 enum LayoutSizeGranular {
+  /// For screens larger than 4096 pixels wide.
   jumboExtraLarge,
+
+  /// For screens larger than 3840 pixels wide but smaller than or equal to
+  /// 4096 pixels wide.
   jumboLarge,
+
+  /// For screens larger than 2560 pixels wide but smaller than or equal to
+  /// 3840 pixels wide.
   jumboNormal,
+
+  /// For screens larger than 1920 pixels wide but smaller than or equal to
+  /// 2560 pixels wide.
   jumboSmall,
+
+  /// For screens larger than 1280 pixels wide but smaller than or equal to
+  /// 1920 pixels wide.
   standardExtraLarge,
+
+  /// For screens larger than 1024 pixels wide but smaller than or equal to
+  /// 1280 pixels wide.
   standardLarge,
+
+  /// For screens larger than 768 pixels wide but smaller than or equal to
+  /// 1024 pixels wide.
   standardNormal,
+
+  /// For screens larger than 568 pixels wide but smaller than or equal to
+  /// 768 pixels wide.
   standardSmall,
+
+  /// For screens larger than 480 pixels wide but smaller than or equal to
+  /// 568 pixels wide.
   compactExtraLarge,
+
+  /// For screens larger than 430 pixels wide but smaller than or equal to
+  /// 480 pixels wide.
   compactLarge,
+
+  /// For screens larger than 360 pixels wide but smaller than or equal to
+  /// 430 pixels wide.
   compactNormal,
+
+  /// For screens larger than 300 pixels wide but smaller than or equal to
+  /// 360 pixels wide.
   compactSmall,
+
+  /// For screens smaller than or equal to 300 pixels wide.
   tiny,
 }

@@ -1,8 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// A widget that represents the end of a horizontal frame layout.
+/// A widget that constrains a child widget to a horizontal end, used in [Frame].
+///
+/// The [FrameHorizontalEnd] widget constrains its child widget to a horizontal
+/// end. This is useful for rendering widgets that should fill the horizontal
+/// space of the frame, such as a side bar.
+///
+/// The [maxWidth] and [minWidth] properties can be used to control the maximum
+/// and minimum width of the child widget. The [top] property can be used to
+/// render a widget at the top of the constrained area. The [topMaxHeight] and
+/// [topMinHeight] properties can be used to control the maximum and minimum
+/// height of the top widget.
+///
+/// {@tool snippet}
+/// This example shows how to use the [FrameHorizontalEnd] widget to constrain a
+/// child widget to a horizontal end.
+///
+/// ```dart
+/// FrameHorizontalEnd(
+///   child: const Text('Side Bar'),
+///   maxWidth: 200,
+///   minWidth: 100,
+///   top: const Text('Header'),
+///   topMaxHeight: 50,
+///   topMinHeight: 25,
+/// )
+/// ```
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [Frame]
+///  * [FrameVerticalEnd]
 class FrameHorizontalEnd extends StatelessWidget {
+  /// Creates a new [FrameHorizontalEnd] widget.
+  ///
+  /// The [child] property is the widget to be constrained. The [maxWidth] and
+  /// [minWidth] properties can be used to control the maximum and minimum
+  /// width of the child widget. The [top] property can be used to render a
+  /// widget at the top of the constrained area. The [topMaxHeight] and
+  /// [topMinHeight] properties can be used to control the maximum and minimum
+  /// height of the top widget.
   const FrameHorizontalEnd({
     required this.child,
     this.top,
@@ -13,30 +52,22 @@ class FrameHorizontalEnd extends StatelessWidget {
     super.key,
   });
 
-  /// The widget to display at the top of the `FrameHorizontalEnd` widget.
+  /// The widget to render at the top of the constrained area.
   final Widget? top;
 
-  /// The child widget of the `FrameHorizontalEnd` widget.
+  /// The widget to be constrained.
   final Widget child;
 
-  /// The maximum width of the `FrameHorizontalEnd` widget.
-  ///
-  /// Defaults to [kDefaultHorizontalEndWidth].
+  /// The maximum width of the child widget.
   final double? maxWidth;
 
-  /// The minimum width of the `FrameHorizontalEnd` widget.
-  ///
-  /// Defaults to [kDefaultHorizontalEndWidth].
+  /// The minimum width of the child widget.
   final double? minWidth;
 
-  /// The minimum height of the widget at the top of the `FrameHorizontalEnd` widget.
-  ///
-  /// Defaults to [kDefaultVerticalMinHeight].
+  /// The minimum height of the top widget.
   final double? topMinHeight;
 
-  /// The maximum height of the widget at the top of the `FrameHorizontalEnd` widget.
-  ///
-  /// Defaults to [kDefaultVerticalMaxHeight].
+  /// The maximum height of the top widget.
   final double? topMaxHeight;
 
   @override

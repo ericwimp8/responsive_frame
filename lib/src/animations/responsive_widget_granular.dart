@@ -1,31 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// A widget that shows its child based on the current screen size.
+/// A widget that displays a child widget based on the screen size and granular
+/// size categories.
 ///
-/// The `ResponsiveWidgetGranular` takes a [child] widget and a set of boolean values
-/// that represent whether the child should be shown at different screen sizes.
-/// The [breakpoints] parameter allows you to specify custom [BreakpointsGranular].
-/// The [useShortestSide] parameter allows you to use the shortest side.
-/// The [transitionBuilder] allows you to specify a custom transition.
-/// The [animate] parameter allows you to turn off animations.
+/// The [ResponsiveWidgetGranular] widget displays its child widget only when
+/// the screen size matches one of the specified size parameters, taking into
+/// account granular size categories for more precise layout adjustments. You can
+/// control which screen sizes trigger the display of the child widget using the
+/// `jumboExtraLarge`, `jumboLarge`, `jumboNormal`, `jumboSmall`,
+/// `standardExtraLarge`, `standardLarge`, `standardNormal`, `standardSmall`,
+/// `compactExtraLarge`, `compactLarge`, `compactNormal`, `compactSmall`, and
+/// `tiny` properties.
 ///
-/// Example:
+/// You can optionally provide a custom [breakpoints] object to define the
+/// breakpoints for each layout size category. The `useShortestSide` property
+/// can be used to determine the layout size based on the shortest side of the
+/// screen instead of the width.
+///
+/// The widget provides basic animation capabilities using the `animate`,
+/// `duration`, `curve`, `axis`, `axisAlignment`, and `transitionBuilder`
+/// properties.
+///
+/// {@tool snippet}
+/// This example shows how to use the [ResponsiveWidgetGranular] widget to
+/// display a child widget only when the screen size is in the "standard"
+/// category and is large or extra large.
 ///
 /// ```dart
 /// ResponsiveWidgetGranular(
-///   child: Text('Hello, world!'),
-///   jumboExtraLarge: true,
-///   jumboLarge: true,
-///   jumboNormal: true,
-///   jumboSmall: true,
+///   standardLarge: true,
+///   standardExtraLarge: true,
+///   child: const Text('This text is only visible on standard large or extra large screens.'),
 /// )
 /// ```
+/// {@end-tool}
 ///
-/// In this example, the `Text` widget will be shown on jumboExtraLarge, jumboLarge,
-/// jumboNormal and jumboSmall screens sizes only.
+/// See also:
+///
+///  * [ResponsiveWidget]
+///  * [BreakpointsGranular]
 class ResponsiveWidgetGranular extends StatelessWidget {
-  /// A widget that shows its child based on the current screen size.
+  /// Creates a new [ResponsiveWidgetGranular] widget.
+  ///
+  /// The [child] property is the widget to be displayed. The `jumboExtraLarge`,
+  /// `jumboLarge`, `jumboNormal`, `jumboSmall`, `standardExtraLarge`,
+  /// `standardLarge`, `standardNormal`, `standardSmall`, `compactExtraLarge`,
+  /// `compactLarge`, `compactNormal`, `compactSmall`, and `tiny` properties
+  /// determine which screen sizes trigger the display of the child widget. You
+  /// can optionally provide a custom [breakpoints] object to define the
+  /// breakpoints for each layout size category. The `useShortestSide` property
+  /// can be used to determine the layout size based on the shortest side of
+  /// the screen instead of the width. The `animate`, `duration`, `curve`,
+  /// `axis`, `axisAlignment`, and `transitionBuilder` properties control the
+  /// animation of the child widget.
   ResponsiveWidgetGranular({
     required this.child,
     this.breakpoints = BreakpointsGranular.defaultBreakpoints,
@@ -67,110 +95,72 @@ class ResponsiveWidgetGranular extends StatelessWidget {
           'At least one of the size params must be true',
         );
 
-  /// The widget to be shown based on the current screen size.
+  /// The widget to be displayed.
   final Widget child;
 
-  /// Custom breakpoints to specify different screen sizes.
-  ///
-  /// Defaults to [BreakpointsGranular.defaultBreakpoints].
+  /// The [BreakpointsGranular] object to define the breakpoints for each
+  /// layout size category.
   final BreakpointsGranular breakpoints;
 
-  /// Whether the child should be shown on jumboExtraLarge screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on jumbo extra large screens.
   final bool jumboExtraLarge;
 
-  /// Whether the child should be shown on jumboLarge screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on jumbo large screens.
   final bool jumboLarge;
 
-  /// Whether the child should be shown on jumboNormal screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on jumbo normal screens.
   final bool jumboNormal;
 
-  /// Whether the child should be shown on jumboSmall screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on jumbo small screens.
   final bool jumboSmall;
 
-  /// Whether the child should be shown on standardExtraLarge screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on standard extra large screens.
   final bool standardExtraLarge;
 
-  /// Whether the child should be shown on standardLarge screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on standard large screens.
   final bool standardLarge;
 
-  /// Whether the child should be shown on standardNormal screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on standard normal screens.
   final bool standardNormal;
 
-  /// Whether the child should be shown on standardSmall screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on standard small screens.
   final bool standardSmall;
 
-  /// Whether the child should be shown on compactExtraLarge screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on compact extra large screens.
   final bool compactExtraLarge;
 
-  /// Whether the child should be shown on compactLarge screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on compact large screens.
   final bool compactLarge;
 
-  /// Whether the child should be shown on compactNormal screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on compact normal screens.
   final bool compactNormal;
 
-  /// Whether the child should be shown on compactSmall screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on compact small screens.
   final bool compactSmall;
 
-  /// Whether the child should be shown on tiny screens.
-  ///
-  /// Defaults to `false`.
+  /// Whether to display the child widget on tiny screens.
   final bool tiny;
 
-  /// Whether to use the shortest side of the screen for calculations.
-  ///
-  /// Defaults to `false`.
+  /// Whether to use the shortest side of the screen to determine the layout
+  /// size.
   final bool useShortestSide;
 
-  /// The axis along which the child will be aligned.
-  ///
-  /// Defaults to [Axis.horizontal].
+  /// The axis of the animation.
   final Axis axis;
 
-  /// The alignment of the child along the specified axis.
-  ///
-  /// Defaults to `-1.0`.
+  /// The axis alignment of the animation.
   final double axisAlignment;
 
-  /// The animation curve for showing/hiding the child.
-  ///
-  /// Defaults to [Curves.ease].
+  /// The curve of the animation.
   final Curve curve;
 
-  /// The duration of the animation for showing/hiding the child.
-  ///
-  /// Defaults to `Duration(milliseconds: 180)`.
+  /// The duration of the animation.
   final Duration duration;
 
-  /// Whether to animate the showing/hiding of the child.
-  ///
-  /// Defaults to `true`.
+  /// Whether to animate the child widget.
   final bool animate;
 
-  /// A custom transition builder for animations.
+  /// A custom animation transition builder.
   final Widget Function(
     BuildContext context,
     Animation<double> animation,

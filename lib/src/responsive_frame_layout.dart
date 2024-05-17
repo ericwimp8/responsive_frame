@@ -1,50 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
-/// A widget that provides a responsive layout based on the screen size.
+/// {@template responsive_frame_layout}
+/// {@tool snippet}
+/// This example shows how to use the [ResponsiveFrameLayout], using [FrameConfig] to create a responsive layout with a consistent frame structure.
 ///
-/// This widget allows you to define different frame configurations for different
-/// screen sizes. The `Breakpoints` class provides a way to define different
-/// breakpoints for different screen sizes. You can use this widget to
-/// create a layout that is optimized for different screen sizes.
-///
-/// ##Example
-///
+/// ```dart
 /// ResponsiveFrameLayout(
-///   breakpoints: Breakpoints.defaultBreakpoints,
-///   large: (context) => FrameConfig(
-///     body: Container(color: Colors.red),
-///     top: Text('Top Widget'),
+///   small: (context) => FrameConfig(
+///     body: const Text('Small layout'),
 ///   ),
 ///   medium: (context) => FrameConfig(
-///     body: Container(color: Colors.blue),
-///     bottom: Text('Bottom Widget'),
+///     leftEnd: const Text('Medium layout left end'),
+///     body: const Text('Medium layout body'),
 ///   ),
-///   // Add configurations for other screen sizes as needed
-///   persistentFrameConfig: FrameConfig(
-///     bottom: Container(color: Colors.green),
-///     rightEnd: Text('Right End Widget'),
+///   large: (context) => FrameConfig(
+///     top: const Text('Large layout top'),
+///     leftEnd: const Text('Large layout left end'),
+///     body: const Text('Large layout body'),
 ///   ),
-///   backgroundColor: Colors.white,
+///   extraLarge: (context) => FrameConfig(
+///     top: const Text('Extra large layout top'),
+///     leftEnd: const Text('Extra large layout left end'),
+///     rightEnd: const Text('Extra large layout right end'),
+///     body: const Text('Extra large layout body'),
+///   ),
 /// )
 /// ```
+/// {@end-tool}
+/// {@endtemplate}
+
+/// A widget that makes it easy to create responsive layouts with a consistent frame structure.
+///
+/// {@macro responsive_frame_layout}
+///
+/// The [small], [medium], [large], and [extraLarge] properties define the [FrameConfig]
+/// to use for each layout size. The [FrameConfig] object defines the widgets to
+/// render in each of the frame's slots.
+///
+/// The [animations] property can be used to disable animations when the layout changes.
+/// The [persistentFrameConfig] property can be used to define a [FrameConfig] that
+/// will be merged with the [FrameConfig] for the current layout size. This is useful
+/// for defining widgets that should be rendered in the same slot for all layout sizes.
 class ResponsiveFrameLayout extends StatelessWidget {
-  /// Creates a new `ResponsiveFrameLayout` widget.
+  /// Creates a new [ResponsiveFrameLayout] widget.
   ///
-  /// The `breakpoints` parameter specifies the breakpoints for different
-  /// screen sizes.
+  /// The [small], [medium], [large], and [extraLarge] properties define the [FrameConfig]
+  /// to use for each layout size. The [FrameConfig] object defines the widgets to
+  /// render in each of the frame's slots.
   ///
-  /// The `animations` parameter specifies whether to animate
-  /// the layout transitions.
-  ///
-  /// The `extraLarge`, `large`, `medium`, `small`, and `extraSmall` parameters
-  /// specify the frame configuration for different screen sizes.
-  ///
-  /// The `persistentFrameConfig` parameter specifies a frame configuration
-  /// that is applied to all screen sizes.
-  ///
-  /// The `backgroundColor` parameter specifies the background color of the
-  /// frame.
+  /// The [animations] property can be used to disable animations when the layout changes.
+  /// The [persistentFrameConfig] property can be used to define a [FrameConfig] that
+  /// will be merged with the [FrameConfig] for the current layout size. This is useful
+  /// for defining widgets that should be rendered in the same slot for all layout sizes.
   const ResponsiveFrameLayout({
     required this.small,
     super.key,
@@ -65,28 +73,28 @@ class ResponsiveFrameLayout extends StatelessWidget {
           'At least one size parameter must be provided.',
         );
 
-  /// The frame configuration for extra large screens.
+  /// The [FrameConfig] to use when the screen size is extra large.
   final FrameConfig Function(BuildContext context)? extraLarge;
 
-  /// The frame configuration for large screens.
+  /// The [FrameConfig] to use when the screen size is large.
   final FrameConfig Function(BuildContext context)? large;
 
-  /// The frame configuration for medium screens.
+  /// The [FrameConfig] to use when the screen size is medium.
   final FrameConfig Function(BuildContext context)? medium;
 
-  /// The frame configuration for small screens.
+  /// The [FrameConfig] to use when the screen size is small.
   final FrameConfig Function(BuildContext context)? small;
 
-  /// The frame configuration for extra small screens.
+  /// The [FrameConfig] to use when the screen size is extra small.
   final FrameConfig Function(BuildContext context)? extraSmall;
 
-  /// The breakpoints for different screen sizes.
+  /// The breakpoints to use for each layout size.
   final Breakpoints breakpoints;
 
-  /// Whether to animate the layout transitions.
+  /// Whether to animate changes to the layout.
   final bool animations;
 
-  /// The frame configuration that is applied to all screen sizes.
+  /// A [FrameConfig] that will be merged with the [FrameConfig] for the current layout size.
   final FrameConfig persistentFrameConfig;
 
   /// The background color of the frame.

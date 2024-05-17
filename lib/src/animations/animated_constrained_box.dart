@@ -3,59 +3,41 @@ import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 import 'package:responsive_frame/src/animations/animation_constants.dart';
 
-/// A widget that animates its constraints implicitly.
+/// A widget that animates the constraints of a child widget.
 ///
-/// The `AnimatedConstrainedBox` widget allows you to animate the constraints
-/// of its child widget over a given duration. It takes a [BoxConstraints] object
-/// as its constraints parameter, which defines the constraints to be applied to
-/// the child widget.
-/// ## Example
+/// The [AnimatedConstrainedBox] widget uses an [AnimationController] to animate the
+/// constraints of its child widget. The animation is controlled by the
+/// [duration] property.
+///
+/// The animation is applied to the [constraints] property. The [child] property
+/// is the widget to be constrained.
+///
+/// {@tool snippet}
+/// This example shows how to use the [AnimatedConstrainedBox] widget to animate the
+/// constraints of a child widget.
 ///
 /// ```dart
-/// class AnimateConstraints extends StatefulWidget {
-///   const AnimateConstraints({super.key});
-///
-///   @override
-///   State<AnimateConstraints> createState() => _AnimateConstraintsState();
-/// }
-///
-/// class _AnimateConstraintsState extends State<AnimateConstraints> {
-///   bool grow = true;
-///
-///   double maxHeight = 200;
-///   double maxWidth = 200;
-///   void toggle() {
-///     setState(() {
-///       grow = !grow;
-///       maxHeight = grow ? 400 : 200;
-///       maxWidth = grow ? 400 : 200;
-///     });
-///   }
-///
-///   @override
-///   Widget build(BuildContext context) {
-///     return Column(
-///       children: [
-///         ElevatedButton(onPressed: toggle, child: const Text('Toggle')),
-///         AnimatedConstrainedBox(
-///           constraints: BoxConstraints(
-///             minWidth: double.infinity,
-///             maxHeight: maxHeight,
-///           ),
-///           child: const ColoredBox(
-///             color: Colors.lightBlue,
-///             child: Align(
-///               child: Text('Hello world'),
-///             ),
-///           ),
-///         ),
-///       ],
-///     );
-///   }
-/// }
+/// AnimatedConstrainedBox(
+///   child: show ? const Text('Hello World!'): null,
+///   constraints: BoxConstraints(
+///     maxHeight: 100,
+///     maxWidth: 200,
+///   ),
+///   duration: const Duration(seconds: 1),
+/// )
 /// ```
+/// {@end-tool}
+///
+/// See also:
+///
+///  * [ConstrainedBox]
+///  * [AnimatedWidget]
 class AnimatedConstrainedBox extends ImplicitlyAnimatedWidget {
-  /// A widget that animates its constraints implicitly.
+  /// Creates a new [AnimatedConstrainedBox] widget.
+  ///
+  /// The [child] property is the widget to be constrained. The [constraints]
+  /// property is the box constraints to be applied to the child widget. The
+  /// [duration] property is the duration of the animation.
   AnimatedConstrainedBox({
     required this.child,
     required this.constraints,
@@ -63,10 +45,10 @@ class AnimatedConstrainedBox extends ImplicitlyAnimatedWidget {
     super.key,
   }) : assert(constraints.debugAssertIsValid(), '');
 
-  /// The child widget to animate.
+  /// The widget to be constrained.
   final Widget? child;
 
-  /// The constraints to apply to the child widget.
+  /// The box constraints to be applied to the child widget.
   final BoxConstraints constraints;
 
   @override
