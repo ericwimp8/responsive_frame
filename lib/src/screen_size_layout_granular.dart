@@ -1,7 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
+/// A widget that provides a responsive layout based on the screen size
+/// and provides granular control over the layout for different screen sizes.
+///
+/// This widget allows you to define different widgets for different
+/// screen sizes. The `BreakpointsGranular` class provides a way to define
+/// different breakpoints for different screen sizes. You can use this widget
+/// to create a layout that is optimized for different screen sizes.
+///
+/// ##Example
+///
+/// ```dart
+/// ScreenSizeLayoutGranular(
+///   jumboExtraLarge: (context) => const Text('Jumbo Extra Large'),
+///   standardLarge: (context) => const Text('Standard Large'),
+///   standardNormal: (context) => const Text('Standard Normal'),
+///   compactNormal: (context) => const Text('Compact Normal'),
+/// )
+/// ```
 class ScreenSizeLayoutGranular extends StatefulWidget {
+  /// Creates a new `ScreenSizeLayoutGranular` widget.
+  ///
+  /// The `breakpoints` parameter specifies the breakpoints for different
+  /// screen sizes.
+  ///
+  /// The `jumboExtraLarge`, `jumboLarge`, `jumboNormal`, `jumboSmall`,
+  /// `standardExtraLarge`, `standardLarge`, `standardNormal`,
+  /// `standardSmall`, `compactExtraLarge`, `compactLarge`,
+  /// `compactNormal`, `compactSmall` and `tiny` parameters specify the
+  /// widget for different screen sizes.
+  ///
+  /// The `useShortestSide` parameter specifies whether to use the shortest
+  /// side of the screen as the basis for determining the screen size.
+  ///
+  /// The `useLocalSizeConstraints` parameter specifies whether to use the
+  /// local size constraints of the widget as the basis for determining the
+  /// screen size.
   const ScreenSizeLayoutGranular({
     super.key,
     this.jumboExtraLarge,
@@ -21,21 +56,55 @@ class ScreenSizeLayoutGranular extends StatefulWidget {
     this.useShortestSide = false,
     this.useLocalSizeConstraints = false,
   });
+
+  /// The widget for jumbo extra large screens.
   final Widget Function(BuildContext context)? jumboExtraLarge;
+
+  /// The widget for jumbo large screens.
   final Widget Function(BuildContext context)? jumboLarge;
+
+  /// The widget for jumbo normal screens.
   final Widget Function(BuildContext context)? jumboNormal;
+
+  /// The widget for jumbo small screens.
   final Widget Function(BuildContext context)? jumboSmall;
+
+  /// The widget for standard extra large screens.
   final Widget Function(BuildContext context)? standardExtraLarge;
+
+  /// The widget for standard large screens.
   final Widget Function(BuildContext context)? standardLarge;
+
+  /// The widget for standard normal screens.
   final Widget Function(BuildContext context)? standardNormal;
+
+  /// The widget for standard small screens.
   final Widget Function(BuildContext context)? standardSmall;
+
+  /// The widget for compact extra large screens.
   final Widget Function(BuildContext context)? compactExtraLarge;
+
+  /// The widget for compact large screens.
   final Widget Function(BuildContext context)? compactLarge;
+
+  /// The widget for compact normal screens.
   final Widget Function(BuildContext context)? compactNormal;
+
+  /// The widget for compact small screens.
   final Widget Function(BuildContext context)? compactSmall;
+
+  /// The widget for tiny screens.
   final Widget Function(BuildContext context)? tiny;
+
+  /// The breakpoints for different screen sizes.
   final BreakpointsGranular breakpoints;
+
+  /// Whether to use the shortest side of the screen as the basis for
+  /// determining the screen size.
   final bool useShortestSide;
+
+  /// Whether to use the local size constraints of the widget as the basis for
+  /// determining the screen size.
   final bool useLocalSizeConstraints;
 
   @override

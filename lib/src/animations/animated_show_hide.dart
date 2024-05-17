@@ -38,6 +38,7 @@ typedef AnimatedShowHideTransitionBuilder = Widget Function(
 /// )
 /// ```
 class AnimatedShowHide extends StatelessWidget {
+  /// A widget that animates the showing and hiding of its child with configurable animation parameters.
   const AnimatedShowHide({
     this.child,
     this.animate = true,
@@ -108,7 +109,7 @@ class AnimatedShowHideChild extends StatefulWidget {
     this.axis = Axis.vertical,
     this.axisAlignment = -1,
     this.transitionBuilder,
-    super.key, // ignore: unused_element
+    super.key,
   });
 
   final Widget? child;

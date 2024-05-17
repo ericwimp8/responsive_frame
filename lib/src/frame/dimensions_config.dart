@@ -1,8 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:responsive_frame/responsive_frame.dart';
+
+/// Provides the configuration for a [Frame].
+///
+/// Dimensions configuration for a [Frame].
+/// see [FrameConfig.dimensions]
+///
+/// ##Example
+/// ```dart
+///   DimensionsConfig frameDimensions = DimensionsConfig(
+///     topMaxHeight: 100.0,
+///     topMinHeight: 50.0,
+///     bodyTopMaxHeight: 200.0,
+///     bodyTopMinHeight: 100.0,
+///     bodyMaxWidth: 500.0,
+///     bodyMinWidth: 300.0,
+///     leftEndMaxWidth: 150.0,
+///     leftEndMinWidth: 100.0,
+///     leftEndFillVertical: true,
+///     leftEndTopMaxHeight: 150.0,
+///     leftEndTopMinHeight: 100.0,
+///     rightEndMaxWidth: 150.0,
+///     rightEndMinWidth: 100.0,
+///     rightEndFillVertical: true,
+///     rightEndTopMaxHeight: 150.0,
+///     rightEndTopMinHeight: 100.0,
+///     bodyBottomMaxHeight: 200.0,
+///     bodyBottomMinHeight: 100.0,
+///     bottomMaxHeight: 100.0,
+///     bottomMinHeight: 50.0,
+///     bodyAlignment: Alignment.center,
+///  );
+/// ```
 
 @immutable
 class DimensionsConfig {
+  /// Constructs a DimensionsConfig with the provided dimensions.
   const DimensionsConfig({
     this.topMaxHeight,
     this.topMinHeight,
@@ -26,32 +60,74 @@ class DimensionsConfig {
     this.bottomMinHeight,
     this.bodyAlignment,
   });
+
+  /// The maximum height of the widget at the top of the frame.
   final double? topMaxHeight;
+
+  /// The minimum height of the widget at the top of the frame.
   final double? topMinHeight;
+
+  /// The maximum height of the widget at the top of the body.
   final double? bodyTopMaxHeight;
+
+  /// The minimum height of the widget at the top of the body.
   final double? bodyTopMinHeight;
+
+  /// The maximum width of the body widget.
   final double? bodyMaxWidth;
+
+  /// The minimum width of the body widget.
   final double? bodyMinWidth;
+
+  /// The maximum width of the left end widget.
   final double? leftEndMaxWidth;
+
+  /// The minimum width of the left end widget.
   final double? leftEndMinWidth;
+
+  /// Whether the left end widget should fill the vertical space.
   final bool? leftEndFillVertical;
+
+  /// The maximum height of the widget at the top of the left end.
   final double? leftEndTopMaxHeight;
+
+  /// The minimum height of the widget at the top of the left end.
   final double? leftEndTopMinHeight;
+
+  /// The maximum width of the right end widget.
   final double? rightEndMaxWidth;
+
+  /// The minimum width of the right end widget.
   final double? rightEndMinWidth;
+
+  /// Whether the right end widget should fill the vertical space.
   final bool? rightEndFillVertical;
+
+  /// The maximum height of the widget at the top of the right end.
   final double? rightEndTopMaxHeight;
+
+  /// The minimum height of the widget at the top of the right end.
   final double? rightEndTopMinHeight;
+
+  /// The maximum height of the widget at the bottom of the body.
   final double? bodyBottomMaxHeight;
+
+  /// The minimum height of the widget at the bottom of the body.
   final double? bodyBottomMinHeight;
+
+  /// The maximum height of the widget at the bottom of the frame.
   final double? bottomMaxHeight;
+
+  /// The minimum height of the widget at the bottom of the frame.
   final double? bottomMinHeight;
+
+  /// The alignment of the body widget within the frame.
   final Alignment? bodyAlignment;
 
   static const empty = DimensionsConfig();
 
-  // uses pesistent value if local one is not set
-  // persistent values can be overriden
+  /// Merges the current DimensionsConfig with another one.
+  /// Uses local values if not null, otherwise uses values from the provided config.
   DimensionsConfig merge(DimensionsConfig? config) {
     return DimensionsConfig(
       topMaxHeight: topMaxHeight ?? config?.topMaxHeight,
@@ -81,6 +157,7 @@ class DimensionsConfig {
     );
   }
 
+  /// Creates a copy of the DimensionsConfig with provided dimensions overridden.
   DimensionsConfig copyWith({
     double? topMaxHeight,
     double? topMinHeight,

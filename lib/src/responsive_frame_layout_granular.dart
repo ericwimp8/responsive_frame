@@ -1,11 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
+/// A widget that provides a responsive layout based on the screen size and
+/// provides granular control over the layout for different screen sizes.
+///
+/// This widget allows you to define different frame configurations for different
+/// screen sizes. The `BreakpointsGranular` class provides a way to define
+/// different breakpoints for different screen sizes. You can use this widget
+/// to create a layout that is optimized for different screen sizes.
+///
+/// ## Example
+/// ```dart
+/// ResponsiveFrameLayoutGranular(
+///   breakpoints: BreakpointsGranular.defaultBreakpoints,
+///   jumboExtraLarge: (context) => FrameConfig(
+///     body: Container(color: Colors.red),
+///     top: Text('Top Widget'),
+///   ),
+///   jumboLarge: (context) => FrameConfig(
+///     body: Container(color: Colors.blue),
+///     bottom: Text('Bottom Widget'),
+///   ),
+///   // Add configurations for other screen sizes as needed
+///   persistentFrameConfig: FrameConfig(
+///     bottom: Container(color: Colors.green),
+///     rightEnd: Text('Right End Widget'),
+///   ),
+///   backgroundColor: Colors.white,
+/// )
+/// ```
 class ResponsiveFrameLayoutGranular extends StatelessWidget {
+  /// Creates a new `ResponsiveFrameLayoutGranular` widget.
+  ///
+  /// The `breakpoints` parameter specifies the breakpoints for different
+  /// screen sizes. The `animations` parameter specifies whether to animate
+  /// the layout transitions.
+  ///
+  /// The `jumboExtraLarge`, `jumboLarge`, `jumboNormal`, `jumboSmall`,
+  /// `standardExtraLarge`, `standardLarge`, `standardNormal`,
+  /// `standardSmall`, `compactExtraLarge`, `compactLarge`,
+  /// `compactNormal`, `compactSmall` and `tiny` parameters specify the
+  /// frame configuration for different screen sizes.
+  ///
+  /// The `persistentFrameConfig` parameter specifies a frame configuration
+  /// that is applied to all screen sizes.
+  ///
+  /// The `backgroundColor` parameter specifies the background color of the
+  /// frame.
   const ResponsiveFrameLayoutGranular({
+    super.key,
     this.breakpoints = BreakpointsGranular.defaultBreakpoints,
     this.animations = true,
-    super.key,
     this.jumboExtraLarge,
     this.jumboLarge,
     this.jumboNormal,
@@ -38,30 +83,65 @@ class ResponsiveFrameLayoutGranular extends StatelessWidget {
           'At least one size parameter must be provided.',
         );
 
-  final FrameConfig Function(BuildContext context)? jumboExtraLarge;
-  final FrameConfig Function(BuildContext context)? jumboLarge;
-  final FrameConfig Function(BuildContext context)? jumboSmall;
-  final FrameConfig Function(BuildContext context)? jumboNormal;
-  final FrameConfig Function(BuildContext context)? standardExtraLarge;
-  final FrameConfig Function(BuildContext context)? standardLarge;
-  final FrameConfig Function(BuildContext context)? standardNormal;
-  final FrameConfig Function(BuildContext context)? standardSmall;
-  final FrameConfig Function(BuildContext context)? compactExtraLarge;
-  final FrameConfig Function(BuildContext context)? compactLarge;
-  final FrameConfig Function(BuildContext context)? compactNormal;
-  final FrameConfig Function(BuildContext context)? compactSmall;
-  final FrameConfig Function(BuildContext context)? tiny;
+  /// The breakpoints for different screen sizes.
   final BreakpointsGranular breakpoints;
+
+  /// Whether to animate the layout transitions.
   final bool animations;
+
+  /// The frame configuration for jumbo extra large screens.
+  final FrameConfig Function(BuildContext context)? jumboExtraLarge;
+
+  /// The frame configuration for jumbo large screens.
+  final FrameConfig Function(BuildContext context)? jumboLarge;
+
+  /// The frame configuration for jumbo normal screens.
+  final FrameConfig Function(BuildContext context)? jumboNormal;
+
+  /// The frame configuration for jumbo small screens.
+  final FrameConfig Function(BuildContext context)? jumboSmall;
+
+  /// The frame configuration for standard extra large screens.
+  final FrameConfig Function(BuildContext context)? standardExtraLarge;
+
+  /// The frame configuration for standard large screens.
+  final FrameConfig Function(BuildContext context)? standardLarge;
+
+  /// The frame configuration for standard normal screens.
+  final FrameConfig Function(BuildContext context)? standardNormal;
+
+  /// The frame configuration for standard small screens.
+  final FrameConfig Function(BuildContext context)? standardSmall;
+
+  /// The frame configuration for compact extra large screens.
+  final FrameConfig Function(BuildContext context)? compactExtraLarge;
+
+  /// The frame configuration for compact large screens.
+  final FrameConfig Function(BuildContext context)? compactLarge;
+
+  /// The frame configuration for compact normal screens.
+  final FrameConfig Function(BuildContext context)? compactNormal;
+
+  /// The frame configuration for compact small screens.
+  final FrameConfig Function(BuildContext context)? compactSmall;
+
+  /// The frame configuration for tiny screens.
+  final FrameConfig Function(BuildContext context)? tiny;
+
+  /// The frame configuration that is applied to all screen sizes.
   final FrameConfig persistentFrameConfig;
+
+  /// The background color of the frame.
   final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return BreakpointsDataGranular(
       handlers: {
-        'frameconfig':
-            BreakpointsHandlerGranular<FrameConfig Function(BuildContext)>(
+        'frameconfig': BreakpointsHandlerGranular<
+            FrameConfig Function(
+              BuildContext,
+            )>(
           breakpoints: breakpoints,
           jumboExtraLarge: jumboExtraLarge,
           jumboLarge: jumboLarge,

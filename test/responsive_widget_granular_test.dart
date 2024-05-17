@@ -1859,7 +1859,7 @@ void main() {
         (tester) async {
       final responsiveWidget = ResponsiveWidgetGranular(
         standardExtraLarge: true,
-        transiationBuilder: (context, animation, child) {
+        transitionBuilder: (context, animation, child) {
           return Column(
             children: [
               child!,

@@ -1,16 +1,42 @@
 import 'package:flutter/foundation.dart';
 
+/// A base class representing breakpoints for different screen sizes.
+///
+/// This abstract class `BaseBreakpoints` defines the structure for breakpoints
+/// with `T` representing an `Enum` type. It provides a method `values`
+/// that returns a map of type `T` to `double`, where the key represents a
+/// screen size and the value represents the breakpoint value for that size.
 abstract class BaseBreakpoints<T extends Enum> {
   const BaseBreakpoints();
+
+  /// Returns a map of type `T` to `double` representing the breakpoints for different screen sizes.
   Map<T, double> get values;
 }
 
+/// Represents the breakpoints for different screen sizes based on layout sizes.
+///
+/// The `Breakpoints` class implements [BaseBreakpoints] with [LayoutSize] as the generic type.
 @immutable
 class Breakpoints implements BaseBreakpoints<LayoutSize> {
   const Breakpoints({
+    /// The breakpoint value for extra large screens.
+    ///
+    /// Defaults to `1200.0`.
     this.extraLarge = 1200.0,
+
+    /// The breakpoint value for large screens.
+    ///
+    /// Defaults to `950.0`.
     this.large = 950.0,
+
+    /// The breakpoint value for medium screens.
+    ///
+    /// Defaults to `600.0`.
     this.medium = 600.0,
+
+    /// The breakpoint value for small screens.
+    ///
+    /// Defaults to `300.0`.
     this.small = 300.0,
   }) : assert(
           extraLarge > large && large > medium && medium > small && small >= 0,
@@ -24,7 +50,7 @@ class Breakpoints implements BaseBreakpoints<LayoutSize> {
   /// Default instance of [Breakpoints] for standard screen size breakpoints.
   static const defaultBreakpoints = Breakpoints();
 
-  /// Default breakpoint values for standard screen sizes.
+  /// Default breakpoint values mapped to correspoding [LayoutSize] value for reference.
   @override
   Map<LayoutSize, double> get values => {
         LayoutSize.extraLarge: extraLarge,
@@ -73,20 +99,70 @@ class Breakpoints implements BaseBreakpoints<LayoutSize> {
   }
 }
 
+/// Represents the breakpoints for different screen sizes based on granular layout sizes.
+///
+/// The `BreakpointsGranular` class implements [BaseBreakpoints] with [LayoutSizeGranular] as the generic type.
 @immutable
 class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
   const BreakpointsGranular({
+    /// The breakpoint value for jumbo extra large screens.
+    ///
+    /// Defaults to `4096.0`.
     this.jumboExtraLarge = 4096.0,
+
+    /// The breakpoint value for jumbo large screens.
+    ///
+    /// Defaults to `3840.0`.
     this.jumboLarge = 3840.0,
+
+    /// The breakpoint value for jumbo normal screens.
+    ///
+    /// Defaults to `2560.0`.
     this.jumboNormal = 2560.0,
+
+    /// The breakpoint value for jumbo small screens.
+    ///
+    /// Defaults to `1920.0`.
     this.jumboSmall = 1920.0,
+
+    /// The breakpoint value for standard extra large screens.
+    ///
+    /// Defaults to `1280.0`.
     this.standardExtraLarge = 1280.0,
+
+    /// The breakpoint value for standard large screens.
+    ///
+    /// Defaults to `1024.0`.
     this.standardLarge = 1024.0,
+
+    /// The breakpoint value for standard normal screens.
+    ///
+    /// Defaults to `768.0`.
     this.standardNormal = 768.0,
+
+    /// The breakpoint value for standard small screens.
+    ///
+    /// Defaults to `568.0`.
     this.standardSmall = 568.0,
+
+    /// The breakpoint value for compact extra large screens.
+    ///
+    /// Defaults to `480.0`.
     this.compactExtraLarge = 480.0,
+
+    /// The breakpoint value for compact large screens.
+    ///
+    /// Defaults to `430.0`.
     this.compactLarge = 430.0,
+
+    /// The breakpoint value for compact normal screens.
+    ///
+    /// Defaults to `360.0`.
     this.compactNormal = 360.0,
+
+    /// The breakpoint value for compact small screens.
+    ///
+    /// Defaults to `300.0`.
     this.compactSmall = 300.0,
   }) : assert(
           jumboExtraLarge > jumboLarge &&
@@ -116,8 +192,10 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
   final double compactNormal;
   final double compactSmall;
 
+  /// Default instance of [BreakpointsGranular] for standard screen size breakpoints.
   static const defaultBreakpoints = BreakpointsGranular();
 
+  /// Default breakpoint values mapped to correspoding [LayoutSizeGranular] value for reference.
   @override
   Map<LayoutSizeGranular, double> get values => {
         LayoutSizeGranular.jumboExtraLarge: jumboExtraLarge,
@@ -206,6 +284,7 @@ class BreakpointsGranular implements BaseBreakpoints<LayoutSizeGranular> {
   }
 }
 
+/// Enum representing different layout sizes.
 enum LayoutSize {
   extraLarge,
   large,
@@ -214,6 +293,7 @@ enum LayoutSize {
   extraSmall,
 }
 
+/// Enum representing different layout sizes with granular control.
 enum LayoutSizeGranular {
   jumboExtraLarge,
   jumboLarge,

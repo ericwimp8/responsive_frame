@@ -1,9 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
+/// A widget that provides a responsive layout based on the screen size.
+///
+/// This widget allows you to define different frame configurations for different
+/// screen sizes. The `Breakpoints` class provides a way to define different
+/// breakpoints for different screen sizes. You can use this widget to
+/// create a layout that is optimized for different screen sizes.
+///
+/// ##Example
+///
+/// ResponsiveFrameLayout(
+///   breakpoints: Breakpoints.defaultBreakpoints,
+///   large: (context) => FrameConfig(
+///     body: Container(color: Colors.red),
+///     top: Text('Top Widget'),
+///   ),
+///   medium: (context) => FrameConfig(
+///     body: Container(color: Colors.blue),
+///     bottom: Text('Bottom Widget'),
+///   ),
+///   // Add configurations for other screen sizes as needed
+///   persistentFrameConfig: FrameConfig(
+///     bottom: Container(color: Colors.green),
+///     rightEnd: Text('Right End Widget'),
+///   ),
+///   backgroundColor: Colors.white,
+/// )
+/// ```
 class ResponsiveFrameLayout extends StatelessWidget {
+  /// Creates a new `ResponsiveFrameLayout` widget.
+  ///
+  /// The `breakpoints` parameter specifies the breakpoints for different
+  /// screen sizes.
+  ///
+  /// The `animations` parameter specifies whether to animate
+  /// the layout transitions.
+  ///
+  /// The `extraLarge`, `large`, `medium`, `small`, and `extraSmall` parameters
+  /// specify the frame configuration for different screen sizes.
+  ///
+  /// The `persistentFrameConfig` parameter specifies a frame configuration
+  /// that is applied to all screen sizes.
+  ///
+  /// The `backgroundColor` parameter specifies the background color of the
+  /// frame.
   const ResponsiveFrameLayout({
     required this.small,
+    super.key,
     this.extraLarge,
     this.large,
     this.medium,
@@ -12,7 +56,6 @@ class ResponsiveFrameLayout extends StatelessWidget {
     this.animations = true,
     this.persistentFrameConfig = FrameConfig.empty,
     this.backgroundColor,
-    super.key,
   }) : assert(
           small != null ||
               extraLarge != null ||
@@ -22,14 +65,31 @@ class ResponsiveFrameLayout extends StatelessWidget {
           'At least one size parameter must be provided.',
         );
 
+  /// The frame configuration for extra large screens.
   final FrameConfig Function(BuildContext context)? extraLarge;
+
+  /// The frame configuration for large screens.
   final FrameConfig Function(BuildContext context)? large;
+
+  /// The frame configuration for medium screens.
   final FrameConfig Function(BuildContext context)? medium;
+
+  /// The frame configuration for small screens.
   final FrameConfig Function(BuildContext context)? small;
+
+  /// The frame configuration for extra small screens.
   final FrameConfig Function(BuildContext context)? extraSmall;
+
+  /// The breakpoints for different screen sizes.
   final Breakpoints breakpoints;
+
+  /// Whether to animate the layout transitions.
   final bool animations;
+
+  /// The frame configuration that is applied to all screen sizes.
   final FrameConfig persistentFrameConfig;
+
+  /// The background color of the frame.
   final Color? backgroundColor;
 
   @override

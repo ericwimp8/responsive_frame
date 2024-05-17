@@ -55,6 +55,7 @@ import 'package:responsive_frame/src/animations/animation_constants.dart';
 /// }
 /// ```
 class AnimatedConstrainedBox extends ImplicitlyAnimatedWidget {
+  /// A widget that animates its constraints implicitly.
   AnimatedConstrainedBox({
     required this.child,
     required this.constraints,
@@ -62,7 +63,10 @@ class AnimatedConstrainedBox extends ImplicitlyAnimatedWidget {
     super.key,
   }) : assert(constraints.debugAssertIsValid(), '');
 
+  /// The child widget to animate.
   final Widget? child;
+
+  /// The constraints to apply to the child widget.
   final BoxConstraints constraints;
 
   @override

@@ -17,6 +17,7 @@ import 'package:responsive_frame/responsive_frame.dart';
 /// avaiable via the widget tree using [ResponsiveData.handlerOf] or `ResponsiveData.of(context).handlers` function .
 /// See and prefer [BreakpointsData] and [ResponsiveFrameLayout] or [BreakpointsDataGranular] and [ResponsiveFrameLayoutGranular].
 abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
+  /// A base class for handling breakpoints.
   BaseBreakpointsHandler({required this.breakpoints, this.onChanged});
   final void Function(K)? onChanged;
   final BaseBreakpoints<K> breakpoints;
@@ -119,7 +120,7 @@ class BreakpointsHandler<T> extends BaseBreakpointsHandler<T, LayoutSize> {
 class BreakpointsHandlerGranular<T>
     extends BaseBreakpointsHandler<T, LayoutSizeGranular> {
   BreakpointsHandlerGranular({
-    required super.breakpoints,
+    super.breakpoints = BreakpointsGranular.defaultBreakpoints,
     super.onChanged,
     this.jumboExtraLarge,
     this.jumboLarge,

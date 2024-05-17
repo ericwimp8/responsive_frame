@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 
+/// A widget that represents the end of a horizontal frame layout.
 class FrameHorizontalEnd extends StatelessWidget {
   const FrameHorizontalEnd({
     required this.child,
@@ -11,11 +12,31 @@ class FrameHorizontalEnd extends StatelessWidget {
     this.topMinHeight = kDefaultVerticalMinHeight,
     super.key,
   });
+
+  /// The widget to display at the top of the `FrameHorizontalEnd` widget.
   final Widget? top;
+
+  /// The child widget of the `FrameHorizontalEnd` widget.
   final Widget child;
+
+  /// The maximum width of the `FrameHorizontalEnd` widget.
+  ///
+  /// Defaults to [kDefaultHorizontalEndWidth].
   final double? maxWidth;
+
+  /// The minimum width of the `FrameHorizontalEnd` widget.
+  ///
+  /// Defaults to [kDefaultHorizontalEndWidth].
   final double? minWidth;
+
+  /// The minimum height of the widget at the top of the `FrameHorizontalEnd` widget.
+  ///
+  /// Defaults to [kDefaultVerticalMinHeight].
   final double? topMinHeight;
+
+  /// The maximum height of the widget at the top of the `FrameHorizontalEnd` widget.
+  ///
+  /// Defaults to [kDefaultVerticalMaxHeight].
   final double? topMaxHeight;
 
   @override
