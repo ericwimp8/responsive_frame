@@ -83,12 +83,14 @@ abstract class BaseBreakpointsHandler<T extends Object?, K extends Enum> {
 
     // get the current layout size based on the provided size.
     final currentLayoutSize = getScreenSize(size);
-    // call an optional callback function with the current layout size.
-    onChanged?.call(currentLayoutSize);
     // return currentValue if there is no need to update the layout size cache
     if (layoutSizeCache == currentLayoutSize && currentValue != null) {
       return currentValue!;
     }
+
+    // call an optional callback function with the current layout size.
+    onChanged?.call(currentLayoutSize);
+
     // update the layout size cache
     layoutSizeCache = currentLayoutSize;
 
