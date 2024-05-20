@@ -182,7 +182,7 @@ class BreakpointsHandler<T> extends BaseBreakpointsHandler<T, LayoutSize> {
   /// size changes. The [extraLarge], [large], [medium], [small], and [extraSmall]
   /// parameters define the layout values for each layout size.
   BreakpointsHandler({
-    required super.breakpoints,
+    super.breakpoints = Breakpoints.defaultBreakpoints,
     super.onChanged,
     this.extraLarge,
     this.large,
