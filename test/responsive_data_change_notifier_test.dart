@@ -254,11 +254,9 @@ void main() {
       const breakpoints = Breakpoints.defaultBreakpoints;
       final handlers = {
         'handler1': BreakpointsHandler<String>(
-          breakpoints: breakpoints,
           extraLarge: '',
         ),
         'handler2': BreakpointsHandler<String>(
-          breakpoints: breakpoints,
           extraLarge: '',
         ),
       };
@@ -278,11 +276,9 @@ void main() {
       const breakpoints = Breakpoints.defaultBreakpoints;
       final handlers = {
         'handler1': BreakpointsHandler<String>(
-          breakpoints: breakpoints,
           extraLarge: '',
         ),
         'handler2': BreakpointsHandler<String>(
-          breakpoints: breakpoints,
           extraLarge: '',
         ),
       };
@@ -300,11 +296,9 @@ void main() {
       const breakpoints = Breakpoints.defaultBreakpoints;
       final handlers = {
         'handler1': BreakpointsHandler<String>(
-          breakpoints: breakpoints,
           extraLarge: '',
         ),
         'handler2': BreakpointsHandler<String>(
-          breakpoints: breakpoints,
           extraLarge: '',
         ),
       };

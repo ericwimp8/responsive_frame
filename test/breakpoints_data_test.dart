@@ -19,11 +19,9 @@ void main() {
         (WidgetTester tester) async {
       final initialHandlers = {
         'handler1': BreakpointsHandler<String>(
-          breakpoints: Breakpoints.defaultBreakpoints,
           extraLarge: 'handler1',
         ),
         'handler2': BreakpointsHandler<String>(
-          breakpoints: Breakpoints.defaultBreakpoints,
           extraLarge: 'handler1',
         ),
       };

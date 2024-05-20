@@ -9,7 +9,6 @@ void main() {
       const breakpoints = Breakpoints.defaultBreakpoints;
       final handlers = {
         'handler1': BreakpointsHandler<String>(
-          breakpoints: breakpoints,
           extraLarge: 'handler1',
         ),
       };
@@ -35,7 +34,6 @@ void main() {
       const breakpoints = Breakpoints.defaultBreakpoints;
       final handlers = {
         'handler1': BreakpointsHandler<String>(
-          breakpoints: breakpoints,
           extraLarge: 'handler1',
         ),
       };
@@ -155,11 +153,9 @@ void main() {
       const breakpoints = Breakpoints.defaultBreakpoints;
       final handlers = {
         'handler1': BreakpointsHandler<String>(
-          breakpoints: breakpoints,
           extraLarge: 'handler1',
         ),
         'handler2': BreakpointsHandler<String>(
-          breakpoints: breakpoints,
           extraLarge: 'handler2',
         ),
       };

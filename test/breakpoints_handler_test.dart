@@ -6,10 +6,7 @@ void main() {
     test(
         'getLayoutSizeValue should return correct value, when all values are supplied.',
         () {
-      const breakpoints = Breakpoints.defaultBreakpoints;
-
       final handler = BreakpointsHandler<int>(
-        breakpoints: breakpoints,
         extraLarge: 10,
         large: 9,
         medium: 8,
@@ -38,10 +35,7 @@ void main() {
     test(
         'getLayoutSizeValue should return correct value, when only single values supplied.',
         () {
-      const breakpoints = Breakpoints.defaultBreakpoints;
-
       var handler = BreakpointsHandler<int>(
-        breakpoints: breakpoints,
         extraLarge: 10,
       );
 
@@ -49,7 +43,6 @@ void main() {
       expect(value, 10);
 
       handler = BreakpointsHandler<int>(
-        breakpoints: breakpoints,
         large: 9,
       );
 
@@ -57,7 +50,6 @@ void main() {
       expect(value, 9);
 
       handler = BreakpointsHandler<int>(
-        breakpoints: breakpoints,
         large: 8,
       );
 
@@ -65,7 +57,6 @@ void main() {
       expect(value, 8);
 
       handler = BreakpointsHandler<int>(
-        breakpoints: breakpoints,
         medium: 7,
       );
 
@@ -73,7 +64,6 @@ void main() {
       expect(value, 7);
 
       handler = BreakpointsHandler<int>(
-        breakpoints: breakpoints,
         medium: 6,
       );
 
@@ -84,10 +74,7 @@ void main() {
     test(
         'getLayoutSizeValue should return the next lowest value when value is not supplied for the current breakpoint.',
         () {
-      const breakpoints = Breakpoints.defaultBreakpoints;
-
       var handler = BreakpointsHandler<int>(
-        breakpoints: breakpoints,
         large: 9,
       );
 
@@ -95,7 +82,6 @@ void main() {
       expect(value, 9);
 
       handler = BreakpointsHandler<int>(
-        breakpoints: breakpoints,
         medium: 8,
       );
 
@@ -103,7 +89,6 @@ void main() {
       expect(value, 8);
 
       handler = BreakpointsHandler<int>(
-        breakpoints: breakpoints,
         extraSmall: 7,
       );
 
@@ -114,10 +99,7 @@ void main() {
     test(
         'getLayoutSizeValue should return the next highest value when current value is null and all lower values are null.',
         () {
-      const breakpoints = Breakpoints.defaultBreakpoints;
-
       final handler = BreakpointsHandler<int>(
-        breakpoints: breakpoints,
         large: 9,
       );
 
@@ -131,10 +113,7 @@ void main() {
 
     test('getLayoutSizeValue should throw an assertion error when size < 0.',
         () {
-      const breakpoints = Breakpoints.defaultBreakpoints;
-
       final handler = BreakpointsHandler<int>(
-        breakpoints: breakpoints,
         large: 9,
       );
 
@@ -145,9 +124,7 @@ void main() {
         'BreakpointsHandler should throw assertion error when all values are null.',
         () {
       BreakpointsHandler<int> createHandler() {
-        return BreakpointsHandler<int>(
-          breakpoints: Breakpoints.defaultBreakpoints,
-        );
+        return BreakpointsHandler<int>();
       }
 
       expect(
@@ -157,7 +134,6 @@ void main() {
     });
     test('getScreenSize should return the correct screen size.', () {
       final handler = BreakpointsHandler<int>(
-        breakpoints: Breakpoints.defaultBreakpoints,
         large: 9,
       );
 
@@ -175,7 +151,6 @@ void main() {
     test('getScreenSize should return smallest screen size when size is -1.',
         () {
       final handler = BreakpointsHandler<int>(
-        breakpoints: Breakpoints.defaultBreakpoints,
         large: 9,
       );
 
