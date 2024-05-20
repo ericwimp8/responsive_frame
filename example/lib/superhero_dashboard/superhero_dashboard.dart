@@ -46,18 +46,20 @@ class _Dashboard extends StatelessWidget {
               ),
             ),
             small: (context) {
-              return const FrameConfig(
-                dimensions: DimensionsConfig(
+              return FrameConfig(
+                dimensions: const DimensionsConfig(
                   rightEndFillVertical: false,
                   rightEndMaxWidth: 230,
                   rightEndMinWidth: 230,
                   leftEndMaxWidth: 250,
                   bodyMaxWidth: double.infinity,
                 ),
-                bodyTop: SearchHeader(),
+                bodyTop: const SearchHeader(),
                 body: Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Body(crossAxisCount: 2),
+                  padding: const EdgeInsets.all(8),
+                  child: location == SuperheroeDashboardLocation.overview
+                      ? const OverviewBodySmall()
+                      : const SuperheroGrid(),
                 ),
               );
             },
@@ -94,9 +96,11 @@ class _Dashboard extends StatelessWidget {
 
                   // bodyAlignment: Alignment.topCenter,
                 ),
-                body: const Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Body(crossAxisCount: 4),
+                body: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: location == SuperheroeDashboardLocation.overview
+                      ? const OverviewBodySmall()
+                      : const SuperheroGrid(),
                 ),
               );
             },
@@ -108,7 +112,7 @@ class _Dashboard extends StatelessWidget {
                         child: HeroSearch(),
                       )
                     : null,
-                leftEnd: const Menu(),
+                leftEnd: const SuperheroMenu(),
                 rightEnd: location == SuperheroeDashboardLocation.overview
                     ? const Padding(
                         padding: EdgeInsets.fromLTRB(0, 16, 16, 16),
@@ -123,9 +127,11 @@ class _Dashboard extends StatelessWidget {
 
                   // bodyAlignment: Alignment.topCenter,
                 ),
-                body: const Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Body(crossAxisCount: 4),
+                body: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: location == SuperheroeDashboardLocation.overview
+                      ? const OverviewBodySmall()
+                      : const SuperheroGrid(),
                 ),
               );
             },
@@ -143,7 +149,7 @@ class _Dashboard extends StatelessWidget {
                         child: SuperheroMenuList(),
                       )
                     : null,
-                leftEnd: const Menu(),
+                leftEnd: const SuperheroMenu(),
                 dimensions: const DimensionsConfig(
                   rightEndFillVertical: false,
                   rightEndMaxWidth: 230,
@@ -151,9 +157,11 @@ class _Dashboard extends StatelessWidget {
                   leftEndMaxWidth: 250,
                   bodyMaxWidth: 1200,
                 ),
-                body: const Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Body(crossAxisCount: 5),
+                body: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: location == SuperheroeDashboardLocation.overview
+                      ? const OverviewBodyLarge()
+                      : const SuperheroGrid(),
                 ),
               );
             },
@@ -164,41 +172,39 @@ class _Dashboard extends StatelessWidget {
   }
 }
 
+class BodyLarge extends StatelessWidget {
+  const BodyLarge({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+class BodySmall extends StatelessWidget {
+  const BodySmall({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
 class Body extends StatefulWidget {
   const Body({
-    required this.crossAxisCount,
+    required this.isLarge,
     super.key,
   });
-  final int crossAxisCount;
+  final bool isLarge;
   @override
   State<Body> createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
-  Widget _buildBody(SuperheroeDashboardLocation location) => switch (location) {
-        SuperheroeDashboardLocation.all => SuperheroGrid(
-            crossAxisCount: widget.crossAxisCount,
-            key: const ValueKey(SuperheroeDashboardLocation.all),
-          ),
-        SuperheroeDashboardLocation.villains => SuperheroGrid(
-            crossAxisCount: widget.crossAxisCount,
-            key: const ValueKey(SuperheroeDashboardLocation.villains),
-          ),
-        SuperheroeDashboardLocation.superheroes => SuperheroGrid(
-            crossAxisCount: widget.crossAxisCount,
-            key: const ValueKey(SuperheroeDashboardLocation.superheroes),
-          ),
-        SuperheroeDashboardLocation.masterMinds => SuperheroGrid(
-            crossAxisCount: widget.crossAxisCount,
-            key: const ValueKey(SuperheroeDashboardLocation.masterMinds),
-          ),
-        SuperheroeDashboardLocation.battleHardened => SuperheroGrid(
-            crossAxisCount: widget.crossAxisCount,
-            key: const ValueKey(SuperheroeDashboardLocation.battleHardened),
-          ),
-        _ => widget.crossAxisCount == 5
-            ? const SuperheroDesktopLargeOverviewBody()
-            : const SuperheroOverviewBodySmall(),
+  Widget buildBody(SuperheroeDashboardLocation location) => switch (location) {
+        SuperheroeDashboardLocation.overview =>
+          Overview(isLarge: widget.isLarge),
+        _ => const SuperheroGrid(),
       };
 
   SuperheroeDashboardLocation? currentLocation;
@@ -220,58 +226,7 @@ class _BodyState extends State<Body> {
       duration: const Duration(milliseconds: 300),
       reverseDuration: const Duration(milliseconds: 300),
       scaleBegin: 0.9,
-      child: _buildBody(currentLocation!),
-    );
-  }
-}
-
-class DesktopLargeBody extends StatefulWidget {
-  const DesktopLargeBody({super.key});
-
-  @override
-  State<DesktopLargeBody> createState() => _DesktopLargeBodyState();
-}
-
-class _DesktopLargeBodyState extends State<DesktopLargeBody> {
-  Widget _buildBody(SuperheroeDashboardLocation location) => switch (location) {
-        SuperheroeDashboardLocation.all => const SuperheroGrid(
-            key: ValueKey(SuperheroeDashboardLocation.all),
-          ),
-        SuperheroeDashboardLocation.villains => const SuperheroGrid(
-            key: ValueKey(SuperheroeDashboardLocation.villains),
-          ),
-        SuperheroeDashboardLocation.superheroes => const SuperheroGrid(
-            key: ValueKey(SuperheroeDashboardLocation.superheroes),
-          ),
-        SuperheroeDashboardLocation.masterMinds => const SuperheroGrid(
-            key: ValueKey(SuperheroeDashboardLocation.masterMinds),
-          ),
-        SuperheroeDashboardLocation.battleHardened => const SuperheroGrid(
-            key: ValueKey(SuperheroeDashboardLocation.battleHardened),
-          ),
-        _ => const SuperheroDesktopLargeOverviewBody(),
-      };
-
-  SuperheroeDashboardLocation? currentLocation;
-
-  @override
-  void didChangeDependencies() {
-    final routeState = GoRouterState.of(context);
-    final location =
-        getRouteLocation(SuperheroeDashboardLocation.values, routeState);
-    if (location != currentLocation) {
-      currentLocation = location;
-    }
-    super.didChangeDependencies();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedSwitcherScaleFade(
-      duration: const Duration(milliseconds: 300),
-      reverseDuration: const Duration(milliseconds: 300),
-      scaleBegin: 0.9,
-      child: _buildBody(currentLocation!),
+      child: buildBody(currentLocation!),
     );
   }
 }
@@ -291,6 +246,7 @@ class SearchHeader extends StatelessWidget {
           children: [
             ResponsiveWidget(
               small: true,
+              extraSmall: true,
               child: const Row(
                 children: [
                   MenuDrawerButton(),

@@ -20,16 +20,24 @@ abstract class RoutePaths {
   static const String dashboardLocationID = 'dlid';
   static const String superheroIndex = 'shi';
   static const String noIndex = '/-1';
+  static const String menu = 'menu';
+  static const String home = '/';
 }
 
 final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      redirect: (context, state) {
-        return '${RoutePaths.superHeroDashBoard}/${SuperheroeDashboardLocation.all.name}${RoutePaths.noIndex}';
+      builder: (context, state) {
+        return Home(key: state.pageKey);
       },
     ),
+    // GoRoute(
+    //   path: '/',
+    //   redirect: (context, state) {
+    //     return '${RoutePaths.superHeroDashBoard}/${SuperheroeDashboardLocation.all.name}${RoutePaths.noIndex}';
+    //   },
+    // ),
     GoRoute(
       path:
           '${RoutePaths.superHeroDashBoard}/:${RoutePaths.dashboardLocationID}/:${RoutePaths.superheroIndex}',
@@ -38,9 +46,9 @@ final router = GoRouter(
       },
       routes: [
         GoRoute(
-          path: 'myDrawer',
-          // path: 'myDrawer/:${RoutePaths.dashboardLocationID}',
-          name: 'myDrawer',
+          path: RoutePaths.menu,
+          // path: 'RoutePaths.menu/:${RoutePaths.dashboardLocationID}',
+          name: RoutePaths.menu,
           pageBuilder: (context, state) => CustomTransitionPage(
             fullscreenDialog: true,
             opaque: false,
@@ -56,7 +64,7 @@ final router = GoRouter(
                 child: child,
               );
             },
-            child: const MenuDrawer(),
+            child: const MenuDrawer(child: SuperheroMenu()),
           ),
         ),
       ],

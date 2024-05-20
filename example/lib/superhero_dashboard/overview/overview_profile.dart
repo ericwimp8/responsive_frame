@@ -2,14 +2,14 @@ import 'package:animated_switcher_wrapper/animated_switcher_wrapper.dart';
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 
-class SuperHeroOverview extends StatefulWidget {
-  const SuperHeroOverview({super.key});
+class OverviewProfile extends StatefulWidget {
+  const OverviewProfile({super.key});
 
   @override
-  State<SuperHeroOverview> createState() => _SuperHeroOverviewState();
+  State<OverviewProfile> createState() => _OverviewProfileState();
 }
 
-class _SuperHeroOverviewState extends State<SuperHeroOverview> {
+class _OverviewProfileState extends State<OverviewProfile> {
   @override
   Widget build(BuildContext context) {
     return SelectedSuperheroWrapper(

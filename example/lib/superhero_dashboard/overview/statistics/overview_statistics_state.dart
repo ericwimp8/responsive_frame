@@ -1,8 +1,8 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 
-class StatisticsState with ChangeNotifier {
-  StatisticsState({
+class OverviewStatisticsState with ChangeNotifier {
+  OverviewStatisticsState({
     required PowerStatEnum initialSelectedPowerStat,
     required PowerStats initialPowerStats,
   })  : _powerStats = initialPowerStats,

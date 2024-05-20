@@ -4,11 +4,12 @@ import 'package:animated_switcher_wrapper/animated_switcher_wrapper.dart';
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:responsive_frame/responsive_frame.dart';
 import 'package:with_value/with_value.dart';
 
 class SuperheroGrid extends StatefulWidget {
-  const SuperheroGrid({super.key, this.crossAxisCount = 5});
-  final int crossAxisCount;
+  const SuperheroGrid({super.key});
+
   @override
   State<SuperheroGrid> createState() => _SuperheroGridState();
 }
@@ -21,37 +22,48 @@ class _SuperheroGridState extends State<SuperheroGrid> {
   }
 
   HeroFilter? heroFilter;
-
+  SuperheroeDashboardLocation? location;
   @override
   void didChangeDependencies() {
-    if (heroFilter == null) {
-      final routerState = GoRouterState.of(context);
-      final state = WithValueUpdate.of<SuperheroState>(context);
-      final location =
-          getRouteLocation(SuperheroeDashboardLocation.values, routerState);
+    final routerState = GoRouterState.of(context);
+    final state = WithValueUpdate.of<SuperheroState>(context);
+    final location =
+        getRouteLocation(SuperheroeDashboardLocation.values, routerState);
+    if (this.location != location) {
+      this.location = location;
       final heroFilter = state.getFilterFromLocation(location);
-
       this.heroFilter = heroFilter;
+
       Future(() {
         state.searchAndFilter(heroFilter: heroFilter);
       });
     }
+
     super.didChangeDependencies();
   }
+
+  final handler = BreakpointsHandler(
+    extraLarge: 5,
+    medium: 4,
+    small: 2,
+  );
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final crossAxisCount =
+        handler.getLayoutSizeValue(MediaQuery.sizeOf(context).width);
+
     return SuperheroListWrapper(
       isFiltered: true,
       builder: (value) => Material(
         child: AnimatedSwitcherScaleFade(
           scaleBegin: 0.9,
           child: GridView.builder(
-            key: ValueKey(value.length),
+            key: ValueKey('${value.length}$location$crossAxisCount'),
             itemCount: value.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: widget.crossAxisCount,
+              crossAxisCount: crossAxisCount,
               mainAxisSpacing: 16,
               crossAxisSpacing: 16,
             ),

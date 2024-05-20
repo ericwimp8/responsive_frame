@@ -1,8 +1,8 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 
-class SuperheroOverviewBodySmall extends StatelessWidget {
-  const SuperheroOverviewBodySmall({super.key});
+class OverviewBodySmall extends StatelessWidget {
+  const OverviewBodySmall({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +14,14 @@ class SuperheroOverviewBodySmall extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const SuperHeroOverview(),
+            const OverviewProfile(),
             Divider(
               height: 80,
               endIndent: 10,
               indent: 10,
               color: theme.colorScheme.onSurface.withOpacity(0.07),
             ),
-            const Statistics(),
+            const OverviewStatistics(),
           ],
         ),
       ),

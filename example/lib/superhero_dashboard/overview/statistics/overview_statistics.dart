@@ -4,16 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:responsive_frame/responsive_frame.dart';
 import 'package:with_value/with_value.dart';
 
-class Statistics extends StatefulWidget {
-  const Statistics({super.key});
+class OverviewStatistics extends StatefulWidget {
+  const OverviewStatistics({super.key});
 
   @override
-  State<Statistics> createState() => _StatisticsState();
+  State<OverviewStatistics> createState() => _OverviewStatisticsState();
 }
 
-class _StatisticsState extends State<Statistics> {
+class _OverviewStatisticsState extends State<OverviewStatistics> {
   void setSelectedPowerState(PowerStatEnum value, BuildContext context) {
-    WithValueUpdate.of<StatisticsState>(context).setSelectedPowerStat(value);
+    WithValueUpdate.of<OverviewStatisticsState>(context)
+        .setSelectedPowerStat(value);
   }
 
   @override
@@ -22,7 +23,7 @@ class _StatisticsState extends State<Statistics> {
 
     return SelectedSuperheroWrapper(
       builder: (BuildContext context, Superhero superhero) {
-        return StatisticsStateWrapper(
+        return OverviewStatisticsStateWrapper(
           child: (context, state) {
             return Column(
               children: [
@@ -205,7 +206,7 @@ class _ChartState extends State<Chart> {
   @override
   Widget build(BuildContext context) {
     final state =
-        WithValueUpdate.of<StatisticsState>(context).selectedPowerStat;
+        WithValueUpdate.of<OverviewStatisticsState>(context).selectedPowerStat;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Material(
@@ -232,7 +233,7 @@ class _BarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = WithValueUpdate.of<StatisticsState>(context);
+    final state = WithValueUpdate.of<OverviewStatisticsState>(context);
 
     final theme = Theme.of(context);
     return BarChart(

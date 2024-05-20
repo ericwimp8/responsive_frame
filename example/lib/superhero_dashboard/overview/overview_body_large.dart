@@ -1,8 +1,8 @@
 import 'package:example/barrel.dart';
 import 'package:flutter/material.dart';
 
-class SuperheroDesktopLargeOverviewBody extends StatelessWidget {
-  const SuperheroDesktopLargeOverviewBody({super.key});
+class OverviewBodyLarge extends StatelessWidget {
+  const OverviewBodyLarge({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class SuperheroDesktopLargeOverviewBody extends StatelessWidget {
             Flexible(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 500),
-                child: const SuperHeroOverview(),
+                child: const OverviewProfile(),
               ),
             ),
             VerticalDivider(
@@ -31,7 +31,7 @@ class SuperheroDesktopLargeOverviewBody extends StatelessWidget {
                 constraints: const BoxConstraints(
                   maxWidth: 400,
                 ),
-                child: const Statistics(),
+                child: const OverviewStatistics(),
               ),
             ),
           ],
