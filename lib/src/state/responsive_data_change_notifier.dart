@@ -42,6 +42,17 @@ class ResponsiveDataChangeNotifier<K extends Enum> extends ChangeNotifier
   })  : _handlers = handlers,
         _useShortestSide = useShortestSide {
     updateMetrics();
+    init();
+  }
+
+  void init() {
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
   }
 
   /// The [FlutterView] object to use for testing purposes only.
@@ -130,7 +141,6 @@ class ResponsiveDataChangeNotifier<K extends Enum> extends ChangeNotifier
 
     // Get the screen size based on the calculated width
     final screensize = _getScreenSize(width);
-
     // Update screenSize and currentBreakpoint if screen size has changed
     if (screensize != this.screenSize) {
       this.screenSize = screensize;
