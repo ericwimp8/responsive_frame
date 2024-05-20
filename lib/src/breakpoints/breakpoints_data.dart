@@ -39,10 +39,11 @@ import 'package:responsive_frame/responsive_frame.dart';
 ///
 /// See also:
 ///
+///  * [BreakpointsDataGranular] - the same as `BreakpoitnsData` with granular breakpoints
 ///  * [BreakpointsHandler]
-///  * [BreakpointsHandlerGranular]
 ///  * [ResponsiveData]
 ///  * [ResponsiveDataChangeNotifier]
+///  * [ResponsiveFrameLayout] - a consistent responsive layout over [BreakpointsData]
 class BreakpointsData extends StatelessWidget {
   /// Creates a new [BreakpointsData] widget.
   ///
@@ -71,12 +72,14 @@ class BreakpointsData extends StatelessWidget {
         breakpoints: Breakpoints.defaultBreakpoints,
         handlers: handlers,
       ),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          ResponsiveData.of<LayoutSize>(context);
-          return child;
-        },
-      ),
+      child: child,
+
+      // LayoutBuilder(
+      //   builder: (context, constraints) {
+      //     // ResponsiveData.of<LayoutSize>(context);
+      //     return child;
+      //   },
+      // ),
     );
   }
 }

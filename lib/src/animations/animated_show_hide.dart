@@ -169,8 +169,7 @@ class AnimatedShowHide extends StatelessWidget {
 class AnimatedShowHideChild extends StatefulWidget {
   /// Creates a new [AnimatedShowHideChild] widget.
   ///
-  /// The [child] property is the widget to be shown or hidden. The [animate]
-  /// property determines whether the child widget should be shown or hidden. The
+  /// The [child] property is the widget to be shown or hidden. The
   /// [duration], [curve], [axis], and [axisAlignment] properties can be used to
   /// customize the animation. The [transitionBuilder] property can be used to
   /// provide a custom animation transition.

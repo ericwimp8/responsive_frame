@@ -59,6 +59,10 @@ import 'package:responsive_frame/responsive_frame.dart';
 ///  * [ResponsiveDataChangeNotifier]
 ///  * [Breakpoints]
 ///  * [BreakpointsHandler]
+///  * [BreakpointsData] - a convenience widget wrapper over [ResponsiveData] for [LayoutSize]
+///  * [BreakpointsDataGranular] - a convenience widget wrapper over [ResponsiveData] for [LayoutSizeGranular]
+///  * [ResponsiveFrameLayout] - a consistent responsive layout over [BreakpointsData]
+///  * [ResponsiveFrameLayoutGranular] - a consistent responsive layout over [BreakpointsDataGranular]
 class ResponsiveData<K extends Enum>
     extends InheritedNotifier<ResponsiveDataChangeNotifier<K>> {
   /// Creates a new [ResponsiveData] widget.
@@ -105,22 +109,6 @@ class ResponsiveData<K extends Enum>
     String key,
     double size,
   ) {
-    ResponsiveData(
-      notifier: ResponsiveDataChangeNotifier(
-        breakpoints: Breakpoints.defaultBreakpoints,
-        handlers: {
-          'myHandler': BreakpointsHandler<String>(
-            breakpoints: Breakpoints.defaultBreakpoints,
-            extraLarge: 'Extra large',
-            large: 'Large',
-            medium: 'Medium',
-            small: 'Small',
-          ),
-        },
-      ),
-      child: const MyNestedWidget(),
-    );
-
     final result =
         context.dependOnInheritedWidgetOfExactType<ResponsiveData<K>>();
 
@@ -137,16 +125,5 @@ class ResponsiveData<K extends Enum>
     covariant InheritedNotifier<ResponsiveDataChangeNotifier> oldWidget,
   ) {
     return true;
-  }
-}
-
-class MyNestedWidget extends StatelessWidget {
-  const MyNestedWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final data = ResponsiveData.of<LayoutSize>(context);
-    print(data);
-    return Container();
   }
 }

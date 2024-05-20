@@ -55,6 +55,7 @@ import 'package:responsive_frame/responsive_frame.dart';
 ///  * [BreakpointsHandlerGranular]
 ///  * [ResponsiveData]
 ///  * [ResponsiveDataChangeNotifier]
+///  * [ResponsiveFrameLayoutGranular] - a consistent responsive layout over [BreakpointsDataGranular]
 class BreakpointsDataGranular extends StatelessWidget {
   /// Creates a new [BreakpointsDataGranular] widget.
   ///
