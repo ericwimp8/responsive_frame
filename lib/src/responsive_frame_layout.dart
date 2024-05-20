@@ -54,7 +54,7 @@ class ResponsiveFrameLayout extends StatelessWidget {
   /// will be merged with the [FrameConfig] for the current layout size. This is useful
   /// for defining widgets that should be rendered in the same slot for all layout sizes.
   const ResponsiveFrameLayout({
-    required this.small,
+    this.small,
     super.key,
     this.extraLarge,
     this.large,
